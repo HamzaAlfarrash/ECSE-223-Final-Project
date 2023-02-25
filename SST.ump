@@ -1,0 +1,107 @@
+namespace ca.mcgill.ecse.snowshoetours.model;
+
+class SnowShoeTours
+{
+  Date startDate;
+  Date endDate;
+  Integer nbOfWeeks;
+  Integer guidePrice;
+  
+  1 <@>- * User user;
+  1 <@>- * Lodge lodge;
+  1 <@>- * Gear gear;
+  1 <@>- * Combo combo;
+  1 <@>- * SpecificItem specificItem;
+  1 <@>- * UserRole userRole;
+  1 <@>- * BookedGear bookedGear;
+  1 <@>- * Tour tour;
+}
+
+class UserRole
+{
+  abstract;
+}
+
+class Manager
+{
+  isA UserRole;
+}
+class Attendee
+{
+  isA UserRole;
+  emergencyContact;
+}
+
+class Guide
+{
+  isA Attendee;
+  1 guide -- * Tour tours;
+}
+
+class Participant
+{
+  isA Attendee;
+  * participants -- 0..1 Tour tour;
+  Integer nbWeeks;
+  Integer startWeekAvailable;
+  Integer endWeekAvailable;
+  unique Integer authorizationCode;
+  Boolean lodge;
+  Integer refundPercentage;
+}
+
+class RentItem
+{
+  unique name;
+abstract;
+  1 rentItem -- * SpecificItem items;
+}
+
+class SpecificItem
+{
+  unique bookingNum;
+* items -- 1 Participant participant;
+}
+
+class Combo
+{
+  Integer discount;
+  Integer totalPricePerWeek;
+  isA RentItem;
+}
+
+class Gear
+{
+  Integer pricePerWeek;
+  isA RentItem;
+}
+
+class Tour
+{
+  Integer startWeek;
+  Integer endWeek;
+}
+
+class Lodge
+{
+  0..1 lodge -- * Tour;
+  enum Rating { 1, 2, 3, 4, 5}
+  Rating rating;
+  unique name;
+  adress;
+}
+
+associationClass BookedGear
+{
+  2..* Combo combo;
+  * Gear gear;
+  Integer quantity;
+}
+
+class User
+{
+  1 user -- 0..1 UserRole;
+  name;
+  unique immutable email;
+  password;
+}
