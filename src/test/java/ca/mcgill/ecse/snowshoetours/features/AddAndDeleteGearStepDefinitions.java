@@ -8,12 +8,14 @@ import io.cucumber.java.en.When;
 import java.util.List;
 import java.util.Map;
 import ca.mcgill.ecse.snowshoetours.application.SnowShoeToursApplication;
+import ca.mcgill.ecse.snowshoetours.controller.GearController;
 import ca.mcgill.ecse.snowshoetours.model.SnowShoeTour;
 import java.sql.Date;
 
 public class AddAndDeleteGearStepDefinitions {
 
   private SnowShoeTour sst;
+  private String error;
   
   /**
    * 
@@ -65,18 +67,27 @@ public class AddAndDeleteGearStepDefinitions {
     // For other transformations you can register a DataTableType.
     throw new io.cucumber.java.PendingException();
   }
-
+  
+  /**
+   * @author Yassine Mimet
+   * 
+   * @param string
+   */
   @When("the manager attempts to delete the piece of gear with name {string} \\(g5)")
   public void the_manager_attempts_to_delete_the_piece_of_gear_with_name_g5(String string) {
-    // Write code here that turns the phrase above into concrete actions
-    throw new io.cucumber.java.PendingException();
+    error = GearController.deleteGear(string);
   }
 
+  /**
+   * @author Souhail El Hayani
+   * 
+   * @param string name
+   * @param string2 price per week
+   */
   @When("the manager attempts to add a new piece of gear with name {string} and price per week {string} \\(g5)")
   public void the_manager_attempts_to_add_a_new_piece_of_gear_with_name_and_price_per_week_g5(
       String string, String string2) {
-    // Write code here that turns the phrase above into concrete actions
-    throw new io.cucumber.java.PendingException();
+    error = GearController.addGear(string, Integer.parseInt(string2));
   }
 
   @Then("a piece of gear shall exist with name {string} and price per week {string} \\(g5)")
