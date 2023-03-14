@@ -8,6 +8,7 @@ import io.cucumber.java.en.When;
 import java.util.List;
 import java.util.Map;
 import ca.mcgill.ecse.snowshoetours.application.SnowShoeToursApplication;
+import ca.mcgill.ecse.snowshoetours.model.Combo;
 import ca.mcgill.ecse.snowshoetours.model.SnowShoeTour;
 import java.sql.Date;
 
@@ -56,6 +57,31 @@ public class AddAndDeleteGearStepDefinitions {
   @Given("the following combos exist in the system \\(g5)")
   public void the_following_combos_exist_in_the_system_g5(
       io.cucumber.datatable.DataTable dataTable) {
+	  List<Map<String, String>> rows = dataTable.asMaps();
+	  for (var row : rows) {
+		  
+		  String name = row.get("name");
+		  int discount = Integer.parseInt(row.get("discount"));
+		  String[] itemsArray = row.get("items").split(",");
+		  String[] quantityArrayString = row.get("quantity").split(",");
+		  int[] quantityArray = new int[quantityArrayString.length];
+		  for ( int i=0; i < quantityArrayString.length; i++) {
+			  quantityArray[i] = Integer.parseInt(quantityArrayString[i]);
+		  }
+		  
+		  Combo combo = new Combo(name, discount,sst);
+		  for (int i=0; i< itemsArray.length;i++) {
+			  
+			  for (var gear: sst.getGear()) {
+				  if(itemsArray[i].equals(gear.getName())) {
+					  gear.addComboItem(quantityArray[i], sst, combo);
+				  }
+			  
+		  }
+		  }
+		  
+	  }
+	  
     // Write code here that turns the phrase above into concrete actions
     // For automatic transformation, change DataTable to one of
     // E, List<E>, List<List<E>>, List<Map<K,V>>, Map<K,V> or
