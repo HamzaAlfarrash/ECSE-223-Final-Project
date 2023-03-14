@@ -8,7 +8,10 @@ import io.cucumber.java.en.When;
 import java.util.List;
 import java.util.Map;
 import ca.mcgill.ecse.snowshoetours.application.SnowShoeToursApplication;
+import ca.mcgill.ecse.snowshoetours.model.Gear;
 import ca.mcgill.ecse.snowshoetours.model.SnowShoeTour;
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 import java.sql.Date;
 
 public class AddAndDeleteGearStepDefinitions {
@@ -83,14 +86,30 @@ public class AddAndDeleteGearStepDefinitions {
   public void a_piece_of_gear_shall_exist_with_name_and_price_per_week_g5(String string,
       String string2) {
     // Write code here that turns the phrase above into concrete actions
-    throw new io.cucumber.java.PendingException();
+    boolean flag = false;
+    List<Gear> list = sst.getGear(); //get the list of gears
+    for(Gear gear : list) {
+      if(gear.getName().equals(string) && gear.getPricePerWeek()==Integer.parseInt(string2)) {
+        flag=true; //once found, set flag to true and break out of the loop
+        break;
+      }
+    }
+    assertTrue(flag);
   }
 
   @Then("a piece of gear shall not exist with name {string} and price per week {string} \\(g5)")
   public void a_piece_of_gear_shall_not_exist_with_name_and_price_per_week_g5(String string,
       String string2) {
     // Write code here that turns the phrase above into concrete actions
-    throw new io.cucumber.java.PendingException();
+    boolean flag = false;
+    List<Gear> list = sst.getGear(); //get the list of gears
+    for(Gear gear : list) {
+      if(gear.getName().equals(string) && gear.getPricePerWeek()==Integer.parseInt(string2)) {
+        flag=true; //once found, set flag to true and break out of the loop
+        break;
+      }
+    }
+    assertFalse(flag); //similar to previous method, but flag has to be false
   }
 
   @Then("the number of pieces of gear in the system shall be {string} \\(g5)")
