@@ -4,18 +4,36 @@ import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 
+
+import java.util.List;
+import java.util.Map;
+import ca.mcgill.ecse.snowshoetours.application.SnowShoeToursApplication;
+import ca.mcgill.ecse.snowshoetours.model.SnowShoeTour;
+import java.sql.Date;
+
 public class AddAndDeleteGearStepDefinitions {
 
+  private SnowShoeTour sst;
+  
+  /**
+   * 
+   * @param dataTable
+   * 
+   * Yassine Mimet
+   */
   @Given("the following SnowShoeTour system exists \\(g5)")
   public void the_following_snow_shoe_tour_system_exists_g5(
       io.cucumber.datatable.DataTable dataTable) {
-    // Write code here that turns the phrase above into concrete actions
-    // For automatic transformation, change DataTable to one of
-    // E, List<E>, List<List<E>>, List<Map<K,V>>, Map<K,V> or
-    // Map<K, List<V>>. E,K,V must be a String, Integer, Float,
-    // Double, Byte, Short, Long, BigInteger or BigDecimal.
-    //
-    // For other transformations you can register a DataTableType.
+    sst = SnowShoeToursApplication.getSnowShoeTour(); 
+    List<Map<String, String>> rows = dataTable.asMaps();
+    for(var row : rows) {
+      Date startDate = Date.valueOf(row.get("startDate"));
+      int nrWeeks = Integer.parseInt(row.get("nrWeeks"));
+      int priceOfGuidePerWeek = Integer.parseInt(row.get("priceOfGuidePerWeek"));
+      sst.setStartDate(startDate);
+      sst.setNrWeeks(nrWeeks);
+      sst.setPriceOfGuidePerWeek(priceOfGuidePerWeek);
+    }
     throw new io.cucumber.java.PendingException();
   }
 
