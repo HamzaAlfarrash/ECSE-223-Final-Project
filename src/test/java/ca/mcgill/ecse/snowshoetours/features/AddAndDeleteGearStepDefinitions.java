@@ -36,21 +36,19 @@ public class AddAndDeleteGearStepDefinitions {
     }
   }
 
+  /**
+   * @author Souhail El Hayani
+   * 
+   * @param dataTable
+   */
   @Given("the following pieces of gear exist in the system \\(g5)")
   public void the_following_pieces_of_gear_exist_in_the_system_g5(
       io.cucumber.datatable.DataTable dataTable) {
-    // Write code here that turns the phrase above into concrete actions
-    // For automatic transformation, change DataTable to one of
-    // E, List<E>, List<List<E>>, List<Map<K,V>>, Map<K,V> or
-    // Map<K, List<V>>. E,K,V must be a String, Integer, Float,
-    // Double, Byte, Short, Long, BigInteger or BigDecimal.
-    //
-    // For other transformations you can register a DataTableType.
     List<Map<String, String>> rows = dataTable.asMaps();
     for (var row : rows) {
       String name = row.get("name");
       int pricePerWeek = Integer.parseInt(row.get("pricePerWeek")); 
-      sst.addGear(name, pricePerWeek); 
+      sst.addGear(name, pricePerWeek); //add gear to the application, check if null in @then clause ! 
     }
  
   }
