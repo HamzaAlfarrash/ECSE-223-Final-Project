@@ -34,7 +34,6 @@ public class AddAndDeleteGearStepDefinitions {
       sst.setNrWeeks(nrWeeks);
       sst.setPriceOfGuidePerWeek(priceOfGuidePerWeek);
     }
-    throw new io.cucumber.java.PendingException();
   }
 
   @Given("the following pieces of gear exist in the system \\(g5)")
@@ -47,7 +46,13 @@ public class AddAndDeleteGearStepDefinitions {
     // Double, Byte, Short, Long, BigInteger or BigDecimal.
     //
     // For other transformations you can register a DataTableType.
-    throw new io.cucumber.java.PendingException();
+    List<Map<String, String>> rows = dataTable.asMaps();
+    for (var row : rows) {
+      String name = row.get("name");
+      int pricePerWeek = Integer.parseInt(row.get("pricePerWeek")); 
+      sst.addGear(name, pricePerWeek); 
+    }
+ 
   }
 
   @Given("the following combos exist in the system \\(g5)")
