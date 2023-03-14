@@ -8,11 +8,10 @@ import io.cucumber.java.en.When;
 import java.util.List;
 import java.util.Map;
 import ca.mcgill.ecse.snowshoetours.application.SnowShoeToursApplication;
-<<<<<<< HEAD
+import ca.mcgill.ecse.snowshoetours.model.Combo;
+import ca.mcgill.ecse.snowshoetours.model.ComboItem;
 import ca.mcgill.ecse.snowshoetours.model.Gear;
-=======
 import ca.mcgill.ecse.snowshoetours.controller.GearController;
->>>>>>> 64a31eaca97550a6964f20eb9f9d8156807775c3
 import ca.mcgill.ecse.snowshoetours.model.SnowShoeTour;
 import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertTrue;
@@ -96,10 +95,15 @@ public class AddAndDeleteGearStepDefinitions {
     error = GearController.addGear(string, Integer.parseInt(string2));
   }
 
+  /**
+   * @author Souhail El Hayani
+   * 
+   * @param string
+   * @param string2
+   */
   @Then("a piece of gear shall exist with name {string} and price per week {string} \\(g5)")
   public void a_piece_of_gear_shall_exist_with_name_and_price_per_week_g5(String string,
       String string2) {
-    // Write code here that turns the phrase above into concrete actions
     boolean flag = false;
     List<Gear> list = sst.getGear(); //get the list of gears
     for(Gear gear : list) {
@@ -111,10 +115,14 @@ public class AddAndDeleteGearStepDefinitions {
     assertTrue(flag);
   }
 
+  /**
+   * @author Souhail El Hayani
+   * @param string
+   * @param string2
+   */
   @Then("a piece of gear shall not exist with name {string} and price per week {string} \\(g5)")
   public void a_piece_of_gear_shall_not_exist_with_name_and_price_per_week_g5(String string,
       String string2) {
-    // Write code here that turns the phrase above into concrete actions
     boolean flag = false;
     List<Gear> list = sst.getGear(); //get the list of gears
     for(Gear gear : list) {
@@ -138,11 +146,38 @@ public class AddAndDeleteGearStepDefinitions {
     throw new io.cucumber.java.PendingException();
   }
 
+  /**
+   * @author Souhail El Hayani
+   * 
+   * @param string
+   * @param string2
+   * @param string3
+   */
   @Then("the combo with name {string} shall have a piece of gear with name {string} and quantity {string} \\(g5)")
   public void the_combo_with_name_shall_have_a_piece_of_gear_with_name_and_quantity_g5(
       String string, String string2, String string3) {
-    // Write code here that turns the phrase above into concrete actions
-    throw new io.cucumber.java.PendingException();
+    List<Combo> comboList = sst.getCombos();
+    Combo specifiedCombo = null;
+    //get the combo with specified name
+    for(Combo combo : comboList) {
+      if(combo.getName().equals(string)) {
+        specifiedCombo = combo;
+        break;
+      }
+    }
+    assertFalse(specifiedCombo == null); //throw exception if combo doesn't exist
+    
+    List<ComboItem> itemList = specifiedCombo.getComboItems(); //fetch all the combo items
+    boolean flag = false;
+    //search for the gear with the same quantity
+    for(ComboItem item : itemList) {
+      //get the corresponding item, that is the same gear with the same quantity
+      if(item.getGear().getName().equals(string2) && item.getQuantity()==Integer.parseInt(string3)) {
+        flag = true;
+        break;
+      }
+    }
+    assertTrue(flag); //if false, means not found, throw exception
   }
 
   @Then("the number of pieces of gear for the combo with name {string} shall be {string} \\(g5)")
