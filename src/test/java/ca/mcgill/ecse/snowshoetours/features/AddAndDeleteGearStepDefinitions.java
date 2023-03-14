@@ -8,10 +8,16 @@ import io.cucumber.java.en.When;
 import java.util.List;
 import java.util.Map;
 import ca.mcgill.ecse.snowshoetours.application.SnowShoeToursApplication;
+<<<<<<< HEAD
 import ca.mcgill.ecse.snowshoetours.model.Combo;
 import ca.mcgill.ecse.snowshoetours.model.ComboItem;
 import ca.mcgill.ecse.snowshoetours.model.Gear;
 import ca.mcgill.ecse.snowshoetours.controller.GearController;
+=======
+import ca.mcgill.ecse.snowshoetours.model.Gear;
+import ca.mcgill.ecse.snowshoetours.controller.GearController;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+>>>>>>> 5b2fdc71d61153d3fe562a2968917af228c8ad1f
 import ca.mcgill.ecse.snowshoetours.model.SnowShoeTour;
 import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertTrue;
@@ -134,16 +140,26 @@ public class AddAndDeleteGearStepDefinitions {
     assertFalse(flag); //similar to previous method, but flag has to be false
   }
 
+  /**
+   * @author Yassine Mimet
+   * 
+   * @param string
+   */
   @Then("the number of pieces of gear in the system shall be {string} \\(g5)")
   public void the_number_of_pieces_of_gear_in_the_system_shall_be_g5(String string) {
-    // Write code here that turns the phrase above into concrete actions
-    throw new io.cucumber.java.PendingException();
+    int numberOfGear = sst.numberOfGear();
+    assertEquals(string, Integer.toString(numberOfGear));
   }
 
+  /**
+   * @author Yassine Mimet
+   * 
+   * @param string
+   */
   @Then("the number of pieces of gear shall be {string} \\(g5)")
   public void the_number_of_pieces_of_gear_shall_be_g5(String string) {
-    // Write code here that turns the phrase above into concrete actions
-    throw new io.cucumber.java.PendingException();
+    int numberOfGear = sst.numberOfGear();
+    assertEquals(string, Integer.toString(numberOfGear));
   }
 
   /**
