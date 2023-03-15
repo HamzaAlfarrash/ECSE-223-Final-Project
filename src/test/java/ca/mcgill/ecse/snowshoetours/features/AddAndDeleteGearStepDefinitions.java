@@ -12,16 +12,18 @@ import ca.mcgill.ecse.snowshoetours.model.ComboItem;
 import ca.mcgill.ecse.snowshoetours.model.Participant;
 import ca.mcgill.ecse.snowshoetours.controller.GearController;
 import ca.mcgill.ecse.snowshoetours.model.Gear;
+import ca.mcgill.ecse.snowshoetours.model.BookableItem;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import ca.mcgill.ecse.snowshoetours.model.SnowShoeTour;
 import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 import java.sql.Date;
 
-public class AddAndDeleteGearStepDefinitions {
-
+public class AddAndDeleteGearStepDefinitions{
+  
   private SnowShoeTour sst;
   private String error;
+  private int authorizationCodeAsInt = 0;
   
   /**
    * 
@@ -61,17 +63,37 @@ public class AddAndDeleteGearStepDefinitions {
  
   }
 
+  /**
+   * @author Philippe Marchand
+   * 
+   * @param dataTable
+   */
   @Given("the following combos exist in the system \\(g5)")
   public void the_following_combos_exist_in_the_system_g5(
       io.cucumber.datatable.DataTable dataTable) {
-    // Write code here that turns the phrase above into concrete actions
-    // For automatic transformation, change DataTable to one of
-    // E, List<E>, List<List<E>>, List<Map<K,V>>, Map<K,V> or
-    // Map<K, List<V>>. E,K,V must be a String, Integer, Float,
-    // Double, Byte, Short, Long, BigInteger or BigDecimal.
-    //
-    // For other transformations you can register a DataTableType.
-    throw new io.cucumber.java.PendingException();
+	  List<Map<String, String>> rows = dataTable.asMaps();
+	  for (var row : rows) {
+		  
+		  String name = row.get("name");
+		  int discount = Integer.parseInt(row.get("discount"));
+		  String[] itemsArray = row.get("items").split(",");
+		  String[] quantityArrayString = row.get("quantity").split(",");
+		  int[] quantityArray = new int[quantityArrayString.length];
+		  for ( int i=0; i < quantityArrayString.length; i++) {
+			  quantityArray[i] = Integer.parseInt(quantityArrayString[i]);
+		  }
+		  
+		  Combo combo = new Combo(name, discount,sst);
+		  for (int i=0; i< itemsArray.length;i++) {
+			  for (var gear: sst.getGear()) {
+				  if(itemsArray[i].equals(gear.getName())) {
+					  gear.addComboItem(quantityArray[i], sst, combo);
+				  }
+			  
+			  }
+		  }
+		  
+	  }
   }
   
   /**
@@ -192,11 +214,26 @@ public class AddAndDeleteGearStepDefinitions {
     assertTrue(flag); //if false, means not found, throw exception
   }
 
+  /**
+   * @author Yassine Mimet
+   * @param string
+   * @param string2
+   */
   @Then("the number of pieces of gear for the combo with name {string} shall be {string} \\(g5)")
   public void the_number_of_pieces_of_gear_for_the_combo_with_name_shall_be_g5(String string,
       String string2) {
-    // Write code here that turns the phrase above into concrete actions
-    throw new io.cucumber.java.PendingException();
+    List<Combo> comboList = sst.getCombos();
+    Combo specifiedCombo = null;
+    for(Combo combo : comboList) {
+      if(combo.getName().equals(string)) {
+        specifiedCombo = combo;
+        break;
+      }
+    }
+    assertFalse(specifiedCombo == null);
+    
+    int numberOfGear = specifiedCombo.getComboItems().size();
+    assertEquals(string2, Integer.toString(numberOfGear));
   }
 
   /**
@@ -208,18 +245,33 @@ public class AddAndDeleteGearStepDefinitions {
   public void the_system_shall_raise_the_error_g5(String string) {
     assertEquals(error, "The piece of gear is in a combo and cannot be deleted");
   }
-
+  
+  /**
+   * @author Philippe Marchand
+   * 
+   * @param DataTable
+   */
   @Given("the following participants exist in the system \\(g5)")
   public void the_following_participants_exist_in_the_system_g5(
       io.cucumber.datatable.DataTable dataTable) {
-    // Write code here that turns the phrase above into concrete actions
-    // For automatic transformation, change DataTable to one of
-    // E, List<E>, List<List<E>>, List<Map<K,V>>, Map<K,V> or
-    // Map<K, List<V>>. E,K,V must be a String, Integer, Float,
-    // Double, Byte, Short, Long, BigInteger or BigDecimal.
-    //
-    // For other transformations you can register a DataTableType.
-    throw new io.cucumber.java.PendingException();
+	  
+	  List<Map<String, String>> rows = dataTable.asMaps();
+	  for (var row : rows) {
+		  String email = row.get("email");
+		  String password = row.get("password");
+		  String name = row.get("name");
+		  String emergencyContact = row.get("emergencyContact");
+		  int nrWeeks = Integer.parseInt(row.get("nrWeeks"));
+		  int weeksAvailableFrom = Integer.parseInt(row.get("weeksAvailableFrom"));
+		  int weeksAvailableUntil = Integer.parseInt(row.get("weeksAvailableUntil"));
+		  boolean lodgeRequired = Boolean.parseBoolean(row.get("lodgeRequired"));
+		  String authorizationCode = Integer.toString(authorizationCodeAsInt);
+		  Participant participant = new Participant(email,password,name,emergencyContact,nrWeeks,weeksAvailableFrom,
+				  weeksAvailableUntil,lodgeRequired, authorizationCode, 0 ,sst);
+		  
+		  authorizationCodeAsInt +=1;
+		  
+	  }
   }
 
   /**
@@ -230,13 +282,6 @@ public class AddAndDeleteGearStepDefinitions {
   @Given("the following participants request the following pieces of gear \\(g5)")
   public void the_following_participants_request_the_following_pieces_of_gear_g5(
       io.cucumber.datatable.DataTable dataTable) {
-    // Write code here that turns the phrase above into concrete actions
-    // For automatic transformation, change DataTable to one of
-    // E, List<E>, List<List<E>>, List<Map<K,V>>, Map<K,V> or
-    // Map<K, List<V>>. E,K,V must be a String, Integer, Float,
-    // Double, Byte, Short, Long, BigInteger or BigDecimal.
-    //
-    // For other transformations you can register a DataTableType.
     List<Map<String, String>> rows = dataTable.asMaps();
     List<Gear> gears = sst.getGear(); //get all gears in sst
     for(var row: rows) {
@@ -266,23 +311,87 @@ public class AddAndDeleteGearStepDefinitions {
     }
   }
 
+  /**
+   * @author Yassine Mimet
+   * 
+   * @param string
+   */
   @Then("a piece of gear shall not exist with name {string} \\(g5)")
   public void a_piece_of_gear_shall_not_exist_with_name_g5(String string) {
-    // Write code here that turns the phrase above into concrete actions
-    throw new io.cucumber.java.PendingException();
+    Boolean check = false;
+    List<Combo> comboList = sst.getCombos();
+    for(Combo combo : comboList) {
+      if(combo.getName().equals(string)) {
+        check = true;
+      }
+    }
+    assertTrue(check == true);
   }
 
+  /**
+   * 
+   *@author Yassine Mimet
+   *
+   * @param string
+   * @param string2
+   * @param string3
+   */
   @Then("the participant with email {string} shall have a piece of gear with name {string} and quantity {string} \\(g5)")
   public void the_participant_with_email_shall_have_a_piece_of_gear_with_name_and_quantity_g5(
       String string, String string2, String string3) {
-    // Write code here that turns the phrase above into concrete actions
-    throw new io.cucumber.java.PendingException();
+    List<Participant> participants = sst.getParticipants();
+    Participant specificParticipant = null;
+    for(Participant participant : participants) {
+      if(participant.getAccountName().equals(string)) {
+        specificParticipant = participant;
+      }
+    }
+    
+    assertFalse(specificParticipant == null);
+    
+    Boolean check = false;
+    List<BookedItem> items = specificParticipant.getBookedItems();
+    
+    for(BookedItem item : items) {
+      if(item.getItem() instanceof Gear) {
+       BookableItem gear = item.getItem();
+       if(gear.getName().equals(string2) && Integer.toString(item.getQuantity()).equals(string3)) {
+         check = true;
+       }
+      }
+    }
+    
+    assertTrue(check == true);
   }
 
+  /**
+   * @author Yassine Mimet
+   * 
+   * @param string
+   * @param string2
+   */
   @Then("the number of pieces of gear for the participant with email {string} shall be {string} \\(g5)")
   public void the_number_of_pieces_of_gear_for_the_participant_with_email_shall_be_g5(String string,
       String string2) {
-    // Write code here that turns the phrase above into concrete actions
-    throw new io.cucumber.java.PendingException();
+    List<Participant> participants = sst.getParticipants();
+    Participant specificParticipant = null;
+    for(Participant participant : participants) {
+      if(participant.getAccountName().equals(string)) {
+        specificParticipant = participant;
+      }
+    }
+    
+    assertFalse(specificParticipant == null);
+    
+    int nbItems = 0;
+    List<BookedItem> items = specificParticipant.getBookedItems();
+    
+    for(BookedItem item : items) {
+      if(item.getItem() instanceof Gear) {
+       nbItems += item.getQuantity();
+      }
+    }
+    
+    assertEquals(string2, Integer.toString(nbItems));
   }
 }
