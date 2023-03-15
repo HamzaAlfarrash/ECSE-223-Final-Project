@@ -3,21 +3,16 @@ package ca.mcgill.ecse.snowshoetours.features;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
-
-
 import java.util.List;
 import java.util.Map;
 import ca.mcgill.ecse.snowshoetours.application.SnowShoeToursApplication;
-<<<<<<< HEAD
+import ca.mcgill.ecse.snowshoetours.model.BookedItem;
 import ca.mcgill.ecse.snowshoetours.model.Combo;
 import ca.mcgill.ecse.snowshoetours.model.ComboItem;
-import ca.mcgill.ecse.snowshoetours.model.Gear;
+import ca.mcgill.ecse.snowshoetours.model.Participant;
 import ca.mcgill.ecse.snowshoetours.controller.GearController;
-=======
 import ca.mcgill.ecse.snowshoetours.model.Gear;
-import ca.mcgill.ecse.snowshoetours.controller.GearController;
 import static org.junit.jupiter.api.Assertions.assertEquals;
->>>>>>> 5b2fdc71d61153d3fe562a2968917af228c8ad1f
 import ca.mcgill.ecse.snowshoetours.model.SnowShoeTour;
 import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertTrue;
@@ -104,8 +99,8 @@ public class AddAndDeleteGearStepDefinitions {
   /**
    * @author Souhail El Hayani
    * 
-   * @param string
-   * @param string2
+   * @param string - gear name
+   * @param string2 - price per week
    */
   @Then("a piece of gear shall exist with name {string} and price per week {string} \\(g5)")
   public void a_piece_of_gear_shall_exist_with_name_and_price_per_week_g5(String string,
@@ -123,8 +118,9 @@ public class AddAndDeleteGearStepDefinitions {
 
   /**
    * @author Souhail El Hayani
-   * @param string
-   * @param string2
+   * 
+   * @param string - gear name
+   * @param string2 - price per week
    */
   @Then("a piece of gear shall not exist with name {string} and price per week {string} \\(g5)")
   public void a_piece_of_gear_shall_not_exist_with_name_and_price_per_week_g5(String string,
@@ -165,9 +161,9 @@ public class AddAndDeleteGearStepDefinitions {
   /**
    * @author Souhail El Hayani
    * 
-   * @param string
-   * @param string2
-   * @param string3
+   * @param string - the combo name
+   * @param string2 - the gear name
+   * @param string3 - the quantity of the gear in the combo
    */
   @Then("the combo with name {string} shall have a piece of gear with name {string} and quantity {string} \\(g5)")
   public void the_combo_with_name_shall_have_a_piece_of_gear_with_name_and_quantity_g5(
@@ -203,10 +199,14 @@ public class AddAndDeleteGearStepDefinitions {
     throw new io.cucumber.java.PendingException();
   }
 
+  /**
+   * @author Souhail El Hayani
+   * 
+   * @param string -  the error message
+   */
   @Then("the system shall raise the error {string} \\(g5)")
   public void the_system_shall_raise_the_error_g5(String string) {
-    // Write code here that turns the phrase above into concrete actions
-    throw new io.cucumber.java.PendingException();
+    assertEquals(error, "The piece of gear is in a combo and cannot be deleted");
   }
 
   @Given("the following participants exist in the system \\(g5)")
@@ -222,6 +222,11 @@ public class AddAndDeleteGearStepDefinitions {
     throw new io.cucumber.java.PendingException();
   }
 
+  /**
+   * @author Souhail El Hayani
+   * 
+   * @param dataTable
+   */
   @Given("the following participants request the following pieces of gear \\(g5)")
   public void the_following_participants_request_the_following_pieces_of_gear_g5(
       io.cucumber.datatable.DataTable dataTable) {
@@ -232,7 +237,33 @@ public class AddAndDeleteGearStepDefinitions {
     // Double, Byte, Short, Long, BigInteger or BigDecimal.
     //
     // For other transformations you can register a DataTableType.
-    throw new io.cucumber.java.PendingException();
+    List<Map<String, String>> rows = dataTable.asMaps();
+    List<Gear> gears = sst.getGear(); //get all gears in sst
+    for(var row: rows) {
+      String personName = row.get("email");
+      String gearName = row.get("gear");
+      int quantity = Integer.parseInt("quantity");
+      List<Participant> participants = sst.getParticipants();
+      Participant foundParticipant = null;
+      Gear correspondingGear = null;
+      //get the participant with the corresponding name
+      for(Participant par : participants) {
+        if(par.getAccountName().equals(personName)) {
+          foundParticipant = par; //this is not null since previous Given clause checks for that
+          break;
+        }
+      }
+      //add gear to participant
+      //check if gear with that name already exists, previous @Given clase checks for that
+      for(Gear gear : gears) {
+        if(gear.getName().equals(gearName)) {
+          correspondingGear = gear;
+          break;
+        }
+      }
+      BookedItem item = new BookedItem(quantity,sst, foundParticipant, correspondingGear);
+      foundParticipant.addBookedItem(item);
+    }
   }
 
   @Then("a piece of gear shall not exist with name {string} \\(g5)")
