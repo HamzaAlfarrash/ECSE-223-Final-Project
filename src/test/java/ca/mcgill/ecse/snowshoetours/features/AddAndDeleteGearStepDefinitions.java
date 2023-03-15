@@ -25,6 +25,7 @@ public class AddAndDeleteGearStepDefinitions{
   
   private SnowShoeTour sst;
   private String error;
+  private int authorizationCodeAsInt = 0;
   
   /**
    * 
@@ -64,6 +65,11 @@ public class AddAndDeleteGearStepDefinitions{
  
   }
 
+  /**
+   * @author Philippe Marchand
+   * 
+   * @param dataTable
+   */
   @Given("the following combos exist in the system \\(g5)")
   public void the_following_combos_exist_in_the_system_g5(
       io.cucumber.datatable.DataTable dataTable) {
@@ -231,23 +237,39 @@ public class AddAndDeleteGearStepDefinitions{
     assertEquals(string2, Integer.toString(numberOfGear));
   }
 
+  
   @Then("the system shall raise the error {string} \\(g5)")
   public void the_system_shall_raise_the_error_g5(String string) {
     // Write code here that turns the phrase above into concrete actions
     throw new io.cucumber.java.PendingException();
   }
-
+  
+  /**
+   * @author Philippe Marchand
+   * 
+   * @param DataTable
+   */
   @Given("the following participants exist in the system \\(g5)")
   public void the_following_participants_exist_in_the_system_g5(
       io.cucumber.datatable.DataTable dataTable) {
-    // Write code here that turns the phrase above into concrete actions
-    // For automatic transformation, change DataTable to one of
-    // E, List<E>, List<List<E>>, List<Map<K,V>>, Map<K,V> or
-    // Map<K, List<V>>. E,K,V must be a String, Integer, Float,
-    // Double, Byte, Short, Long, BigInteger or BigDecimal.
-    //
-    // For other transformations you can register a DataTableType.
-    throw new io.cucumber.java.PendingException();
+	  
+	  List<Map<String, String>> rows = dataTable.asMaps();
+	  for (var row : rows) {
+		  String email = row.get("email");
+		  String password = row.get("password");
+		  String name = row.get("name");
+		  String emergencyContact = row.get("emergencyContact");
+		  int nrWeeks = Integer.parseInt(row.get("nrWeeks"));
+		  int weeksAvailableFrom = Integer.parseInt(row.get("weeksAvailableFrom"));
+		  int weeksAvailableUntil = Integer.parseInt(row.get("weeksAvailableUntil"));
+		  boolean lodgeRequired = Boolean.parseBoolean(row.get("lodgeRequired"));
+		  String authorizationCode = Integer.toString(authorizationCodeAsInt);
+		  Participant participant = new Participant(email,password,name,emergencyContact,nrWeeks,weeksAvailableFrom,
+				  weeksAvailableUntil,lodgeRequired, authorizationCode, 0 ,sst);
+		  
+		  authorizationCodeAsInt +=1;
+		  
+	  }
   }
 
   @Given("the following participants request the following pieces of gear \\(g5)")
