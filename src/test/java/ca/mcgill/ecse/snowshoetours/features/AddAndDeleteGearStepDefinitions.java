@@ -8,20 +8,15 @@ import io.cucumber.java.en.When;
 import java.util.List;
 import java.util.Map;
 import ca.mcgill.ecse.snowshoetours.application.SnowShoeToursApplication;
-<<<<<<< HEAD
 import ca.mcgill.ecse.snowshoetours.model.Combo;
-=======
-<<<<<<< HEAD
 import ca.mcgill.ecse.snowshoetours.model.Combo;
 import ca.mcgill.ecse.snowshoetours.model.ComboItem;
 import ca.mcgill.ecse.snowshoetours.model.Gear;
+import ca.mcgill.ecse.snowshoetours.model.Participant;
 import ca.mcgill.ecse.snowshoetours.controller.GearController;
-=======
 import ca.mcgill.ecse.snowshoetours.model.Gear;
 import ca.mcgill.ecse.snowshoetours.controller.GearController;
 import static org.junit.jupiter.api.Assertions.assertEquals;
->>>>>>> 5b2fdc71d61153d3fe562a2968917af228c8ad1f
->>>>>>> 3f022fab5236dd41322d2e869afdb865ba28c8c3
 import ca.mcgill.ecse.snowshoetours.model.SnowShoeTour;
 import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertTrue;
@@ -31,6 +26,7 @@ public class AddAndDeleteGearStepDefinitions {
 
   private SnowShoeTour sst;
   private String error;
+  private int authorizationCodeAsInt = 0;
   
   /**
    * 
@@ -69,6 +65,12 @@ public class AddAndDeleteGearStepDefinitions {
     }
  
   }
+  /**
+   * 
+   * @param dataTable
+   * 
+   * @author Philippe Marchand
+   */
 
   @Given("the following combos exist in the system \\(g5)")
   public void the_following_combos_exist_in_the_system_g5(
@@ -106,6 +108,8 @@ public class AddAndDeleteGearStepDefinitions {
     //
     // For other transformations you can register a DataTableType.
     throw new io.cucumber.java.PendingException();
+    
+    
   }
   
   /**
@@ -237,10 +241,36 @@ public class AddAndDeleteGearStepDefinitions {
     // Write code here that turns the phrase above into concrete actions
     throw new io.cucumber.java.PendingException();
   }
-
+  
+  /**
+   * @author Philippe Marchand
+   * 
+   * @param DataTable
+   */
+  
   @Given("the following participants exist in the system \\(g5)")
   public void the_following_participants_exist_in_the_system_g5(
       io.cucumber.datatable.DataTable dataTable) {
+	  
+	  List<Map<String, String>> rows = dataTable.asMaps();
+	  for (var row : rows) {
+		  String email = row.get("email");
+		  String password = row.get("password");
+		  String name = row.get("name");
+		  String emergencyContact = row.get("emergencyContact");
+		  int nrWeeks = Integer.parseInt(row.get("nrWeeks"));
+		  int weeksAvailableFrom = Integer.parseInt(row.get("weeksAvailableFrom"));
+		  int weeksAvailableUntil = Integer.parseInt(row.get("weeksAvailableUntil"));
+		  boolean lodgeRequired = Boolean.parseBoolean(row.get("lodgeRequired"));
+		  String authorizationCode = Integer.toString(authorizationCodeAsInt);
+		  Participant participant = new Participant(email,password,name,emergencyContact,nrWeeks,weeksAvailableFrom,
+				  weeksAvailableUntil,lodgeRequired, authorizationCode, 0 ,sst);
+		  
+		  authorizationCodeAsInt +=1;
+		  
+	  }
+	  
+	  
     // Write code here that turns the phrase above into concrete actions
     // For automatic transformation, change DataTable to one of
     // E, List<E>, List<List<E>>, List<Map<K,V>>, Map<K,V> or
