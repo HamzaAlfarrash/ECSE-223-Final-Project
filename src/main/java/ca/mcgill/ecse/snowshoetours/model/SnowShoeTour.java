@@ -51,7 +51,6 @@ public class SnowShoeTour
   //------------------------
   // INTERFACE
   //------------------------
-
   public boolean setStartDate(Date aStartDate)
   {
     boolean wasSet = false;
