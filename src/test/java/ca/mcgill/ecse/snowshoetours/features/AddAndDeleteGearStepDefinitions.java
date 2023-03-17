@@ -309,6 +309,7 @@ public class AddAndDeleteGearStepDefinitions{
         }
       }
       BookedItem item = new BookedItem(quantity,sst, foundParticipant, correspondingGear);
+      sst.addBookedItem(item);
       foundParticipant.addBookedItem(item);
     }
   }

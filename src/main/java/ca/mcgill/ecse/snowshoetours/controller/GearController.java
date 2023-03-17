@@ -7,6 +7,13 @@ import ca.mcgill.ecse.snowshoetours.model.Gear;
 import ca.mcgill.ecse.snowshoetours.model.SnowShoeTour;
 
 public class GearController {
+  
+  /**
+   * @author Souhail El Hayani
+   * @param name
+   * @param pricePerWeek
+   * @return
+   */
   public static String addGear(String name, int pricePerWeek) {
     //add a piece of gear unsuccessfully
     // check validity of name and price
@@ -36,9 +43,30 @@ public class GearController {
     return "";
   }
 
+  /**
+   * @author Souhail El Hayani
+   * @param name
+   * @return
+   */
   public static String deleteGear(String name) {
+    SnowShoeTour sst = SnowShoeToursApplication.getSnowShoeTour();
+    //get gear with corresponding name
+    Gear aGear = null;
+    List<Gear> gears = sst.getGear();
+    for(Gear gear: gears) {
+      if(gear.getName().equals(name)) aGear = gear;
+    }
+    if(aGear == null) return "gear with name"+name+" doesn't exist";
+    else {
+      sst.removeGear(aGear);
+    }
     
-    return "Not implemented!";
+    //unsuccesfully delete a gear that is in an existing combo
+    sst.removeGear(null);
+    
+    //successfully delete a piece of gear
+    
+    return "";
   }
 
   public static String addCombo(String name, int discount) {
