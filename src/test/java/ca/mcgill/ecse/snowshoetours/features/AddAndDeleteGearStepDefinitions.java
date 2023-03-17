@@ -23,7 +23,7 @@ public class AddAndDeleteGearStepDefinitions{
   
   private SnowShoeTour sst;
   private String error;
-  private int authorizationCodeAsInt = 0;
+ 
   
   /**
    * 
@@ -82,14 +82,13 @@ public class AddAndDeleteGearStepDefinitions{
 		  for ( int i=0; i < quantityArrayString.length; i++) {
 			  quantityArray[i] = Integer.parseInt(quantityArrayString[i]);
 		  }
-		  
-		  Combo combo = new Combo(name, discount,sst);
+		  Combo combo = sst.addCombo(name, discount);
 		  for (int i=0; i< itemsArray.length;i++) {
 			  for (var gear: sst.getGear()) {
 				  if(itemsArray[i].equals(gear.getName())) {
 					  gear.addComboItem(quantityArray[i], sst, combo);
+					  
 				  }
-			  
 			  }
 		  }
 		  
@@ -265,12 +264,7 @@ public class AddAndDeleteGearStepDefinitions{
 		  int weeksAvailableFrom = Integer.parseInt(row.get("weeksAvailableFrom"));
 		  int weeksAvailableUntil = Integer.parseInt(row.get("weeksAvailableUntil"));
 		  boolean lodgeRequired = Boolean.parseBoolean(row.get("lodgeRequired"));
-		  String authorizationCode = Integer.toString(authorizationCodeAsInt);
-		  Participant participant = new Participant(email,password,name,emergencyContact,nrWeeks,weeksAvailableFrom,
-				  weeksAvailableUntil,lodgeRequired, authorizationCode, 0 ,sst);
-		  
-		  authorizationCodeAsInt +=1;
-		  
+		  sst.addParticipant(email, password, name, emergencyContact, nrWeeks, weeksAvailableFrom, weeksAvailableUntil, lodgeRequired, "", 0);
 	  }
   }
 
