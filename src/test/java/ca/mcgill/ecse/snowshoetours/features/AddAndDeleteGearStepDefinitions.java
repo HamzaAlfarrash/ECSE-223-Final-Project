@@ -34,6 +34,7 @@ public class AddAndDeleteGearStepDefinitions{
   @Given("the following SnowShoeTour system exists \\(g5)")
   public void the_following_snow_shoe_tour_system_exists_g5(
       io.cucumber.datatable.DataTable dataTable) {
+    //get snow shoe tour singleton object, and assign the corresponding attribute
     sst = SnowShoeToursApplication.getSnowShoeTour(); 
     List<Map<String, String>> rows = dataTable.asMaps();
     for(var row : rows) {
@@ -55,10 +56,11 @@ public class AddAndDeleteGearStepDefinitions{
   public void the_following_pieces_of_gear_exist_in_the_system_g5(
       io.cucumber.datatable.DataTable dataTable) {
     List<Map<String, String>> rows = dataTable.asMaps();
+    //create gear and add it to the sst
     for (var row : rows) {
       String name = row.get("name");
       int pricePerWeek = Integer.parseInt(row.get("pricePerWeek")); 
-      sst.addGear(name, pricePerWeek); //add gear to the application, check if null in @then clause ! 
+      sst.addGear(sst.addGear(name, pricePerWeek));//first addGear creates a gear object, second addGear adds the gear to sst list of of gears??
     }
  
   }
@@ -301,6 +303,7 @@ public class AddAndDeleteGearStepDefinitions{
         }
       }
       BookedItem item = sst.addBookedItem(quantity, foundParticipant, correspondingGear);
+      sst.addBookedItem(item);
       foundParticipant.addBookedItem(item);
     }
   }
