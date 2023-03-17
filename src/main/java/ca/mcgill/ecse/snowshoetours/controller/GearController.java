@@ -69,13 +69,48 @@ public class GearController {
     return "";
   }
 
+  /**
+   * @author Yassine Mimet
+   * 
+   * @param name
+   * @param discount
+   * @return
+   */
   public static String addCombo(String name, int discount) {
-    // TODO Implement the method, return error message (if any)
-    return "Not implemented!";
+    if(discount < 0 ) {
+      return "Discount must be at least 0";
+    }
+    
+    if(discount > 100 ) {
+      return "Discount must be no more than 100";
+    }
+
+    if(name.isEmpty()|| name == null) {
+      return "The name must not be empty ";
+    }
+    SnowShoeTour sst = SnowShoeToursApplication.getSnowShoeTour(); 
+    
+    List<Combo> combos = sst.getCombos();
+    for(Combo combo : combos) {
+      if(combo.getName().equals(name)) return "A combo with the same name already exists";
+    }
+    
+    List<Gear> gears = sst.getGear();
+    for(Gear gear : gears) {
+      if(gear.getName().equals(name)) return "A piece of gear with the same name already exists";
+    }
+    
+    sst.addCombo(sst.addCombo(name, discount));
+    
+    return null;
   }
 
   public static void deleteCombo(String name) {
-    // TODO Implement the method
+    // not done yet
+    SnowShoeTour sst = SnowShoeToursApplication.getSnowShoeTour();
+    
+    Combo combo = null;
+    
   }
 
   // this method does not need to be implemented by a team with five team members
