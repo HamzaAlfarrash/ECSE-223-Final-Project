@@ -41,7 +41,7 @@ public class GearController {
     //add a piece of gear sucessfully
     sst.addGear(sst.addGear(name, pricePerWeek));
     
-    return "";
+    return null;
   }
 
   /**
@@ -57,17 +57,20 @@ public class GearController {
     for(Gear gear: gears) {
       if(gear.getName().equals(name)) aGear = gear;
     }
-    if(aGear == null) return "gear with name"+name+" doesn't exist";
-    else {
-      sst.removeGear(aGear);
-    }
+    if(aGear == null) return "gear with name: "+name+" ,doesn't exist";
     
     //unsuccesfully delete a gear that is in an existing combo
-    sst.removeGear(null);
+    List<Combo> combos = sst.getCombos();
+    for(Combo combo:combos) {
+      List<ComboItem> items = combo.getComboItems();
+      for(ComboItem item:items) {
+        if(item.getGear().getName().equals(aGear.getName())) return "The piece of gear is in a combo and cannot be deleted";
+      }
+    }
     
     //successfully delete a piece of gear
-    
-    return "";
+    aGear.delete();//if participant has the gear, delete it from his bookedItems, delete takes care of referential integrity
+    return null;
   }
 
   /**
