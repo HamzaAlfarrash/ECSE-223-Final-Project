@@ -114,7 +114,6 @@ public class GearController {
    * @param name
    */
   public static void deleteCombo(String name) {
-    // not done yet
     SnowShoeTour sst = SnowShoeToursApplication.getSnowShoeTour();
     
     Combo aCombo = null;
@@ -124,7 +123,6 @@ public class GearController {
     }
     
     aCombo.delete();
-    
   }
 
   // this method does not need to be implemented by a team with five team members
