@@ -21,7 +21,7 @@ public class GearController {
     if(pricePerWeek < 0 ) {
       return "The price per week must be greater than or equal to 0";
     }
-    if(name.isEmpty()|| name == null) {
+    if(name == null || name.isBlank() ) {
       return "The name must not be empty ";
     }
     
@@ -86,7 +86,7 @@ public class GearController {
       return "Discount must be no more than 100";
     }
 
-    if(name.isEmpty()|| name == null) {
+    if(name == null || name.isBlank() ) {
       return "The name must not be empty ";
     }
     SnowShoeTour sst = SnowShoeToursApplication.getSnowShoeTour(); 
@@ -123,6 +123,14 @@ public class GearController {
    * @return
    */
   public static String addGearToCombo(String gearName, String comboName) {
+
+    if(gearName.isBlank()) {
+      return "The gear name must not be empty ";
+    }
+    if(comboName.isBlank()) {
+      return "The comboName name must not be empty ";
+    }
+    
     boolean comboExists = false;
     boolean gearExists =false;
     ComboItem gearComboItem=null;
