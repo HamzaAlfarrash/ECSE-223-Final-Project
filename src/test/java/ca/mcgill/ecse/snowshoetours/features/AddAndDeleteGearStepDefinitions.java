@@ -283,7 +283,7 @@ public class AddAndDeleteGearStepDefinitions{
     for(var row: rows) {
       String personName = row.get("email");
       String gearName = row.get("gear");
-      int quantity = Integer.parseInt("quantity");
+      int quantity = Integer.parseInt(row.get("quantity"));
       List<Participant> participants = sst.getParticipants();
       Participant foundParticipant = null;
       Gear correspondingGear = null;
@@ -322,7 +322,7 @@ public class AddAndDeleteGearStepDefinitions{
         check = true;
       }
     }
-    assertTrue(check == true);
+    assertFalse(check);
   }
 
   /**
