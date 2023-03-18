@@ -108,12 +108,22 @@ public class GearController {
     
     return null;
   }
-
+    
+  /**
+   * @author Yassine Mimet
+   * @param name
+   */
   public static void deleteCombo(String name) {
     // not done yet
     SnowShoeTour sst = SnowShoeToursApplication.getSnowShoeTour();
     
-    Combo combo = null;
+    Combo aCombo = null;
+    List<Combo> combos = sst.getCombos();
+    for(Combo combo : combos) {
+      if(combo.getName().equals(name)) aCombo = combo;
+    }
+    
+    aCombo.delete();
     
   }
 
