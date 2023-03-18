@@ -77,7 +77,6 @@ public class ParticipantController {
    * @author Philippe Marchand
    * @param email
    */
-  
   public static void deleteParticipant(String email) {
      // TODO Implement the method
 	//Basic input check
@@ -95,7 +94,7 @@ public class ParticipantController {
 		  }
 	  }
   }
-
+  
   public static String addBookableItemToParticipant(String email, String bookableItemName) {
     // TODO Implement the method, return error message (if any)
     return "Not implemented!";
