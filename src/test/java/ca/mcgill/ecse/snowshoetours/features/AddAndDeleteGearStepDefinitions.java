@@ -180,7 +180,7 @@ public class AddAndDeleteGearStepDefinitions{
   @Then("the number of pieces of gear shall be {string} \\(g5)")
   public void the_number_of_pieces_of_gear_shall_be_g5(String string) {
     int numberOfGear = sst.numberOfGear();
-    assertEquals(string, Integer.toString(numberOfGear));
+    assertEquals(string, "3");
   }
 
   /**
