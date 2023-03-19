@@ -321,6 +321,7 @@ public class AddAndDeleteGearStepDefinitions{
     for(Gear gear : gears) {
       if(gear.getName().equals(string)) {
         check = true;
+        break;
       }
     }
     assertFalse(check);
@@ -355,6 +356,7 @@ public class AddAndDeleteGearStepDefinitions{
        BookableItem gear = item.getItem();
        if(gear.getName().equals(string2) && Integer.toString(item.getQuantity()).equals(string3)) {
          check = true;
+         break;
        }
       }
     }
