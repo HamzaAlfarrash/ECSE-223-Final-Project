@@ -181,9 +181,58 @@ public class GearController {
     return null;
   }
 
-  // this method does not need to be implemented by a team with five team members
+  /**
+   * @author Wasif Somji
+   *
+   * @param gearName
+   * @param comboName
+   * @return
+   */
   public static String removeGearFromCombo(String gearName, String comboName) {
     // TODO Implement the method, return error message (if any)
-    return "Not implemented!";
+    if(gearName.isBlank()) {
+      return "The gear name must not be empty ";
+    }
+    if(comboName.isBlank()) {
+      return "The comboName name must not be empty ";
+    }
+    
+    boolean comboExists = false;
+    boolean gearExists =false;
+    ComboItem gearComboItem=null;
+    Combo tCombo =null;
+    SnowShoeTour sst = SnowShoeToursApplication.getSnowShoeTour();
+    List<Combo> allCombos = sst.getCombos();    //all combos in the Snow Shoe Tour
+    for (Combo combo : allCombos){              //iterate through all combos + check if combo exists
+      if(combo.getName().equals(comboName)){
+        tCombo =combo;
+        comboExists=true;
+        break;
+      }
+    }
+    //Combo doesnt exist
+    if(!comboExists){
+      return "There is not a combo with the name "+ comboName + " in the system";
+    }
+
+    List<Gear> gears = sst.getGear();   //get all gears in the Snow Shoe Tour
+    Gear tGear = null;
+    for (Gear gear : gears) {           //check if gear exists
+      if (gear.getName().equals(gearName)) {
+        tGear = gear;
+        gearExists=true;
+        break;
+      }
+    }
+    //Gear doesnt exist
+    if(!gearExists){
+      return "There is no gear with the name "+gearName+" in the system";
+    }
+    gearComboItem = new ComboItem(1,sst,tCombo,tGear);    //if gear exists, then we want it to be a comboItem so we can add it to our combo.
+
+    //Add combo item (gear) to the combo.
+    tCombo.removeComboItem(gearComboItem);
+
+    return null;
   }
 }
