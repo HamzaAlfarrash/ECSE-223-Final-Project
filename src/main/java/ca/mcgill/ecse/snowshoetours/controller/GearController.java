@@ -22,7 +22,7 @@ public class GearController {
     if(pricePerWeek < 0 ) {
       return "The price per week must be greater than or equal to 0";
     } else if(name == null || name.isBlank()) {
-      return "The name must not be empty ";
+      return "The name must not be empty";
     } else {
       SnowShoeTour sst = SnowShoeToursApplication.getSnowShoeTour(); 
       List<Gear> gears = sst.getGear();
@@ -70,6 +70,7 @@ public class GearController {
     
     //successfully delete a piece of gear
     aGear.delete();//if participant has the gear, delete it from his bookedItems, delete takes care of referential integrity
+    //sst.removeGear(aGear);
     return null;
   }
 

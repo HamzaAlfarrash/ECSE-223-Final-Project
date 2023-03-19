@@ -3,6 +3,7 @@ package ca.mcgill.ecse.snowshoetours.features;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
+import java.util.Arrays;
 import java.util.List;
 import java.util.Map;
 import ca.mcgill.ecse.snowshoetours.application.SnowShoeToursApplication;
@@ -73,6 +74,7 @@ public class AddAndDeleteGearStepDefinitions{
   @Given("the following combos exist in the system \\(g5)")
   public void the_following_combos_exist_in_the_system_g5(
       io.cucumber.datatable.DataTable dataTable) {
+ 
 	  List<Map<String, String>> rows = dataTable.asMaps();
 	  for (var row : rows) {
 		  
@@ -244,7 +246,7 @@ public class AddAndDeleteGearStepDefinitions{
    */
   @Then("the system shall raise the error {string} \\(g5)")
   public void the_system_shall_raise_the_error_g5(String string) {
-    assertEquals(error, "The piece of gear is in a combo and cannot be deleted");
+    assertEquals(error, string);
   }
   
   /**
