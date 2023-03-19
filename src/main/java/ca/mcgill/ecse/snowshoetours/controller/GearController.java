@@ -13,7 +13,7 @@ public class GearController {
    * @author Souhail El Hayani
    * @param name
    * @param pricePerWeek
-   * @return
+   * @return error message
    */
   public static String addGear(String name, int pricePerWeek) {
     //add a piece of gear unsuccessfully
@@ -47,7 +47,7 @@ public class GearController {
   /**
    * @author Souhail El Hayani
    * @param name
-   * @return
+   * @return error message
    */
   public static String deleteGear(String name) {
     SnowShoeTour sst = SnowShoeToursApplication.getSnowShoeTour();
@@ -57,7 +57,6 @@ public class GearController {
     for(Gear gear: gears) {
       if(gear.getName().equals(name)) aGear = gear;
     }
-    if(aGear == null) return "gear with name: "+name+" ,doesn't exist";
     
     //unsuccesfully delete a gear that is in an existing combo
     List<Combo> combos = sst.getCombos();
@@ -69,7 +68,7 @@ public class GearController {
     }
     
     //successfully delete a piece of gear
-    aGear.delete();//if participant has the gear, delete it from his bookedItems, delete takes care of referential integrity
+    aGear.delete();
     return null;
   }
 
@@ -78,7 +77,7 @@ public class GearController {
    * 
    * @param name
    * @param discount
-   * @return
+   * @return error message
    */
   public static String addCombo(String name, int discount) {
     if(discount < 0 ) {
@@ -131,7 +130,7 @@ public class GearController {
    *
    * @param gearName
    * @param comboName
-   * @return
+   * @return error message
    */
   public static String addGearToCombo(String gearName, String comboName) {
 
@@ -157,7 +156,7 @@ public class GearController {
     }
     //Combo doesnt exist
     if(!comboExists){
-      return "There is not a combo with the name "+ comboName + " in the system";
+      return "The combo does not exist";
     }
 
     List<Gear> gears = sst.getGear();   //get all gears in the Snow Shoe Tour
@@ -171,7 +170,7 @@ public class GearController {
     }
     //Gear doesnt exist
     if(!gearExists){
-      return "There is no gear with the name "+gearName+" in the system";
+      return "The piece of gear does not exist";
     }
     gearComboItem = new ComboItem(1,sst,tCombo,tGear);    //if gear exists, then we want it to be a comboItem so we can add it to our combo.
 
@@ -188,7 +187,7 @@ public class GearController {
    *
    * @param gearName
    * @param comboName
-   * @return
+   * @return error message
    */
   public static String removeGearFromCombo(String gearName, String comboName) {
     // TODO Implement the method, return error message (if any)
@@ -214,7 +213,7 @@ public class GearController {
     }
     //Combo doesnt exist
     if(!comboExists){
-      return "There is not a combo with the name "+ comboName + " in the system";
+      return "The combo does not exist";
     }
 
     List<Gear> gears = sst.getGear();   //get all gears in the Snow Shoe Tour
@@ -228,11 +227,14 @@ public class GearController {
     }
     //Gear doesnt exist
     if(!gearExists){
-      return "There is no gear with the name "+gearName+" in the system";
+      return "The piece of gear does not exist";
     }
     for (ComboItem comboItem : tCombo.getComboItems()) {  //iterate over combo items in desired combo
       if (comboItem.getGear() == tGear) {                 //if the combo item is of the associated gear, remove it from the combo.
-        tCombo.removeComboItem(comboItem);
+        boolean removed = tCombo.removeComboItem(comboItem); //the boolean is false if combo only has 2 pieces of gear to begin with
+        if(!removed) {
+          return "A combo must have at least two pieces of gear";
+        }
         tGear.removeComboItem(comboItem);                 //remove combo item from the list of combo items in the gear
       }
     }
