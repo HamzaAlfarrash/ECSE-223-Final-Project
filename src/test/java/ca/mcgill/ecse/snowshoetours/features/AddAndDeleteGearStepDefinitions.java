@@ -16,6 +16,7 @@ import ca.mcgill.ecse.snowshoetours.model.Gear;
 import ca.mcgill.ecse.snowshoetours.model.BookableItem;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import ca.mcgill.ecse.snowshoetours.model.SnowShoeTour;
+import ca.mcgill.ecse.snowshoetours.model.User;
 import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 import java.sql.Date;
@@ -318,9 +319,9 @@ public class AddAndDeleteGearStepDefinitions{
   @Then("a piece of gear shall not exist with name {string} \\(g5)")
   public void a_piece_of_gear_shall_not_exist_with_name_g5(String string) {
     Boolean check = false;
-    List<Combo> comboList = sst.getCombos();
-    for(Combo combo : comboList) {
-      if(combo.getName().equals(string)) {
+    List<Gear> gears = sst.getGear();
+    for(Gear gear : gears) {
+      if(gear.getName().equals(string)) {
         check = true;
       }
     }
@@ -387,10 +388,10 @@ public class AddAndDeleteGearStepDefinitions{
     
     for(BookedItem item : items) {
       if(item.getItem() instanceof Gear) {
-       nbItems += item.getQuantity();
+       nbItems ++;
       }
     }
     
     assertEquals(string2, Integer.toString(nbItems));
-  }
+  }  
 }

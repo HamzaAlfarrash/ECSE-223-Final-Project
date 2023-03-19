@@ -70,7 +70,6 @@ public class GearController {
     
     //successfully delete a piece of gear
     aGear.delete();//if participant has the gear, delete it from his bookedItems, delete takes care of referential integrity
-    //sst.removeGear(aGear);
     return null;
   }
 
