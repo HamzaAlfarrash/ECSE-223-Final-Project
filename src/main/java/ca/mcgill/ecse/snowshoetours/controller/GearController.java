@@ -177,6 +177,8 @@ public class GearController {
 
     //Add combo item (gear) to the combo.
     tCombo.addComboItem(gearComboItem);
+    //Add combo item to the list of combo items in the gear
+    tGear.addComboItem(gearComboItem);
 
     return null;
   }
@@ -228,10 +230,12 @@ public class GearController {
     if(!gearExists){
       return "There is no gear with the name "+gearName+" in the system";
     }
-    gearComboItem = new ComboItem(1,sst,tCombo,tGear);    //if gear exists, then we want it to be a comboItem so we can add it to our combo.
-
-    //Add combo item (gear) to the combo.
-    tCombo.removeComboItem(gearComboItem);
+    for (ComboItem comboItem : tCombo.getComboItems()) {  //iterate over combo items in desired combo
+      if (comboItem.getGear() == tGear) {                 //if the combo item is of the associated gear, remove it from the combo.
+        tCombo.removeComboItem(comboItem);
+        tGear.removeComboItem(comboItem);                 //remove combo item from the list of combo items in the gear
+      }
+    }
 
     return null;
   }
