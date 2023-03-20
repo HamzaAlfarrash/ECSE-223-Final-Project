@@ -14,6 +14,8 @@ public class Lodge
 
   public enum LodgeRating { OneStar, TwoStars, ThreeStars, FourStars, FiveStars }
 
+  public static final LodgeRating LodgeRating = null;
+
   //------------------------
   // STATIC VARIABLES
   //------------------------

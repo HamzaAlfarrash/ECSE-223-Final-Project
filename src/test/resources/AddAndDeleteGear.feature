@@ -81,3 +81,4 @@ As a manager, I want to add and update pieces of gear so that participants can r
       | name       | pricePerWeek | comboName   | quantity | numberOfGearInCombo |
       | flashlight |           15 | small combo |        2 |                   2 |
       | pole       |          150 | small combo |        1 |                   2 |
+

@@ -56,7 +56,7 @@ public class GuideController {
     
     sst.addGuide(sst.addGuide(name, password, name, emergencyContact));
 
-    return null;
+    return "";
   }
 
   /**
