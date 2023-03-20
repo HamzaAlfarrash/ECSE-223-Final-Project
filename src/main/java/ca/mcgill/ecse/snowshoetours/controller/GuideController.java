@@ -3,6 +3,7 @@ package ca.mcgill.ecse.snowshoetours.controller;
 import java.util.List;
 import ca.mcgill.ecse.snowshoetours.application.SnowShoeToursApplication;
 import ca.mcgill.ecse.snowshoetours.model.Guide;
+import ca.mcgill.ecse.snowshoetours.model.Manager;
 import ca.mcgill.ecse.snowshoetours.model.Participant;
 import ca.mcgill.ecse.snowshoetours.model.SnowShoeTour;
 
@@ -45,16 +46,12 @@ public class GuideController {
     }
     if (aParticipant != null) return "Email already linked to a participant account";
     
-    
-    if (email.equals("manager@btp.com")) return "Email cannot be manager@btp.com";
-    
-    
     if (email.contains(" ")) return "Email must not contain any spaces";
 
 
     if ( !(email.contains("@") && email.indexOf("@") > 0 && email.indexOf("@") == email.lastIndexOf("@") && email.indexOf("@") < email.lastIndexOf(".") - 1 && email.lastIndexOf(".") < email.length() - 1)) return "Invalid email"; 
     
-    sst.addGuide(sst.addGuide(name, password, name, emergencyContact));
+    sst.addGuide(sst.addGuide(email, password, name, emergencyContact));
 
     return "";
   }
@@ -67,6 +64,7 @@ public class GuideController {
   public static void deleteGuide(String email) {
     List<Guide> Guides = sst.getGuides();
     Guide aGuide = null;
+    Manager manager = sst.getManager();
     for (Guide guide : Guides) {
       if (guide.getAccountName().equals(email)) aGuide = guide;
     }
