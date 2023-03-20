@@ -66,8 +66,9 @@ public class GearController {
         if(item.getGear().getName().equals(aGear.getName())) return "The piece of gear is in a combo and cannot be deleted";
       }
     }
-    
-    aGear.delete();//if participant has the gear, delete it from his bookedItems, delete takes care of referential integrity
+
+    //successfully delete a piece of gear
+    aGear.delete();
     return "";
   }
 
@@ -238,6 +239,6 @@ public class GearController {
       }
     }
 
-    return null;
+    return "";
   }
 }
