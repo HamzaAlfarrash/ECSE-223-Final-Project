@@ -7,7 +7,18 @@ import ca.mcgill.ecse.snowshoetours.model.SnowShoeTour;
 public class SnowShoeTourController {
   public static TOSnowShoeTour getSnowShoeTour(int id) {
     // TODO Implement the method
-    
+	for (Tour tour: tours) {
+		if (tour.getId == id) {
+			TOSnowShoeTour TOtour = new TOSnowShoeTour();
+			TOtour.id = id;
+			TOtour.startWeek = tour.getStartWeek();
+			TOtour.endWeek = tour.getEndWeek();
+			TOtour.guideEmail = guide.getGuideEmail();
+			TOtour.guideName = guide.getGuideName();
+			TOtour.totalCostForGuide = guide.getTotalCostForGuide();
+			return TOtour;
+		}
+	}
     return null;
   }
 
