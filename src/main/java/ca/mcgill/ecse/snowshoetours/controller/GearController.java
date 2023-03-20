@@ -64,7 +64,7 @@ public class GearController {
     for(Combo combo:combos) {
       List<ComboItem> items = combo.getComboItems();
       for(ComboItem item:items) {
-        if(item.getGear().getName().equals(aGear.getName())) return "The piece of gear is in a combo and cannot be deleted";
+        if(item.getGear().getName().equals(name)) return "The piece of gear is in a combo and cannot be deleted";
       }
     }
 
