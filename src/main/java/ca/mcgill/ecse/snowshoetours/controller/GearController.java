@@ -40,7 +40,7 @@ public class GearController {
       //add a piece of gear sucessfully
       sst.addGear(sst.addGear(name, pricePerWeek));
       
-      return null;
+      return "";
     }
   }
 
@@ -70,7 +70,7 @@ public class GearController {
     
     //successfully delete a piece of gear
     aGear.delete();//if participant has the gear, delete it from his bookedItems, delete takes care of referential integrity
-    return null;
+    return "";
   }
 
   /**
@@ -106,7 +106,7 @@ public class GearController {
     
     sst.addCombo(sst.addCombo(name, discount));
     
-    return null;
+    return "";
   }
     
   /**
@@ -178,7 +178,7 @@ public class GearController {
     //Add combo item (gear) to the combo.
     tCombo.addComboItem(gearComboItem);
 
-    return null;
+    return "";
   }
 
   // this method does not need to be implemented by a team with five team members
