@@ -58,7 +58,7 @@ public class GearController {
       if(gear.getName().equals(name)) aGear = gear;
     }
     
-    if(aGear == null) return "gear with that name doesn't exist";
+    if(aGear == null) return "gear with name: "+name+" ,doesn't exist";
     
     //unsuccesfully delete a gear that is in an existing combo
     List<Combo> combos = sst.getCombos();
