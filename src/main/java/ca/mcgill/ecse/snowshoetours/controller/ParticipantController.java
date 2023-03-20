@@ -18,7 +18,7 @@ public class ParticipantController {
       return "The email cannot be empty."
   }
     if (bookableItemName = "" || bookableItemName == null) {
-      return "The bookable item name must not be empty. 
+      return "The bookable item name must not be empty." 
   }
     
 
