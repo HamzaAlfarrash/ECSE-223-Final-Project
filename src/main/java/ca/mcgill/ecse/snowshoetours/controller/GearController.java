@@ -40,7 +40,7 @@ public class GearController {
       //add a piece of gear sucessfully
       sst.addGear(sst.addGear(name, pricePerWeek));
       
-      return null;
+      return "";
     }
   }
 
@@ -69,7 +69,7 @@ public class GearController {
     
     //successfully delete a piece of gear
     aGear.delete();
-    return null;
+    return "";
   }
 
   /**
@@ -105,7 +105,7 @@ public class GearController {
     
     sst.addCombo(sst.addCombo(name, discount));
     
-    return null;
+    return "";
   }
     
   /**
@@ -179,7 +179,7 @@ public class GearController {
     //Add combo item to the list of combo items in the gear
     tGear.addComboItem(gearComboItem);
 
-    return null;
+    return "";
   }
 
   /**
@@ -239,6 +239,6 @@ public class GearController {
       }
     }
 
-    return null;
+    return "";
   }
 }

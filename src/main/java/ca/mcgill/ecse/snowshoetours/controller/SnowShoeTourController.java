@@ -24,6 +24,6 @@ public class SnowShoeTourController {
     sst.setNrWeeks(nrWeeks);
     sst.setPriceOfGuidePerWeek(priceOfGuidePerWeek);
     
-    return null;
+    return "";
   }
 }
