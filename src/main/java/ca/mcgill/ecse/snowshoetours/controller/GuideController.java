@@ -51,9 +51,10 @@ public class GuideController {
     
     if (email.contains(" ")) return "Email must not contain any spaces";
 
-    if ( !(email.contains("@") && email.indexOf("@") > 0 && email.indexOf("@") == email.lastIndexOf("@") && email.indexOf("@") < email.lastIndexOf(".") - 1 && email.lastIndexOf(".") < email.length() - 1)) return "Invalid email"; 
+    if ( !(email.contains("@") && email.indexOf("@") > 0 && email.indexOf("@") == email.lastIndexOf("@") && email.indexOf("@") < email.lastIndexOf(".") - 1 && email.lastIndexOf(".") < email.length() - 1) ) return "Invalid email"; 
     
     sst.addGuide(sst.addGuide(name, password, name, emergencyContact));
+    
     return null;
   }
 
