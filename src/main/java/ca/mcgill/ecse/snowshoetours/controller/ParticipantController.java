@@ -56,10 +56,19 @@ public class ParticipantController {
 	  if (weekAvailableFrom >= weekAvailableUntil) {
 		  return "Week from which one is available must be less than or equal to the week until which one is available";
 	  }
-	  if ((weekAvailableUntil - weekAvailableFrom) < nrWeeks) {
-		  return "Number of weeks must be less than or equal to the number of available weeks";
+	  if (email.equals("manager@btp.com")) {
+		  return "Email cannot be manager@btp.com";
 	  }
-	  //Specific cases
+	  if (email.contains(" ")) {
+		 return "Email must not contain any spaces";
+	  }
+	  //Valid email address verifier
+	  if (!(email.contains("mail"))|| !(email.contains("@"))|| ) {
+		  return "Invalid email";
+	  }
+	  if (email.contains(".ca")|| email.contains(".com")) {
+	  }
+	  else {return "Invalid email";}
 	  
 	  //I AM NOT SURE IF THAT IS ALREADY COVERED BY THE UNIQUE KEYWORD OF UMPLE
 	  SnowShoeTour sst = SnowShoeToursApplication.getSnowShoeTour();
@@ -67,7 +76,7 @@ public class ParticipantController {
 	  List<Guide> guides = sst.getGuides();
 	  for (Participant participant : participants) {
 		  if (participant.getAccountName().equals(email)) {
-			  return "The email address is already registered";
+			  return "Email already linked to a participant account";
 		  }
 		  if (!(sst.getManager() == null)) {
 			  if (participant.getAccountName().equals(sst.getManager().getAccountName())){
@@ -77,7 +86,7 @@ public class ParticipantController {
 		  }
 		  for (Guide guide : guides) {
 		    if (participant.getAccountName().equals(guide.getAccountName())) {
-			  return "The email address is already used";
+			  return "Email already linked to a guide account";
 		    }
 		  }
 	  }
@@ -124,22 +133,20 @@ public class ParticipantController {
     }
     if (bookableItemName == "" || bookableItemName == null) { //Added
     	return "The bookable item name must not be empty";
-    	}
-    //Checking if email exist in the system
-    if (!(User.hasWithAccountName(email))) {
-    	return "No user was found with the following account name: " + email;
     }
     //Checking if email belongs to a participant
     User user = User.getWithAccountName(email);
-    if (!(user instanceof Participant)) {
-    	return "The account name does not belong to a participant";
+    if (!(user instanceof Participant) || user == null) {
+    	return "The participant does not exist";
     }
     Participant participant = (Participant) user;
     
     //Checking if bookable item exists in the system
     if (!(BookableItem.hasWithName(bookableItemName))) {
-    	return "The bookableItem: " + bookableItemName + " does not exits in the system";
+    	return "The piece of gear or combo does not exist";
     }
+    
+    
     BookableItem item = BookableItem.getWithName(bookableItemName);
     //Checking if participant already has the item
     //Successfully Increasing Qty participant already had the item
@@ -155,7 +162,14 @@ public class ParticipantController {
 	participant.addBookedItem(1,sst, item);//Is there a cleaner way?
 	return "";
     }
-
+  
+  /**
+   * @author Wasif Somji
+   * 
+   * @param email
+   * @param bookableItemName
+   * @return
+   */
   public static String removeBookableItemFromParticipant(String email, String bookableItemName) {
 	  
 	  if (email == "" || email == null) {
