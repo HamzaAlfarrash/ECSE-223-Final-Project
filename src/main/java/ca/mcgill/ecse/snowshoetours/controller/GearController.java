@@ -172,6 +172,17 @@ public class GearController {
     if(!gearExists){
       return "The piece of gear does not exist";
     }
+    
+    //if gear already is in the combo, then just increment the quantity
+    for(ComboItem item : tCombo.getComboItems()) {
+      if(item.getGear().getName().equals(tGear.getName())) {
+        int q = item.getQuantity();
+        q++;
+        item.setQuantity(q);
+        return "";
+      }
+    }
+    
     gearComboItem = new ComboItem(1,sst,tCombo,tGear);    //if gear exists, then we want it to be a comboItem so we can add it to our combo.
 
     //Add combo item (gear) to the combo.
@@ -200,7 +211,6 @@ public class GearController {
     
     boolean comboExists = false;
     boolean gearExists =false;
-    ComboItem gearComboItem=null;
     Combo tCombo =null;
     SnowShoeTour sst = SnowShoeToursApplication.getSnowShoeTour();
     List<Combo> allCombos = sst.getCombos();    //all combos in the Snow Shoe Tour
@@ -231,11 +241,25 @@ public class GearController {
     }
     for (ComboItem comboItem : tCombo.getComboItems()) {  //iterate over combo items in desired combo
       if (comboItem.getGear() == tGear) {                 //if the combo item is of the associated gear, remove it from the combo.
+        //if quantity is more than one, simply decrement it, otherwise, remove item completely from the combo
+        if(comboItem.getQuantity()>1) {
+          int q = comboItem.getQuantity();
+          q--;
+          comboItem.setQuantity(q);
+          return "";
+        }
+        comboItem.setCombo(null); //so that it is removed successfully from tCombo and tGear
+        comboItem.setGear(null);
         boolean removed = tCombo.removeComboItem(comboItem); //the boolean is false if combo only has 2 pieces of gear to begin with
         if(!removed) {
           return "A combo must have at least two pieces of gear";
         }
         tGear.removeComboItem(comboItem);                 //remove combo item from the list of combo items in the gear
+        comboItem.setSnowShoeTour(null);
+        sst.removeComboItem(comboItem);
+        comboItem.delete();
+        
+        return "";
       }
     }
 
