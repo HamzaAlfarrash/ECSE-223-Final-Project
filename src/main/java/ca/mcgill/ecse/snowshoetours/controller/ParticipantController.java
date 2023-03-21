@@ -107,46 +107,43 @@ public class ParticipantController {
    */
   public static String addBookableItemToParticipant(String email, String bookableItemName) {
     // TODO Implement the method, return error message (if any)
+	 
+	//Basic check
     if (email == "" || email == null) {
       return "The email cannot be empty";
     }
     if (bookableItemName == "" || bookableItemName == null) { //Added
     	return "The bookable item name must not be empty";
     	}
-    SnowShoeTour sst = SnowShoeToursApplication.getSnowShoeTour(); //Added
+    //Checking if email exist in the system
+    if (!(User.hasWithAccountName(email))) {
+    	return "No user was found with the following account name: " + email;
+    }
+    //Checking if email belongs to a participant
+    User user = User.getWithAccountName(email);
+    if (!(user instanceof Participant)) {
+    	return "The account name does not belong to a participant";
+    }
+    Participant participant = (Participant) user;
     
-	  var error = "";
-	    BookableItem item = BookableItem.getWithName(bookableItemName);
-	    User user = User.getWithAccountName(email); //Edited
-	    // Check if user is null or not an instance of participant
-	    if (user == null || !(user instanceof Participant)) {
-	      return "The participant does not exist";
-	    }
-	    // Check if item is null
-	    if (item == null) {
-	      return "The piece of gear or combo does not exist";
-	    }
-
-	    try {
-	      Participant p = (Participant) user;
-	      // Get all booked items for participant
-	      List<BookedItem> bi = p.getBookedItems();
-	      // Check if given bookable item is already a booked item
-	      for (BookedItem b : bi) {
-	        if (b.getItem() == item) {
-	          b.setQuantity(b.getQuantity() + 1); // Increase quantity by 1
-	          return "";
-	        }
-	      }
-	      // If bookable item was not a booked item, the function will not return in
-	      // above while loop, then add a booked item to p
-	      p.addBookedItem(1, sst, item);
-
-	    } catch (RuntimeException e) {
-	      error = e.getMessage();
-	      return error;
-	    }  
-	    return "";
+    //Checking if bookable item exists in the system
+    if (!(BookableItem.hasWithName(bookableItemName))) {
+    	return "The bookableItem " + bookableItemName + " does not exits in the system";
+    }
+    BookableItem item = BookableItem.getWithName(bookableItemName);
+    //Checking if participant already has the item
+    //Successfully Increasing Qty participant already had the item
+	List<BookedItem> bookedItems = participant.getBookedItems();
+	for (BookedItem b : bookedItems) {
+		if(b.getItem().equals(item)) {
+			b.setQuantity(b.getQuantity() + 1);
+			return "";
+		}
+	}
+	//Successfully adding the new item
+	SnowShoeTour sst = SnowShoeToursApplication.getSnowShoeTour(); //Added
+	participant.addBookedItem(1,sst, item);//Is there a cleaner way
+	return "";
     }
 
   public static String removeBookableItemFromParticipant(String email, String bookableItemName) {
