@@ -124,22 +124,20 @@ public class ParticipantController {
     }
     if (bookableItemName == "" || bookableItemName == null) { //Added
     	return "The bookable item name must not be empty";
-    	}
-    //Checking if email exist in the system
-    if (!(User.hasWithAccountName(email))) {
-    	return "No user was found with the following account name: " + email;
     }
     //Checking if email belongs to a participant
     User user = User.getWithAccountName(email);
-    if (!(user instanceof Participant)) {
-    	return "The account name does not belong to a participant";
+    if (!(user instanceof Participant) || user == null) {
+    	return "The participant does not exist";
     }
     Participant participant = (Participant) user;
     
     //Checking if bookable item exists in the system
     if (!(BookableItem.hasWithName(bookableItemName))) {
-    	return "The bookableItem: " + bookableItemName + " does not exits in the system";
+    	return "The piece of gear or combo does not exist";
     }
+    
+    
     BookableItem item = BookableItem.getWithName(bookableItemName);
     //Checking if participant already has the item
     //Successfully Increasing Qty participant already had the item
@@ -155,7 +153,14 @@ public class ParticipantController {
 	participant.addBookedItem(1,sst, item);//Is there a cleaner way?
 	return "";
     }
-
+  
+  /**
+   * @author Wasif Somji
+   * 
+   * @param email
+   * @param bookableItemName
+   * @return
+   */
   public static String removeBookableItemFromParticipant(String email, String bookableItemName) {
 	  
 	  if (email == "" || email == null) {
