@@ -13,7 +13,7 @@ public class GearController {
    * @author Souhail El Hayani
    * @param name
    * @param pricePerWeek
-   * @return
+   * @return error message
    */
   public static String addGear(String name, int pricePerWeek) {
     //add a piece of gear unsuccessfully
@@ -40,14 +40,14 @@ public class GearController {
       //add a piece of gear sucessfully
       sst.addGear(sst.addGear(name, pricePerWeek));
       
-      return null;
+      return "";
     }
   }
 
   /**
    * @author Souhail El Hayani
    * @param name
-   * @return
+   * @return error message
    */
   public static String deleteGear(String name) {
     SnowShoeTour sst = SnowShoeToursApplication.getSnowShoeTour();
@@ -64,13 +64,13 @@ public class GearController {
     for(Combo combo:combos) {
       List<ComboItem> items = combo.getComboItems();
       for(ComboItem item:items) {
-        if(item.getGear().getName().equals(aGear.getName())) return "The piece of gear is in a combo and cannot be deleted";
+        if(item.getGear().getName().equals(name)) return "The piece of gear is in a combo and cannot be deleted";
       }
     }
-    
+
     //successfully delete a piece of gear
-    aGear.delete();//if participant has the gear, delete it from his bookedItems, delete takes care of referential integrity
-    return null;
+    aGear.delete();
+    return "";
   }
 
   /**
@@ -78,7 +78,7 @@ public class GearController {
    * 
    * @param name
    * @param discount
-   * @return
+   * @return error message
    */
   public static String addCombo(String name, int discount) {
     if(discount < 0 ) {
@@ -106,7 +106,7 @@ public class GearController {
     
     sst.addCombo(sst.addCombo(name, discount));
     
-    return null;
+    return "";
   }
     
   /**
@@ -131,7 +131,7 @@ public class GearController {
    *
    * @param gearName
    * @param comboName
-   * @return
+   * @return error message
    */
   public static String addGearToCombo(String gearName, String comboName) {
 
@@ -157,7 +157,7 @@ public class GearController {
     }
     //Combo doesnt exist
     if(!comboExists){
-      return "There is not a combo with the name "+ comboName + " in the system";
+      return "The combo does not exist";
     }
 
     List<Gear> gears = sst.getGear();   //get all gears in the Snow Shoe Tour
@@ -171,19 +171,75 @@ public class GearController {
     }
     //Gear doesnt exist
     if(!gearExists){
-      return "There is no gear with the name "+gearName+" in the system";
+      return "The piece of gear does not exist";
     }
     gearComboItem = new ComboItem(1,sst,tCombo,tGear);    //if gear exists, then we want it to be a comboItem so we can add it to our combo.
 
     //Add combo item (gear) to the combo.
     tCombo.addComboItem(gearComboItem);
+    //Add combo item to the list of combo items in the gear
+    tGear.addComboItem(gearComboItem);
 
-    return null;
+    return "";
   }
 
-  // this method does not need to be implemented by a team with five team members
+  /**
+   * @author Wasif Somji
+   *
+   * @param gearName
+   * @param comboName
+   * @return error message
+   */
   public static String removeGearFromCombo(String gearName, String comboName) {
     // TODO Implement the method, return error message (if any)
-    return "Not implemented!";
+    if(gearName.isBlank()) {
+      return "The gear name must not be empty ";
+    }
+    if(comboName.isBlank()) {
+      return "The comboName name must not be empty ";
+    }
+    
+    boolean comboExists = false;
+    boolean gearExists =false;
+    ComboItem gearComboItem=null;
+    Combo tCombo =null;
+    SnowShoeTour sst = SnowShoeToursApplication.getSnowShoeTour();
+    List<Combo> allCombos = sst.getCombos();    //all combos in the Snow Shoe Tour
+    for (Combo combo : allCombos){              //iterate through all combos + check if combo exists
+      if(combo.getName().equals(comboName)){
+        tCombo =combo;
+        comboExists=true;
+        break;
+      }
+    }
+    //Combo doesnt exist
+    if(!comboExists){
+      return "The combo does not exist";
+    }
+
+    List<Gear> gears = sst.getGear();   //get all gears in the Snow Shoe Tour
+    Gear tGear = null;
+    for (Gear gear : gears) {           //check if gear exists
+      if (gear.getName().equals(gearName)) {
+        tGear = gear;
+        gearExists=true;
+        break;
+      }
+    }
+    //Gear doesnt exist
+    if(!gearExists){
+      return "The piece of gear does not exist";
+    }
+    for (ComboItem comboItem : tCombo.getComboItems()) {  //iterate over combo items in desired combo
+      if (comboItem.getGear() == tGear) {                 //if the combo item is of the associated gear, remove it from the combo.
+        boolean removed = tCombo.removeComboItem(comboItem); //the boolean is false if combo only has 2 pieces of gear to begin with
+        if(!removed) {
+          return "A combo must have at least two pieces of gear";
+        }
+        tGear.removeComboItem(comboItem);                 //remove combo item from the list of combo items in the gear
+      }
+    }
+
+    return "";
   }
 }

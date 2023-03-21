@@ -94,9 +94,47 @@ public class ParticipantController {
 		  }
 	  }
   }
-  
+  /**
+   * @author Hamza Alfarrash
+   * adds a bookable item to Participant
+   * @param email
+   * @param bookableItemName
+   * @return error message (if any)
+   * @throws RunTimeException
+   */
   public static String addBookableItemToParticipant(String email, String bookableItemName) {
     // TODO Implement the method, return error message (if any)
+	  var error = "";
+	    BookableItem item = BookableItem.getWithName(bookableItemName);
+	    User user = User.getWithEmail(email);
+	    // Check if userr is null or not an instance of participant
+	    if (user == null || !(user instanceof Participant)) {
+	      return "The participant does not exist";
+	    }
+	    // Check if item is null
+	    if (item == null) {
+	      return "The piece of gear or combo does not exist";
+	    }
+
+	    try {
+	      Participant p = (Participant) user;
+	      // Get all booked items for participant
+	      List<BookedItem> bi = p.getBookedItems();
+	      // Check if given bookable item is already a booked item
+	      for (BookedItem b : bi) {
+	        if (b.getItem() == item) {
+	          b.setQuantity(b.getQuantity() + 1); // Increase quantity by 1
+	          return "";
+	        }
+	      }
+	      // If bookable item was not a booked item, the function will not return in
+	      // above while loop, then add a booked item to p
+	      p.addBookedItem(1, snowShowTour, item);
+
+	    } catch (RuntimeException e) {
+	      error = e.getMessage();
+	      return error;
+	    }  
     return "Not implemented!";
   }
 
