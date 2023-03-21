@@ -108,11 +108,14 @@ public class ParticipantController {
   public static String addBookableItemToParticipant(String email, String bookableItemName) {
     // TODO Implement the method, return error message (if any)
     if (email == "" || email == null) {
-      return "The email cannot be empty.";
+      return "The email cannot be empty";
     }
-    if (bookableItemName = "" || bookableItemName == null) {
-    	return "The bookable item name must not be empty.";
+    if (bookableItemName == "" || bookableItemName == null) {
+    	return "The bookable item name must not be empty";
     	}
+    //added
+    SnowShoeTour sst = SnowShoeToursApplication.getSnowShoeTour();
+    
 	  var error = "";
 	    BookableItem item = BookableItem.getWithName(bookableItemName);
 	    User user = User.getWithEmail(email);
