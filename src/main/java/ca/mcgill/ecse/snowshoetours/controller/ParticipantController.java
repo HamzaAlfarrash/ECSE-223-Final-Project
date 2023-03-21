@@ -59,6 +59,16 @@ public class ParticipantController {
 	  if (email.equals("manager@btp.com")) {
 		  return "Email cannot be manager@btp.com";
 	  }
+	  if (email.contains(" ")) {
+		 return "Email must not contain any spaces";
+	  }
+	  //Valid email address verifier
+	  if (!(email.contains("mail"))|| !(email.contains("@"))|| ) {
+		  return "Invalid email";
+	  }
+	  if (email.contains(".ca")|| email.contains(".com")) {
+	  }
+	  else {return "Invalid email";}
 	  
 	  //I AM NOT SURE IF THAT IS ALREADY COVERED BY THE UNIQUE KEYWORD OF UMPLE
 	  SnowShoeTour sst = SnowShoeToursApplication.getSnowShoeTour();
@@ -66,7 +76,7 @@ public class ParticipantController {
 	  List<Guide> guides = sst.getGuides();
 	  for (Participant participant : participants) {
 		  if (participant.getAccountName().equals(email)) {
-			  return "The email address is already registered";
+			  return "Email already linked to a participant account";
 		  }
 		  if (!(sst.getManager() == null)) {
 			  if (participant.getAccountName().equals(sst.getManager().getAccountName())){
@@ -76,7 +86,7 @@ public class ParticipantController {
 		  }
 		  for (Guide guide : guides) {
 		    if (participant.getAccountName().equals(guide.getAccountName())) {
-			  return "The email address is already used";
+			  return "Email already linked to a guide account";
 		    }
 		  }
 	  }
