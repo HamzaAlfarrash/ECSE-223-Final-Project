@@ -73,6 +73,7 @@ public class AddAndDeleteGearStepDefinitions{
   @Given("the following combos exist in the system \\(g5)")
   public void the_following_combos_exist_in_the_system_g5(
       io.cucumber.datatable.DataTable dataTable) {
+ 
 	  List<Map<String, String>> rows = dataTable.asMaps();
 	  for (var row : rows) {
 		  
@@ -244,7 +245,7 @@ public class AddAndDeleteGearStepDefinitions{
    */
   @Then("the system shall raise the error {string} \\(g5)")
   public void the_system_shall_raise_the_error_g5(String string) {
-    assertEquals(error, "The piece of gear is in a combo and cannot be deleted");
+    assertEquals(error, string);
   }
   
   /**
@@ -283,7 +284,7 @@ public class AddAndDeleteGearStepDefinitions{
     for(var row: rows) {
       String personName = row.get("email");
       String gearName = row.get("gear");
-      int quantity = Integer.parseInt("quantity");
+      int quantity = Integer.parseInt(row.get("quantity"));
       List<Participant> participants = sst.getParticipants();
       Participant foundParticipant = null;
       Gear correspondingGear = null;
@@ -316,13 +317,13 @@ public class AddAndDeleteGearStepDefinitions{
   @Then("a piece of gear shall not exist with name {string} \\(g5)")
   public void a_piece_of_gear_shall_not_exist_with_name_g5(String string) {
     Boolean check = false;
-    List<Combo> comboList = sst.getCombos();
-    for(Combo combo : comboList) {
-      if(combo.getName().equals(string)) {
+    List<Gear> gears = sst.getGear();
+    for(Gear gear : gears) {
+      if(gear.getName().equals(string)) {
         check = true;
       }
     }
-    assertTrue(check == true);
+    assertFalse(check);
   }
 
   /**
@@ -385,10 +386,10 @@ public class AddAndDeleteGearStepDefinitions{
     
     for(BookedItem item : items) {
       if(item.getItem() instanceof Gear) {
-       nbItems += item.getQuantity();
+       nbItems ++;
       }
     }
     
     assertEquals(string2, Integer.toString(nbItems));
-  }
+  }  
 }

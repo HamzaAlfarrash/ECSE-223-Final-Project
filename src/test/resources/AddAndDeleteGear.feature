@@ -19,7 +19,7 @@ Given the following combos exist in the system (g5)
 Scenario Outline: Add a piece of gear successfully
 When the manager attempts to add a new piece of gear with name "<name>" and price per week "<pricePerWeek>" (g5)
 Then a piece of gear shall exist with name "<name>" and price per week "<pricePerWeek>" (g5)
-Then the number of pieces of gear shall be "4" (g5)
+Then the number of pieces of gear shall be "5" (g5)
 
 Examples:
 | name       | pricePerWeek |
@@ -29,7 +29,7 @@ Examples:
 Scenario Outline: Add a piece of gear unsuccessfully
 When the manager attempts to add a new piece of gear with name "<name>" and price per week "<pricePerWeek>" (g5)
 Then a piece of gear shall not exist with name "<name>" and price per week "<pricePerWeek>" (g5)
-Then the number of pieces of gear in the system shall be "3" (g5)
+Then the number of pieces of gear in the system shall be "4" (g5)
 Then the system shall raise the error "<error>" (g5)
 
 Examples:

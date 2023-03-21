@@ -18,30 +18,30 @@ public class GearController {
   public static String addGear(String name, int pricePerWeek) {
     //add a piece of gear unsuccessfully
     // check validity of name and price
+    
     if(pricePerWeek < 0 ) {
       return "The price per week must be greater than or equal to 0";
+    } else if(name == null || name.isBlank()) {
+      return "The name must not be empty";
+    } else {
+      SnowShoeTour sst = SnowShoeToursApplication.getSnowShoeTour(); 
+      List<Gear> gears = sst.getGear();
+      //check name similiarity with gear names
+      for(Gear gear : gears) {
+        if(gear.getName().equals(name)) return "A piece of gear with the same name already exists";
+      }
+      
+      List<Combo> combos = sst.getCombos();
+      //check name similarity with the combos name
+      for(Combo combo : combos) {
+        if(combo.getName().equals(name)) return "A combo with the same name already exists";
+      }
+      
+      //add a piece of gear sucessfully
+      sst.addGear(sst.addGear(name, pricePerWeek));
+      
+      return null;
     }
-    if(name == null || name.isBlank() ) {
-      return "The name must not be empty ";
-    }
-    
-    SnowShoeTour sst = SnowShoeToursApplication.getSnowShoeTour(); 
-    List<Gear> gears = sst.getGear();
-    //check name similiarity with gear names
-    for(Gear gear : gears) {
-      if(gear.getName().equals(name)) return "A piece of gear with the same name already exists";
-    }
-    
-    List<Combo> combos = sst.getCombos();
-    //check name similarity with the combos name
-    for(Combo combo : combos) {
-      if(combo.getName().equals(name)) return "A combo with the same name already exists";
-    }
-    
-    //add a piece of gear sucessfully
-    sst.addGear(sst.addGear(name, pricePerWeek));
-    
-    return "";
   }
 
   /**
@@ -57,17 +57,20 @@ public class GearController {
     for(Gear gear: gears) {
       if(gear.getName().equals(name)) aGear = gear;
     }
-    if(aGear == null) return "gear with name"+name+" doesn't exist";
-    else {
-      sst.removeGear(aGear);
-    }
+    if(aGear == null) return "gear with name: "+name+" ,doesn't exist";
     
     //unsuccesfully delete a gear that is in an existing combo
-    sst.removeGear(null);
+    List<Combo> combos = sst.getCombos();
+    for(Combo combo:combos) {
+      List<ComboItem> items = combo.getComboItems();
+      for(ComboItem item:items) {
+        if(item.getGear().getName().equals(aGear.getName())) return "The piece of gear is in a combo and cannot be deleted";
+      }
+    }
     
     //successfully delete a piece of gear
-    
-    return "";
+    aGear.delete();//if participant has the gear, delete it from his bookedItems, delete takes care of referential integrity
+    return null;
   }
 
   /**
@@ -105,13 +108,21 @@ public class GearController {
     
     return null;
   }
-
+    
+  /**
+   * @author Yassine Mimet
+   * @param name
+   */
   public static void deleteCombo(String name) {
-    // not done yet
     SnowShoeTour sst = SnowShoeToursApplication.getSnowShoeTour();
     
-    Combo combo = null;
+    Combo aCombo = null;
+    List<Combo> combos = sst.getCombos();
+    for(Combo combo : combos) {
+      if(combo.getName().equals(name)) aCombo = combo;
+    }
     
+    aCombo.delete();
   }
 
   // this method does not need to be implemented by a team with five team members
