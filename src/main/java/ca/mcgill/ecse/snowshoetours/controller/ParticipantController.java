@@ -85,30 +85,13 @@ public class ParticipantController {
 		  if (participant.getAccountName().equals(email)) {
 			  return "Email already linked to a participant account";
 		  }
-<<<<<<< HEAD
 		  for (Guide guide : guides) {
 		    if (participant.getAccountName().equals(guide.getAccountName())) {
 			  return "Email already linked to a guide account";
 		    }
 		  }
-=======
-		  if (!(sst.getManager() == null)) {
-			  if (participant.getAccountName().equals(sst.getManager().getAccountName())){
-				  return "The email address is already used";
-		  }
-		
-		  }
-		  
->>>>>>> aa4bdcbf9d56ad9414b4b513a45233166c4bbbf0
 	  }
-	  for (Guide guide : guides) {
-        if (guide.getAccountName().equals(email)) {
-          return "Email already linked to a guide account";
-        }
-      }
 	  //Add successfully the participant
-	  
-	  
 	  sst.addParticipant(email,password,name,emergencyContact,nrWeeks,weekAvailableFrom, weekAvailableUntil, 
 			  lodgeRequired,"",0);
 	  return "";
