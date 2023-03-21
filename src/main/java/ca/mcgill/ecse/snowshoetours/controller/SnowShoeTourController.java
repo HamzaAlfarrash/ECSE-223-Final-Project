@@ -60,8 +60,7 @@ public class SnowShoeTourController {
 
 
 	      // Creating an array of TOParticipantCost
-	      TOParticipantCost[] allParticipantCosts =
-	          new TOParticipantCost[tour.getParticipants().size()];
+	      TOParticipantCost[] allParticipantCosts = new TOParticipantCost[tour.getParticipants().size()];
 
 	      // Defining variable i to keep track of the for loop
 	      int i = 0;

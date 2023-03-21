@@ -62,8 +62,11 @@ public class ParticipantController {
 		  if (participant.getAccountName().equals(email)) {
 			  return "The email address is already registered";
 		  }
-		  if (participant.getAccountName().equals(sst.getManager().getAccountName())) {
-			  return "The email address is already used";
+		  if (!(sst.getManager() == null)) {
+			  if (participant.getAccountName().equals(sst.getManager().getAccountName())){
+				  return "The email address is already used";
+		  }
+		
 		  }
 		  for (Guide guide : guides) {
 		  if (participant.getAccountName().equals(guide.getAccountName())) {
