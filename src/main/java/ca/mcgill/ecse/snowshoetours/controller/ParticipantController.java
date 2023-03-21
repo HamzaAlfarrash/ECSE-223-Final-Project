@@ -29,30 +29,37 @@ public class ParticipantController {
 	  // TODO Implement the method, return error message (if any)
 	  //Basic input check
 	  if (email == "" || email == null) {
-		  return "The email must not be empty";
+		  return "Email cannot be empty";
 	  }
 	  if (password == "" || password == null) {
-		  return "The password must not be empty";
+		  return "Password cannot be empty";
 	  }
 	  if (name == "" || name == null) {
-		  return "The name must not be empty";
+		  return "Name cannot be empty";
 	  }
 	  if (emergencyContact == "" || emergencyContact == null) {
-		  return "The emergency contact must not be empty";
+		  return "Emergency contact cannot be empty";
 	  }
-	  if (nrWeeks <= 0) {
-		  return "The number of weeks of stay must be greater than 0";
+	  if (nrWeeks < 0) {
+		  return "Number of weeks must be greater than zero";
 	  }
-	  if (weekAvailableFrom < 0) {
-		  return "The number of the week available from must be greater than 0";
+	  if (nrWeeks > 10) {
+		  return "Number of weeks must be less than or equal to the number of biking weeks in the biking season";
 	  }
-	  if (weekAvailableUntil < 0) {
-		  return "The number of the week available until must be greater than 0";
+	  if (weekAvailableFrom < 0 || weekAvailableFrom > 10) {
+		  return "Available weeks must be within weeks of biking season (1-10)";
+	  }
+	  if (weekAvailableUntil < 0 || weekAvailableUntil > 10) {
+		  return "Available weeks must be within weeks of biking season (1-10)";
 	  }
 	  //Logic check
 	  if (weekAvailableFrom >= weekAvailableUntil) {
-		  return "The number of the week available from should be smaller than the week available until";
+		  return "Week from which one is available must be less than or equal to the week until which one is available";
 	  }
+	  if ((weekAvailableUntil - weekAvailableFrom) < nrWeeks) {
+		  return "Number of weeks must be less than or equal to the number of available weeks";
+	  }
+	  //Specific cases
 	  
 	  //I AM NOT SURE IF THAT IS ALREADY COVERED BY THE UNIQUE KEYWORD OF UMPLE
 	  SnowShoeTour sst = SnowShoeToursApplication.getSnowShoeTour();
@@ -150,7 +157,55 @@ public class ParticipantController {
     }
 
   public static String removeBookableItemFromParticipant(String email, String bookableItemName) {
-    // TODO Implement the method, return error message (if any)
-    return "Not implemented!";
+	  
+	  if (email == "" || email == null) {
+		  return "Email must exist.";
+	  }
+	  
+	  if (bookableItemName == "" || bookableItemName == null) {
+		  return "Bookable item must exist."; 
+	  }
+	  var error = "";
+	  
+	  BookableItem bookedItem = BookableItem.getWithName(bookableItemName); 
+	    
+	  User user = User.getWithAccountName(email);
+	    // Check if user is null or not an instance of participant
+	  
+	    if (!(user instanceof Participant)) {
+	      return "The participant does not exist";
+	    }
+	    
+	    // Check if item is null
+	    if (bookedItem == null) {
+	      return "The piece of gear or combo does not exist";
+	    }
+	    
+	    try {
+	        Participant p = (Participant) user;
+	        // Get all booked items for participant
+	        List <BookedItem> bi = p.getBookedItems();
+	        // Check if given bookable item is a booked item
+	        for (BookedItem b : bi) {
+	          if (b.getItem() == bookedItem) {
+	            int currentQuantity = b.getQuantity();
+	            if (currentQuantity > 1) {
+	              b.setQuantity(currentQuantity - 1); // Decrease quantity by 1
+	            } else {
+	              p.removeBookedItem(b); // Remove the booked item
+	            }
+	            return "";
+	          }
+	        }
+	        // If bookable item was not a booked item, the function will not return in
+	        // above while loop, then return an error message
+	        error = "The participant did not book the item";
+	      } catch (RuntimeException e) {
+	        error = e.getMessage();
+	      }
+	      return error;
+	
   }
 }
+
+
