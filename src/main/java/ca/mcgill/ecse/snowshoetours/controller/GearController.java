@@ -121,7 +121,6 @@ public class GearController {
     for(Combo combo : combos) {
       if(combo.getName().equals(name)) aCombo = combo;
     }
-    
     aCombo.delete();
   }
 
