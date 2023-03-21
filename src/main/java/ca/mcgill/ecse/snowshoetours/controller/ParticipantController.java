@@ -88,13 +88,16 @@ public class ParticipantController {
 		  }
 		
 		  }
-		  for (Guide guide : guides) {
-		    if (participant.getAccountName().equals(guide.getAccountName())) {
-			  return "Email already linked to a guide account";
-		    }
-		  }
+		  
 	  }
+	  for (Guide guide : guides) {
+        if (guide.getAccountName().equals(email)) {
+          return "Email already linked to a guide account";
+        }
+      }
 	  //Add successfully the participant
+	  
+	  
 	  sst.addParticipant(email,password,name,emergencyContact,nrWeeks,weekAvailableFrom, weekAvailableUntil, 
 			  lodgeRequired,"",0);
 	  return "";
