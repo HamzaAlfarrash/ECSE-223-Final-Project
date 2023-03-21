@@ -116,6 +116,7 @@ public class ParticipantController {
 		  for (Participant participant : participants) {
 			  if (participant.getAccountName().equals(email)) {
 				  participant.delete();
+				  break;
 			  }
 		  }
 	  }
