@@ -62,7 +62,7 @@ public class ParticipantController {
 	  if (email.contains(" ")) {
 		 return "Email must not contain any spaces";
 	  }
-	  if (nrWeeks > (weekAvailableUntil - weekAvailableFrom)){
+	  if (nrWeeks > (weekAvailableUntil - weekAvailableFrom +1)){
 		 return "Number of weeks must be less than or equal to the number of available weeks";
 	  }
 	  //Valid email address verifier
@@ -85,12 +85,12 @@ public class ParticipantController {
 		  if (participant.getAccountName().equals(email)) {
 			  return "Email already linked to a participant account";
 		  }
-		  for (Guide guide : guides) {
-		    if (participant.getAccountName().equals(guide.getAccountName())) {
+	  }
+	  for (Guide guide : guides) {
+		    if (email.equals(guide.getAccountName())) {
 			  return "Email already linked to a guide account";
 		    }
 		  }
-	  }
 	  //Add successfully the participant
 	  sst.addParticipant(email,password,name,emergencyContact,nrWeeks,weekAvailableFrom, weekAvailableUntil, 
 			  lodgeRequired,"",0);
