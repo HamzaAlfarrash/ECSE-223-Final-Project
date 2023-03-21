@@ -43,7 +43,7 @@ public class SnowShoeTourController {
 	  String guideName = tour.getGuide().getName();
 	  
 	  //Total cost for guide [Unsure]
-	  int totalCostForGuide = tour.getSnowShoeTour().getPriceOfGuidePerWeek() * tour.getSnowShoeTour().getNrWeeks();
+	  int totalCostForGuide = tour.getSnowShoeTour().getPriceOfGuidePerWeek()*(tour.getEndWeek()-tour.getStartWeek()+1); //* tour.getSnowShoeTour().getNrWeeks();
 	  
 	  //^^^^------------------------------------------------------^^^^
 
@@ -54,8 +54,6 @@ public class SnowShoeTourController {
 
 	      String participantEmail; // defining a variable of type String for the participant email
 	      String participantName; // defining a variable of type String for the participant name
-	      String authorizationCode; // defining a variable of type String for the participant authorization code
-	      String participantStatus; // defining a variable of type String for the participant status
 	      int refundedPercentageAmount; // defining a variable of type String for the participant refunded percentage amount
 
 
@@ -73,9 +71,6 @@ public class SnowShoeTourController {
 
 	        // get the participant email of the snow tour with specific id
 	        participantEmail = p.getAccountName();
-
-	        // get the participant authorization code
-	        authorizationCode = p.getAuthorizationCode();
 
 	        // get the participant refunded percentage
 	        refundedPercentageAmount = p.getRefundedPercentageAmount();
