@@ -56,10 +56,9 @@ public class ParticipantController {
 	  if (weekAvailableFrom >= weekAvailableUntil) {
 		  return "Week from which one is available must be less than or equal to the week until which one is available";
 	  }
-	  if ((weekAvailableUntil - weekAvailableFrom) < nrWeeks) {
-		  return "Number of weeks must be less than or equal to the number of available weeks";
+	  if (email.equals("manager@btp.com")) {
+		  return "Email cannot be manager@btp.com";
 	  }
-	  //Specific cases
 	  
 	  //I AM NOT SURE IF THAT IS ALREADY COVERED BY THE UNIQUE KEYWORD OF UMPLE
 	  SnowShoeTour sst = SnowShoeToursApplication.getSnowShoeTour();
