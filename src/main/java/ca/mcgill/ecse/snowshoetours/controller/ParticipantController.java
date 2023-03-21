@@ -110,15 +110,14 @@ public class ParticipantController {
     if (email == "" || email == null) {
       return "The email cannot be empty";
     }
-    if (bookableItemName == "" || bookableItemName == null) {
+    if (bookableItemName == "" || bookableItemName == null) { //Added
     	return "The bookable item name must not be empty";
     	}
-    //added
-    SnowShoeTour sst = SnowShoeToursApplication.getSnowShoeTour();
+    SnowShoeTour sst = SnowShoeToursApplication.getSnowShoeTour(); //Added
     
 	  var error = "";
 	    BookableItem item = BookableItem.getWithName(bookableItemName);
-	    User user = User.getWithEmail(email);
+	    User user = User.getWithAccountName(email); //Edited
 	    // Check if user is null or not an instance of participant
 	    if (user == null || !(user instanceof Participant)) {
 	      return "The participant does not exist";
@@ -147,6 +146,7 @@ public class ParticipantController {
 	      error = e.getMessage();
 	      return error;
 	    }  
+	    return "";
     }
 
   public static String removeBookableItemFromParticipant(String email, String bookableItemName) {
