@@ -40,16 +40,16 @@ public class ParticipantController {
 	  if (emergencyContact == "" || emergencyContact == null) {
 		  return "Emergency contact cannot be empty";
 	  }
-	  if (nrWeeks < 0) {
+	  if (nrWeeks <= 0) {
 		  return "Number of weeks must be greater than zero";
 	  }
 	  if (nrWeeks > 10) {
 		  return "Number of weeks must be less than or equal to the number of biking weeks in the biking season";
 	  }
-	  if (weekAvailableFrom < 0 || weekAvailableFrom > 10) {
+	  if (weekAvailableFrom < 1 || weekAvailableFrom > 10) {
 		  return "Available weeks must be within weeks of biking season (1-10)";
 	  }
-	  if (weekAvailableUntil < 0 || weekAvailableUntil > 10) {
+	  if (weekAvailableUntil < 1 || weekAvailableUntil > 10) {
 		  return "Available weeks must be within weeks of biking season (1-10)";
 	  }
 	  //Logic check
@@ -62,13 +62,17 @@ public class ParticipantController {
 	  if (email.contains(" ")) {
 		 return "Email must not contain any spaces";
 	  }
+	  if (nrWeeks > (weekAvailableUntil - weekAvailableFrom)){
+		 return "Number of weeks must be less than or equal to the number of available weeks";
+	  }
 	  //Valid email address verifier
-	  if (!(email.contains("mail"))|| !(email.contains("@")) ) {
+	  if (!(email.contains("mail"))|| !(email.contains("@"))) {
 		  return "Invalid email";
 	  }
 	  if (email.contains(".ca")|| email.contains(".com")) {
 	  }
 	  else {return "Invalid email";}
+	  if ( !(email.contains("@") && email.indexOf("@") > 0 && email.indexOf("@") == email.lastIndexOf("@") && email.indexOf("@") < email.lastIndexOf(".") - 1 && email.lastIndexOf(".") < email.length() - 1)) return "Invalid email";
 	  
 	  //I AM NOT SURE IF THAT IS ALREADY COVERED BY THE UNIQUE KEYWORD OF UMPLE
 	  SnowShoeTour sst = SnowShoeToursApplication.getSnowShoeTour();
@@ -201,7 +205,7 @@ public class ParticipantController {
 	        List <BookedItem> bi = p.getBookedItems();
 	        // Check if given bookable item is a booked item
 	        for (BookedItem b : bi) {
-	          if (b.getItem().equals(bookedItem)) { //get the corresponding bookable item
+	          if (b.getItem() == bookedItem) {
 	            int currentQuantity = b.getQuantity();
 	            if (currentQuantity > 1) {
 	              b.setQuantity(currentQuantity - 1); // Decrease quantity by 1
