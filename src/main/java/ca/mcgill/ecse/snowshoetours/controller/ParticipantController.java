@@ -201,12 +201,13 @@ public class ParticipantController {
 	        List <BookedItem> bi = p.getBookedItems();
 	        // Check if given bookable item is a booked item
 	        for (BookedItem b : bi) {
-	          if (b.getItem() == bookedItem) {
+	          if (b.getItem().equals(bookedItem)) { //get the corresponding bookable item
 	            int currentQuantity = b.getQuantity();
 	            if (currentQuantity > 1) {
 	              b.setQuantity(currentQuantity - 1); // Decrease quantity by 1
 	            } else {
-	              p.removeBookedItem(b); // Remove the booked item
+	              b.setParticipant(null);
+	              p.removeBookedItem(b); // Remove the booked item from participant
 	            }
 	            return "";
 	          }
