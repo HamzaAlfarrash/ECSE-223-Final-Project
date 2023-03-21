@@ -78,15 +78,12 @@ public class ParticipantController {
 	  SnowShoeTour sst = SnowShoeToursApplication.getSnowShoeTour();
 	  List<Participant> participants = sst.getParticipants();
 	  List<Guide> guides = sst.getGuides();
+	  if (sst.getManager().getAccountName().equals(email)) {
+		  return "";
+	  }
 	  for (Participant participant : participants) {
 		  if (participant.getAccountName().equals(email)) {
 			  return "Email already linked to a participant account";
-		  }
-		  if (!(sst.getManager() == null)) {
-			  if (participant.getAccountName().equals(sst.getManager().getAccountName())){
-				  return "The email address is already used";
-		  }
-		
 		  }
 		  for (Guide guide : guides) {
 		    if (participant.getAccountName().equals(guide.getAccountName())) {
