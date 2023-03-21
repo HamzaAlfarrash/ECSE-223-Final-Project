@@ -63,7 +63,7 @@ public class ParticipantController {
 		 return "Email must not contain any spaces";
 	  }
 	  //Valid email address verifier
-	  if (!(email.contains("mail"))|| !(email.contains("@"))|| ) {
+	  if (!(email.contains("mail"))|| !(email.contains("@")) ) {
 		  return "Invalid email";
 	  }
 	  if (email.contains(".ca")|| email.contains(".com")) {
