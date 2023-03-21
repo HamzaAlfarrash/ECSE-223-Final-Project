@@ -48,7 +48,7 @@ public class SnowShoeTourController {
 	  //^^^^------------------------------------------------------^^^^
 
 	    // defining the variable error
-	    String error = "";
+	  String error = "";
 
 	    try {
 
@@ -61,25 +61,22 @@ public class SnowShoeTourController {
 
 	      // Creating an array of TOParticipantCost
 	      TOParticipantCost[] allParticipantCosts =
-	          new TOParticipantCost[snowShoeTour.getParticipants().size()];
+	          new TOParticipantCost[tour.getParticipants().size()];
 
 	      // Defining variable i to keep track of the for loop
 	      int i = 0;
 
 	      // For loop that will iterate through the participants
-	      for (Participant p : snowShoeTour.getParticipants()) {
+	      for (Participant p : tour.getParticipants()) {
 
 	        // get the participant name of the snow tour with specific id
 	        participantName = p.getName();
 
 	        // get the participant email of the snow tour with specific id
-	        participantEmail = p.getEmail();
+	        participantEmail = p.getAccountName();
 
 	        // get the participant authorization code
 	        authorizationCode = p.getAuthorizationCode();
-
-	        // get the participant status
-	        participantStatus = p.getParticipantStatusFullName();
 
 	        // get the participant refunded percentage
 	        refundedPercentageAmount = p.getRefundedPercentageAmount();
@@ -91,7 +88,7 @@ public class SnowShoeTourController {
 	        int totalCostForBookableItems = 0;
 
 	        // creating a variable for the total cost of the Snow tour per participant
-	        int totalCostForSnowTour;
+	        int totalCostForSnowTour = 0;
 
 	        // A for loop to iterate through the booked item of each participant (inside the big for
 	        // loop) to compute the cost
@@ -137,8 +134,7 @@ public class SnowShoeTourController {
 	        totalCostForSnowTour = totalCostForBookableItems + totalCostForGuide;
 
 	        // Creates a new TOParticipantCost with the parameters that we got previously
-	        TOParticipantCost top = new TOParticipantCost(participantEmail, participantName,
-	        participantStatus, totalCostForBookableItems, totalCostForSnowTour, authorizationCode, refundedPercentageAmount);
+	        TOParticipantCost top = new TOParticipantCost(participantEmail, participantName, totalCostForBookableItems, totalCostForSnowTour);
 
 	        // Each time we're going through a participant and getting the respective information, we're
 	        // adding it to the list allParticipantCosts
