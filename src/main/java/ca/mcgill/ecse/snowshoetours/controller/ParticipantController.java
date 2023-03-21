@@ -75,11 +75,11 @@ public class ParticipantController {
 		
 		  }
 		  for (Guide guide : guides) {
-		  if (participant.getAccountName().equals(guide.getAccountName())) {
+		    if (participant.getAccountName().equals(guide.getAccountName())) {
 			  return "The email address is already used";
+		    }
 		  }
 	  }
-		  }
 	  //Add successfully the participant
 	  sst.addParticipant(email,password,name,emergencyContact,nrWeeks,weekAvailableFrom, weekAvailableUntil, 
 			  lodgeRequired,"",0);

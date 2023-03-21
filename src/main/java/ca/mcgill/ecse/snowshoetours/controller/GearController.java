@@ -123,7 +123,7 @@ public class GearController {
     }
     if(aCombo == null) return;
     
-    aCombo.delete();
+    if (aCombo != null) aCombo.delete();
   }
 
   // this method does not need to be implemented by a team with five team members

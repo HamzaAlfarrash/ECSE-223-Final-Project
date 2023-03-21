@@ -64,7 +64,6 @@ public class GuideController {
   public static void deleteGuide(String email) {
     List<Guide> Guides = sst.getGuides();
     Guide aGuide = null;
-    Manager manager = sst.getManager();
     for (Guide guide : Guides) {
       if (guide.getAccountName().equals(email)) aGuide = guide;
     }
