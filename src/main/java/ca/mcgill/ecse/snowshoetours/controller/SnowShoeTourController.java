@@ -1,6 +1,17 @@
 package ca.mcgill.ecse.snowshoetours.controller;
 
 import java.sql.Date;
+import java.util.List;
+
+import ca.mcgill.ecse.snowshoetours.application.SnowShoeToursApplication;
+import ca.mcgill.ecse.snowshoetours.model.BookableItem;
+import ca.mcgill.ecse.snowshoetours.model.BookedItem;
+import ca.mcgill.ecse.snowshoetours.model.Combo;
+import ca.mcgill.ecse.snowshoetours.model.ComboItem;
+import ca.mcgill.ecse.snowshoetours.model.Gear;
+import ca.mcgill.ecse.snowshoetours.model.Participant;
+import ca.mcgill.ecse.snowshoetours.model.SnowShoeTour;
+import ca.mcgill.ecse.snowshoetours.model.Tour;
 
 public class SnowShoeTourController {
 	
@@ -12,7 +23,29 @@ public class SnowShoeTourController {
 	 */
   public static TOSnowShoeTour getSnowShoeTour(int id) {
     // TODO Implement the method
-
+	  //Checking if the tour exist in the system
+	  if (!(Tour.hasWithId(id))){
+		  return null;
+	  }
+	  Tour tour = Tour.getWithId(id);
+	  //Getting parameters for TOSnowShoeTourCreation:
+	  
+	  //StartWeek
+	  int startWeek = tour.getStartWeek();
+	  
+	  //EndWeek
+	  int endWeek = tour.getEndWeek();
+	  
+	  //GuideEmail
+	  String guideEmail = tour.getGuide().getAccountName();
+	  
+	  //GuideName
+	  String guideName = tour.getGuide().getName();
+	  
+	  //Total cost for guide [Unsure]
+	  int totalCostForGuide = tour.getSnowShoeTour().getPriceOfGuidePerWeek() * tour.getSnowShoeTour().getNrWeeks();
+	  
+	  //^^^^------------------------------------------------------^^^^
 
 	    // defining the variable error
 	    String error = "";
@@ -25,27 +58,6 @@ public class SnowShoeTourController {
 	      String participantStatus; // defining a variable of type String for the participant status
 	      int refundedPercentageAmount; // defining a variable of type String for the participant refunded percentage amount
 
-	      // get snow tour with id
-	      SnowShowTour snowShoeTour = Tour.getWithId(id);
-
-	      // get the ID of the instance of snow tour
-	      id = snowShoeTour.getId();
-
-	      // get start week of the snow tour with specific id
-	      int startWeek = snowShoeTour.getStartWeek();
-
-	      // get end week of the snow tour with specific id
-	      int endWeek = snowShoeTour.getEndWeek();
-
-	      // get the guide email of the snow tour with specific id
-	      String guideEmail = snowShoeTour.getGuide().getEmail();
-
-	      // get the guide name of the snow tour with specific id
-	      String guideName = snowShoeTour.getGuide().getName();
-
-	      // formula to compute the total cost for guide
-	      int totalCostForGuide =
-	          snowShoeTour.getSnowShoeTour().getPriceOfGuidePerWeek() * (endWeek - startWeek + 1);
 
 	      // Creating an array of TOParticipantCost
 	      TOParticipantCost[] allParticipantCosts =

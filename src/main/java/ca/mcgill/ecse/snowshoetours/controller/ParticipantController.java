@@ -128,7 +128,7 @@ public class ParticipantController {
     
     //Checking if bookable item exists in the system
     if (!(BookableItem.hasWithName(bookableItemName))) {
-    	return "The bookableItem " + bookableItemName + " does not exits in the system";
+    	return "The bookableItem: " + bookableItemName + " does not exits in the system";
     }
     BookableItem item = BookableItem.getWithName(bookableItemName);
     //Checking if participant already has the item
@@ -142,7 +142,7 @@ public class ParticipantController {
 	}
 	//Successfully adding the new item
 	SnowShoeTour sst = SnowShoeToursApplication.getSnowShoeTour(); //Added
-	participant.addBookedItem(1,sst, item);//Is there a cleaner way
+	participant.addBookedItem(1,sst, item);//Is there a cleaner way?
 	return "";
     }
 
