@@ -43,7 +43,7 @@ public class SnowShoeTourController {
 	  String guideName = tour.getGuide().getName();
 	  
 	  //Total cost for guide [Unsure]
-	  int totalCostForGuide = tour.getSnowShoeTour().getPriceOfGuidePerWeek()*(tour.getEndWeek()-tour.getStartWeek()+1); //* tour.getSnowShoeTour().getNrWeeks();
+	  int totalCostForGuide = tour.getSnowShoeTour().getPriceOfGuidePerWeek()*( tour.getEndWeek()-tour.getStartWeek()+1); //* tour.getSnowShoeTour().getNrWeeks();
 	  
 	  //^^^^------------------------------------------------------^^^^
 
