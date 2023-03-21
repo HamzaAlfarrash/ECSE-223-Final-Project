@@ -243,24 +243,14 @@ public class GearController {
     }
     for (ComboItem comboItem : tCombo.getComboItems()) {  //iterate over combo items in desired combo
       if (comboItem.getGear() == tGear) {                 //if the combo item is of the associated gear, remove it from the combo.
-        //if quantity is more than one, simply decrement it, otherwise, remove item completely from the combo
-        if(comboItem.getQuantity()>1) {
-          int q = comboItem.getQuantity();
-          q--;
-          comboItem.setQuantity(q);
-          return "";
+        comboItem.setQuantity(comboItem.getQuantity()-1);
+        if(comboItem.getQuantity()<1) {
+          if(tCombo.getComboItems().size()<=2) {
+            comboItem.setQuantity(comboItem.getQuantity()+1);
+            return "A combo must have at least two pieces of gear";
+          }
+          comboItem.delete();
         }
-        comboItem.setCombo(null); //so that it is removed successfully from tCombo and tGear
-        comboItem.setGear(null);
-        boolean removed = tCombo.removeComboItem(comboItem); //the boolean is false if combo only has 2 pieces of gear to begin with
-        if(!removed) {
-          return "A combo must have at least two pieces of gear";
-        }
-        tGear.removeComboItem(comboItem);                 //remove combo item from the list of combo items in the gear
-        comboItem.setSnowShoeTour(null);
-        sst.removeComboItem(comboItem);
-        comboItem.delete();
-        
         return "";
       }
     }

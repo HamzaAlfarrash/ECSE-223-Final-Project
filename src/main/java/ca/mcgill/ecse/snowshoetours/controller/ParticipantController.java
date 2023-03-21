@@ -211,7 +211,8 @@ public class ParticipantController {
 	            if (currentQuantity > 1) {
 	              b.setQuantity(currentQuantity - 1); // Decrease quantity by 1
 	            } else {
-	              p.removeBookedItem(b); // Remove the booked item
+	              p.removeBookedItem(b); // Remove the booked item from participant
+	              b.delete();
 	            }
 	            return "";
 	          }
