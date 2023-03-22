@@ -43,17 +43,17 @@ public class ParticipantController {
 		  return "Number of weeks must be greater than zero";
 	  }
 	  if (nrWeeks > 10) { // checks for validity of the integer number of weeks (in bounds)
-		  return "Number of weeks must be less than or equal to the number of biking weeks in the biking season";
+		  return "Number of weeks must be less than or equal to the number of snowshoe weeks in the snowshoe season";
 	  }
 	  if ((weekAvailableFrom < 1 || weekAvailableFrom > 10) || (weekAvailableUntil < 1 || weekAvailableUntil > 10)) { // checks weekAvailableFrom & weekAvailableUntil are within the bounds
-		  return "Available weeks must be within weeks of biking season (1-10)";
+		  return "Available weeks must be within weeks of snowshoe season (1-10)";
 	  }
 	  //Logic check
 	  if (weekAvailableFrom >= weekAvailableUntil) { // checks for correct logic of week available dates
 		  return "Week from which one is available must be less than or equal to the week until which one is available";
 	  }
-	  if (email.equals("manager@btp.com")) { // checks for validity of email
-		  return "Email cannot be manager@btp.com";
+	  if (email.equals("manager")) { // checks for validity of email
+		  return "Invalid email";
 	  }
 	  if (email.contains(" ")) { // checks for empty string in email (i.e. spaces)
 		 return "Email must not contain any spaces";
