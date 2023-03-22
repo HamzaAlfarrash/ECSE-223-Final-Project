@@ -20,8 +20,8 @@ public class ParticipantController {
 	   * @param nrWeeks
 	   * @param weekAvailableFrom
 	   * @param weekAvailableUntil
-	   * @param lodge required
-	   * @return
+	   * @param lodgeRequired
+	   * @return 
 	   */
   public static String registerParticipant(String email, String password, String name,
       String emergencyContact, int nrWeeks, int weekAvailableFrom, int weekAvailableUntil,
