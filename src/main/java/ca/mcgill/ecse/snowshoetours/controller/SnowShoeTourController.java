@@ -162,13 +162,13 @@ public class SnowShoeTourController {
 	    SnowShoeTour sst = SnowShoeToursApplication.getSnowShoeTour();
 	    
 	    //input validation
-	    if(nrWeeks < 0) return "The number of riding weeks must be greater than or equal to zero";
-	    if(priceOfGuidePerWeek<0) return "The price of guide per week must be greater than or equal to zero";
-	    if(startDate.getYear()<sst.getStartDate().getYear()) return "The start date cannot be from previous year or earlier";
-	    
-	    sst.setStartDate(startDate);
-	    sst.setNrWeeks(nrWeeks);
-	    sst.setPriceOfGuidePerWeek(priceOfGuidePerWeek);
+	    if(nrWeeks < 0) return "The number of riding weeks must be greater than or equal to zero"; // if an invalid input for number of weeks is inputted
+	    if(priceOfGuidePerWeek<0) return "The price of guide per week must be greater than or equal to zero"; // identical check for the price per week
+	    if(startDate.getYear()<sst.getStartDate().getYear()) return "The start date cannot be from previous year or earlier"; // if the start date is from the previous year - which cannot occur
+	     
+	    sst.setStartDate(startDate); // sets start date
+	    sst.setNrWeeks(nrWeeks); // sets number of weeks
+	    sst.setPriceOfGuidePerWeek(priceOfGuidePerWeek); //sets price of guide per week
 	    
 	    return "";
   }
