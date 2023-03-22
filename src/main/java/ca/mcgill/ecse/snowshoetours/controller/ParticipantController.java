@@ -20,8 +20,8 @@ public class ParticipantController {
 	   * @param nrWeeks
 	   * @param weekAvailableFrom
 	   * @param weekAvailableUntil
-	   * @param lodgeRequired
-	   * @return 
+	   * @param lodge required
+	   * @return error message
 	   */
   public static String registerParticipant(String email, String password, String name,
       String emergencyContact, int nrWeeks, int weekAvailableFrom, int weekAvailableUntil,
@@ -119,7 +119,6 @@ public class ParticipantController {
    * @param email
    * @param bookableItemName
    * @return error message (if any)
-   * @throws RunTimeException
    */
   public static String addBookableItemToParticipant(String email, String bookableItemName) {
     // TODO Implement the method, return error message (if any)
@@ -162,10 +161,10 @@ public class ParticipantController {
   
   /**
    * @author Wasif Somji
-   * 
+   * removes a bookableItem from Participant
    * @param email
    * @param bookableItemName
-   * @return
+   * @return error message
    */
   public static String removeBookableItemFromParticipant(String email, String bookableItemName) {
 	  
