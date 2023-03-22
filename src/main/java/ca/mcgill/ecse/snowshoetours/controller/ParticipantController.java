@@ -26,72 +26,72 @@ public class ParticipantController {
   public static String registerParticipant(String email, String password, String name,
       String emergencyContact, int nrWeeks, int weekAvailableFrom, int weekAvailableUntil,
       boolean lodgeRequired) {
-	  // TODO Implement the method, return error message (if any)
-	  //Basic input check
-	  if (email == "" || email == null) {
+	  
+	  if (email == "" || email == null) { // checks for validity of email
 		  return "Email cannot be empty";
 	  }
-	  if (password == "" || password == null) {
+	  if (password == "" || password == null) { // checks for validity of password
 		  return "Password cannot be empty";
 	  }
-	  if (name == "" || name == null) {
+	  if (name == "" || name == null) { // checks for validity of name
 		  return "Name cannot be empty";
 	  }
-	  if (emergencyContact == "" || emergencyContact == null) {
+	  if (emergencyContact == "" || emergencyContact == null) { // checks for validity of emergency contact
 		  return "Emergency contact cannot be empty";
 	  }
-	  if (nrWeeks <= 0) {
+	  if (nrWeeks <= 0) { // checks for validity of the integer number of weeks (in bounds)
 		  return "Number of weeks must be greater than zero";
 	  }
-	  if (nrWeeks > 10) {
+	  if (nrWeeks > 10) { // checks for validity of the integer number of weeks (in bounds)
 		  return "Number of weeks must be less than or equal to the number of biking weeks in the biking season";
 	  }
-	  if (weekAvailableFrom < 1 || weekAvailableFrom > 10) {
+	  if (weekAvailableFrom < 1 || weekAvailableFrom > 10) { // checks weekAvailableFrom is within the bounds
 		  return "Available weeks must be within weeks of biking season (1-10)";
 	  }
-	  if (weekAvailableUntil < 1 || weekAvailableUntil > 10) {
+	  if (weekAvailableUntil < 1 || weekAvailableUntil > 10) { // checks weekAvailableUntil is ithin bounds
 		  return "Available weeks must be within weeks of biking season (1-10)";
 	  }
 	  //Logic check
-	  if (weekAvailableFrom >= weekAvailableUntil) {
+	  if (weekAvailableFrom >= weekAvailableUntil) { // checks for correct logic of week available dates
 		  return "Week from which one is available must be less than or equal to the week until which one is available";
 	  }
-	  if (email.equals("manager@btp.com")) {
+	  if (email.equals("manager@btp.com")) { // checks for validity of email
 		  return "Email cannot be manager@btp.com";
 	  }
-	  if (email.contains(" ")) {
+	  if (email.contains(" ")) { // checks for empty string in email (i.e. spaces)
 		 return "Email must not contain any spaces";
 	  }
-	  if (nrWeeks > (weekAvailableUntil - weekAvailableFrom +1)){
+	  if (nrWeeks > (weekAvailableUntil - weekAvailableFrom +1)){ // checks number of weeks is equal to the weeks available + 1
 		 return "Number of weeks must be less than or equal to the number of available weeks";
 	  }
-	  //Valid email address verifier
-	  if (!(email.contains("mail"))|| !(email.contains("@"))) {
+	  
+	  if (!(email.contains("mail"))|| !(email.contains("@"))) { // checks for validity of email
 		  return "Invalid email";
 	  }
-	  if (email.contains(".ca")|| email.contains(".com")) {
+	  if (email.contains(".ca")|| email.contains(".com")) { // checks for validity of email
 	  }
-	  else {return "Invalid email";}
+	  else {return "Invalid email";} 
+	  // checks for validity of email using the sequence of characters in the string
 	  if ( !(email.contains("@") && email.indexOf("@") > 0 && email.indexOf("@") == email.lastIndexOf("@") && email.indexOf("@") < email.lastIndexOf(".") - 1 && email.lastIndexOf(".") < email.length() - 1)) return "Invalid email";
 	  
 	  //I AM NOT SURE IF THAT IS ALREADY COVERED BY THE UNIQUE KEYWORD OF UMPLE
 	  SnowShoeTour sst = SnowShoeToursApplication.getSnowShoeTour();
-	  List<Participant> participants = sst.getParticipants();
-	  List<Guide> guides = sst.getGuides();
-	  if (sst.getManager().getAccountName().equals(email)) {
+	  List<Participant> participants = sst.getParticipants(); //assigns variable participants
+	  List<Guide> guides = sst.getGuides(); // assigns variable guides
+	  if (sst.getManager().getAccountName().equals(email)) { // checks manager's email in system and returns empty string if match occurs
 		  return "";
 	  }
 	  for (Participant participant : participants) {
-		  if (participant.getAccountName().equals(email)) {
-			  return "Email already linked to a participant account";
+		  if (participant.getAccountName().equals(email)) { // if the participant's information already exists in the system
+			  return "Email already linked to a participant account"; 
 		  }
 	  }
 	  for (Guide guide : guides) {
-		    if (email.equals(guide.getAccountName())) {
+		    if (email.equals(guide.getAccountName())) { // if the guide's information already exists in the system
 			  return "Email already linked to a guide account";
 		    }
 		  }
-	  //Add successfully the participant
+	  //Once all conditions are checked, successfully add the participant
 	  sst.addParticipant(email,password,name,emergencyContact,nrWeeks,weekAvailableFrom, weekAvailableUntil, 
 			  lodgeRequired,"",0);
 	  return "";
@@ -110,9 +110,9 @@ public class ParticipantController {
 	  else {
 		  SnowShoeTour sst = SnowShoeToursApplication.getSnowShoeTour();
 		  List<Participant> participants = sst.getParticipants();
-		  for (Participant participant : participants) {
-			  if (participant.getAccountName().equals(email)) {
-				  participant.delete();
+		  for (Participant participant : participants) { 
+			  if (participant.getAccountName().equals(email)) { // once the email matches the one in the system
+				  participant.delete(); // you can successfully delete it
 				  break;
 			  }
 		  }
@@ -174,38 +174,37 @@ public class ParticipantController {
    */
   public static String removeBookableItemFromParticipant(String email, String bookableItemName) {
 	  
-	  if (email == "" || email == null) {
+	  if (email == "" || email == null) { // checks validity of email
 		  return "Email must exist.";
 	  }
 	  
-	  if (bookableItemName == "" || bookableItemName == null) {
+	  if (bookableItemName == "" || bookableItemName == null) { // checks validity of the bookable item name
 		  return "Bookable item must exist."; 
 	  }
-	  var error = "";
+	  var error = ""; //sets empty string for error
 	  
-	  BookableItem bookedItem = BookableItem.getWithName(bookableItemName); 
+	  BookableItem bookedItem = BookableItem.getWithName(bookableItemName); // assigns variable bookedItem
 	    
-	  User user = User.getWithAccountName(email);
-	    // Check if user is null or not an instance of participant
-	  
-	    if (!(user instanceof Participant)) {
+	  User user = User.getWithAccountName(email); // assigns user to the email given in input
+	    
+	    if (!(user instanceof Participant)) { // Check if user is null or not an instance of participant
 	      return "The participant does not exist";
 	    }
 	    
 	    // Check if item is null
-	    if (bookedItem == null) {
+	    if (bookedItem == null) { // checks validity of the booked item
 	      return "The piece of gear or combo does not exist";
 	    }
 	    
-	    try {
+	    try { // try catch loop to check errors if needed
 	        Participant p = (Participant) user;
 	        // Get all booked items for participant
 	        List <BookedItem> bi = p.getBookedItems();
 	        // Check if given bookable item is a booked item
 	        for (BookedItem b : bi) {
 	          if (b.getItem() == bookedItem) {
-	            int currentQuantity = b.getQuantity();
-	            if (currentQuantity > 1) {
+	            int currentQuantity = b.getQuantity(); 
+	            if (currentQuantity > 1) { // quantity should be more than 1 to avoid any running out of quantity (can't go in negatives in real life)
 	              b.setQuantity(currentQuantity - 1); // Decrease quantity by 1
 	            } else {
 	              p.removeBookedItem(b); // Remove the booked item from participant
