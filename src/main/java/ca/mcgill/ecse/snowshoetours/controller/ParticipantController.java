@@ -27,10 +27,10 @@ public class ParticipantController {
       String emergencyContact, int nrWeeks, int weekAvailableFrom, int weekAvailableUntil,
       boolean lodgeRequired) {
 	  
-	  if (email == null || email.isBlank()) { // checks for validity of email
+	  if ( email==null|| email.isBlank()) { // checks for validity of email
 		  return "Email cannot be empty";
 	  }
-	  if (password == null || password.isBlank()) { // checks for validity of password
+	  if ( password == null || password.isBlank()) { // checks for validity of password
 		  return "Password cannot be empty";
 	  }
 	  if ( name == null || name.isBlank()) { // checks for validity of name
@@ -63,9 +63,6 @@ public class ParticipantController {
 	  }
 	  
 	  if (!(email.contains("mail"))|| !(email.contains("@"))) { // checks for validity of email
-		  return "Invalid email";
-	  }
-	  if (!email.contains(".ca")|| !email.contains(".com")) { // checks for validity of email
 		  return "Invalid email";
 	  }
 
