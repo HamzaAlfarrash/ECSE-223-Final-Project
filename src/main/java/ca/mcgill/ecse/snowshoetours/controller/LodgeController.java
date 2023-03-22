@@ -12,7 +12,7 @@ public class LodgeController {
   public static String addLodge(String name, String address, int nrStars) {
     //input check
     if (name == null || name.isEmpty()) return "Name cannot be empty";  //checks validity of name
-    if (name == null || name.isEmpty()) return "Address cannot be empty"; //checks validity of ...
+    if (address == null || address.isEmpty()) return "Address cannot be empty"; //checks validity of ...
     
     LodgeRating rating;
     
