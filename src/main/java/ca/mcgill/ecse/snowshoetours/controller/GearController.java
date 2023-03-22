@@ -80,7 +80,7 @@ public class GearController {
    * @return error message
    */
   public static String addCombo(String name, int discount) {
-    if(discount < 0 ) { =
+    if(discount < 0 ) {
       return "Discount must be at least 0";
     }
     //the if statements above and below this comment check 0 < discount < 100
@@ -248,7 +248,7 @@ public class GearController {
             comboItem.setQuantity(comboItem.getQuantity()+1);
             return "A combo must have at least two pieces of gear";
           }
-          comboItem.delete(); //deletse the combo item
+          comboItem.delete(); //delete the combo item
         }
         return "";
       }
