@@ -215,7 +215,7 @@ public class GearController {
     Combo tCombo =null;
     SnowShoeTour sst = SnowShoeToursApplication.getSnowShoeTour();
     List<Combo> allCombos = sst.getCombos();    //all combos in the Snow Shoe Tour
-    for (Combo combo : allCombos){              //iterate through all combos + check if combo exists
+    for (Combo combo : allCombos){              //iterate through all combos +check if combo exists
       if(combo.getName().equals(comboName)){
         tCombo =combo;
         comboExists=true;
