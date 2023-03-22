@@ -156,7 +156,15 @@ public class SnowShoeTourController {
 	    }
 	    return null;
   }
-
+  
+  /**
+   * @author Souhail El Hayani
+   * updates SnowShoeTour
+   * @param startDate
+   * @param nrWeeks
+   * @param priceOfGuidePerWeek
+   * @return error message
+   */
   public static String updateSnowShoeTour(Date startDate, int nrWeeks, int priceOfGuidePerWeek) {
 	// TODO Implement the method, return error message (if any)
 	    SnowShoeTour sst = SnowShoeToursApplication.getSnowShoeTour();

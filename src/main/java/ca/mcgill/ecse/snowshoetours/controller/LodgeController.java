@@ -9,6 +9,14 @@ import ca.mcgill.ecse.snowshoetours.model.SnowShoeTour;
 public class LodgeController {
   private static SnowShoeTour sst = SnowShoeToursApplication.getSnowShoeTour();
   
+  /**
+   * @author Yassine Mimet
+   * adds lodge to system
+   * @param name
+   * @param address
+   * @author nrStars
+   * return String
+   */
   public static String addLodge(String name, String address, int nrStars) {
     //input check
     if (name == null || name.isEmpty()) return "Name cannot be empty";  //checks validity of name
@@ -42,7 +50,11 @@ public class LodgeController {
     
     return null;
   }
-
+  /**
+   * @author Yassine Mimet
+   * deletes a lodge
+   * @param name
+   */
   public static void deleteLodge(String name) {
     
     List<Lodge> lodges = sst.getLodges(); // attains variable Lodges

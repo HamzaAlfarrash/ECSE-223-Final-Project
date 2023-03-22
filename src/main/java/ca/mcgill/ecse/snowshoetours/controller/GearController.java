@@ -11,6 +11,7 @@ public class GearController {
   
   /**
    * @author Souhail El Hayani
+   * adds a gear
    * @param name
    * @param pricePerWeek
    * @return error message
@@ -74,7 +75,7 @@ public class GearController {
 
   /**
    * @author Yassine Mimet
-   * 
+   * adds a combo
    * @param name
    * @param discount
    * @return error message
@@ -110,6 +111,7 @@ public class GearController {
     
   /**
    * @author Yassine Mimet
+   * deletes combo
    * @param name
    */
   public static void deleteCombo(String name) {
@@ -128,7 +130,7 @@ public class GearController {
   // this method does not need to be implemented by a team with five team members
   /**
    * @author Martin Eskaros
-   *
+   * adds gear to Combo
    * @param gearName
    * @param comboName
    * @return error message
@@ -196,7 +198,7 @@ public class GearController {
 
   /**
    * @author Wasif Somji
-   *
+   * removes a Gear piece from Combo
    * @param gearName
    * @param comboName
    * @return error message

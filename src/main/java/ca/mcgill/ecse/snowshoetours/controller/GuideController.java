@@ -13,12 +13,12 @@ public class GuideController {
   
   /**
    * @author Yassine Mimet
-   * 
+   * registers a guide in the system
    * @param email
    * @param password
    * @param name
    * @param emergencyContact
-   * @return
+   * @return error message
    */
   public static String registerGuide(String email, String password, String name,
       String emergencyContact) {
@@ -58,7 +58,7 @@ public class GuideController {
 
   /**
    * @author Yassine Mimet
-   * 
+   * deletes a guide from system
    * @param email
    */
   public static void deleteGuide(String email) {
