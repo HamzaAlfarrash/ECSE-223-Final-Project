@@ -12,7 +12,7 @@ import ca.mcgill.ecse.snowshoetours.model.User;
 
 public class ParticipantController {
 	/**
-	   * @author Philippe Marchand
+	   * @author Philippe Marchand+Martin Eskaros
 	   * @param email
 	   * @param password
 	   * @param name
@@ -27,16 +27,16 @@ public class ParticipantController {
       String emergencyContact, int nrWeeks, int weekAvailableFrom, int weekAvailableUntil,
       boolean lodgeRequired) {
 	  
-	  if (email == "" || email == null) { // checks for validity of email
+	  if (email == null || email.isBlank()) { // checks for validity of email
 		  return "Email cannot be empty";
 	  }
-	  if (password == "" || password == null) { // checks for validity of password
+	  if (password == null || password.isBlank()) { // checks for validity of password
 		  return "Password cannot be empty";
 	  }
-	  if (name == "" || name == null) { // checks for validity of name
+	  if ( name == null || name.isBlank()) { // checks for validity of name
 		  return "Name cannot be empty";
 	  }
-	  if (emergencyContact == "" || emergencyContact == null) { // checks for validity of emergency contact
+	  if ( emergencyContact == null || emergencyContact.isBlank()) { // checks for validity of emergency contact
 		  return "Emergency contact cannot be empty";
 	  }
 	  if (nrWeeks <= 0) { // checks for validity of the integer number of weeks (in bounds)
@@ -45,10 +45,7 @@ public class ParticipantController {
 	  if (nrWeeks > 10) { // checks for validity of the integer number of weeks (in bounds)
 		  return "Number of weeks must be less than or equal to the number of biking weeks in the biking season";
 	  }
-	  if (weekAvailableFrom < 1 || weekAvailableFrom > 10) { // checks weekAvailableFrom is within the bounds
-		  return "Available weeks must be within weeks of biking season (1-10)";
-	  }
-	  if (weekAvailableUntil < 1 || weekAvailableUntil > 10) { // checks weekAvailableUntil is ithin bounds
+	  if ((weekAvailableFrom < 1 || weekAvailableFrom > 10) || (weekAvailableUntil < 1 || weekAvailableUntil > 10)) { // checks weekAvailableFrom & weekAvailableUntil are within the bounds
 		  return "Available weeks must be within weeks of biking season (1-10)";
 	  }
 	  //Logic check
@@ -68,9 +65,10 @@ public class ParticipantController {
 	  if (!(email.contains("mail"))|| !(email.contains("@"))) { // checks for validity of email
 		  return "Invalid email";
 	  }
-	  if (email.contains(".ca")|| email.contains(".com")) { // checks for validity of email
+	  if (!email.contains(".ca")|| !email.contains(".com")) { // checks for validity of email
+		  return "Invalid email";
 	  }
-	  else {return "Invalid email";} 
+
 	  // checks for validity of email using the sequence of characters in the string
 	  if ( !(email.contains("@") && email.indexOf("@") > 0 && email.indexOf("@") == email.lastIndexOf("@") && email.indexOf("@") < email.lastIndexOf(".") - 1 && email.lastIndexOf(".") < email.length() - 1)) return "Invalid email";
 	  
@@ -103,7 +101,7 @@ public class ParticipantController {
   public static void deleteParticipant(String email) {
      // TODO Implement the method
 	//Basic input check
-	  if (email == "" || email == null) {
+	  if ( email == null || email.isBlank()) {
 	  }
 	 //Successfully removes the participant 
 	 // or does nothing there is not a participant with the input email 
@@ -130,19 +128,19 @@ public class ParticipantController {
     // TODO Implement the method, return error message (if any)
 	 
 	//Basic check
-    if (email == "" || email == null) {
+    if (email == null || email.isBlank()) {
       return "The email cannot be empty";
     }
-    if (bookableItemName == "" || bookableItemName == null) { //Added
+    if ( bookableItemName == null|| bookableItemName.isBlank()) { //Added
     	return "The bookable item name must not be empty";
     }
     //Checking if email belongs to a participant
     User user = User.getWithAccountName(email);
-    if (!(user instanceof Participant) || user == null) {
+    if (user == null|| !(user instanceof Participant)  ) {
     	return "The participant does not exist";
     }
     Participant participant = (Participant) user;
-    
+
     //Checking if bookable item exists in the system
     if (!(BookableItem.hasWithName(bookableItemName))) {
     	return "The piece of gear or combo does not exist";
@@ -174,11 +172,11 @@ public class ParticipantController {
    */
   public static String removeBookableItemFromParticipant(String email, String bookableItemName) {
 	  
-	  if (email == "" || email == null) { // checks validity of email
+	  if ( email == null || email.isBlank()) { // checks validity of email
 		  return "Email must exist.";
 	  }
 	  
-	  if (bookableItemName == "" || bookableItemName == null) { // checks validity of the bookable item name
+	  if (bookableItemName == null || bookableItemName.isBlank()) { // checks validity of the bookable item name
 		  return "Bookable item must exist."; 
 	  }
 	  var error = ""; //sets empty string for error
