@@ -1,0 +1,83 @@
+class SnowShoeTour {
+  public void reinitialize() {
+    //TODO need bookableItems???
+    BookedItem.reinitializeUniqueCode(getBookedItems());//
+    Combo.reinitializeAutouniqueID(getCombos());//
+    ComboItem.reinitializeUniqueName(getComboItems());//
+    Gear.reinitializeUniqueName(getGear());//
+    Guide.reinitializeUniqueName(getGuides());//
+    Lodge.reinitializeUniqueName(getLodges());//
+    Manager.reinitializeUniqueName(getManager());
+    Participant.reinitializeUniqueName(getParticipants());//
+    Tour.reinitializeUniqueName(getTours());//
+  }
+}
+//EX:
+class BookableItem {
+  public static void reinitializeUniqueFlightNumber(List<Flight> flights) {
+    flightsByFlightNumber.clear();
+    for (var f : flights) {
+      flightsByFlightNumber.put(f.getFlightNumber(), f);
+    }
+  }
+}
+//END EX
+class BookedItem {
+  public static void reinitializeUniqueCode(List<BookedItem> bookItems) {
+ 
+  }
+}
+
+class Combo {
+  public static void reinitializeUniqueName(List<Combo> combos) {
+
+  }
+}
+
+class ComboItem {
+  public static void reinitializeAutouniqueID(List<Plane> planes) {
+    nextId = 0; 
+    for (Plane plane : planes) {
+      if (plane.getId() > nextId) {
+        nextId = plane.getId();
+      }
+    }
+    nextId++;
+  }
+  
+class Gear {
+  public static void reinitializeUniqueName(List<Person> persons) {
+  
+  }
+}
+
+class Guide {
+  public static void reinitializeUniqueName(List<Person> persons) {
+
+  }
+}
+class Lodge {
+  public static void reinitializeUniqueName(List<Person> persons) {
+
+  }
+}
+class Manager {
+  public static void reinitializeUniqueName(List<Person> persons) {
+
+  }
+}
+
+
+class Participant {
+  public static void reinitializeUniqueName(List<Person> persons) {
+
+  }
+}
+class Tour {
+  public static void reinitializeUniqueName(List<Person> persons) {
+
+  }
+}
+
+}
+
