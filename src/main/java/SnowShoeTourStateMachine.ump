@@ -5,38 +5,41 @@ class Participant {
       assign(Tour tour) / {
         doAssign(tour);
       } -> AssignedParticipant;
-      cancel() -> Canceled;
-      pay(String authorizationCode) [isAuthorizationCodeValid(authorizationCode)] / {
-        rejectPay(authorizationCode); 
-        } -> NotAssignedParticipant;
+      cancel() -> CanceledParticipant;
     }
-  
+
     AssignedParticipant {
       pay(String authorizationCode) [isValid(authorizationCode)] / {
         doPay(authorizationCode); 
-      } -> Paid;
-      startTrip(int week) [hasMatchingStartWeek(week)] -> Canceled;
+      } -> PaidParticipant;
+      pay(String authorizationCode) [!isValid(authorizationCode)] / {
+        rejectPay(authorizationCode); 
+      } -> AssignedParticipant;
+      assign(Tour tour) / {
+        rejectAssign(tour);
+      } -> AssignedParticipant;
+      startTrip(int week) -> CanceledParticipant;
+      cancel() -> CanceledParticipant;
+    }
 
-      cancel() -> Canceled;
+    PaidParticipant {
+      startTrip(int week) [hasMatchingStartWeek(week)] -> StartedParticipant;
+      cancel() / { doRefund(50); } -> CanceledParticipant;
     }
-    Paid {
-      startTrip(int week) [hasMatchingStartWeek(week)] -> Started;
-      cancel() / { doRefund(50); } -> Canceled;
+    StartedParticipant {
+      finishTrip() -> FinishedParticipant;
+      cancel() / { doRefund(10); } -> CanceledParticipant;
     }
-    Started {
-      finishTrip() -> Finished;
-      cancel() / { doRefund(10); } -> Canceled;
-    }
-    Canceled {}
-    Finished {}
+    CanceledParticipant {}
+    FinishedParticipant {}
   }
 
   private void doAssign(Tour tour) {
     setTour(tour);
   }
-  
+
   private void rejectAssign(Tour tour) {
-  	throw new RuntimeException("Assigning participant failed");
+      throw new RuntimeException("Assigning participant failed");
   }
 
   private boolean isValid(String authorizationCode) {
@@ -46,12 +49,12 @@ class Participant {
  
 
   private void doPay(String authorizationCode) {
-    setStatus(Status.Paid);
-  	setAuthorizationCode(authorizationCode);
+    setStatus(Status.PaidParticipant);
+      setAuthorizationCode(authorizationCode);
   }
-  
-  private void rejectPay(String authorizationCode) {
-  	throw new RuntimeException("Payement failed");
+
+    private void rejectPay(String authorizationCode) {
+      throw new RuntimeException("Payement failed");
   }
 
   private boolean hasMatchingStartWeek(int week) {
@@ -61,9 +64,9 @@ class Participant {
   private void doRefund(int refundedPercentageAmount) {
     setRefundedPercentageAmount(refundedPercentageAmount);
   }
-  
+
   private void rejectRefund(int refundedPercentageAmount) {
-  	throw new RuntimeException("Refund failed");
+      throw new RuntimeException("Refund failed");
   }
 
 }

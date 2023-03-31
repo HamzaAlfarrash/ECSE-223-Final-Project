@@ -22,7 +22,7 @@ public class Participant extends NamedUser
   private int refundedPercentageAmount;
 
   //Participant State Machines
-  public enum Status { NotAssignedParticipant, AssignedParticipant, Paid, Started, Canceled, Finished }
+  public enum Status { NotAssignedParticipant, AssignedParticipant, PaidParticipant, StartedParticipant, CanceledParticipant, FinishedParticipant }
   private Status status;
 
   //Participant Associations
@@ -163,6 +163,12 @@ public class Participant extends NamedUser
         setStatus(Status.AssignedParticipant);
         wasEventProcessed = true;
         break;
+      case AssignedParticipant:
+        // line 18 "../../../../../SnowShoeTourStateMachine.ump"
+        rejectAssign(tour);
+        setStatus(Status.AssignedParticipant);
+        wasEventProcessed = true;
+        break;
       default:
         // Other states do respond to this event
     }
@@ -178,29 +184,23 @@ public class Participant extends NamedUser
     switch (aStatus)
     {
       case NotAssignedParticipant:
-        setStatus(Status.Canceled);
+        setStatus(Status.CanceledParticipant);
         wasEventProcessed = true;
         break;
       case AssignedParticipant:
-        setStatus(Status.Canceled);
+        setStatus(Status.CanceledParticipant);
         wasEventProcessed = true;
         break;
-      case Paid:
-        // line 19 "../../../../../SnowShoeTourStateMachine.ump"
-        doRefund(50);
-        setStatus(Status.Canceled);
-        wasEventProcessed = true;
-        break;
-      case Started:
-        // line 23 "../../../../../SnowShoeTourStateMachine.ump"
-        doRefund(10);
-        setStatus(Status.Canceled);
-        wasEventProcessed = true;
-        break;
-      case Finished:
+      case PaidParticipant:
         // line 27 "../../../../../SnowShoeTourStateMachine.ump"
-        doRefund(0);
-        setStatus(Status.Canceled);
+        doRefund(50);
+        setStatus(Status.CanceledParticipant);
+        wasEventProcessed = true;
+        break;
+      case StartedParticipant:
+        // line 31 "../../../../../SnowShoeTourStateMachine.ump"
+        doRefund(10);
+        setStatus(Status.CanceledParticipant);
         wasEventProcessed = true;
         break;
       default:
@@ -220,9 +220,17 @@ public class Participant extends NamedUser
       case AssignedParticipant:
         if (isValid(authorizationCode))
         {
-        // line 11 "../../../../../SnowShoeTourStateMachine.ump"
+        // line 12 "../../../../../SnowShoeTourStateMachine.ump"
           doPay(authorizationCode);
-          setStatus(Status.Paid);
+          setStatus(Status.PaidParticipant);
+          wasEventProcessed = true;
+          break;
+        }
+        if (!(isValid(authorizationCode)))
+        {
+        // line 15 "../../../../../SnowShoeTourStateMachine.ump"
+          rejectPay(authorizationCode);
+          setStatus(Status.AssignedParticipant);
           wasEventProcessed = true;
           break;
         }
@@ -241,10 +249,14 @@ public class Participant extends NamedUser
     Status aStatus = status;
     switch (aStatus)
     {
-      case Paid:
+      case AssignedParticipant:
+        setStatus(Status.CanceledParticipant);
+        wasEventProcessed = true;
+        break;
+      case PaidParticipant:
         if (hasMatchingStartWeek(week))
         {
-          setStatus(Status.Started);
+          setStatus(Status.StartedParticipant);
           wasEventProcessed = true;
           break;
         }
@@ -263,8 +275,8 @@ public class Participant extends NamedUser
     Status aStatus = status;
     switch (aStatus)
     {
-      case Started:
-        setStatus(Status.Finished);
+      case StartedParticipant:
+        setStatus(Status.FinishedParticipant);
         wasEventProcessed = true;
         break;
       default:
@@ -455,44 +467,44 @@ public class Participant extends NamedUser
     super.delete();
   }
 
-  // line 32 "../../../../../SnowShoeTourStateMachine.ump"
+  // line 38 "../../../../../SnowShoeTourStateMachine.ump"
    private void doAssign(Tour tour){
     setTour(tour);
   }
 
-  // line 36 "../../../../../SnowShoeTourStateMachine.ump"
+  // line 42 "../../../../../SnowShoeTourStateMachine.ump"
    private void rejectAssign(Tour tour){
     throw new RuntimeException("Assigning participant failed");
   }
 
-  // line 40 "../../../../../SnowShoeTourStateMachine.ump"
+  // line 46 "../../../../../SnowShoeTourStateMachine.ump"
    private boolean isValid(String authorizationCode){
     if(authorizationCode.equals("") ||  authorizationCode == null) return false;
     return true;
   }
 
-  // line 46 "../../../../../SnowShoeTourStateMachine.ump"
+  // line 52 "../../../../../SnowShoeTourStateMachine.ump"
    private void doPay(String authorizationCode){
-    setStatus(Status.Paid);
-  	setAuthorizationCode(authorizationCode);
+    setStatus(Status.PaidParticipant);
+      setAuthorizationCode(authorizationCode);
   }
 
-  // line 51 "../../../../../SnowShoeTourStateMachine.ump"
+  // line 57 "../../../../../SnowShoeTourStateMachine.ump"
    private void rejectPay(String authorizationCode){
     throw new RuntimeException("Payement failed");
   }
 
-  // line 55 "../../../../../SnowShoeTourStateMachine.ump"
+  // line 61 "../../../../../SnowShoeTourStateMachine.ump"
    private boolean hasMatchingStartWeek(int week){
     return (week >= getWeekAvailableFrom() && week <= getWeekAvailableUntil());
   }
 
-  // line 59 "../../../../../SnowShoeTourStateMachine.ump"
+  // line 65 "../../../../../SnowShoeTourStateMachine.ump"
    private void doRefund(int refundedPercentageAmount){
     setRefundedPercentageAmount(refundedPercentageAmount);
   }
 
-  // line 63 "../../../../../SnowShoeTourStateMachine.ump"
+  // line 69 "../../../../../SnowShoeTourStateMachine.ump"
    private void rejectRefund(int refundedPercentageAmount){
     throw new RuntimeException("Refund failed");
   }

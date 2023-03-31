@@ -1,5 +1,8 @@
 package ca.mcgill.ecse.snowshoetours.features;
 
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertTrue;
 import java.sql.Date;
 import java.util.List;
 import java.util.Map;
@@ -147,9 +150,11 @@ public class ToursStepDefinitions {
      */
     @When("the manager attempts to finish the tour for the participant with email {string}")
     public void the_manager_attempts_to_finish_the_tour_for_the_participant_with_email(String string) {
-        for (Participant participants : participant) {
-          if participant.getAccountName().equals(email)) {
-            
+      List<Participant> participants = sst.getParticipants();
+      for (Participant participant : participants) {
+          if (participant.getAccountName().equals(string)) {
+          }
+        }
     }
   
     /**
@@ -197,8 +202,8 @@ public class ToursStepDefinitions {
     @Then("the participant with email {string} shall be marked as {string}")
     public void the_participant_with_email_shall_be_marked_as(String string, String string2) {
         // Write code here that turns the phrase above into concrete actions
-    	Participant participant = (Participant) User.getWithEmail(string);
-        assertEquals(string2, participant.getParticipantStatusFullName());
+    	Participant participant = (Participant) User.getWithAccountName(string);
+        assertEquals(string2, participant.getStatusFullName());
     }
     
     /**
@@ -208,7 +213,7 @@ public class ToursStepDefinitions {
      */
     @Then("the number of snowshoe tours shall be {string}")
     public void the_number_of_snowshoe_tours_shall_be(String string) {
-    	assertEquals(string,String.valueOf(SnowShoeTour.numberOfTours()));
+    	assertEquals(string,String.valueOf(sst.getTours().size()));
     }
     /**
      * @author Hamza Alfarrash
@@ -227,7 +232,7 @@ public class ToursStepDefinitions {
     @Then("a participant account shall not exist with email {string}")
     public void a_participant_account_shall_not_exist_with_email(String string) {
 
-        User participant = User.getWithEmail(string);
+        User participant = User.getWithAccountName(string);
         Boolean participantExist = false;
         if(participant instanceof Participant){
           participantExist = true;
@@ -241,7 +246,7 @@ public class ToursStepDefinitions {
      */
     @Then("the number of participants shall be {string}")
     public void the_number_of_participants_shall_be(String string) {
-    	assertEquals(string, String.valueOf(SnowShoeTour.numberOfParticipants()));
+    	assertEquals(string, String.valueOf(sst.getParticipants().size()));
     }
     /**
      * @author Hamza Alfarrash
@@ -251,20 +256,17 @@ public class ToursStepDefinitions {
      */
     @Then("a participant account shall exist with email {string} and a refund of {string} percent")
     public void a_participant_account_shall_exist_with_email_and_a_refund_of_percent(String string, String string2) {
-
-        User user = User.getWithEmail(string);
-        boolean existingParticipant = false;
-        int refund = 0;
-        int refundExpected = Integer.valueOf(string2);
-
-        if (user instanceof Participant){
-          existingParticipant = true;
-          Participant participant = (Participant)user;
+        Boolean check = null;
+        Participant aParticipant = null;
+        List<Participant> participants = sst.getParticipants();
+        for(Participant participant : participants) {
+          if(participant.getAccountName().equals(string)) {
+            aParticipant = participant;
+            check = true;
+          }
         }
-
-        assertTrue(existingParticipant);
-        refund = participant.getRefundedPercentageAmount();
-        assertEquals(refundExpected,refund);
+        assertTrue(check);
+        assertEquals(string2, String.valueOf(aParticipant.getRefundedPercentageAmount()));
     }
 
     @Then("a participant account shall exist with email {string} and authorization code {string}")
