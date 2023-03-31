@@ -147,9 +147,11 @@ public class ToursStepDefinitions {
      */
     @When("the manager attempts to finish the tour for the participant with email {string}")
     public void the_manager_attempts_to_finish_the_tour_for_the_participant_with_email(String string) {
-        // Write code here that turns the phrase above into concrete actions
-        throw new io.cucumber.java.PendingException();
+        for (Participant participants : participant) {
+          if participant.getAccountName().equals(email)) {
+            
     }
+  
     /**
      * @author Wasif Somji
      * 
