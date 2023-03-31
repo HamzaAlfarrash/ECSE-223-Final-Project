@@ -4,6 +4,7 @@ import java.sql.Date;
 import java.util.List;
 import java.util.Map;
 import ca.mcgill.ecse.snowshoetours.application.SnowShoeToursApplication;
+import ca.mcgill.ecse.snowshoetours.controller.SnowShoeTourStateMachineController;
 import ca.mcgill.ecse.snowshoetours.model.Guide;
 import ca.mcgill.ecse.snowshoetours.model.Participant;
 import ca.mcgill.ecse.snowshoetours.model.SnowShoeTour;
@@ -122,23 +123,36 @@ public class ToursStepDefinitions {
       }
     }
     
-    
+    /**
+     * @author souhail el hayani
+     * @param string
+     */
     @Given("the participant with email {string} has finished their tour")
     public void the_participant_with_email_has_finished_their_tour(String string) {
-        // Write code here that turns the phrase above into concrete actions
-        throw new io.cucumber.java.PendingException();
+      List<Participant> par = sst.getParticipants();
+      for(Participant participant: par) {
+        if(participant.getAccountName().equals(string)) {
+          participant.finishTrip();
+          break;
+        }
+      }
     }
 
+    /**
+     * @author souhail el hayani
+     * @param string
+     */
     @When("the manager attempts to cancel the tour for email {string}")
     public void the_manager_attempts_to_cancel_the_tour_for_email(String string) {
-        // Write code here that turns the phrase above into concrete actions
-        throw new io.cucumber.java.PendingException();
+      error = SnowShoeTourStateMachineController.cancelTrip(string);
     }
 
+    /**
+     * @author souhaill el hayani
+     */
     @When("the administrator attempts to initiate the snowshoe tour creation process")
     public void the_administrator_attempts_to_initiate_the_snowshoe_tour_creation_process() {
-        // Write code here that turns the phrase above into concrete actions
-        throw new io.cucumber.java.PendingException();
+      error = SnowShoeTourStateMachineController.initiate();
     }
      /**
      * @author Wasif Somji
@@ -147,13 +161,14 @@ public class ToursStepDefinitions {
      */
     @When("the manager attempts to finish the tour for the participant with email {string}")
     public void the_manager_attempts_to_finish_the_tour_for_the_participant_with_email(String string) {
-        for (Participant participant : participants) {
-          if participant.getAccountName().equals(email)) {
-            participant.finishTour();
-            break;
-          }
-      
+      List<Participant> participants = sst.getParticipants();
+      for (Participant participant : participants) {
+        if (participant.getAccountName().equals(string)) {
+          participant.finishTrip();
+          break;
         }
+    
+      }
             
     }
   
