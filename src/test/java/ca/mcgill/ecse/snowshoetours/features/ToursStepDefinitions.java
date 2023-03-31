@@ -121,7 +121,12 @@ public class ToursStepDefinitions {
        sst.addParticipant(participant.get("email"), participant.get("password"), participant.get("name"), participant.get("emergencyContact"), Integer.parseInt(participant.get("nrWeeks")), Integer.parseInt(participant.get("weeksAvailableFrom")), Integer.parseInt(participant.get("weeksAvailableUntil")), Boolean.valueOf(participant.get("lodgeRequired")), null, 0);
       }
     }
-
+    
+     /**
+     * @author Wasif Somji
+     * 
+     * @param String
+     */
     @Given("the participant with email {string} has finished their tour")
     public void the_participant_with_email_has_finished_their_tour(String string) {
         for (Participant participant : participants) {
