@@ -2,9 +2,11 @@ class SnowShoeTour {
   public void reinitialize() {
     //TODO need bookableItems???
     BookedItem.reinitializeUniqueCode(getBookedItems());//
-    Combo.reinitializeAutouniqueID(getCombos());//
+    Combo.reinitializeAutouniqueID(getCombos());// Auto unique is tour
     ComboItem.reinitializeUniqueName(getComboItems());//
-    Gear.reinitializeUniqueName(getGear());//
+    Gear.reinitializeUniqueName(getGear());// Bookableitem lists (gear + combo)
+    //List gear
+    // list add gear.add(combo)a
     Guide.reinitializeUniqueName(getGuides());//
     Lodge.reinitializeUniqueName(getLodges());//
     Manager.reinitializeUniqueName(getManager());
@@ -13,9 +15,9 @@ class SnowShoeTour {
   }
 }
 //EX:
-class BookableItem {
+class Flight {
   public static void reinitializeUniqueFlightNumber(List<Flight> flights) {
-    flightsByFlightNumber.clear();
+    flightsByFlightNumber.clear(); // can do just find it
     for (var f : flights) {
       flightsByFlightNumber.put(f.getFlightNumber(), f);
     }

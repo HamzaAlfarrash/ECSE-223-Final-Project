@@ -24,7 +24,7 @@ public class SstPersistence {
 	    var sst = (SnowShoeTour) serializer.deserialize(filename);
 	    // model cannot be loaded - create empty BTMS
 	    if (sst == null) {
-	      sst = new SnowShoeTour(null,0,0); //TODO what are the input of the constructor??
+	      sst = new SnowShoeTour(null,0,0); //new date agrument (0) 
 	    } else {
 	      sst.reinitialize();
 	    }
