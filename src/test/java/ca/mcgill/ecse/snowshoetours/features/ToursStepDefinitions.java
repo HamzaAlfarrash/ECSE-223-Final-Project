@@ -140,19 +140,31 @@ public class ToursStepDefinitions {
         // Write code here that turns the phrase above into concrete actions
         throw new io.cucumber.java.PendingException();
     }
-
+     /**
+     * @author Wasif Somji
+     * 
+     * @param string
+     */
     @When("the manager attempts to finish the tour for the participant with email {string}")
     public void the_manager_attempts_to_finish_the_tour_for_the_participant_with_email(String string) {
         // Write code here that turns the phrase above into concrete actions
         throw new io.cucumber.java.PendingException();
     }
-
+    /**
+     * @author Wasif Somji
+     * 
+     * @param string
+     */
     @When("the manager attempts to start the tours for week {string}")
     public void the_manager_attempts_to_start_the_tours_for_week(String string) {
         // Write code here that turns the phrase above into concrete actions
         throw new io.cucumber.java.PendingException();
     }
-
+    /**
+     * @author Wasif Somji
+     * 
+     * @param string
+     */
     @When("the manager attempts to confirm payment for email {string} using authorization code {string}")
     public void the_manager_attempts_to_confirm_payment_for_email_using_authorization_code(String string,
             String string2) {
