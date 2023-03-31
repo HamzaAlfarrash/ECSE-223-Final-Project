@@ -158,7 +158,8 @@ public class ToursStepDefinitions {
         // Write code here that turns the phrase above into concrete actions
         throw new io.cucumber.java.PendingException();
     }
-
+    
+    
     @Then("the following snowshoe tours shall exist in the system with a guide")
     public void the_following_snowshoe_tours_shall_exist_in_the_system_with_a_guide(
             io.cucumber.datatable.DataTable dataTable) {
@@ -171,41 +172,84 @@ public class ToursStepDefinitions {
         // For other transformations you can register a DataTableType.
         throw new io.cucumber.java.PendingException();
     }
-
+    
+    /**
+     * @author Hamza Alfarrash
+     * 
+     * @param string
+     * @param string2
+     */
     @Then("the participant with email {string} shall be marked as {string}")
     public void the_participant_with_email_shall_be_marked_as(String string, String string2) {
         // Write code here that turns the phrase above into concrete actions
-        throw new io.cucumber.java.PendingException();
+    	Participant participant = (Participant) User.getWithEmail(string);
+        assertEquals(string2, participant.getParticipantStatusFullName());
     }
-
+    
+    /**
+     * @author Hamza Alfarrash
+     * 
+     * @param string
+     */
     @Then("the number of snowshoe tours shall be {string}")
     public void the_number_of_snowshoe_tours_shall_be(String string) {
-        // Write code here that turns the phrase above into concrete actions
-        throw new io.cucumber.java.PendingException();
+    	assertEquals(string,String.valueOf(SnowShoeTour.numberOfTours()));
     }
-
+    /**
+     * @author Hamza Alfarrash
+     * 
+     * @param string
+     */
     @Then("the system shall raise the error {string}")
     public void the_system_shall_raise_the_error(String string) {
-        // Write code here that turns the phrase above into concrete actions
-        throw new io.cucumber.java.PendingException();
+    	assertEquals(error, string);
     }
-
+    /**
+     * @author Hamza Alfarrash
+     * Checks that the participant does not exist
+     * @param string email of the participant
+     */
     @Then("a participant account shall not exist with email {string}")
     public void a_participant_account_shall_not_exist_with_email(String string) {
-        // Write code here that turns the phrase above into concrete actions
-        throw new io.cucumber.java.PendingException();
-    }
 
+        User participant = User.getWithEmail(string);
+        Boolean participantExist = false;
+        if(participant instanceof Participant){
+          participantExist = true;
+        }
+        assertFalse(participantExist);
+    }
+    /**
+     * @author Hamza Alfarrash
+     * Check the number of participants
+     * @param string
+     */
     @Then("the number of participants shall be {string}")
     public void the_number_of_participants_shall_be(String string) {
-        // Write code here that turns the phrase above into concrete actions
-        throw new io.cucumber.java.PendingException();
+    	assertEquals(string, String.valueOf(SnowShoeTour.numberOfParticipants()));
     }
-
+    /**
+     * @author Hamza Alfarrash
+     * Checks that the participant exist and have the right refund percentage
+     * @param string
+     * @param string2
+     */
     @Then("a participant account shall exist with email {string} and a refund of {string} percent")
     public void a_participant_account_shall_exist_with_email_and_a_refund_of_percent(String string, String string2) {
-        // Write code here that turns the phrase above into concrete actions
-        throw new io.cucumber.java.PendingException();
+
+        User user = User.getWithEmail(string);
+        boolean existingParticipant = false;
+        int refund = 0;
+        int refundExpected = Integer.valueOf(string2);
+
+        if (user instanceof Participant){
+          existingParticipant = true;
+          Participant participant = (Participant)user;
+        }
+
+        assertTrue(existingParticipant);
+        refund = participant.getRefundedPercentageAmount();
+        assertEquals(refundExpected,refund);
     }
 
     @Then("a participant account shall exist with email {string} and authorization code {string}")
