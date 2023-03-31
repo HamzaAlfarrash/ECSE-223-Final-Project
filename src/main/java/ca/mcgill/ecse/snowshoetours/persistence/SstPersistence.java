@@ -16,8 +16,8 @@ public class SstPersistence {
 	    save(SnowShoeToursApplication.getSnowShoeTour());
 	  }
 
-	  public static void save(SnowShoeTour fms) {
-	    serializer.serialize(fms, filename);
+	  public static void save(SnowShoeTour sst) {
+	    serializer.serialize(sst, filename);
 	  }
 
 	  public static SnowShoeTour load() {
