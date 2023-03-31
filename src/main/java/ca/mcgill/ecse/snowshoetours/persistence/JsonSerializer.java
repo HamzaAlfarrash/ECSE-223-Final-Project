@@ -1,4 +1,4 @@
-package ca.mcgill.ecse.flightmanagementsystem.persistence;
+package ca.mcgill.ecse.snowshoetours.persistence;
 
 import java.io.File;
 import java.io.IOException;
