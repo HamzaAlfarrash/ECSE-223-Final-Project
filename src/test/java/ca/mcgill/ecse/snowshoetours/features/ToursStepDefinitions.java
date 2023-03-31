@@ -10,6 +10,7 @@ import ca.mcgill.ecse.snowshoetours.application.SnowShoeToursApplication;
 import ca.mcgill.ecse.snowshoetours.model.Guide;
 import ca.mcgill.ecse.snowshoetours.model.Participant;
 import ca.mcgill.ecse.snowshoetours.model.SnowShoeTour;
+import ca.mcgill.ecse.snowshoetours.model.Tour;
 import ca.mcgill.ecse.snowshoetours.model.User;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
@@ -150,11 +151,8 @@ public class ToursStepDefinitions {
      */
     @When("the manager attempts to finish the tour for the participant with email {string}")
     public void the_manager_attempts_to_finish_the_tour_for_the_participant_with_email(String string) {
-      List<Participant> participants = sst.getParticipants();
-      for (Participant participant : participants) {
-          if (participant.getAccountName().equals(string)) {
-          }
-        }
+
+      
     }
   
     /**
@@ -164,8 +162,7 @@ public class ToursStepDefinitions {
      */
     @When("the manager attempts to start the tours for week {string}")
     public void the_manager_attempts_to_start_the_tours_for_week(String string) {
-        // Write code here that turns the phrase above into concrete actions
-        throw new io.cucumber.java.PendingException();
+    
     }
     /**
      * @author Wasif Somji
@@ -173,16 +170,13 @@ public class ToursStepDefinitions {
      * @param string
      */
     @When("the manager attempts to confirm payment for email {string} using authorization code {string}")
-    public void the_manager_attempts_to_confirm_payment_for_email_using_authorization_code(String string,
-            String string2) {
-        // Write code here that turns the phrase above into concrete actions
-        throw new io.cucumber.java.PendingException();
+    public void the_manager_attempts_to_confirm_payment_for_email_using_authorization_code(String string, String string2) {
+        // to do 
     }
     
     
     @Then("the following snowshoe tours shall exist in the system with a guide")
-    public void the_following_snowshoe_tours_shall_exist_in_the_system_with_a_guide(
-            io.cucumber.datatable.DataTable dataTable) {
+    public void the_following_snowshoe_tours_shall_exist_in_the_system_with_a_guide(io.cucumber.datatable.DataTable dataTable) {
         // Write code here that turns the phrase above into concrete actions
         // For automatic transformation, change DataTable to one of
         // E, List<E>, List<List<E>>, List<Map<K,V>>, Map<K,V> or
