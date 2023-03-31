@@ -38,9 +38,17 @@ public class SnowShoeTourStateMachineController {
     return "";
   }
   
-  //commentted out to avoid errors
-  /*public void finishTour() {
-    if (
-  }*/
+  
+  public static String finishTour() {
+    return "";
+  }
+  
+  public static String startTourForWeek(int Week) {
+    return "";
+  }
+  
+  public static String confirmPayement(String email, String authorizationCode) {
+    return "";
+  }
 }
 
