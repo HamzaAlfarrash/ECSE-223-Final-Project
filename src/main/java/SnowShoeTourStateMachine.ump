@@ -6,11 +6,16 @@ class Participant {
         doAssign(tour);
       } -> AssignedParticipant;
       cancel() -> Canceled;
+      pay(String authorizationCode) [isAuthorizationCodeValid(authorizationCode)] / {
+        rejectPay(authorizationCode); 
+        } -> NotAssignedParticipant;
     }
+  
     AssignedParticipant {
       pay(String authorizationCode) [isValid(authorizationCode)] / {
         doPay(authorizationCode); 
       } -> Paid;
+      startTrip(int week) [hasMatchingStartWeek(week)] -> Canceled;
 
       cancel() -> Canceled;
     }
@@ -23,9 +28,7 @@ class Participant {
       cancel() / { doRefund(10); } -> Canceled;
     }
     Canceled {}
-    Finished {
-    	cancel() / { doRefund(0); } -> Canceled;
-    }
+    Finished {}
   }
 
   private void doAssign(Tour tour) {
@@ -47,7 +50,7 @@ class Participant {
   	setAuthorizationCode(authorizationCode);
   }
   
-    private void rejectPay(String authorizationCode) {
+  private void rejectPay(String authorizationCode) {
   	throw new RuntimeException("Payement failed");
   }
 

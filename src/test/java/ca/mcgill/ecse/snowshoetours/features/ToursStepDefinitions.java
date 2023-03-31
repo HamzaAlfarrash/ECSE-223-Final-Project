@@ -1,74 +1,125 @@
 package ca.mcgill.ecse.snowshoetours.features;
 
+import java.sql.Date;
+import java.util.List;
+import java.util.Map;
+import ca.mcgill.ecse.snowshoetours.application.SnowShoeToursApplication;
+import ca.mcgill.ecse.snowshoetours.model.Guide;
+import ca.mcgill.ecse.snowshoetours.model.Participant;
+import ca.mcgill.ecse.snowshoetours.model.SnowShoeTour;
+import ca.mcgill.ecse.snowshoetours.model.User;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 
 public class ToursStepDefinitions {
+  private SnowShoeTour sst;
+  private String error;
+  /**
+   * @author Yassine Mimet
+   *
+   * @param dataTable
+   */
     @Given("the following SnowShoeTours system exists")
     public void the_following_snow_shoe_tours_system_exists(io.cucumber.datatable.DataTable dataTable) {
-        // Write code here that turns the phrase above into concrete actions
-        // For automatic transformation, change DataTable to one of
-        // E, List<E>, List<List<E>>, List<Map<K,V>>, Map<K,V> or
-        // Map<K, List<V>>. E,K,V must be a String, Integer, Float,
-        // Double, Byte, Short, Long, BigInteger or BigDecimal.
-        //
-        // For other transformations you can register a DataTableType.
-        throw new io.cucumber.java.PendingException();
+      List<Map<String, String>> rows = dataTable.asMaps();
+      for (var row : rows) {
+        Date startDate = Date.valueOf(row.get("startDate")); // Extract data from the Cucumber data
+                                                             // table
+        int nrWeeks = Integer.parseInt(row.get("nrWeeks"));
+        int priceOfGuidePerWeek = Integer.parseInt(row.get("priceOfGuidePerWeek"));
+        sst = SnowShoeToursApplication.getSnowShoeTour(); // Instantiate sst
+        sst.setStartDate(startDate); // Setters
+        sst.setNrWeeks(nrWeeks);
+        sst.setPriceOfGuidePerWeek(priceOfGuidePerWeek);
+
+        error = ""; // error counter
+      }
     }
 
+    /**
+     * @author Yassine Mimet
+     * 
+     * @param string
+     */
     @Given("the participant with email {string} has started their tour")
     public void the_participant_with_email_has_started_their_tour(String string) {
-        // Write code here that turns the phrase above into concrete actions
-        throw new io.cucumber.java.PendingException();
+      List<Participant> participants = sst.getParticipants();
+      for (Participant participant : participants) {
+        if (participant.getAccountName().equals(string)) {
+          participant.startTrip(participant.getWeekAvailableFrom());
+          break;
+        }
+      }
     }
 
+    /**
+     * @author Yassine Mimet
+     * 
+     * @param string
+     */
     @Given("the participant with email {string} has paid for their tour")
     public void the_participant_with_email_has_paid_for_their_tour(String string) {
-        // Write code here that turns the phrase above into concrete actions
-        throw new io.cucumber.java.PendingException();
+        List<Participant> participants = sst.getParticipants();
+        for (Participant participant : participants) {
+          if (participant.getAccountName().equals(string)) {
+            participant.pay("Paid");
+            break;
+          }
+        }
     }
 
+    /**
+     * @author Yassine Mimet
+     * 
+     */
     @Given("the following guides exist in the system")
     public void the_following_guides_exist_in_the_system(io.cucumber.datatable.DataTable dataTable) {
-        // Write code here that turns the phrase above into concrete actions
-        // For automatic transformation, change DataTable to one of
-        // E, List<E>, List<List<E>>, List<Map<K,V>>, Map<K,V> or
-        // Map<K, List<V>>. E,K,V must be a String, Integer, Float,
-        // Double, Byte, Short, Long, BigInteger or BigDecimal.
-        //
-        // For other transformations you can register a DataTableType.
-        throw new io.cucumber.java.PendingException();
+      List<Map<String, String>> rows = dataTable.asMaps();
+      for (var guide : rows) {
+       sst.addGuide(guide.get("email"), guide.get("password"), guide.get("name"), guide.get("emergencyContact"));
+      }
     }
 
+    /**
+     * @author Yassine Mimet
+     * 
+     * @param string
+     */
     @Given("the participant with email {string} has cancelled their tour")
     public void the_participant_with_email_has_cancelled_their_tour(String string) {
-        // Write code here that turns the phrase above into concrete actions
-        throw new io.cucumber.java.PendingException();
+      List<Participant> participants = sst.getParticipants();
+      for(Participant participant : participants ) {
+        if(participant.getAccountName().equals(string)) {
+          participant.cancel();
+          break;
+        }
+      }
     }
 
+    /**
+     * @author Yassine Mimet
+     * @param dataTable
+     */
     @Given("the following snowshoe tours exist in the system")
     public void the_following_snowshoe_tours_exist_in_the_system(io.cucumber.datatable.DataTable dataTable) {
-        // Write code here that turns the phrase above into concrete actions
-        // For automatic transformation, change DataTable to one of
-        // E, List<E>, List<List<E>>, List<Map<K,V>>, Map<K,V> or
-        // Map<K, List<V>>. E,K,V must be a String, Integer, Float,
-        // Double, Byte, Short, Long, BigInteger or BigDecimal.
-        //
-        // For other transformations you can register a DataTableType.
-        throw new io.cucumber.java.PendingException();
+      List<Map<String, String>> rows = dataTable.asMaps();
+      for (var tour : rows) {
+        sst.addTour(Integer.parseInt(tour.get("id")), Integer.parseInt(tour.get("startWeek")), Integer.parseInt(tour.get("endWeek")), (Guide) User.getWithAccountName(tour.get("guide")));
+      }
     }
 
+    /**
+     * @author Yassine Mimet
+     * 
+     * @param dataTable
+     */
     @Given("the following participants exist in the system")
     public void the_following_participants_exist_in_the_system(io.cucumber.datatable.DataTable dataTable) {
-        // Write code here that turns the phrase above into concrete actions
-        // For automatic transformation, change DataTable to one of
-        // E, List<E>, List<List<E>>, List<Map<K,V>>, Map<K,V> or
-        // Map<K, List<V>>. E,K,V must be a String, Integer, Float,
-        // Double, Byte, Short, Long, BigInteger or BigDecimal.
-        //
-        // For other transformations you can register a DataTableType.
-        throw new io.cucumber.java.PendingException();
+      List<Map<String, String>> rows = dataTable.asMaps();
+      for (var participant : rows) {
+       sst.addParticipant(participant.get("email"), participant.get("password"), participant.get("name"), participant.get("emergencyContact"), Integer.parseInt(participant.get("nrWeeks")), Integer.parseInt(participant.get("weeksAvailableFrom")), Integer.parseInt(participant.get("weeksAvailableUntil")), Boolean.valueOf(participant.get("lodgeRequired")), null, 0);
+      }
     }
 
     @Given("the participant with email {string} has finished their tour")
