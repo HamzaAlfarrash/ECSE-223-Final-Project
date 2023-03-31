@@ -31,6 +31,10 @@ class Participant {
   private void doAssign(Tour tour) {
     setTour(tour);
   }
+  
+  private void rejectAssign(Tour tour) {
+  	throw new RuntimeException("Assigning participant failed");
+  }
 
   private boolean isValid(String authorizationCode) {
     if(authorizationCode.equals("") ||  authorizationCode == null) return false;
@@ -39,15 +43,24 @@ class Participant {
  
 
   private void doPay(String authorizationCode) {
-    
+    setStatus(Status.Paid);
+  	setAuthorizationCode(authorizationCode);
+  }
+  
+    private void rejectPay(String authorizationCode) {
+  	throw new RuntimeException("Payement failed");
   }
 
   private boolean hasMatchingStartWeek(int week) {
-    return false;
+    return (week >= getWeekAvailableFrom() && week <= getWeekAvailableUntil());
   }
 
   private void doRefund(int refundedPercentageAmount) {
     setRefundedPercentageAmount(refundedPercentageAmount);
+  }
+  
+  private void rejectRefund(int refundedPercentageAmount) {
+  	throw new RuntimeException("Refund failed");
   }
 
 }
