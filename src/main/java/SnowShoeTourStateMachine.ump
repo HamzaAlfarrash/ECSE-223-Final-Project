@@ -1,0 +1,50 @@
+class Participant {
+
+  status {
+    NotAssignedParticipant {
+      assign(Tour tour) / {
+        doAssign(tour);
+      } -> AssignedParticipant;
+      cancel() -> Canceled;
+    }
+    AssignedParticipant {
+      pay(String authorizationCode) [isValid(authorizationCode)] / {
+        doPay(authorizationCode); 
+      } -> Paid;
+
+      cancel() -> Canceled;
+    }
+    Paid {
+      startTrip(int week) [hasMatchingStartWeek(week)] -> Started;
+      cancel() / { doRefund(50); } -> Canceled;
+    }
+    Started {
+      finishTrip() -> Finished;
+      cancel() / { doRefund(10); } -> Canceled;
+    }
+    Canceled {}
+    Finished {}
+  }
+
+  private void doAssign(Tour tour) {
+    setTour(tour);
+  }
+
+  private boolean isValid(String authorizationCode) {
+    if(authorizationCode.equals("") ||  authorizationCode == null) return false;
+    return true;
+  }
+ 
+
+  private void doPay(String authorizationCode) {
+    
+  }
+
+  private boolean hasMatchingStartWeek(int week) {
+  }
+
+  private void doRefund(int refundedPercentageAmount) {
+    setRefundedPercentageAmount(refundedPercentageAmount);
+  }
+
+}

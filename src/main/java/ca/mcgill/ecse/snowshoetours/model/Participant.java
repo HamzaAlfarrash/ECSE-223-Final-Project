@@ -1,10 +1,11 @@
 /*PLEASE DO NOT EDIT THIS CODE*/
-/*This code was generated using the UMPLE 1.32.1.6535.66c005ced modeling language!*/
+/*This code was generated using the UMPLE 1.31.1.5860.78bb27cc6 modeling language!*/
 
 package ca.mcgill.ecse.snowshoetours.model;
 import java.util.*;
 
-// line 39 "../../../../../../SnowShoeTour.ump"
+// line 1 "../../../../../SnowShoeTourStateMachine.ump"
+// line 40 "../../../../../SnowShoeTour.ump"
 public class Participant extends NamedUser
 {
 
@@ -19,6 +20,10 @@ public class Participant extends NamedUser
   private boolean lodgeRequired;
   private String authorizationCode;
   private int refundedPercentageAmount;
+
+  //Participant State Machines
+  public enum Status { NotAssignedParticipant, AssignedParticipant, Paid, Started, Canceled, Finished }
+  private Status status;
 
   //Participant Associations
   private SnowShoeTour snowShoeTour;
@@ -44,6 +49,7 @@ public class Participant extends NamedUser
       throw new RuntimeException("Unable to create participant due to snowShoeTour. See http://manual.umple.org?RE002ViolationofAssociationMultiplicity.html");
     }
     bookedItems = new ArrayList<BookedItem>();
+    setStatus(Status.NotAssignedParticipant);
   }
 
   //------------------------
@@ -131,6 +137,140 @@ public class Participant extends NamedUser
   public boolean isLodgeRequired()
   {
     return lodgeRequired;
+  }
+
+  public String getStatusFullName()
+  {
+    String answer = status.toString();
+    return answer;
+  }
+
+  public Status getStatus()
+  {
+    return status;
+  }
+
+  public boolean assign(Tour tour)
+  {
+    boolean wasEventProcessed = false;
+    
+    Status aStatus = status;
+    switch (aStatus)
+    {
+      case NotAssignedParticipant:
+        // line 5 "../../../../../SnowShoeTourStateMachine.ump"
+        doAssign(tour);
+        setStatus(Status.AssignedParticipant);
+        wasEventProcessed = true;
+        break;
+      default:
+        // Other states do respond to this event
+    }
+
+    return wasEventProcessed;
+  }
+
+  public boolean cancel()
+  {
+    boolean wasEventProcessed = false;
+    
+    Status aStatus = status;
+    switch (aStatus)
+    {
+      case NotAssignedParticipant:
+        setStatus(Status.Canceled);
+        wasEventProcessed = true;
+        break;
+      case AssignedParticipant:
+        setStatus(Status.Canceled);
+        wasEventProcessed = true;
+        break;
+      case Paid:
+        // line 19 "../../../../../SnowShoeTourStateMachine.ump"
+        doRefund(50);
+        setStatus(Status.Canceled);
+        wasEventProcessed = true;
+        break;
+      case Started:
+        // line 23 "../../../../../SnowShoeTourStateMachine.ump"
+        doRefund(10);
+        setStatus(Status.Canceled);
+        wasEventProcessed = true;
+        break;
+      default:
+        // Other states do respond to this event
+    }
+
+    return wasEventProcessed;
+  }
+
+  public boolean pay(String authorizationCode)
+  {
+    boolean wasEventProcessed = false;
+    
+    Status aStatus = status;
+    switch (aStatus)
+    {
+      case AssignedParticipant:
+        if (isValid(authorizationCode))
+        {
+        // line 11 "../../../../../SnowShoeTourStateMachine.ump"
+          doPay(authorizationCode);
+          setStatus(Status.Paid);
+          wasEventProcessed = true;
+          break;
+        }
+        break;
+      default:
+        // Other states do respond to this event
+    }
+
+    return wasEventProcessed;
+  }
+
+  public boolean startTrip(int week)
+  {
+    boolean wasEventProcessed = false;
+    
+    Status aStatus = status;
+    switch (aStatus)
+    {
+      case Paid:
+        if (hasMatchingStartWeek(week))
+        {
+          setStatus(Status.Started);
+          wasEventProcessed = true;
+          break;
+        }
+        break;
+      default:
+        // Other states do respond to this event
+    }
+
+    return wasEventProcessed;
+  }
+
+  public boolean finishTrip()
+  {
+    boolean wasEventProcessed = false;
+    
+    Status aStatus = status;
+    switch (aStatus)
+    {
+      case Started:
+        setStatus(Status.Finished);
+        wasEventProcessed = true;
+        break;
+      default:
+        // Other states do respond to this event
+    }
+
+    return wasEventProcessed;
+  }
+
+  private void setStatus(Status aStatus)
+  {
+    status = aStatus;
   }
   /* Code from template association_GetOne */
   public SnowShoeTour getSnowShoeTour()
@@ -307,6 +447,32 @@ public class Participant extends NamedUser
       aBookedItem.delete();
     }
     super.delete();
+  }
+
+  // line 30 "../../../../../SnowShoeTourStateMachine.ump"
+   private void doAssign(Tour tour){
+    setTour(tour);
+  }
+
+  // line 34 "../../../../../SnowShoeTourStateMachine.ump"
+   private boolean isValid(String authorizationCode){
+    if(authorizationCode.equals("") ||  authorizationCode == null) return false;
+    return true;
+  }
+
+  // line 41 "../../../../../SnowShoeTourStateMachine.ump"
+   private void doPay(String authorizationCode){
+    
+  }
+
+  // line 44 "../../../../../SnowShoeTourStateMachine.ump"
+   private boolean hasMatchingStartWeek(int week){
+    return false;
+  }
+
+  // line 47 "../../../../../SnowShoeTourStateMachine.ump"
+   private void doRefund(int refundedPercentageAmount){
+    setRefundedPercentageAmount(refundedPercentageAmount);
   }
 
 
