@@ -124,8 +124,12 @@ public class ToursStepDefinitions {
 
     @Given("the participant with email {string} has finished their tour")
     public void the_participant_with_email_has_finished_their_tour(String string) {
-        // Write code here that turns the phrase above into concrete actions
-        throw new io.cucumber.java.PendingException();
+        for (Participant participant : participants) {
+          if (participant.getAccountName().equals(email)) {
+            participant.endTrip()
+            break; 
+            }
+        }
     }
 
     @When("the manager attempts to cancel the tour for email {string}")
