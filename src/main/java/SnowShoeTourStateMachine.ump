@@ -23,7 +23,9 @@ class Participant {
       cancel() / { doRefund(10); } -> Canceled;
     }
     Canceled {}
-    Finished {}
+    Finished {
+    	cancel() / { doRefund(0); } -> Canceled;
+    }
   }
 
   private void doAssign(Tour tour) {
@@ -41,6 +43,7 @@ class Participant {
   }
 
   private boolean hasMatchingStartWeek(int week) {
+    return false;
   }
 
   private void doRefund(int refundedPercentageAmount) {

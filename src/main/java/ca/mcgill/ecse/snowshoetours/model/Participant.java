@@ -197,6 +197,12 @@ public class Participant extends NamedUser
         setStatus(Status.Canceled);
         wasEventProcessed = true;
         break;
+      case Finished:
+        // line 27 "../../../../../SnowShoeTourStateMachine.ump"
+        doRefund(0);
+        setStatus(Status.Canceled);
+        wasEventProcessed = true;
+        break;
       default:
         // Other states do respond to this event
     }
@@ -449,28 +455,28 @@ public class Participant extends NamedUser
     super.delete();
   }
 
-  // line 30 "../../../../../SnowShoeTourStateMachine.ump"
+  // line 32 "../../../../../SnowShoeTourStateMachine.ump"
    private void doAssign(Tour tour){
     setTour(tour);
   }
 
-  // line 34 "../../../../../SnowShoeTourStateMachine.ump"
+  // line 36 "../../../../../SnowShoeTourStateMachine.ump"
    private boolean isValid(String authorizationCode){
     if(authorizationCode.equals("") ||  authorizationCode == null) return false;
     return true;
   }
 
-  // line 41 "../../../../../SnowShoeTourStateMachine.ump"
+  // line 43 "../../../../../SnowShoeTourStateMachine.ump"
    private void doPay(String authorizationCode){
     
   }
 
-  // line 44 "../../../../../SnowShoeTourStateMachine.ump"
+  // line 46 "../../../../../SnowShoeTourStateMachine.ump"
    private boolean hasMatchingStartWeek(int week){
     return false;
   }
 
-  // line 47 "../../../../../SnowShoeTourStateMachine.ump"
+  // line 50 "../../../../../SnowShoeTourStateMachine.ump"
    private void doRefund(int refundedPercentageAmount){
     setRefundedPercentageAmount(refundedPercentageAmount);
   }
