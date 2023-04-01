@@ -39,7 +39,11 @@ public class SnowShoeTourStateMachineController {
     return "";
   }
   
-  
+  /**
+   * @author Wasif Somji
+   * @param email
+   * @return error message if any
+   */
   public static String finishTour(String email) {
     SnowShoeTour sst = SnowShoeToursApplication.getSnowShoeTour();
     List<Participant> list = sst.getParticipants();
