@@ -297,11 +297,21 @@ public class ParticipantController {
 
 
     if (email == null || email.isBlank()) { // checks validity of email
+      try {
+        SstPersistence.save();
+      } catch (RuntimeException e) {
+        return e.getMessage();
+      }
       return "Email must exist.";
     }
 
     if (bookableItemName == null || bookableItemName.isBlank()) { // checks validity of the bookable
                                                                   // item name
+      try {
+        SstPersistence.save();
+      } catch (RuntimeException e) {
+        return e.getMessage();
+      }
       return "Bookable item must exist.";
     }
     var error = ""; // sets empty string for error
@@ -312,11 +322,21 @@ public class ParticipantController {
     User user = User.getWithAccountName(email); // assigns user to the email given in input
 
     if (!(user instanceof Participant)) { // Check if user is null or not an instance of participant
+      try {
+        SstPersistence.save();
+      } catch (RuntimeException e) {
+        return e.getMessage();
+      }
       return "The participant does not exist";
     }
 
     // Check if item is null
     if (bookedItem == null) { // checks validity of the booked item
+      try {
+        SstPersistence.save();
+      } catch (RuntimeException e) {
+        return e.getMessage();
+      }
       return "The piece of gear or combo does not exist";
     }
 
@@ -334,6 +354,16 @@ public class ParticipantController {
           } else {
             p.removeBookedItem(b); // Remove the booked item from participant
             b.delete();
+            try {
+              SstPersistence.save();
+            } catch (RuntimeException e) {
+              return e.getMessage();
+            }
+          }
+          try {
+            SstPersistence.save();
+          } catch (RuntimeException e) {
+            return e.getMessage();
           }
           return "";
         }

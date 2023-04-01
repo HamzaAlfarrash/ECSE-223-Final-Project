@@ -12,6 +12,7 @@ import ca.mcgill.ecse.snowshoetours.model.Gear;
 import ca.mcgill.ecse.snowshoetours.model.Participant;
 import ca.mcgill.ecse.snowshoetours.model.SnowShoeTour;
 import ca.mcgill.ecse.snowshoetours.model.Tour;
+import ca.mcgill.ecse.snowshoetours.persistence.SstPersistence;
 
 public class SnowShoeTourController {
 
@@ -24,6 +25,11 @@ public class SnowShoeTourController {
     // TODO Implement the method
     // Checking if the tour exist in the system
     if (!(Tour.hasWithId(id))) {
+      try {
+        SstPersistence.save();
+      } catch (RuntimeException e) {
+        return null;
+      }
       return null;
     }
     Tour tour = Tour.getWithId(id);
@@ -147,6 +153,11 @@ public class SnowShoeTourController {
           guideName, totalCostForGuide, allParticipantCosts);
 
       // return the TOSnowShoeTour TheSnowShoeTour
+      try {
+        SstPersistence.save();
+      } catch (RuntimeException e) {
+        return null;
+      }
       return TheSnowShoeTour;
 
     }
@@ -156,7 +167,17 @@ public class SnowShoeTourController {
     }
 
     if (!error.isEmpty()) {
+      try {
+        SstPersistence.save();
+      } catch (RuntimeException e) {
+        return null;
+      }
       return null; // We don't have errors to return
+    }
+    try {
+      SstPersistence.save();
+    } catch (RuntimeException e) {
+      return null;
     }
     return null;
   }
@@ -173,24 +194,46 @@ public class SnowShoeTourController {
     SnowShoeTour sst = SnowShoeToursApplication.getSnowShoeTour();
 
     // input validation
-    if (nrWeeks < 0)
+    if (nrWeeks < 0) {
+      try {
+        SstPersistence.save();
+      } catch (RuntimeException e) {
+        return null;
+      }
       return "The number of riding weeks must be greater than or equal to zero"; // if an invalid
-                                                                                 // input for number
-                                                                                 // of weeks is
-                                                                                 // inputted
-    if (priceOfGuidePerWeek < 0)
+    }
+    // input for number
+    // of weeks is
+    // inputted
+    if (priceOfGuidePerWeek < 0) {
+      try {
+        SstPersistence.save();
+      } catch (RuntimeException e) {
+        return null;
+      }
       return "The price of guide per week must be greater than or equal to zero"; // identical check
-                                                                                  // for the price
-                                                                                  // per week
-    if (startDate.getYear() < sst.getStartDate().getYear())
+    }
+    // for the price
+    // per week
+    if (startDate.getYear() < sst.getStartDate().getYear()) {
+      try {
+        SstPersistence.save();
+      } catch (RuntimeException e) {
+        return null;
+      }
       return "The start date cannot be from previous year or earlier"; // if the start date is from
-                                                                       // the previous year - which
-                                                                       // cannot occur
+    }
+    // the previous year - which
+    // cannot occur
 
     sst.setStartDate(startDate); // sets start date
     sst.setNrWeeks(nrWeeks); // sets number of weeks
     sst.setPriceOfGuidePerWeek(priceOfGuidePerWeek); // sets price of guide per week
-
+    try {
+      SstPersistence.save();
+    } catch (RuntimeException e) {
+      return null;
+    }
     return "";
   }
 }
