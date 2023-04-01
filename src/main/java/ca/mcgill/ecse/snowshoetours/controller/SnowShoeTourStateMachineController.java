@@ -54,8 +54,28 @@ public class SnowShoeTourStateMachineController {
     return "";
   }
   
-  
-  public static String finishTour() {
+  /**
+   * @author Wasif Somji
+   * @param email
+   * @return error message if any
+   */
+  public static String finishTour(String email) {
+    SnowShoeTour sst = SnowShoeToursApplication.getSnowShoeTour();
+    List<Participant> list = sst.getParticipants();
+    Participant finishedParticipant = null; 
+    for (Participant participant : list) {
+      if (participant.getAccountName().equals(emai)) {
+        finishedParticipant = participant;
+        break;
+      }
+    }
+    if (finishedParticipant == null) return "<error>"; 
+    if (!(finishedParticipant.getStatus() == Status.FinishedParticipant)) {
+      return "This participant's trip is not finished.";
+    }
+    if (finishedParticipant.getStatus() == Status.FinishedParticipant) {
+      finishedParticipant.finishTrip(); 
+    }
     return "";
   }
   
