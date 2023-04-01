@@ -25,7 +25,7 @@ public class SnowShoeTourStateMachineController {
         break;
       }
     }
-    if(selected == null) return "<error>";
+    if(selected == null) return "Participant with email address " + name + " does not exist";
     if(selected.getStatus()==Status.Finished) return "Cannot cancel tour because the participant has finished their tour";
     if(selected.getStatus()==Status.Cancelled) return "Cannot cancel tour because the participant has already cancelled their tour";
     selected.cancel();
@@ -72,7 +72,7 @@ public class SnowShoeTourStateMachineController {
     if(finishedParticipant.getStatus()==Status.NotAssigned) return "Cannot finish a tour for a participant who has not started their tour";
     if(finishedParticipant.getStatus()==Status.Assigned) return "Cannot finish a tour for a participant who has not started their tour";
     if(finishedParticipant.getStatus()==Status.Paid) return "Cannot finish a tour for a participant who has not started their tour";
-    if(finishedParticipant.getStatus()==Status.Cancelled) return "Cannot finish a tour for a participant who has cancelled their tour";
+    if(finishedParticipant.getStatus()==Status.Cancelled) return "Cannot finish tour because the participant has cancelled their tour";
     if(finishedParticipant.getStatus()==Status.Finished) return "Cannot finish tour because the participant has already finished their tour";
     finishedParticipant.finishTrip();
     return "";

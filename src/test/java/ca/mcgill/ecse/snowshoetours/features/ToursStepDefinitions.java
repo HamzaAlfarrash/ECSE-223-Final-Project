@@ -114,12 +114,10 @@ public class ToursStepDefinitions {
       int i =0;
       for (var tour : rows) {
         Tour tourToAssign = sst.addTour(Integer.parseInt(tour.get("id")), Integer.parseInt(tour.get("startWeek")), Integer.parseInt(tour.get("endWeek")), (Guide) User.getWithAccountName(tour.get("guide")));
-        par.get(i).assign(tourToAssign);
-        if(i==0) {
-          i=2; //skip index 1 becuase it is not assigned
-        } else {
-          i++;
-        }
+        String participant = tour.get("participants");
+        Participant aParticipant = (Participant) User.getWithAccountName(participant);
+        tourToAssign.addParticipant(aParticipant);
+        aParticipant.assign(tourToAssign);
       }
     }
 
