@@ -7,6 +7,7 @@ import ca.mcgill.ecse.snowshoetours.model.Participant;
 import ca.mcgill.ecse.snowshoetours.model.Participant.Status;
 import ca.mcgill.ecse.snowshoetours.model.SnowShoeTour;
 import ca.mcgill.ecse.snowshoetours.model.Tour;
+import ca.mcgill.ecse.snowshoetours.persistence.SstPersistence;
 
 public class SnowShoeTourStateMachineController {
   
@@ -16,6 +17,7 @@ public class SnowShoeTourStateMachineController {
    * @return error message if any
    */
   public static String cancelTrip(String name) {
+    String error = "";
     SnowShoeTour sst = SnowShoeToursApplication.getSnowShoeTour();
     List<Participant> list = sst.getParticipants();
     Participant selected = null;
@@ -25,11 +27,22 @@ public class SnowShoeTourStateMachineController {
         break;
       }
     }
-    if(selected == null) return "Participant with email address " + name + " does not exist";
-    if(selected.getStatus()==Status.Finished) return "Cannot cancel tour because the participant has finished their tour";
-    if(selected.getStatus()==Status.Cancelled) return "Cannot cancel tour because the participant has already cancelled their tour";
-    selected.cancel();
-    return "";
+    if(selected == null) {
+      error = "Participant with email address " + name + " does not exist";
+    }
+    else if(selected.getStatus()==Status.Finished) {
+      error = "Cannot cancel tour because the participant has finished their tour";
+    }
+    else if(selected.getStatus()==Status.Cancelled) {
+      error = "Cannot cancel tour because the participant has already cancelled their tour";
+    }
+    else selected.cancel();
+    try {
+      SstPersistence.save();
+    } catch (RuntimeException e) {
+      return e.getMessage();
+    }
+    return error;
   }
   
   /**
@@ -50,6 +63,11 @@ public class SnowShoeTourStateMachineController {
       Tour tour = sst.addTour(id,weekAvailableFrom,weekAvailableFrom + nOfWeeks -1,sst.getGuide(i%guides.size())); //assign randomly a guide to the tour, starting from index 0 in the guide list
       par.assign(tour); //assign tour to participant, state is not "Assigned"
     }
+    try {
+      SstPersistence.save();
+    } catch (RuntimeException e) {
+      return e.getMessage();
+    }
     return "";
   }
   
@@ -59,6 +77,7 @@ public class SnowShoeTourStateMachineController {
    * @return error message if any
    */
   public static String finishTour(String email) {
+    String error = "";
     SnowShoeTour sst = SnowShoeToursApplication.getSnowShoeTour();
     List<Participant> list = sst.getParticipants();
     Participant finishedParticipant = null; 
@@ -68,14 +87,19 @@ public class SnowShoeTourStateMachineController {
         break;
       }
     }
-    if (finishedParticipant == null) return "Participant with email address nonexisting@mail.ca does not exist"; 
-    if(finishedParticipant.getStatus()==Status.NotAssigned) return "Cannot finish a tour for a participant who has not started their tour";
-    if(finishedParticipant.getStatus()==Status.Assigned) return "Cannot finish a tour for a participant who has not started their tour";
-    if(finishedParticipant.getStatus()==Status.Paid) return "Cannot finish a tour for a participant who has not started their tour";
-    if(finishedParticipant.getStatus()==Status.Cancelled) return "Cannot finish tour because the participant has cancelled their tour";
-    if(finishedParticipant.getStatus()==Status.Finished) return "Cannot finish tour because the participant has already finished their tour";
-    finishedParticipant.finishTrip();
-    return "";
+    if (finishedParticipant == null) error = "Participant with email address nonexisting@mail.ca does not exist"; 
+    else if(finishedParticipant.getStatus()==Status.NotAssigned) error = "Cannot finish a tour for a participant who has not started their tour";
+    else if(finishedParticipant.getStatus()==Status.Assigned) error = "Cannot finish a tour for a participant who has not started their tour";
+    else if(finishedParticipant.getStatus()==Status.Paid) error = "Cannot finish a tour for a participant who has not started their tour";
+    else if(finishedParticipant.getStatus()==Status.Cancelled) error = "Cannot finish tour because the participant has cancelled their tour";
+    else if(finishedParticipant.getStatus()==Status.Finished) error = "Cannot finish tour because the participant has already finished their tour";
+    else finishedParticipant.finishTrip();
+    try {
+      SstPersistence.save();
+    } catch (RuntimeException e) {
+      return e.getMessage();
+    }
+    return error;
   }
   
   /**
@@ -98,6 +122,11 @@ public class SnowShoeTourStateMachineController {
        }
      }
    }
+    try {
+      SstPersistence.save();
+    } catch (RuntimeException e) {
+      return e.getMessage();
+    }
    return error;
   }
   /**
@@ -107,6 +136,7 @@ public class SnowShoeTourStateMachineController {
    * @return
    */
   public static String confirmPayement(String email, String authorizationCode) {
+    String error = "";
     SnowShoeTour sst = SnowShoeToursApplication.getSnowShoeTour();
     if(authorizationCode == null || authorizationCode.isBlank()) {
       return "Invalid authorization code";
@@ -119,14 +149,21 @@ public class SnowShoeTourStateMachineController {
         break;
       }
     }
-    if(aParticipant == null) return "Participant with email address " + email + " does not exist";
-    else if (aParticipant.getStatus().equals(Status.NotAssigned)) return "The participant has not been assigned to their tour";
-    else if (aParticipant.getStatus().equals(Status.Paid)) return "The participant has already paid for their tour";
-    else if (aParticipant.getStatus().equals(Status.Started)) return "The participant has already paid for their tour";
-    else if (aParticipant.getStatus().equals(Status.Finished)) return "The participant has already paid for their tour";
-    else if (aParticipant.getStatus().equals(Status.Cancelled)) return "Cannot pay for tour because the participant has cancelled their tour";
+    if(aParticipant == null) error = "Participant with email address " + email + " does not exist";
+    else if (aParticipant.getStatus().equals(Status.NotAssigned)) error = "The participant has not been assigned to their tour";
+    else if (aParticipant.getStatus().equals(Status.Paid)) error = "The participant has already paid for their tour";
+    else if (aParticipant.getStatus().equals(Status.Started)) error = "The participant has already paid for their tour";
+    else if (aParticipant.getStatus().equals(Status.Finished)) error = "The participant has already paid for their tour";
+    else if (aParticipant.getStatus().equals(Status.Cancelled)) error = "Cannot pay for tour because the participant has cancelled their tour";
     else aParticipant.pay(authorizationCode);
-    return "";
+    
+    try {
+      SstPersistence.save();
+    } catch (RuntimeException e) {
+      return e.getMessage();
+    }
+    return error;
+   
   }
 }
 
