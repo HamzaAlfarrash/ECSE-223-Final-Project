@@ -20,6 +20,7 @@ class Participant {
       } -> Assigned;
       startTrip(int week) -> Started;
       cancel() -> Cancelled;
+      finishTrip() -> Finished;
     }
 
     Paid {
