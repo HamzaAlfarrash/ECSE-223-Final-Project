@@ -18,25 +18,25 @@ public class SnowShoeTourStateMachineController {
    */
   public static String cancelTrip(String name) {
     String error = "";
-    SnowShoeTour sst = SnowShoeToursApplication.getSnowShoeTour();
-    List<Participant> list = sst.getParticipants();
-    Participant selected = null;
-    for (Participant par : list) {
-      if (par.getAccountName().equals(name)) {
-        selected = par;
+    SnowShoeTour sst = SnowShoeToursApplication.getSnowShoeTour(); //this selection of getting participants will be used throughout, will not be repeating this documentation to reduce redundancy
+    List<Participant> list = sst.getParticipants(); // assigns the list to the participants of the SnowSheTour
+    Participant selected = null; //initializes participant
+    for (Participant par : list) { //iterates through the list
+      if (par.getAccountName().equals(name)) { // finds the matching participant
+        selected = par; // assigns if it matches
         break;
       }
     }
-    if (selected == null) {
-      error = "Participant with email address " + name + " does not exist";
-    } else if (selected.getStatus() == Status.Finished) {
+    if (selected == null) { //edge cases
+      error = "Participant with email address " + name + " does not exist"; // if the participant's email address doesn't exist
+    } else if (selected.getStatus() == Status.Finished) { // if their tour is already finished
       error = "Cannot cancel tour because the participant has finished their tour";
-    } else if (selected.getStatus() == Status.Cancelled) {
+    } else if (selected.getStatus() == Status.Cancelled) { // if their tour has already been cancelled
       error = "Cannot cancel tour because the participant has already cancelled their tour";
     } else
-      selected.cancel();
+      selected.cancel(); //cancels the selected participant's trip
     try {
-      SstPersistence.save();
+      SstPersistence.save(); // for persistence; same try catch loop throughout; saves changes and throws errors if need be, will not be repeating this documentation to reduce redundancy
     } catch (RuntimeException e) {
       return e.getMessage();
     }
@@ -54,8 +54,8 @@ public class SnowShoeTourStateMachineController {
     int id = 0; // will be used for id of a tour
     // for each participant, assign a Tour to it with matching startweek and endweek
     for (Participant par : list) {
-      int nOfWeeks = par.getNrWeeks();
-      int weekAvailableFrom = par.getWeekAvailableFrom();
+      int nOfWeeks = par.getNrWeeks(); // gets number of weeks
+      int weekAvailableFrom = par.getWeekAvailableFrom(); // gets start week
       int i = id; // index to get the guide
       id++;
       Tour tour = sst.addTour(id, weekAvailableFrom, weekAvailableFrom + nOfWeeks - 1,
@@ -83,22 +83,22 @@ public class SnowShoeTourStateMachineController {
     Participant finishedParticipant = null;
     for (Participant participant : list) {
       if (participant.getAccountName().equals(email)) {
-        finishedParticipant = participant;
+        finishedParticipant = participant; // 
         break;
       }
     }
     if (finishedParticipant == null)
-      error = "Participant with email address nonexisting@mail.ca does not exist";
+      error = "Participant with email address nonexisting@mail.ca does not exist"; // if the email doesn't exist
     else if (finishedParticipant.getStatus() == Status.NotAssigned)
-      error = "Cannot finish a tour for a participant who has not started their tour";
+      error = "Cannot finish a tour for a participant who has not started their tour"; // if the participant has not started the tour (not assigned)
     else if (finishedParticipant.getStatus() == Status.Assigned)
-      error = "Cannot finish a tour for a participant who has not started their tour";
+      error = "Cannot finish a tour for a participant who has not started their tour"; // if the participant has not started the tour (assigned)
     else if (finishedParticipant.getStatus() == Status.Paid)
-      error = "Cannot finish a tour for a participant who has not started their tour";
+      error = "Cannot finish a tour for a participant who has not started their tour"; // if the participant has not started the tour (paid)
     else if (finishedParticipant.getStatus() == Status.Cancelled)
-      error = "Cannot finish tour because the participant has cancelled their tour";
+      error = "Cannot finish tour because the participant has cancelled their tour"; // if the participant has already cancelled the tour
     else if (finishedParticipant.getStatus() == Status.Finished)
-      error = "Cannot finish tour because the participant has already finished their tour";
+      error = "Cannot finish tour because the participant has already finished their tour"; // if the participant's tour status is ALREADY finished
     else
       finishedParticipant.finishTrip();
     try {
@@ -121,13 +121,13 @@ public class SnowShoeTourStateMachineController {
     for (Tour tour : tours) {
       if (tour.getStartWeek() == week) {
         List<Participant> participants = tour.getParticipants();
-        for (Participant participant : participants) {
+        for (Participant participant : participants) { // iterates through the participants list
           if (participant.getStatus().equals(Status.Started))
-            error = "Cannot start tour because the participant has already started their tour";
+            error = "Cannot start tour because the participant has already started their tour"; // if the participant's tour has already started
           else if (participant.getStatus().equals(Status.Cancelled))
-            error = "Cannot start tour because the participant has cancelled their tour";
+            error = "Cannot start tour because the participant has cancelled their tour"; // if the participant's tour has been cancelled
           else if (participant.getStatus().equals(Status.Finished))
-            error = "Cannot start tour because the participant has finished their tour";
+            error = "Cannot start tour because the participant has finished their tour"; // if the participant's tour is finished
           else
             participant.startTrip(week);
         }
@@ -162,17 +162,17 @@ public class SnowShoeTourStateMachineController {
       }
     }
     if (aParticipant == null)
-      error = "Participant with email address " + email + " does not exist";
+      error = "Participant with email address " + email + " does not exist"; // if the participant doesn't exist
     else if (aParticipant.getStatus().equals(Status.NotAssigned))
-      error = "The participant has not been assigned to their tour";
+      error = "The participant has not been assigned to their tour"; // if the participant has not been assigned to a tour
     else if (aParticipant.getStatus().equals(Status.Paid))
-      error = "The participant has already paid for their tour";
+      error = "The participant has already paid for their tour"; // if the participant has already paid
     else if (aParticipant.getStatus().equals(Status.Started))
-      error = "The participant has already paid for their tour";
+      error = "The participant has already paid for their tour"; // same as above
     else if (aParticipant.getStatus().equals(Status.Finished))
-      error = "The participant has already paid for their tour";
+      error = "The participant has already paid for their tour"; // same as above
     else if (aParticipant.getStatus().equals(Status.Cancelled))
-      error = "Cannot pay for tour because the participant has cancelled their tour";
+      error = "Cannot pay for tour because the participant has cancelled their tour"; // if the participant has already cancelled their tour
     else
       aParticipant.pay(authorizationCode);
 
