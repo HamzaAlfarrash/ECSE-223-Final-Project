@@ -41,15 +41,14 @@ public class SnowShoeTourStateMachineController {
     List<Participant> list = sst.getParticipants();
     List<Guide> guides = sst.getGuides();
     int id = 0; //will be used for id of a tour
-    int i = 0; //index to be used for the list of guides
     //for each participant, assign a Tour to it with matching startweek and endweek
     for(Participant par : list) {
       int nOfWeeks = par.getNrWeeks();
       int weekAvailableFrom = par.getWeekAvailableFrom();
+      int i = id; //index to get the guide
       id++;
       Tour tour = sst.addTour(id,weekAvailableFrom,weekAvailableFrom + nOfWeeks -1,sst.getGuide(i%guides.size())); //assign randomly a guide to the tour, starting from index 0 in the guide list
       par.assign(tour); //assign tour to participant, state is not "Assigned"
-      i++;
     }
     return "";
   }

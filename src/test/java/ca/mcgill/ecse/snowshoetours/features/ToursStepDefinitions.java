@@ -110,8 +110,16 @@ public class ToursStepDefinitions {
     @Given("the following snowshoe tours exist in the system")
     public void the_following_snowshoe_tours_exist_in_the_system(io.cucumber.datatable.DataTable dataTable) {
       List<Map<String, String>> rows = dataTable.asMaps();
+      List<Participant> par = sst.getParticipants();
+      int i =0;
       for (var tour : rows) {
-        sst.addTour(Integer.parseInt(tour.get("id")), Integer.parseInt(tour.get("startWeek")), Integer.parseInt(tour.get("endWeek")), (Guide) User.getWithAccountName(tour.get("guide")));
+        Tour tourToAssign = sst.addTour(Integer.parseInt(tour.get("id")), Integer.parseInt(tour.get("startWeek")), Integer.parseInt(tour.get("endWeek")), (Guide) User.getWithAccountName(tour.get("guide")));
+        par.get(i).assign(tourToAssign);
+        if(i==0) {
+          i=2; //skip index 1 becuase it is not assigned
+        } else {
+          i++;
+        }
       }
     }
 
