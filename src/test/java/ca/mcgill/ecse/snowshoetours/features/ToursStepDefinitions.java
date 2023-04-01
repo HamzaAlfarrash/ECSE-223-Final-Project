@@ -32,10 +32,9 @@ public class ToursStepDefinitions {
       io.cucumber.datatable.DataTable dataTable) {
     List<Map<String, String>> rows = dataTable.asMaps();
     for (var row : rows) {
-      Date startDate = Date.valueOf(row.get("startDate")); // Extract data from the Cucumber data
-                                                           // table
-      int nrWeeks = Integer.parseInt(row.get("nrWeeks"));
-      int priceOfGuidePerWeek = Integer.parseInt(row.get("priceOfGuidePerWeek"));
+      Date startDate = Date.valueOf(row.get("startDate")); // Extract data from the Cucumber data table                                                         
+      int nrWeeks = Integer.parseInt(row.get("nrWeeks")); // gets number of weeks
+      int priceOfGuidePerWeek = Integer.parseInt(row.get("priceOfGuidePerWeek")); //gets price per guide
       sst = SnowShoeToursApplication.getSnowShoeTour(); // Instantiate sst
       sst.setStartDate(startDate); // Setters
       sst.setNrWeeks(nrWeeks);
@@ -55,8 +54,8 @@ public class ToursStepDefinitions {
     List<Participant> participants = sst.getParticipants();
     for (Participant participant : participants) {
       if (participant.getAccountName().equals(string)) {
-        participant.pay("Paid");
-        participant.startTrip(participant.getWeekAvailableFrom());
+        participant.pay("Paid"); // participant pays for their tour
+        participant.startTrip(participant.getWeekAvailableFrom()); //participant starts trip from the week they're available
         break;
       }
     }
@@ -72,7 +71,7 @@ public class ToursStepDefinitions {
     List<Participant> participants = sst.getParticipants();
     for (Participant participant : participants) {
       if (participant.getAccountName().equals(string)) {
-        participant.pay("Paid");
+        participant.pay("Paid"); // participant pays for their tour
         break;
       }
     }
@@ -101,7 +100,7 @@ public class ToursStepDefinitions {
     List<Participant> participants = sst.getParticipants();
     for (Participant participant : participants) {
       if (participant.getAccountName().equals(string)) {
-        participant.cancel();
+        participant.cancel(); // participant cancels their tour
         break;
       }
     }
