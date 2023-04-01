@@ -53,6 +53,7 @@ public class ToursStepDefinitions {
       List<Participant> participants = sst.getParticipants();
       for (Participant participant : participants) {
         if (participant.getAccountName().equals(string)) {
+          participant.pay("Paid");
           participant.startTrip(participant.getWeekAvailableFrom());
           break;
         }
