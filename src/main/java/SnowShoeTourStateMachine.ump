@@ -1,37 +1,37 @@
 class Participant {
 
   status {
-    NotAssignedParticipant {
+    NotAssigned {
       assign(Tour tour) / {
         doAssign(tour);
-      } -> AssignedParticipant;
-      cancel() -> CanceledParticipant;
+      } -> Assigned;
+      cancel() -> Cancelled;
     }
 
-    AssignedParticipant {
+    Assigned {
       pay(String authorizationCode) [isValid(authorizationCode)] / {
         doPay(authorizationCode); 
-      } -> PaidParticipant;
+      } -> Paid;
       pay(String authorizationCode) [!isValid(authorizationCode)] / {
         rejectPay(authorizationCode); 
-      } -> AssignedParticipant;
+      } -> Assigned;
       assign(Tour tour) / {
         rejectAssign(tour);
-      } -> AssignedParticipant;
-      startTrip(int week) -> CanceledParticipant;
-      cancel() -> CanceledParticipant;
+      } -> Assigned;
+      startTrip(int week) -> Cancelled;
+      cancel() -> Cancelled;
     }
 
-    PaidParticipant {
-      startTrip(int week) [hasMatchingStartWeek(week)] -> StartedParticipant;
-      cancel() / { doRefund(50); } -> CanceledParticipant;
+    Paid {
+      startTrip(int week) [hasMatchingStartWeek(week)] -> Started;
+      cancel() / { doRefund(50); } -> Cancelled;
     }
-    StartedParticipant {
-      finishTrip() -> FinishedParticipant;
-      cancel() / { doRefund(10); } -> CanceledParticipant;
+    Started {
+      finishTrip() -> Finished;
+      cancel() / { doRefund(10); } -> Cancelled;
     }
-    CanceledParticipant {}
-    FinishedParticipant {}
+    Cancelled {}
+    Finished {}
   }
 
   private void doAssign(Tour tour) {
@@ -49,7 +49,7 @@ class Participant {
  
 
   private void doPay(String authorizationCode) {
-    setStatus(Status.PaidParticipant);
+    setStatus(Status.Paid);
       setAuthorizationCode(authorizationCode);
   }
 

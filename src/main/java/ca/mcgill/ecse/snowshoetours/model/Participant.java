@@ -22,7 +22,7 @@ public class Participant extends NamedUser
   private int refundedPercentageAmount;
 
   //Participant State Machines
-  public enum Status { NotAssignedParticipant, AssignedParticipant, PaidParticipant, StartedParticipant, CanceledParticipant, FinishedParticipant }
+  public enum Status { NotAssigned, Assigned, Paid, Started, Cancelled, Finished }
   private Status status;
 
   //Participant Associations
@@ -49,7 +49,7 @@ public class Participant extends NamedUser
       throw new RuntimeException("Unable to create participant due to snowShoeTour. See http://manual.umple.org?RE002ViolationofAssociationMultiplicity.html");
     }
     bookedItems = new ArrayList<BookedItem>();
-    setStatus(Status.NotAssignedParticipant);
+    setStatus(Status.NotAssigned);
   }
 
   //------------------------
@@ -157,16 +157,16 @@ public class Participant extends NamedUser
     Status aStatus = status;
     switch (aStatus)
     {
-      case NotAssignedParticipant:
+      case NotAssigned:
         // line 5 "../../../../../SnowShoeTourStateMachine.ump"
         doAssign(tour);
-        setStatus(Status.AssignedParticipant);
+        setStatus(Status.Assigned);
         wasEventProcessed = true;
         break;
-      case AssignedParticipant:
+      case Assigned:
         // line 18 "../../../../../SnowShoeTourStateMachine.ump"
         rejectAssign(tour);
-        setStatus(Status.AssignedParticipant);
+        setStatus(Status.Assigned);
         wasEventProcessed = true;
         break;
       default:
@@ -183,24 +183,24 @@ public class Participant extends NamedUser
     Status aStatus = status;
     switch (aStatus)
     {
-      case NotAssignedParticipant:
-        setStatus(Status.CanceledParticipant);
+      case NotAssigned:
+        setStatus(Status.Cancelled);
         wasEventProcessed = true;
         break;
-      case AssignedParticipant:
-        setStatus(Status.CanceledParticipant);
+      case Assigned:
+        setStatus(Status.Cancelled);
         wasEventProcessed = true;
         break;
-      case PaidParticipant:
+      case Paid:
         // line 27 "../../../../../SnowShoeTourStateMachine.ump"
         doRefund(50);
-        setStatus(Status.CanceledParticipant);
+        setStatus(Status.Cancelled);
         wasEventProcessed = true;
         break;
-      case StartedParticipant:
+      case Started:
         // line 31 "../../../../../SnowShoeTourStateMachine.ump"
         doRefund(10);
-        setStatus(Status.CanceledParticipant);
+        setStatus(Status.Cancelled);
         wasEventProcessed = true;
         break;
       default:
@@ -217,12 +217,12 @@ public class Participant extends NamedUser
     Status aStatus = status;
     switch (aStatus)
     {
-      case AssignedParticipant:
+      case Assigned:
         if (isValid(authorizationCode))
         {
         // line 12 "../../../../../SnowShoeTourStateMachine.ump"
           doPay(authorizationCode);
-          setStatus(Status.PaidParticipant);
+          setStatus(Status.Paid);
           wasEventProcessed = true;
           break;
         }
@@ -230,7 +230,7 @@ public class Participant extends NamedUser
         {
         // line 15 "../../../../../SnowShoeTourStateMachine.ump"
           rejectPay(authorizationCode);
-          setStatus(Status.AssignedParticipant);
+          setStatus(Status.Assigned);
           wasEventProcessed = true;
           break;
         }
@@ -249,14 +249,14 @@ public class Participant extends NamedUser
     Status aStatus = status;
     switch (aStatus)
     {
-      case AssignedParticipant:
-        setStatus(Status.CanceledParticipant);
+      case Assigned:
+        setStatus(Status.Cancelled);
         wasEventProcessed = true;
         break;
-      case PaidParticipant:
+      case Paid:
         if (hasMatchingStartWeek(week))
         {
-          setStatus(Status.StartedParticipant);
+          setStatus(Status.Started);
           wasEventProcessed = true;
           break;
         }
@@ -275,8 +275,8 @@ public class Participant extends NamedUser
     Status aStatus = status;
     switch (aStatus)
     {
-      case StartedParticipant:
-        setStatus(Status.FinishedParticipant);
+      case Started:
+        setStatus(Status.Finished);
         wasEventProcessed = true;
         break;
       default:
@@ -485,7 +485,7 @@ public class Participant extends NamedUser
 
   // line 52 "../../../../../SnowShoeTourStateMachine.ump"
    private void doPay(String authorizationCode){
-    setStatus(Status.PaidParticipant);
+    setStatus(Status.Paid);
       setAuthorizationCode(authorizationCode);
   }
 

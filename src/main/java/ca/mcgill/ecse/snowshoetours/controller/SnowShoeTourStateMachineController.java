@@ -26,8 +26,8 @@ public class SnowShoeTourStateMachineController {
       }
     }
     if(selected == null) return "<error>";
-    if(selected.getStatus()==Status.FinishedParticipant) return "Cannot cancel tour because the participant has finished their tour";
-    if(selected.getStatus()==Status.CanceledParticipant) return "Cannot cancel tour because the participant has already cancelled their tour";
+    if(selected.getStatus()==Status.Finished) return "Cannot cancel tour because the participant has finished their tour";
+    if(selected.getStatus()==Status.Cancelled) return "Cannot cancel tour because the participant has already cancelled their tour";
     selected.cancel();
     return "";
   }
@@ -70,10 +70,10 @@ public class SnowShoeTourStateMachineController {
       }
     }
     if (finishedParticipant == null) return "<error>"; 
-    if (!(finishedParticipant.getStatus() == Status.FinishedParticipant)) {
+    if (!(finishedParticipant.getStatus() == Status.Finished)) {
       return "This participant's trip is not finished.";
     }
-    if (finishedParticipant.getStatus() == Status.FinishedParticipant) {
+    if (finishedParticipant.getStatus() == Status.Finished) {
       finishedParticipant.finishTrip(); 
     }
     return "";
