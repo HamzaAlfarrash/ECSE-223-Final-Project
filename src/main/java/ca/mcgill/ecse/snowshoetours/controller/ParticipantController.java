@@ -9,6 +9,7 @@ import ca.mcgill.ecse.snowshoetours.model.Guide;
 import ca.mcgill.ecse.snowshoetours.model.Participant;
 import ca.mcgill.ecse.snowshoetours.model.SnowShoeTour;
 import ca.mcgill.ecse.snowshoetours.model.User;
+import ca.mcgill.ecse.snowshoetours.persistence.SstPersistence;
 
 public class ParticipantController {
 	/**
@@ -27,43 +28,106 @@ public class ParticipantController {
       String emergencyContact, int nrWeeks, int weekAvailableFrom, int weekAvailableUntil,
       boolean lodgeRequired) {
 	  
-	  if ( email==null|| email.isBlank()) { // checks for validity of email
-		  return "Email cannot be empty";
+	  if ( email==null|| email.isBlank()) {
+	    try {
+	      SstPersistence.save();
+	    } catch (RuntimeException e) {
+	      return e.getMessage();
+	    }
+	    // checks for validity of email
+		return "Email cannot be empty";
 	  }
-	  if ( password == null || password.isBlank()) { // checks for validity of password
-		  return "Password cannot be empty";
+	  if ( password == null || password.isBlank()) {
+	    try {
+	      SstPersistence.save();
+	    } catch (RuntimeException e) {
+	      return e.getMessage();
+	    }// checks for validity of password
+	    return "Password cannot be empty";
 	  }
-	  if ( name == null || name.isBlank()) { // checks for validity of name
-		  return "Name cannot be empty";
+	  if ( name == null || name.isBlank()) {
+	    try {
+	      SstPersistence.save();
+	    } catch (RuntimeException e) {
+	      return e.getMessage();
+	    }
+	    // checks for validity of name
+	    return "Name cannot be empty";
 	  }
-	  if ( emergencyContact == null || emergencyContact.isBlank()) { // checks for validity of emergency contact
-		  return "Emergency contact cannot be empty";
+	  if ( emergencyContact == null || emergencyContact.isBlank()) {
+	    try {
+	      SstPersistence.save();
+	    } catch (RuntimeException e) {
+	      return e.getMessage();
+	    }
+	    // checks for validity of emergency contact
+		return "Emergency contact cannot be empty";
 	  }
 	  if (nrWeeks <= 0) { // checks for validity of the integer number of weeks (in bounds)
-		  return "Number of weeks must be greater than zero";
+	    try {
+	      SstPersistence.save();
+	    } catch (RuntimeException e) {
+	      return e.getMessage();
+	    }  
+	    return "Number of weeks must be greater than zero";
 	  }
 	  if (nrWeeks > 10) { // checks for validity of the integer number of weeks (in bounds)
-		  return "Number of weeks must be less than or equal to the number of snowshoe weeks in the snowshoe season";
+	    try {
+	      SstPersistence.save();
+	    } catch (RuntimeException e) {
+	      return e.getMessage();
+	    }  
+	    return "Number of weeks must be less than or equal to the number of snowshoe weeks in the snowshoe season";
 	  }
 	  if ((weekAvailableFrom < 1 || weekAvailableFrom > 10) || (weekAvailableUntil < 1 || weekAvailableUntil > 10)) { // checks weekAvailableFrom & weekAvailableUntil are within the bounds
-		  return "Available weeks must be within weeks of snowshoe season (1-10)";
+	    try {
+	      SstPersistence.save();
+	    } catch (RuntimeException e) {
+	      return e.getMessage();
+	    }  
+	    return "Available weeks must be within weeks of snowshoe season (1-10)";
 	  }
 	  //Logic check
 	  if (weekAvailableFrom >= weekAvailableUntil) { // checks for correct logic of week available dates
-		  return "Week from which one is available must be less than or equal to the week until which one is available";
+	    try {
+	      SstPersistence.save();
+	    } catch (RuntimeException e) {
+	      return e.getMessage();
+	    }  
+	    return "Week from which one is available must be less than or equal to the week until which one is available";
 	  }
 	  if (email.equals("manager")) { // checks for validity of email
-		  return "Invalid email";
+	    try {
+	      SstPersistence.save();
+	    } catch (RuntimeException e) {
+	      return e.getMessage();
+	    }  
+	    return "Invalid email";
 	  }
 	  if (email.contains(" ")) { // checks for empty string in email (i.e. spaces)
-		 return "Email must not contain any spaces";
+	    try {
+	      SstPersistence.save();
+	    } catch (RuntimeException e) {
+	      return e.getMessage();
+	    } 
+	    return "Email must not contain any spaces";
 	  }
 	  if (nrWeeks > (weekAvailableUntil - weekAvailableFrom +1)){ // checks number of weeks is equal to the weeks available + 1
-		 return "Number of weeks must be less than or equal to the number of available weeks";
+	    try {
+	      SstPersistence.save();
+	    } catch (RuntimeException e) {
+	      return e.getMessage();
+	    } 
+	    return "Number of weeks must be less than or equal to the number of available weeks";
 	  }
 	  
 	  if (!(email.contains("mail"))|| !(email.contains("@"))) { // checks for validity of email
-		  return "Invalid email";
+	    try {
+	      SstPersistence.save();
+	    } catch (RuntimeException e) {
+	      return e.getMessage();
+	    }  
+	    return "Invalid email";
 	  }
 
 	  // checks for validity of email using the sequence of characters in the string
@@ -74,21 +138,41 @@ public class ParticipantController {
 	  List<Participant> participants = sst.getParticipants(); //assigns variable participants
 	  List<Guide> guides = sst.getGuides(); // assigns variable guides
 	  if (sst.getManager().getAccountName().equals(email)) { // checks manager's email in system and returns empty string if match occurs
-		  return "";
+	    try {
+	      SstPersistence.save();
+	    } catch (RuntimeException e) {
+	      return e.getMessage();
+	    }  
+	    return "";
 	  }
 	  for (Participant participant : participants) {
 		  if (participant.getAccountName().equals(email)) { // if the participant's information already exists in the system
-			  return "Email already linked to a participant account"; 
+		    try {
+		      SstPersistence.save();
+		    } catch (RuntimeException e) {
+		      return e.getMessage();
+		    }  
+		    return "Email already linked to a participant account"; 
 		  }
 	  }
 	  for (Guide guide : guides) {
 		    if (email.equals(guide.getAccountName())) { // if the guide's information already exists in the system
-			  return "Email already linked to a guide account";
+		      try {
+		        SstPersistence.save();
+		      } catch (RuntimeException e) {
+		        return e.getMessage();
+		      }
+		      return "Email already linked to a guide account";
 		    }
 		  }
 	  //Once all conditions are checked, successfully add the participant
 	  sst.addParticipant(email,password,name,emergencyContact,nrWeeks,weekAvailableFrom, weekAvailableUntil, 
 			  lodgeRequired,"",0);
+	  try {
+	      SstPersistence.save();
+	    } catch (RuntimeException e) {
+	      return e.getMessage();
+	    }
 	  return "";
   }
   /**
@@ -125,21 +209,41 @@ public class ParticipantController {
 	 
 	//Basic check
     if (email == null || email.isBlank()) {
+      try {
+        SstPersistence.save();
+      } catch (RuntimeException e) {
+        return e.getMessage();
+      }
       return "The email cannot be empty";
     }
     if ( bookableItemName == null|| bookableItemName.isBlank()) { //Added
-    	return "The bookable item name must not be empty";
+      try {
+        SstPersistence.save();
+      } catch (RuntimeException e) {
+        return e.getMessage();
+      }
+      return "The bookable item name must not be empty";
     }
     //Checking if email belongs to a participant
     User user = User.getWithAccountName(email);
     if (user == null|| !(user instanceof Participant)  ) {
-    	return "The participant does not exist";
+      try {
+        SstPersistence.save();
+      } catch (RuntimeException e) {
+        return e.getMessage();
+      }
+      return "The participant does not exist";
     }
     Participant participant = (Participant) user;
 
     //Checking if bookable item exists in the system
     if (!(BookableItem.hasWithName(bookableItemName))) {
-    	return "The piece of gear or combo does not exist";
+      try {
+        SstPersistence.save();
+      } catch (RuntimeException e) {
+        return e.getMessage();
+      }
+      return "The piece of gear or combo does not exist";
     }
     
     
@@ -149,13 +253,23 @@ public class ParticipantController {
 	List<BookedItem> bookedItems = participant.getBookedItems();
 	for (BookedItem b : bookedItems) {
 		if(b.getItem().equals(item)) {
-			b.setQuantity(b.getQuantity() + 1);
-			return "";
+		  try {
+		      SstPersistence.save();
+		  } catch (RuntimeException e) {
+		      return e.getMessage();
+		  }
+		  b.setQuantity(b.getQuantity() + 1);
+		  return "";
 		}
 	}
 	//Successfully adding the new item
 	SnowShoeTour sst = SnowShoeToursApplication.getSnowShoeTour(); //Added
 	participant.addBookedItem(1,sst, item);//Is there a cleaner way?
+	try {
+      SstPersistence.save();
+    } catch (RuntimeException e) {
+      return e.getMessage();
+    }
 	return "";
     }
   
@@ -169,11 +283,21 @@ public class ParticipantController {
   public static String removeBookableItemFromParticipant(String email, String bookableItemName) {
 	  
 	  if ( email == null || email.isBlank()) { // checks validity of email
-		  return "Email must exist.";
+	    try {
+	      SstPersistence.save();
+	    } catch (RuntimeException e) {
+	      return e.getMessage();
+	    }  
+	    return "Email must exist.";
 	  }
 	  
 	  if (bookableItemName == null || bookableItemName.isBlank()) { // checks validity of the bookable item name
-		  return "Bookable item must exist."; 
+	    try {
+	      SstPersistence.save();
+	    } catch (RuntimeException e) {
+	      return e.getMessage();
+	    }  
+	    return "Bookable item must exist."; 
 	  }
 	  var error = ""; //sets empty string for error
 	  
@@ -182,11 +306,21 @@ public class ParticipantController {
 	  User user = User.getWithAccountName(email); // assigns user to the email given in input
 	    
 	    if (!(user instanceof Participant)) { // Check if user is null or not an instance of participant
+	      try {
+	        SstPersistence.save();
+	      } catch (RuntimeException e) {
+	        return e.getMessage();
+	      }
 	      return "The participant does not exist";
 	    }
 	    
 	    // Check if item is null
 	    if (bookedItem == null) { // checks validity of the booked item
+	      try {
+	        SstPersistence.save();
+	      } catch (RuntimeException e) {
+	        return e.getMessage();
+	      }
 	      return "The piece of gear or combo does not exist";
 	    }
 	    
@@ -203,6 +337,11 @@ public class ParticipantController {
 	            } else {
 	              p.removeBookedItem(b); // Remove the booked item from participant
 	              b.delete();
+	            }
+	            try {
+	              SstPersistence.save();
+	            } catch (RuntimeException e) {
+	              return e.getMessage();
 	            }
 	            return "";
 	          }
