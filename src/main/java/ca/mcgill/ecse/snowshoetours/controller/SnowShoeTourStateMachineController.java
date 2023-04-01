@@ -106,7 +106,7 @@ public class SnowShoeTourStateMachineController {
     } catch (RuntimeException e) {
       return e.getMessage();
     }
-    return error;
+    return error; //returns error if there is one; returns nothing if there isn't
   }
 
   /**
@@ -138,7 +138,7 @@ public class SnowShoeTourStateMachineController {
     } catch (RuntimeException e) {
       return e.getMessage();
     }
-    return error;
+    return error; //returns error if there is one; returns nothing if there isn't
   }
 
   /**
@@ -150,7 +150,7 @@ public class SnowShoeTourStateMachineController {
   public static String confirmPayement(String email, String authorizationCode) {
     String error = "";
     SnowShoeTour sst = SnowShoeToursApplication.getSnowShoeTour();
-    if (authorizationCode == null || authorizationCode.isBlank()) {
+    if (authorizationCode == null || authorizationCode.isBlank()) { // if the authorization code is null or blank
       return "Invalid authorization code";
     }
     Participant aParticipant = null;
@@ -181,7 +181,7 @@ public class SnowShoeTourStateMachineController {
     } catch (RuntimeException e) {
       return e.getMessage();
     }
-    return error;
+    return error; //returns error if there is one; returns nothing if there isn't
 
   }
 }
