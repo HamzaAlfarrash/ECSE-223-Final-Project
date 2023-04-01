@@ -270,7 +270,7 @@ public class Participant extends NamedUser
     switch (aStatus)
     {
       case Assigned:
-        setStatus(Status.Started);
+        setStatus(Status.Cancelled);
         wasEventProcessed = true;
         break;
       case Paid:
@@ -525,25 +525,24 @@ public class Participant extends NamedUser
    private void doPay(String authorizationCode){
     setStatus(Status.Paid);
       setAuthorizationCode(authorizationCode);
-    hasPaid = true;
   }
 
-  // line 62 "../../../../../SnowShoeTourStateMachine.ump"
+  // line 61 "../../../../../SnowShoeTourStateMachine.ump"
    private void rejectPay(String authorizationCode){
     throw new RuntimeException("Payement failed");
   }
 
-  // line 66 "../../../../../SnowShoeTourStateMachine.ump"
+  // line 65 "../../../../../SnowShoeTourStateMachine.ump"
    private boolean hasMatchingStartWeek(int week){
     return (week >= getWeekAvailableFrom() && week <= getWeekAvailableUntil());
   }
 
-  // line 70 "../../../../../SnowShoeTourStateMachine.ump"
+  // line 69 "../../../../../SnowShoeTourStateMachine.ump"
    private void doRefund(int refundedPercentageAmount){
     setRefundedPercentageAmount(refundedPercentageAmount);
   }
 
-  // line 74 "../../../../../SnowShoeTourStateMachine.ump"
+  // line 73 "../../../../../SnowShoeTourStateMachine.ump"
    private void rejectRefund(int refundedPercentageAmount){
     throw new RuntimeException("Refund failed");
   }
