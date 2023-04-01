@@ -85,7 +85,7 @@ public class ToursStepDefinitions {
   public void the_following_guides_exist_in_the_system(io.cucumber.datatable.DataTable dataTable) {
     List<Map<String, String>> rows = dataTable.asMaps();
     for (var guide : rows) {
-      sst.addGuide(guide.get("email"), guide.get("password"), guide.get("name"),
+      sst.addGuide(guide.get("email"), guide.get("password"), guide.get("name"), //Getters for the guide
           guide.get("emergencyContact"));
     }
   }
@@ -113,15 +113,15 @@ public class ToursStepDefinitions {
   @Given("the following snowshoe tours exist in the system")
   public void the_following_snowshoe_tours_exist_in_the_system(
       io.cucumber.datatable.DataTable dataTable) {
-    List<Map<String, String>> rows = dataTable.asMaps();
+    List<Map<String, String>> rows = dataTable.asMaps(); //converts the DataTable object into a list of maps, where each map represents a row of data
     for (var tour : rows) {
-      Tour tourToAssign = sst.addTour(Integer.parseInt(tour.get("id")),
-          Integer.parseInt(tour.get("startWeek")), Integer.parseInt(tour.get("endWeek")),
-          (Guide) User.getWithAccountName(tour.get("guide")));
+      Tour tourToAssign = sst.addTour(Integer.parseInt(tour.get("id")), //creates and adds tour
+          Integer.parseInt(tour.get("startWeek")), Integer.parseInt(tour.get("endWeek")), //converts start and end week strings to integers
+          (Guide) User.getWithAccountName(tour.get("guide"))); // gets guide for tour
       String participant = tour.get("participants");
-      Participant aParticipant = (Participant) User.getWithAccountName(participant);
-      tourToAssign.addParticipant(aParticipant);
-      aParticipant.assign(tourToAssign);
+      Participant aParticipant = (Participant) User.getWithAccountName(participant); //gets participant's name and finds corresponding user object
+      tourToAssign.addParticipant(aParticipant); //adds participant
+      aParticipant.assign(tourToAssign); //assigns tour to participant
     }
   }
 
@@ -134,13 +134,13 @@ public class ToursStepDefinitions {
   public void the_following_participants_exist_in_the_system(
       io.cucumber.datatable.DataTable dataTable) {
     List<Map<String, String>> rows = dataTable.asMaps();
-    for (var participant : rows) {
-      sst.addParticipant(participant.get("email"), participant.get("password"),
+    for (var participant : rows) { //iterates through the row of data 
+      sst.addParticipant(participant.get("email"), participant.get("password"), // adds participant, gets email and password
           participant.get("name"), participant.get("emergencyContact"),
-          Integer.parseInt(participant.get("nrWeeks")),
-          Integer.parseInt(participant.get("weeksAvailableFrom")),
-          Integer.parseInt(participant.get("weeksAvailableUntil")),
-          Boolean.valueOf(participant.get("lodgeRequired")), null, 0);
+          Integer.parseInt(participant.get("nrWeeks")), //converts start and end week strings to integers
+          Integer.parseInt(participant.get("weeksAvailableFrom")), // string to integer
+          Integer.parseInt(participant.get("weeksAvailableUntil")),// string to integer
+          Boolean.valueOf(participant.get("lodgeRequired")), null, 0); // converts lodgeRequired value from string to boolean
     }
   }
 
@@ -153,7 +153,7 @@ public class ToursStepDefinitions {
     List<Participant> par = sst.getParticipants();
     for (Participant participant : par) {
       if (participant.getAccountName().equals(string)) {
-        participant.finishTrip();
+        participant.finishTrip(); // if the participant has finished their trip
         break;
       }
     }
@@ -163,7 +163,7 @@ public class ToursStepDefinitions {
    * @author souhail el hayani
    * @param string
    */
-  @When("the manager attempts to cancel the tour for email {string}")
+  @When("the manager attempts to cancel the tour for email {string}") // all When methods are used to simulate behavior for a manager or administrator
   public void the_manager_attempts_to_cancel_the_tour_for_email(String string) {
     error = SnowShoeTourStateMachineController.cancelTrip(string);
   }
@@ -171,7 +171,7 @@ public class ToursStepDefinitions {
   /**
    * @author souhaill el hayani
    */
-  @When("the administrator attempts to initiate the snowshoe tour creation process")
+  @When("the administrator attempts to initiate the snowshoe tour creation process") // all When methods are used to simulate behavior for a manager or administrator
   public void the_administrator_attempts_to_initiate_the_snowshoe_tour_creation_process() {
     error = SnowShoeTourStateMachineController.initiate();
   }
@@ -181,7 +181,7 @@ public class ToursStepDefinitions {
    * 
    * @param string
    */
-  @When("the manager attempts to finish the tour for the participant with email {string}")
+  @When("the manager attempts to finish the tour for the participant with email {string}") // all When methods are used to simulate behavior for a manager or administrator
   public void the_manager_attempts_to_finish_the_tour_for_the_participant_with_email(
       String string) {
     error = SnowShoeTourStateMachineController.finishTour(string);
@@ -192,7 +192,7 @@ public class ToursStepDefinitions {
    * 
    * @param string
    */
-  @When("the manager attempts to start the tours for week {string}")
+  @When("the manager attempts to start the tours for week {string}") // all When methods are used to simulate behavior for a manager or administrator
   public void the_manager_attempts_to_start_the_tours_for_week(String string) {
     error = SnowShoeTourStateMachineController.startTourForWeek(Integer.parseInt(string));
   }
@@ -202,7 +202,7 @@ public class ToursStepDefinitions {
    * 
    * @param string
    */
-  @When("the manager attempts to confirm payment for email {string} using authorization code {string}")
+  @When("the manager attempts to confirm payment for email {string} using authorization code {string}") // all When methods are used to simulate behavior for a manager or administrator
   public void the_manager_attempts_to_confirm_payment_for_email_using_authorization_code(
       String string, String string2) {
     error = SnowShoeTourStateMachineController.confirmPayement(string, string2);
@@ -242,7 +242,7 @@ public class ToursStepDefinitions {
   public void the_participant_with_email_shall_be_marked_as(String string, String string2) {
     // Write code here that turns the phrase above into concrete actions
     Participant participant = (Participant) User.getWithAccountName(string);
-    assertEquals(string2, participant.getStatusFullName());
+    assertEquals(string2, participant.getStatusFullName()); //checks that the status matches the expected status, returns true if is, false if not
   }
 
   /**
@@ -252,7 +252,7 @@ public class ToursStepDefinitions {
    */
   @Then("the number of snowshoe tours shall be {string}")
   public void the_number_of_snowshoe_tours_shall_be(String string) {
-    assertEquals(string, String.valueOf(sst.getTours().size()));
+    assertEquals(string, String.valueOf(sst.getTours().size())); // checks that the number of tours is the same as expected
   }
 
   /**
@@ -262,7 +262,7 @@ public class ToursStepDefinitions {
    */
   @Then("the system shall raise the error {string}")
   public void the_system_shall_raise_the_error(String string) {
-    assertEquals(error, string);
+    assertEquals(error, string); // checks if the system raises an error when needed
   }
 
   /**
@@ -274,10 +274,10 @@ public class ToursStepDefinitions {
 
     User participant = User.getWithAccountName(string);
     Boolean participantExist = false;
-    if (participant instanceof Participant) {
+    if (participant instanceof Participant) { //checks that the participant exists 
       participantExist = true;
     }
-    assertFalse(participantExist);
+    assertFalse(participantExist); // if not, assert that they don't exist, and throw error if they do 
   }
 
   /**
@@ -286,7 +286,7 @@ public class ToursStepDefinitions {
    */
   @Then("the number of participants shall be {string}")
   public void the_number_of_participants_shall_be(String string) {
-    assertEquals(string, String.valueOf(sst.getParticipants().size()));
+    assertEquals(string, String.valueOf(sst.getParticipants().size())); //checks that the number of participants is as expected
   }
 
   /**
@@ -306,8 +306,8 @@ public class ToursStepDefinitions {
         check = true;
       }
     }
-    assertTrue(check);
-    assertEquals(string2, String.valueOf(aParticipant.getRefundedPercentageAmount()));
+    assertTrue(check); //checks that the participant exists, since "check=true" is in the for and if loops
+    assertEquals(string2, String.valueOf(aParticipant.getRefundedPercentageAmount())); // checks that the refund amount is correct
   }
 
   /**
