@@ -528,11 +528,6 @@ public class Participant extends NamedUser
     setRefundedPercentageAmount(refundedPercentageAmount);
   }
 
-  // line 71 "../../../../../SnowShoeTourStateMachine.ump"
-   private void rejectRefund(int refundedPercentageAmount){
-    throw new RuntimeException("Refund failed");
-  }
-
 
   public String toString()
   {

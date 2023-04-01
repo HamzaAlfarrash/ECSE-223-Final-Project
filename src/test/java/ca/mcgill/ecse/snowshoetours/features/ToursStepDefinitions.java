@@ -67,13 +67,13 @@ public class ToursStepDefinitions {
      */
     @Given("the participant with email {string} has paid for their tour")
     public void the_participant_with_email_has_paid_for_their_tour(String string) {
-        List<Participant> participants = sst.getParticipants();
-        for (Participant participant : participants) {
-          if (participant.getAccountName().equals(string)) {
-            participant.pay("Paid");
-            break;
-          }
-        }
+       List<Participant> participants = sst.getParticipants();
+       for (Participant participant : participants) {
+         if (participant.getAccountName().equals(string)) {
+           participant.pay("Paid");
+           break;
+         }
+       }
     }
 
     /**
