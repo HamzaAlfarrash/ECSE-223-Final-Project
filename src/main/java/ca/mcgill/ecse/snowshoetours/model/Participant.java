@@ -218,7 +218,7 @@ public class Participant extends NamedUser
         wasEventProcessed = true;
         break;
       case Started:
-        // line 34 "../../../../../SnowShoeTourStateMachine.ump"
+        // line 32 "../../../../../SnowShoeTourStateMachine.ump"
         doRefund(10);
         setStatus(Status.Cancelled);
         wasEventProcessed = true;
@@ -275,20 +275,6 @@ public class Participant extends NamedUser
         break;
       case Paid:
         if (hasMatchingStartWeek(week))
-        {
-          setStatus(Status.Started);
-          wasEventProcessed = true;
-          break;
-        }
-        break;
-      case Started:
-        if (hasPaid==false)
-        {
-          setStatus(Status.Cancelled);
-          wasEventProcessed = true;
-          break;
-        }
-        if (hasPaid==true)
         {
           setStatus(Status.Started);
           wasEventProcessed = true;
@@ -505,44 +491,44 @@ public class Participant extends NamedUser
     super.delete();
   }
 
-  // line 42 "../../../../../SnowShoeTourStateMachine.ump"
+  // line 40 "../../../../../SnowShoeTourStateMachine.ump"
    private void doAssign(Tour tour){
     setTour(tour);
   }
 
-  // line 46 "../../../../../SnowShoeTourStateMachine.ump"
+  // line 44 "../../../../../SnowShoeTourStateMachine.ump"
    private void rejectAssign(Tour tour){
     throw new RuntimeException("Assigning participant failed");
   }
 
-  // line 50 "../../../../../SnowShoeTourStateMachine.ump"
+  // line 48 "../../../../../SnowShoeTourStateMachine.ump"
    private boolean isValid(String authorizationCode){
     if(authorizationCode.equals("") ||  authorizationCode == null) return false;
     return true;
   }
 
-  // line 56 "../../../../../SnowShoeTourStateMachine.ump"
+  // line 54 "../../../../../SnowShoeTourStateMachine.ump"
    private void doPay(String authorizationCode){
     setStatus(Status.Paid);
       setAuthorizationCode(authorizationCode);
   }
 
-  // line 61 "../../../../../SnowShoeTourStateMachine.ump"
+  // line 59 "../../../../../SnowShoeTourStateMachine.ump"
    private void rejectPay(String authorizationCode){
     throw new RuntimeException("Payement failed");
   }
 
-  // line 65 "../../../../../SnowShoeTourStateMachine.ump"
+  // line 63 "../../../../../SnowShoeTourStateMachine.ump"
    private boolean hasMatchingStartWeek(int week){
     return (week >= getWeekAvailableFrom() && week <= getWeekAvailableUntil());
   }
 
-  // line 69 "../../../../../SnowShoeTourStateMachine.ump"
+  // line 67 "../../../../../SnowShoeTourStateMachine.ump"
    private void doRefund(int refundedPercentageAmount){
     setRefundedPercentageAmount(refundedPercentageAmount);
   }
 
-  // line 73 "../../../../../SnowShoeTourStateMachine.ump"
+  // line 71 "../../../../../SnowShoeTourStateMachine.ump"
    private void rejectRefund(int refundedPercentageAmount){
     throw new RuntimeException("Refund failed");
   }

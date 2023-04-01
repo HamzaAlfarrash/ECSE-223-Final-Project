@@ -28,8 +28,6 @@ class Participant {
       cancel() / { doRefund(50); } -> Cancelled;
     }
     Started {
-      startTrip(int week) [hasPaid == false] -> Cancelled;
-      startTrip(int week) [hasPaid == true ] -> Started;
       finishTrip() -> Finished;
       cancel() / { doRefund(10); } -> Cancelled;
     }
