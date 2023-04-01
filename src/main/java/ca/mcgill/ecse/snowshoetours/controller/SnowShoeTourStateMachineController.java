@@ -5,6 +5,7 @@ import ca.mcgill.ecse.snowshoetours.application.SnowShoeToursApplication;
 import ca.mcgill.ecse.snowshoetours.model.Participant;
 import ca.mcgill.ecse.snowshoetours.model.Participant.Status;
 import ca.mcgill.ecse.snowshoetours.model.SnowShoeTour;
+import ca.mcgill.ecse.snowshoetours.model.Tour; 
 
 public class SnowShoeTourStateMachineController {
   
@@ -40,6 +41,18 @@ public class SnowShoeTourStateMachineController {
   
   
   public static String finishTour() {
+    SnowShoeTour sst = SnowShoeToursApplication.getSnowShoeTour();
+    List<Participant> list = sst.getParticipants();
+    Participant finishedParticipant = null; 
+    if (sst(Tour).endWeek <= (finishedParticipant.aWeekAvailableTill) {
+      return "Tour is not finished yet."; 
+    }
+        
+    if (sst(Tour).endWeek > finishedParticipant.aWeekAvailableTill) { 
+      if (finishedParticipant.getStatus == Status.FinishedParticipant) {
+        finishedParticipant.finishTrip(); 
+      }
+    }
     return "";
   }
   
