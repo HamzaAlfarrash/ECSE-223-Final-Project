@@ -2,6 +2,7 @@ package ca.mcgill.ecse.snowshoetours.features;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertTrue;
 import java.sql.Date;
 import java.util.List;
@@ -165,7 +166,7 @@ public class ToursStepDefinitions {
      */
     @When("the manager attempts to finish the tour for the participant with email {string}")
     public void the_manager_attempts_to_finish_the_tour_for_the_participant_with_email(String string) {
-      error = SnowShoeTourStateMachineController.finishTour();
+      error = SnowShoeTourStateMachineController.finishTour(string);
     }
   
     /**
@@ -187,17 +188,27 @@ public class ToursStepDefinitions {
       error = SnowShoeTourStateMachineController.confirmPayement(string, string2);
     }
     
-    
+    /**
+     * @author souhail el hayani
+     * @param dataTable
+     */
     @Then("the following snowshoe tours shall exist in the system with a guide")
     public void the_following_snowshoe_tours_shall_exist_in_the_system_with_a_guide(io.cucumber.datatable.DataTable dataTable) {
-        // Write code here that turns the phrase above into concrete actions
-        // For automatic transformation, change DataTable to one of
-        // E, List<E>, List<List<E>>, List<Map<K,V>>, Map<K,V> or
-        // Map<K, List<V>>. E,K,V must be a String, Integer, Float,
-        // Double, Byte, Short, Long, BigInteger or BigDecimal.
-        //
-        // For other transformations you can register a DataTableType.
-        throw new io.cucumber.java.PendingException();
+      List<Map<String, String>> rows = dataTable.asMaps();
+      List<Tour> tours = sst.getTours();
+      for (var row : rows) {
+        int id = Integer.parseInt(row.get("id")); //get the id of the tour we are looking for
+        Tour found = null;
+        for(Tour tour : tours) {
+          if(tour.getId()==id) { //get tour with that specific id
+            found = tour;
+            break;
+          }
+        }
+        assertNotNull(found); //check if tour exists with that id
+        
+        assertNotNull(found.getGuide()); //check if a guide is assigned to it
+      }
     }
     
     /**
@@ -276,9 +287,23 @@ public class ToursStepDefinitions {
         assertEquals(string2, String.valueOf(aParticipant.getRefundedPercentageAmount()));
     }
 
+    /**
+     * @author souhail el hayani
+     * @param string
+     * @param string2
+     */
     @Then("a participant account shall exist with email {string} and authorization code {string}")
     public void a_participant_account_shall_exist_with_email_and_authorization_code(String string, String string2) {
-        // Write code here that turns the phrase above into concrete actions
-        throw new io.cucumber.java.PendingException();
+      Boolean check = null;
+      Participant aParticipant = null;
+      List<Participant> participants = sst.getParticipants();
+      for(Participant participant : participants) {
+        if(participant.getAccountName().equals(string)) { //get corresponding participant
+          aParticipant = participant;
+          check = true;
+        }
+      }
+      assertTrue(check); //if false then it doesnt exist
+      assertEquals(string2, String.valueOf(aParticipant.getAuthorizationCode())); //compare the authorization code
     }
 }

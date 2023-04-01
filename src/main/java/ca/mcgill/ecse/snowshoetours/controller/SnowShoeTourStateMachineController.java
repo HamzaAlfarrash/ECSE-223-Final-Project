@@ -41,7 +41,7 @@ public class SnowShoeTourStateMachineController {
     List<Participant> list = sst.getParticipants();
     List<Guide> guides = sst.getGuides();
     int id = 0; //will be used for id of a tour
-    int i = 0;
+    int i = 0; //index to be used for the list of guides
     //for each participant, assign a Tour to it with matching startweek and endweek
     for(Participant par : list) {
       int nOfWeeks = par.getNrWeeks();
@@ -64,7 +64,7 @@ public class SnowShoeTourStateMachineController {
     List<Participant> list = sst.getParticipants();
     Participant finishedParticipant = null; 
     for (Participant participant : list) {
-      if (participant.getAccountName().equals(emai)) {
+      if (participant.getAccountName().equals(email)) {
         finishedParticipant = participant;
         break;
       }
