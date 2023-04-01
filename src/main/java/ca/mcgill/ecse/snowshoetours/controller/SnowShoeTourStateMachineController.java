@@ -40,18 +40,22 @@ public class SnowShoeTourStateMachineController {
   }
   
   
-  public static String finishTour() {
+  public static String finishTour(String email) {
     SnowShoeTour sst = SnowShoeToursApplication.getSnowShoeTour();
     List<Participant> list = sst.getParticipants();
     Participant finishedParticipant = null; 
-    if (sst(Tour).endWeek <= (finishedParticipant.aWeekAvailableTill) {
-      return "Tour is not finished yet."; 
-    }
-        
-    if (sst(Tour).endWeek > finishedParticipant.aWeekAvailableTill) { 
-      if (finishedParticipant.getStatus == Status.FinishedParticipant) {
-        finishedParticipant.finishTrip(); 
+    for (Participant participant : list) {
+      if (participant.getAccountName().equals(emai)) {
+        finishedParticipant = participant;
+        break;
       }
+    }
+    if (finishedParticipant == null) return "<error>"; 
+    if (!(finishedParticipant.getStatus == Status.FinishedParticipant)) {
+      return "This participant's trip is not finished."
+    }
+    if (finishedParticipant.getStatus == Status.FinishedParticipant) {
+      finishedParticipant.finishTrip(); 
     }
     return "";
   }
