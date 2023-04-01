@@ -22,21 +22,6 @@ import ca.mcgill.ecse.snowshoetours.model.SnowShoeTour;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
-import java.util.List;
-import java.util.Map;
-import ca.mcgill.ecse.snowshoetours.application.SnowShoeToursApplication;
-import ca.mcgill.ecse.snowshoetours.model.BookedItem;
-import ca.mcgill.ecse.snowshoetours.model.Combo;
-import ca.mcgill.ecse.snowshoetours.model.ComboItem;
-import ca.mcgill.ecse.snowshoetours.model.Participant;
-import ca.mcgill.ecse.snowshoetours.controller.GearController;
-import ca.mcgill.ecse.snowshoetours.model.Gear;
-import ca.mcgill.ecse.snowshoetours.model.BookableItem;
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import ca.mcgill.ecse.snowshoetours.model.SnowShoeTour;
-import static org.junit.jupiter.api.Assertions.assertFalse;
-import static org.junit.jupiter.api.Assertions.assertTrue;
-import java.sql.Date;
 
 public class AddAndDeleteGearStepDefinitions {
   private SnowShoeTour sst;

@@ -2,7 +2,6 @@
 /*This code was generated using the UMPLE 1.31.1.5860.78bb27cc6 modeling language!*/
 
 package ca.mcgill.ecse.snowshoetours.model;
-import java.util.*;
 
 // line 30 "../../../../../SnowShoeTour.ump"
 public abstract class NamedUser extends User
