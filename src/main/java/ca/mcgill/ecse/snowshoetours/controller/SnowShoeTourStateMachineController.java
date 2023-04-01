@@ -79,11 +79,54 @@ public class SnowShoeTourStateMachineController {
     return "";
   }
   
-  public static String startTourForWeek(int Week) {
-    return "";
+  /**
+   * @author Yassine Mimet
+   * @param week
+   * @return
+   */
+  public static String startTourForWeek(int week) {
+    SnowShoeTour sst = SnowShoeToursApplication.getSnowShoeTour();
+    List<Tour> tours = sst.getTours();
+    String error = "";
+    for(Tour tour : tours) {
+     if (tour.getStartWeek() == week) {
+       List<Participant> participants = tour.getParticipants();
+       for (Participant participant : participants) {
+         if( participant.getStatus().equals(Status.Started)) error = "Cannot start tour because the participant has already started their tour";
+         else if (participant.getStatus().equals(Status.Cancelled)) error = "Cannot start tour because the participant has cancelled their tour";
+         else if (participant.getStatus().equals(Status.Finished)) error = "Cannot start tour because the participant has finished their tour";
+         else participant.startTrip(week);
+       }
+     }
+   }
+   return error;
   }
-  
+  /**
+   * @author Souhail El Hayani
+   * @param email
+   * @param authorizationCode
+   * @return
+   */
   public static String confirmPayement(String email, String authorizationCode) {
+    SnowShoeTour sst = SnowShoeToursApplication.getSnowShoeTour();
+    if(authorizationCode == null || authorizationCode.isBlank()) {
+      return "Invalid authorization code";
+    }
+    Participant aParticipant = null; 
+    List<Participant> participants = sst.getParticipants();
+    for(Participant participant : participants) {
+      if(participant.getAccountName().equals(email)) {
+        aParticipant = participant;
+        break;
+      }
+    }
+    if(aParticipant == null) return "Participant with email address " + email + " does not exist";
+    else if (aParticipant.getStatus().equals(Status.NotAssigned)) return "The participant has not been assigned to their tour";
+    else if (aParticipant.getStatus().equals(Status.Paid)) return "The participant has already paid for their tour";
+    else if (aParticipant.getStatus().equals(Status.Started)) return "The participant has already paid for their tour";
+    else if (aParticipant.getStatus().equals(Status.Finished)) return "The participant has already paid for their tour";
+    else if (aParticipant.getStatus().equals(Status.Cancelled)) return "Cannot pay for tour because the participant has cancelled their tour";
+    else aParticipant.pay(authorizationCode);
     return "";
   }
 }
