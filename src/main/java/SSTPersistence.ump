@@ -1,0 +1,59 @@
+class SnowShoeTour {
+    public void reinitialize() {
+        BookableItem.reinitializeUniqueName(this.getCombos(), this.getGear());
+        User.reinitializeUniqueAccountName(this.getManager(), this.getGuides(), this.getParticipants());
+        Tour.reinitializeAutoUniqueID(this.getTours());
+        Lodge.reinitializeUniqueName(getLodges());
+    }
+}
+
+class BookableItem {
+    public static void reinitializeUniqueName(List <Combo> combos, List <Gear> gears) {
+        bookableitemsByName.clear();
+        for (Combo combo : combos) {
+            bookableitemsByName.put(combo.getName(),combo);
+        }
+        for (Gear gear: gears){
+            bookableitemsByName.put(gear.getName(),gear);
+        }
+    }
+}
+class User {
+    public static void reinitializeUniqueAccountName(Manager manager, List<Guide> guides, List<Participant> participants) {
+        usersByAccountName.clear();
+        if (manager != null) {
+            usersByAccountName.put(manager.getAccountName(), manager);
+        }
+        for (Guide guide : guides) {
+            usersByAccountName.put(guide.getAccountName(), guide);
+        }
+        for (Participant participant : participants) {
+            usersByAccountName.put(participant.getAccountName(), participant);
+        }
+    }
+}
+
+
+class Lodge {
+    public static void reinitializeUniqueName(List<Lodge> lodges) {
+        lodgesByName.clear();
+        for (Lodge lodge : lodges) {
+            lodgesByName.put(lodge.getName(), lodge);
+        }
+    }
+}
+    
+class Tour {
+    public static void reinitializeAutoUniqueID(List<Tour> tours) {
+        toursById.clear();
+        int nextId = 0;
+        for (Tour tour : tours) {
+            if (tour.getId() > nextId) {
+                nextId = tour.getId();
+                toursById.put(nextId, tour);
+            }
+        }
+        nextId++;
+    }
+
+}

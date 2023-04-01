@@ -18,7 +18,7 @@ class Participant {
       assign(Tour tour) / {
         rejectAssign(tour);
       } -> Assigned;
-      startTrip(int week) -> Cancelled;
+      startTrip(int week) -> Started;
       cancel() -> Cancelled;
     }
 
@@ -27,13 +27,16 @@ class Participant {
       cancel() / { doRefund(50); } -> Cancelled;
     }
     Started {
+       startTrip(int week) [hasPaid == false] -> Cancelled;
+      startTrip(int week) [hasPaid == true ] -> Started;
       finishTrip() -> Finished;
       cancel() / { doRefund(10); } -> Cancelled;
     }
     Cancelled {}
-    Finished {}
+    Finished{}
   }
 
+  Boolean hasPaid = false; 
   private void doAssign(Tour tour) {
     setTour(tour);
   }
@@ -51,6 +54,7 @@ class Participant {
   private void doPay(String authorizationCode) {
     setStatus(Status.Paid);
       setAuthorizationCode(authorizationCode);
+    hasPaid = true;
   }
 
     private void rejectPay(String authorizationCode) {

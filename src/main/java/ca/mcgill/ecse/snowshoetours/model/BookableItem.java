@@ -4,7 +4,8 @@
 package ca.mcgill.ecse.snowshoetours.model;
 import java.util.*;
 
-// line 56 "../../../../../SnowShoeTour.ump"
+// line 10 "../../../../../SSTPersistence.ump"
+// line 57 "../../../../../SnowShoeTour.ump"
 public abstract class BookableItem
 {
 
@@ -185,6 +186,17 @@ public abstract class BookableItem
       BookedItem aBookedItem = bookedItems.get(i - 1);
       aBookedItem.delete();
     }
+  }
+
+  // line 12 "../../../../../SSTPersistence.ump"
+   public static  void reinitializeUniqueName(List<Combo> combos, List<Gear> gears){
+    bookableitemsByName.clear();
+        for (Combo combo : combos) {
+            bookableitemsByName.put(combo.getName(),combo);
+        }
+        for (Gear gear: gears){
+            bookableitemsByName.put(gear.getName(),gear);
+        }
   }
 
 

@@ -4,7 +4,8 @@
 package ca.mcgill.ecse.snowshoetours.model;
 import java.util.*;
 
-// line 19 "../../../../../SnowShoeTour.ump"
+// line 21 "../../../../../SSTPersistence.ump"
+// line 20 "../../../../../SnowShoeTour.ump"
 public abstract class User
 {
 
@@ -89,6 +90,20 @@ public abstract class User
   public void delete()
   {
     usersByAccountName.remove(getAccountName());
+  }
+
+  // line 23 "../../../../../SSTPersistence.ump"
+   public static  void reinitializeUniqueAccountName(Manager manager, List<Guide> guides, List<Participant> participants){
+    usersByAccountName.clear();
+        if (manager != null) {
+            usersByAccountName.put(manager.getAccountName(), manager);
+        }
+        for (Guide guide : guides) {
+            usersByAccountName.put(guide.getAccountName(), guide);
+        }
+        for (Participant participant : participants) {
+            usersByAccountName.put(participant.getAccountName(), participant);
+        }
   }
 
 

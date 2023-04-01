@@ -5,7 +5,7 @@ package ca.mcgill.ecse.snowshoetours.model;
 import java.util.*;
 
 // line 1 "../../../../../SnowShoeTourStateMachine.ump"
-// line 40 "../../../../../SnowShoeTour.ump"
+// line 41 "../../../../../SnowShoeTour.ump"
 public class Participant extends NamedUser
 {
 
@@ -14,6 +14,7 @@ public class Participant extends NamedUser
   //------------------------
 
   //Participant Attributes
+  private boolean hasPaid;
   private int nrWeeks;
   private int weekAvailableFrom;
   private int weekAvailableUntil;
@@ -37,6 +38,7 @@ public class Participant extends NamedUser
   public Participant(String aAccountName, String aPassword, String aName, String aEmergencyContact, int aNrWeeks, int aWeekAvailableFrom, int aWeekAvailableUntil, boolean aLodgeRequired, String aAuthorizationCode, int aRefundedPercentageAmount, SnowShoeTour aSnowShoeTour)
   {
     super(aAccountName, aPassword, aName, aEmergencyContact);
+    hasPaid = false;
     nrWeeks = aNrWeeks;
     weekAvailableFrom = aWeekAvailableFrom;
     weekAvailableUntil = aWeekAvailableUntil;
@@ -55,6 +57,14 @@ public class Participant extends NamedUser
   //------------------------
   // INTERFACE
   //------------------------
+
+  public boolean setHasPaid(boolean aHasPaid)
+  {
+    boolean wasSet = false;
+    hasPaid = aHasPaid;
+    wasSet = true;
+    return wasSet;
+  }
 
   public boolean setNrWeeks(int aNrWeeks)
   {
@@ -104,6 +114,11 @@ public class Participant extends NamedUser
     return wasSet;
   }
 
+  public boolean getHasPaid()
+  {
+    return hasPaid;
+  }
+
   public int getNrWeeks()
   {
     return nrWeeks;
@@ -132,6 +147,11 @@ public class Participant extends NamedUser
   public int getRefundedPercentageAmount()
   {
     return refundedPercentageAmount;
+  }
+  /* Code from template attribute_IsBoolean */
+  public boolean isHasPaid()
+  {
+    return hasPaid;
   }
   /* Code from template attribute_IsBoolean */
   public boolean isLodgeRequired()
@@ -198,7 +218,7 @@ public class Participant extends NamedUser
         wasEventProcessed = true;
         break;
       case Started:
-        // line 31 "../../../../../SnowShoeTourStateMachine.ump"
+        // line 33 "../../../../../SnowShoeTourStateMachine.ump"
         doRefund(10);
         setStatus(Status.Cancelled);
         wasEventProcessed = true;
@@ -250,11 +270,25 @@ public class Participant extends NamedUser
     switch (aStatus)
     {
       case Assigned:
-        setStatus(Status.Cancelled);
+        setStatus(Status.Started);
         wasEventProcessed = true;
         break;
       case Paid:
         if (hasMatchingStartWeek(week))
+        {
+          setStatus(Status.Started);
+          wasEventProcessed = true;
+          break;
+        }
+        break;
+      case Started:
+        if (hasPaid==false)
+        {
+          setStatus(Status.Cancelled);
+          wasEventProcessed = true;
+          break;
+        }
+        if (hasPaid==true)
         {
           setStatus(Status.Started);
           wasEventProcessed = true;
@@ -467,44 +501,45 @@ public class Participant extends NamedUser
     super.delete();
   }
 
-  // line 38 "../../../../../SnowShoeTourStateMachine.ump"
+  // line 41 "../../../../../SnowShoeTourStateMachine.ump"
    private void doAssign(Tour tour){
     setTour(tour);
   }
 
-  // line 42 "../../../../../SnowShoeTourStateMachine.ump"
+  // line 45 "../../../../../SnowShoeTourStateMachine.ump"
    private void rejectAssign(Tour tour){
     throw new RuntimeException("Assigning participant failed");
   }
 
-  // line 46 "../../../../../SnowShoeTourStateMachine.ump"
+  // line 49 "../../../../../SnowShoeTourStateMachine.ump"
    private boolean isValid(String authorizationCode){
     if(authorizationCode.equals("") ||  authorizationCode == null) return false;
     return true;
   }
 
-  // line 52 "../../../../../SnowShoeTourStateMachine.ump"
+  // line 55 "../../../../../SnowShoeTourStateMachine.ump"
    private void doPay(String authorizationCode){
     setStatus(Status.Paid);
       setAuthorizationCode(authorizationCode);
+    hasPaid = true;
   }
 
-  // line 57 "../../../../../SnowShoeTourStateMachine.ump"
+  // line 61 "../../../../../SnowShoeTourStateMachine.ump"
    private void rejectPay(String authorizationCode){
     throw new RuntimeException("Payement failed");
   }
 
-  // line 61 "../../../../../SnowShoeTourStateMachine.ump"
+  // line 65 "../../../../../SnowShoeTourStateMachine.ump"
    private boolean hasMatchingStartWeek(int week){
     return (week >= getWeekAvailableFrom() && week <= getWeekAvailableUntil());
   }
 
-  // line 65 "../../../../../SnowShoeTourStateMachine.ump"
+  // line 69 "../../../../../SnowShoeTourStateMachine.ump"
    private void doRefund(int refundedPercentageAmount){
     setRefundedPercentageAmount(refundedPercentageAmount);
   }
 
-  // line 69 "../../../../../SnowShoeTourStateMachine.ump"
+  // line 73 "../../../../../SnowShoeTourStateMachine.ump"
    private void rejectRefund(int refundedPercentageAmount){
     throw new RuntimeException("Refund failed");
   }
@@ -513,6 +548,7 @@ public class Participant extends NamedUser
   public String toString()
   {
     return super.toString() + "["+
+            "hasPaid" + ":" + getHasPaid()+ "," +
             "nrWeeks" + ":" + getNrWeeks()+ "," +
             "weekAvailableFrom" + ":" + getWeekAvailableFrom()+ "," +
             "weekAvailableUntil" + ":" + getWeekAvailableUntil()+ "," +
