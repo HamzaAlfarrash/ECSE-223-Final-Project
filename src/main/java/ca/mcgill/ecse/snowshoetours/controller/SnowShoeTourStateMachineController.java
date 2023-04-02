@@ -168,9 +168,9 @@ public class SnowShoeTourStateMachineController {
     else if (aParticipant.getStatus().equals(Status.Paid))
       error = "The participant has already paid for their tour"; // if the participant has already paid
     else if (aParticipant.getStatus().equals(Status.Started))
-      error = "The participant has already paid for their tour"; // same as above
+      error = "The participant has already paid for their tour"; // same error as above
     else if (aParticipant.getStatus().equals(Status.Finished))
-      error = "The participant has already paid for their tour"; // same as above
+      error = "The participant has already paid for their tour"; // same error as above
     else if (aParticipant.getStatus().equals(Status.Cancelled))
       error = "Cannot pay for tour because the participant has cancelled their tour"; // if the participant has already cancelled their tour
     else

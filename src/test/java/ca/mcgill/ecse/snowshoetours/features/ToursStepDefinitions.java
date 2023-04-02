@@ -1,4 +1,4 @@
-package ca.mcgill.ecse.snowshoetours.features;
+ package ca.mcgill.ecse.snowshoetours.features;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertFalse;
