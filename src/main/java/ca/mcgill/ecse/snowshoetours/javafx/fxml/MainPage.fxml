@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<TabPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" tabClosingPolicy="UNAVAILABLE" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/19">
+  <tabs>
+    <Tab text="View snowshoe tours" />
+    <Tab text="Update SnowShoeTours" />
+      <Tab text="Add/Delete Combo">
+         <content>
+            <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
+         </content>
+      </Tab>
+      <Tab text="Register/Delete Participant">
+         <content>
+            <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
+         </content>
+      </Tab>
+      <Tab text="Add/Remove BookedItem" />
+      <Tab text="Register/Delete Guide" />
+      <Tab text="Add/Delete Gear" />
+      <Tab text="Add/Remove Gear to Combo" />
+      <Tab text="Add/Delete Lodge" />
+      <Tab text="Initiate the snowshoeing tour creation" />
+      <Tab text="Pay Participant" />
+      <Tab text="Start/Finish/Cancel Participant's Trip" />
+  </tabs>
+</TabPane>
