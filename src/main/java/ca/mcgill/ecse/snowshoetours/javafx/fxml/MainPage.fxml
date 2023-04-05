@@ -1,30 +1,80 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.control.Tab?>
-<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
 
-<TabPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" tabClosingPolicy="UNAVAILABLE" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/19">
-  <tabs>
-    <Tab text="View snowshoe tours" />
-    <Tab text="Update SnowShoeTours" />
-      <Tab text="Add/Delete Combo">
-         <content>
-            <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
-         </content>
-      </Tab>
-      <Tab text="Register/Delete Participant">
-         <content>
-            <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
-         </content>
-      </Tab>
-      <Tab text="Add/Remove BookedItem" />
-      <Tab text="Register/Delete Guide" />
-      <Tab text="Add/Delete Gear" />
-      <Tab text="Add/Remove Gear to Combo" />
-      <Tab text="Add/Delete Lodge" />
-      <Tab text="Initiate the snowshoeing tour creation" />
-      <Tab text="Pay Participant" />
-      <Tab text="Start/Finish/Cancel Participant's Trip" />
-  </tabs>
-</TabPane>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <Label layoutX="46.0" layoutY="70.0" prefHeight="25.0" prefWidth="158.0" text="View Snowshoe Tours">
+         <graphic>
+            <Button mnemonicParsing="false" text="Go" />
+         </graphic>
+      </Label>
+      <Label layoutX="332.0" layoutY="70.0" prefHeight="25.0" prefWidth="145.0" text="Add/Delete Combo">
+         <graphic>
+            <Button mnemonicParsing="false" text="Go" />
+         </graphic>
+      </Label>
+      <Label layoutX="46.0" layoutY="96.0" prefHeight="25.0" prefWidth="173.0" text="Update SnowShoeTours">
+         <graphic>
+            <Button mnemonicParsing="false" text="Go" />
+         </graphic>
+      </Label>
+      <Label layoutX="46.0" layoutY="254.0" prefHeight="25.0" prefWidth="186.0" text="Register/Delete Participant">
+         <graphic>
+            <Button mnemonicParsing="false" text="Go" />
+         </graphic>
+      </Label>
+      <Label layoutX="332.0" layoutY="145.0" prefHeight="25.0" prefWidth="201.0" text="Add/Remove BookedItem">
+         <graphic>
+            <Button mnemonicParsing="false" text="Go" />
+         </graphic>
+      </Label>
+      <Label layoutX="46.0" layoutY="229.0" prefHeight="25.0" prefWidth="201.0" text="Register/Delete Guide">
+         <graphic>
+            <Button mnemonicParsing="false" text="Go" />
+         </graphic>
+      </Label>
+      <Label layoutX="332.0" layoutY="95.0" prefHeight="25.0" prefWidth="201.0" text="Add/Delete Gear">
+         <graphic>
+            <Button mnemonicParsing="false" text="Go" />
+         </graphic>
+      </Label>
+      <Label layoutX="332.0" layoutY="120.0" prefHeight="25.0" prefWidth="201.0" text="Add/Remove Gear to Combo">
+         <graphic>
+            <Button mnemonicParsing="false" text="Go" />
+         </graphic>
+      </Label>
+      <Label layoutX="46.0" layoutY="121.0" prefHeight="25.0" prefWidth="201.0" text="Add/Delete Lodge">
+         <graphic>
+            <Button mnemonicParsing="false" text="Go" />
+         </graphic>
+      </Label>
+      <Label layoutX="46.0" layoutY="146.0" prefHeight="25.0" prefWidth="245.0" text="Initiate the snowshoeing tour creation">
+         <graphic>
+            <Button mnemonicParsing="false" text="Go" />
+         </graphic>
+      </Label>
+      <Label layoutX="46.0" layoutY="279.0" prefHeight="25.0" prefWidth="201.0" text="Pay Participant">
+         <graphic>
+            <Button mnemonicParsing="false" text="Go" />
+         </graphic>
+      </Label>
+      <Label layoutX="46.0" layoutY="304.0" prefHeight="25.0" prefWidth="239.0" text="Start/Finish/Cancel Participant's Trip">
+         <graphic>
+            <Button mnemonicParsing="false" text="Go" />
+         </graphic>
+      </Label>
+      <Label layoutX="46.0" layoutY="50.0" prefHeight="17.0" prefWidth="139.0" text="Tours Related" />
+      <Label layoutX="332.0" layoutY="50.0" prefHeight="17.0" prefWidth="113.0" text="Items Related" />
+      <Label layoutX="46.0" layoutY="211.0" prefHeight="17.0" prefWidth="139.0" text="Attendees Related" />
+      <Label layoutX="138.0" layoutY="14.0" prefHeight="27.0" prefWidth="324.0" text="SnowShoeTours System Functionalities">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+   </children>
+</AnchorPane>
