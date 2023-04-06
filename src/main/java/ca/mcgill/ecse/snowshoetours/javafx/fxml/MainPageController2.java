@@ -38,7 +38,86 @@ public class MainPageController2 {
      * }
      */
     try {
-      Parent ViewSnowShoeToursDetailedParent = FXMLLoader.load(getClass().getResource("pages/ViewSnowShoeTours.fxml"));
+      Parent ViewSnowShoeToursDetailedParent =
+          FXMLLoader.load(getClass().getResource("controllers/ViewSnowShoeTours.fxml"));
+      Scene ViewSnowShoeToursDetailedParentScene = new Scene(ViewSnowShoeToursDetailedParent);
+      Stage window = (Stage) ((Node) event.getSource()).getScene().getWindow();
+      window.setScene(ViewSnowShoeToursDetailedParentScene);
+      window.show();
+    } catch (IOException e) {
+      e.printStackTrace();
+    }
+  }
+
+  public void GoInitiateSnowShoeTourCreationPage(ActionEvent event) {
+    try {
+      Parent ViewSnowShoeToursDetailedParent =
+          FXMLLoader.load(getClass().getResource("controllers/InitiateSnowShoeingTourCreation.fxml"));
+      Scene ViewSnowShoeToursDetailedParentScene = new Scene(ViewSnowShoeToursDetailedParent);
+      Stage window = (Stage) ((Node) event.getSource()).getScene().getWindow();
+      window.setScene(ViewSnowShoeToursDetailedParentScene);
+      window.show();
+    } catch (IOException e) {
+      e.printStackTrace();
+    }
+  }
+
+  public void GoPayParticipantPage(ActionEvent event) {
+    try {
+      Parent ViewSnowShoeToursDetailedParent =
+          FXMLLoader.load(getClass().getResource("controllers/PayParticipant.fxml"));
+      Scene ViewSnowShoeToursDetailedParentScene = new Scene(ViewSnowShoeToursDetailedParent);
+      Stage window = (Stage) ((Node) event.getSource()).getScene().getWindow();
+      window.setScene(ViewSnowShoeToursDetailedParentScene);
+      window.show();
+    } catch (IOException e) {
+      e.printStackTrace();
+    }
+  }
+
+  public void GoRegisterDeleteGuidePage(ActionEvent event) {
+    try {
+      Parent ViewSnowShoeToursDetailedParent =
+          FXMLLoader.load(getClass().getResource("controllers/RegisterDeleteGuide.fxml"));
+      Scene ViewSnowShoeToursDetailedParentScene = new Scene(ViewSnowShoeToursDetailedParent);
+      Stage window = (Stage) ((Node) event.getSource()).getScene().getWindow();
+      window.setScene(ViewSnowShoeToursDetailedParentScene);
+      window.show();
+    } catch (IOException e) {
+      e.printStackTrace();
+    }
+  }
+
+  public void GoStartFinishCancelTripPage(ActionEvent event) {
+    try {
+      Parent ViewSnowShoeToursDetailedParent =
+          FXMLLoader.load(getClass().getResource("controllers/StartFinishCancelParticipantTrip.fxml"));
+      Scene ViewSnowShoeToursDetailedParentScene = new Scene(ViewSnowShoeToursDetailedParent);
+      Stage window = (Stage) ((Node) event.getSource()).getScene().getWindow();
+      window.setScene(ViewSnowShoeToursDetailedParentScene);
+      window.show();
+    } catch (IOException e) {
+      e.printStackTrace();
+    }
+  }
+
+  public void GoUpdateSnowShoeToursPage(ActionEvent event) {
+    try {
+      Parent ViewSnowShoeToursDetailedParent =
+          FXMLLoader.load(getClass().getResource("controllers/UpdateSnowShoeTours.fxml"));
+      Scene ViewSnowShoeToursDetailedParentScene = new Scene(ViewSnowShoeToursDetailedParent);
+      Stage window = (Stage) ((Node) event.getSource()).getScene().getWindow();
+      window.setScene(ViewSnowShoeToursDetailedParentScene);
+      window.show();
+    } catch (IOException e) {
+      e.printStackTrace();
+    }
+  }
+
+  public void GoRegisterDeleteParticipantPage(ActionEvent event) {
+    try {
+      Parent ViewSnowShoeToursDetailedParent =
+          FXMLLoader.load(getClass().getResource("controllers/RegisterDeleteParticipant.fxml"));
       Scene ViewSnowShoeToursDetailedParentScene = new Scene(ViewSnowShoeToursDetailedParent);
       Stage window = (Stage) ((Node) event.getSource()).getScene().getWindow();
       window.setScene(ViewSnowShoeToursDetailedParentScene);
