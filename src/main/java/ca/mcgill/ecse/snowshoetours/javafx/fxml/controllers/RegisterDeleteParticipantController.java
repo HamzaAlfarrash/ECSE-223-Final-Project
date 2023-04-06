@@ -2,13 +2,19 @@ package ca.mcgill.ecse.snowshoetours.javafx.fxml.controllers;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import java.io.IOException;
 import ca.mcgill.ecse.snowshoetours.controller.ParticipantController;
 import ca.mcgill.ecse.snowshoetours.controller.TOParticipantCost;
 import ca.mcgill.ecse.snowshoetours.javafx.fxml.SSTFxmlView;
+import javafx.scene.Node;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.CheckBox;
 import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.TextField;
+import javafx.stage.Stage;
 
 public class RegisterDeleteParticipantController {
   @FXML
@@ -88,6 +94,18 @@ public class RegisterDeleteParticipantController {
       ParticipantController.deleteParticipant(deleteParticipantChoiceBox.getValue().getParticipantEmail());
       deleteParticipantChoiceBox.setValue(null);
       SSTFxmlView.getInstance().refresh();
+  }
+  
+  public void GoBackButtonClicked(ActionEvent event) {
+    try {
+      Parent ViewSnowShoeToursDetailedParent = FXMLLoader.load(getClass().getResource("../MainPage.fxml"));
+      Scene ViewSnowShoeToursDetailedParentScene = new Scene(ViewSnowShoeToursDetailedParent);
+      Stage window = (Stage) ((Node) event.getSource()).getScene().getWindow();
+      window.setScene(ViewSnowShoeToursDetailedParentScene);
+      window.show();
+    } catch (IOException e) {
+      e.printStackTrace();
+    }
   }
   
 }
