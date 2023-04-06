@@ -16,57 +16,57 @@
       </Label>
       <Label layoutX="332.0" layoutY="70.0" prefHeight="25.0" prefWidth="145.0" text="Add/Delete Combo">
          <graphic>
-            <Button mnemonicParsing="false" text="Go" />
+            <Button mnemonicParsing="false" onAction="#GoAddDeleteComboButtonClicked" text="Go" />
          </graphic>
       </Label>
       <Label layoutX="46.0" layoutY="96.0" prefHeight="25.0" prefWidth="173.0" text="Update SnowShoeTours">
          <graphic>
-            <Button mnemonicParsing="false" text="Go" />
+            <Button mnemonicParsing="false" onAction="#GoUpdateSnowShoeToursPage" text="Go" />
          </graphic>
       </Label>
       <Label layoutX="46.0" layoutY="254.0" prefHeight="25.0" prefWidth="186.0" text="Register/Delete Participant">
          <graphic>
-            <Button mnemonicParsing="false" text="Go" />
+            <Button mnemonicParsing="false" onAction="#GoRegisterDeleteParticipantPage" text="Go" />
          </graphic>
       </Label>
       <Label layoutX="332.0" layoutY="145.0" prefHeight="25.0" prefWidth="201.0" text="Add/Remove BookedItem">
          <graphic>
-            <Button mnemonicParsing="false" text="Go" />
+            <Button mnemonicParsing="false" onAction="#GoAddRemoveBookedItemDetailedButtonClicked" text="Go" />
          </graphic>
       </Label>
       <Label layoutX="46.0" layoutY="229.0" prefHeight="25.0" prefWidth="201.0" text="Register/Delete Guide">
          <graphic>
-            <Button mnemonicParsing="false" text="Go" />
+            <Button mnemonicParsing="false" onAction="#GoRegisterDeleteGuidePage" text="Go" />
          </graphic>
       </Label>
       <Label layoutX="332.0" layoutY="95.0" prefHeight="25.0" prefWidth="201.0" text="Add/Delete Gear">
          <graphic>
-            <Button mnemonicParsing="false" text="Go" />
+            <Button mnemonicParsing="false" onAction="#GoAddDeleteGearDetailedButtonClicked" text="Go" />
          </graphic>
       </Label>
       <Label layoutX="332.0" layoutY="120.0" prefHeight="25.0" prefWidth="201.0" text="Add/Remove Gear to Combo">
          <graphic>
-            <Button mnemonicParsing="false" text="Go" />
+            <Button mnemonicParsing="false" onAction="#GoAddRemoveGearToComboDetailedButtonClicked" text="Go" />
          </graphic>
       </Label>
       <Label layoutX="46.0" layoutY="121.0" prefHeight="25.0" prefWidth="201.0" text="Add/Delete Lodge">
          <graphic>
-            <Button mnemonicParsing="false" text="Go" />
+            <Button mnemonicParsing="false" onAction="#GoAddDeleteLodgeDetailedButtonClicked" text="Go" />
          </graphic>
       </Label>
       <Label layoutX="46.0" layoutY="146.0" prefHeight="25.0" prefWidth="245.0" text="Initiate the snowshoeing tour creation">
          <graphic>
-            <Button mnemonicParsing="false" text="Go" />
+            <Button mnemonicParsing="false" onAction="#GoInitiateSnowShoeTourCreationPage" text="Go" />
          </graphic>
       </Label>
       <Label layoutX="46.0" layoutY="279.0" prefHeight="25.0" prefWidth="201.0" text="Pay Participant">
          <graphic>
-            <Button mnemonicParsing="false" text="Go" />
+            <Button mnemonicParsing="false" onAction="#GoPayParticipantPage" text="Go" />
          </graphic>
       </Label>
       <Label layoutX="46.0" layoutY="304.0" prefHeight="25.0" prefWidth="239.0" text="Start/Finish/Cancel Participant's Trip">
          <graphic>
-            <Button mnemonicParsing="false" text="Go" />
+            <Button mnemonicParsing="false" onAction="#GoStartFinishCancelTripPage" text="Go" />
          </graphic>
       </Label>
       <Label layoutX="46.0" layoutY="50.0" prefHeight="17.0" prefWidth="139.0" text="Tours Related" />
