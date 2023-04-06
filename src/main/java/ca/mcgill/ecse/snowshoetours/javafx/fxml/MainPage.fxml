@@ -7,11 +7,11 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="528.0" prefWidth="722.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="528.0" prefWidth="722.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ca.mcgill.ecse.snowshoetours.javafx.fxml.MainPageController2">
    <children>
       <Label layoutX="46.0" layoutY="70.0" prefHeight="25.0" prefWidth="201.0" text="View Snowshoe Tours Detailed">
          <graphic>
-            <Button mnemonicParsing="false" text="Go" />
+            <Button fx:id="GoViewSnowShoeToursDetailedButton" mnemonicParsing="false" onAction="#GoViewSnowShoeToursDetailedButtonClicked" text="Go" />
          </graphic>
       </Label>
       <Label layoutX="332.0" layoutY="70.0" prefHeight="25.0" prefWidth="145.0" text="Add/Delete Combo">

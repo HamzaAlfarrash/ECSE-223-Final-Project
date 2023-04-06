@@ -1,4 +1,4 @@
-package ca.mcgill.ecse.snowshoetours.javafx.fxml.controllers;
+package ca.mcgill.ecse.snowshoetours.javafx.fxml;
 
 import java.io.IOException;
 
@@ -14,7 +14,7 @@ import javafx.stage.Stage;
 import javafx.scene.Parent;
 import javafx.scene.Node;
 
-public class MainPageDirectoryController {
+public class MainPageController2 {
 
   private Button GoViewSnowShoeToursDetailedButton;
   private Button GoUpdateShowShoeToursButton;
@@ -39,7 +39,7 @@ public class MainPageDirectoryController {
      */
     try {
       System.out.println("kms");
-      Parent ViewSnowShoeToursDetailedParent = FXMLLoader.load(getClass().getResource("ViewSnowShoeTours.fxml"));
+      Parent ViewSnowShoeToursDetailedParent = FXMLLoader.load(getClass().getResource("pages/ViewSnowShoeTours.fxml"));
       Scene ViewSnowShoeToursDetailedParentScene = new Scene(ViewSnowShoeToursDetailedParent);
       Stage window = (Stage) ((Node) event.getSource()).getScene().getWindow();
       window.setScene(ViewSnowShoeToursDetailedParentScene);
