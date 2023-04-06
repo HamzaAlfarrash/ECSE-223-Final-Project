@@ -38,7 +38,6 @@ public class MainPageController2 {
      * }
      */
     try {
-      System.out.println("kms");
       Parent ViewSnowShoeToursDetailedParent = FXMLLoader.load(getClass().getResource("pages/ViewSnowShoeTours.fxml"));
       Scene ViewSnowShoeToursDetailedParentScene = new Scene(ViewSnowShoeToursDetailedParent);
       Stage window = (Stage) ((Node) event.getSource()).getScene().getWindow();
