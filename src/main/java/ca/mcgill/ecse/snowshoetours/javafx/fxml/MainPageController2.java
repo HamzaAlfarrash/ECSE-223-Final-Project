@@ -30,16 +30,66 @@ public class MainPageController2 {
   private Button GoStartFinishCancelParticipantTripButton;
 
   public void GoViewSnowShoeToursDetailedButtonClicked(ActionEvent event) {
-    /*
-     * try { Parent ViewSnowShoeToursDetailedParent
-     * =FXMLLoader.load(getClass().getResource("ViewSnowShoeTours.fxml")); Scene
-     * ViewSnowShoeToursDetailedParentScene = new Scene(ViewSnowShoeToursDetailedParent); //Stage
-     * window = (Stage)((Node)event.getSource().get) } catch (IOException e) { e.printStackTrace();
-     * }
-     */
     try {
-      System.out.println("kms");
-      Parent ViewSnowShoeToursDetailedParent = FXMLLoader.load(getClass().getResource("pages/ViewSnowShoeTours.fxml"));
+      Parent ViewSnowShoeToursDetailedParent = FXMLLoader.load(getClass().getResource("Controllers/ViewSnowShoeTours.fxml"));
+      Scene ViewSnowShoeToursDetailedParentScene = new Scene(ViewSnowShoeToursDetailedParent);
+      Stage window = (Stage) ((Node) event.getSource()).getScene().getWindow();
+      window.setScene(ViewSnowShoeToursDetailedParentScene);
+      window.show();
+    } catch (IOException e) {
+      e.printStackTrace();
+    }
+  }
+  
+  public void GoAddDeleteComboButtonClicked(ActionEvent event) {
+    try {
+      Parent ViewSnowShoeToursDetailedParent = FXMLLoader.load(getClass().getResource("Controllers/AddDeleteCombo.fxml"));
+      Scene ViewSnowShoeToursDetailedParentScene = new Scene(ViewSnowShoeToursDetailedParent);
+      Stage window = (Stage) ((Node) event.getSource()).getScene().getWindow();
+      window.setScene(ViewSnowShoeToursDetailedParentScene);
+      window.show();
+    } catch (IOException e) {
+      e.printStackTrace();
+    }
+  }
+  
+  public void GoAddDeleteGearDetailedButtonClicked(ActionEvent event) {
+    try {
+      Parent ViewSnowShoeToursDetailedParent = FXMLLoader.load(getClass().getResource("Controllers/AddDeleteCombo.fxml"));
+      Scene ViewSnowShoeToursDetailedParentScene = new Scene(ViewSnowShoeToursDetailedParent);
+      Stage window = (Stage) ((Node) event.getSource()).getScene().getWindow();
+      window.setScene(ViewSnowShoeToursDetailedParentScene);
+      window.show();
+    } catch (IOException e) {
+      e.printStackTrace();
+    }
+  }
+  
+  public void GoAddDeleteLodgeDetailedButtonClicked(ActionEvent event) {
+    try {
+      Parent ViewSnowShoeToursDetailedParent = FXMLLoader.load(getClass().getResource("Controllers/AddDeleteLodge.fxml"));
+      Scene ViewSnowShoeToursDetailedParentScene = new Scene(ViewSnowShoeToursDetailedParent);
+      Stage window = (Stage) ((Node) event.getSource()).getScene().getWindow();
+      window.setScene(ViewSnowShoeToursDetailedParentScene);
+      window.show();
+    } catch (IOException e) {
+      e.printStackTrace();
+    }
+  }
+  public void GoAddRemoveGearToComboDetailedButtonClicked(ActionEvent event) {
+    try {
+      Parent ViewSnowShoeToursDetailedParent = FXMLLoader.load(getClass().getResource("Controllers/AddRemoveGearToCombo.fxml"));
+      Scene ViewSnowShoeToursDetailedParentScene = new Scene(ViewSnowShoeToursDetailedParent);
+      Stage window = (Stage) ((Node) event.getSource()).getScene().getWindow();
+      window.setScene(ViewSnowShoeToursDetailedParentScene);
+      window.show();
+    } catch (IOException e) {
+      e.printStackTrace();
+    }
+  }
+  public void GoAddRemoveBookedItemDetailedButtonClicked(ActionEvent event) {
+    try {
+      Parent ViewSnowShoeToursDetailedParent = FXMLLoader.load(getClass().getResource("Controllers/AddRemoveBookedItem.fxml"));
       Scene ViewSnowShoeToursDetailedParentScene = new Scene(ViewSnowShoeToursDetailedParent);
       Stage window = (Stage) ((Node) event.getSource()).getScene().getWindow();
       window.setScene(ViewSnowShoeToursDetailedParentScene);
