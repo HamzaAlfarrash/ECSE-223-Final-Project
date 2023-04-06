@@ -1,5 +1,4 @@
 package ca.mcgill.ecse.snowshoetours.javafx.fxml.controllers;
-
 import java.io.IOException;
 
 import javafx.event.ActionEvent;
@@ -11,6 +10,7 @@ import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.Pane;
 import javafx.scene.Parent;
+import javafx.scene.Node;
 
 public class MainPageDirectoryController {
 	
@@ -26,15 +26,14 @@ public class MainPageDirectoryController {
 	private Button GoRegisterDeleteParticipantButton;
 	private Button GoPayParticipantButton;
 	private Button GoStartFinishCancelParticipantTripButton;
-}
 	
-//	public void GoViewSnowShoeToursDetailedButtonClicked(ActionEvent event) {
-//		try {
-////		   Parent 
-////		    } catch (IOException e) {
-////		      e.printStackTrace();
-//		   
-//		
-//	}
-//	}
-//	}
+	public void GoViewSnowShoeToursDetailedButtonClicked(ActionEvent event) {
+		try {
+		   Parent ViewSnowShoeToursDetailedParent =FXMLLoader.load(getClass().getResource("ViewSnowShoeTours.fxml"));
+		   Scene ViewSnowShoeToursDetailedParentScene = new Scene(ViewSnowShoeToursDetailedParent);
+		   //Stage window = (Stage)((Node)event.getSource().get)
+		    } catch (IOException e) {
+		      e.printStackTrace();
+		    }
+	}
+	}
