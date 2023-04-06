@@ -90,9 +90,11 @@
                   <ChoiceBox fx:id="deleteParticipantChoiceBox" prefHeight="25.0" prefWidth="205.0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
                   <Label text="Participant to delete" GridPane.halignment="RIGHT" GridPane.rowIndex="1" />
                   <Button fx:id="deleteParticipantButton" mnemonicParsing="false" onAction="#deleteParticipantClicked" text="Delete Participant" GridPane.columnIndex="2" GridPane.rowIndex="1" />
+                  <Button mnemonicParsing="false" text="Back" GridPane.rowIndex="2" />
                </children>
                <rowConstraints>
                   <RowConstraints maxHeight="53.05316162109375" minHeight="30.792388916015625" prefHeight="38.212646484375" vgrow="ALWAYS" />
+                  <RowConstraints maxHeight="82.20761108398438" minHeight="59.94683837890625" prefHeight="74.787353515625" vgrow="ALWAYS" />
                   <RowConstraints maxHeight="82.20761108398438" minHeight="59.94683837890625" prefHeight="74.787353515625" vgrow="ALWAYS" />
                </rowConstraints>
             </GridPane>
