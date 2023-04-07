@@ -4,9 +4,9 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ca.mcgill.ecse.snowshoetours.javafx.fxml.controllers.StartFinishCancelParticipantTripController">
    <children>
       <Label layoutX="190.0" layoutY="14.0" prefHeight="17.0" prefWidth="219.0" text="Start/Finish/Cancel a Participant's Trip" />
-      <Button layoutX="14.0" layoutY="361.0" mnemonicParsing="false" text="Back" />
+      <Button layoutX="14.0" layoutY="361.0" mnemonicParsing="false" onAction="#GoBackButtonClicked" text="Back" />
    </children>
 </AnchorPane>

@@ -142,7 +142,7 @@ public class MainPageController2 {
 
   public void GoAddRemoveBookedItemDetailedButtonClicked(ActionEvent event) {
     try {
-      Parent ViewSnowShoeToursDetailedParent = FXMLLoader.load(getClass().getResource("Controllers/AddRemoveBookedItem.fxml"));
+      Parent ViewSnowShoeToursDetailedParent = FXMLLoader.load(getClass().getResource("controllers/AddRemoveBookedItem.fxml"));
       Scene ViewSnowShoeToursDetailedParentScene = new Scene(ViewSnowShoeToursDetailedParent);
       Stage window = (Stage) ((Node) event.getSource()).getScene().getWindow();
       window.setScene(ViewSnowShoeToursDetailedParentScene);
