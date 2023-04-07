@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.Button?>
-<<<<<<< HEAD
 <?import javafx.scene.control.ChoiceBox?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.Separator?>
@@ -87,14 +86,5 @@
             <Separator prefHeight="0.0" prefWidth="200.0" GridPane.rowIndex="1" />
          </children>
       </GridPane>
-=======
-<?import javafx.scene.control.Label?>
-<?import javafx.scene.layout.AnchorPane?>
-
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ca.mcgill.ecse.snowshoetours.javafx.fxml.controllers.RegisterDeleteGuideController">
-   <children>
-      <Label layoutX="240.0" layoutY="14.0" text="Regsiter/Delete Guide" />
-      <Button layoutX="14.0" layoutY="361.0" mnemonicParsing="false" onAction="#GoBackButtonClicked" text="Back" />
->>>>>>> f61b9fae8be9d1c0bad5de9c67894f89e3705425
    </children>
 </AnchorPane>
