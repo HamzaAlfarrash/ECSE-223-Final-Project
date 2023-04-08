@@ -69,7 +69,7 @@ public class MainPageController {
   
   public void GoAddDeleteGearDetailedButtonClicked(ActionEvent event) {
     try {
-      Parent ViewSnowShoeToursDetailedParent = FXMLLoader.load(getClass().getResource("Controllers/AddDeleteCombo.fxml"));
+      Parent ViewSnowShoeToursDetailedParent = FXMLLoader.load(getClass().getResource("Controllers/AddDeleteGear.fxml"));
       Scene ViewSnowShoeToursDetailedParentScene = new Scene(ViewSnowShoeToursDetailedParent);
       Stage window = (Stage) ((Node) event.getSource()).getScene().getWindow();
       window.setScene(ViewSnowShoeToursDetailedParentScene);

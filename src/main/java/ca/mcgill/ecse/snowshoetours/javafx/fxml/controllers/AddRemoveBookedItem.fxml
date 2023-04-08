@@ -11,11 +11,11 @@
       <Label layoutX="210.0" layoutY="14.0" text="Add/Remove BookedItem Feature" />
       <Button layoutX="14.0" layoutY="360.0" mnemonicParsing="false" onAction="#GoBackButtonClicked" text="Back" />
       <Button fx:id="add" layoutX="512.0" layoutY="360.0" mnemonicParsing="false" onAction="#add" text="Add Item" />
-      <ChoiceBox layoutX="31.0" layoutY="124.0" prefWidth="150.0" />
+      <ChoiceBox fx:id="gearName" layoutX="31.0" layoutY="124.0" prefWidth="150.0" />
       <ChoiceBox fx:id="comboName" layoutX="221.0" layoutY="124.0" prefWidth="150.0" />
       <Label layoutX="94.0" layoutY="101.0" text="Gear" />
       <Label layoutX="276.0" layoutY="101.0" text="Combo" />
-      <TextArea layoutX="106.0" layoutY="348.0" prefHeight="25.0" prefWidth="379.0" text="Choose either a Gear or a Combo to add to the specified Particpant" />
+      <TextArea layoutX="106.0" layoutY="319.0" prefHeight="60.0" prefWidth="379.0" text="Choose either a Gear or a Combo from the available list to add to&#10;the specified Particpant. If the gear or combo from your choice &#10;does not appear, add it in the add/delete gear/combo pages." />
       <ChoiceBox fx:id="participantName" layoutX="404.0" layoutY="124.0" prefWidth="150.0" />
       <Label layoutX="446.0" layoutY="101.0" prefHeight="17.0" prefWidth="66.0" text="participant" />
    </children>
