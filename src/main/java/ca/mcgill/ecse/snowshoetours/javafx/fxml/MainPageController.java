@@ -14,7 +14,7 @@ import javafx.stage.Stage;
 import javafx.scene.Parent;
 import javafx.scene.Node;
 
-public class MainPageController2 {
+public class MainPageController {
 
   private Button GoViewSnowShoeToursDetailedButton;
   private Button GoUpdateShowShoeToursButton;
