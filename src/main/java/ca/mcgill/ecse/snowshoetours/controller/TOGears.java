@@ -9,5 +9,9 @@ public class TOGears {
     pricePerWeek = p;
     name = n;
   }
+  
+  public String getName() {
+    return name;
+  }
 
 }

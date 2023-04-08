@@ -11,6 +11,10 @@ import ca.mcgill.ecse.snowshoetours.persistence.SstPersistence;
 
 public class GearController {
 
+  /**
+   * @author souhail el hayani
+   * @return
+   */
   public static List<TOGears> getGears() {
     SnowShoeTour sst = SnowShoeToursApplication.getSnowShoeTour();
     List<TOGears> list = new ArrayList<>();
@@ -21,6 +25,10 @@ public class GearController {
     return list;
   }
   
+  /**
+   * @author souhail el hayani
+   * @return
+   */
   public static List<TOCombo> getCombos() {
     SnowShoeTour sst = SnowShoeToursApplication.getSnowShoeTour();
     List<TOCombo> list = new ArrayList<>();

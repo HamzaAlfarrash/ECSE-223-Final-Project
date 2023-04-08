@@ -21,13 +21,13 @@ public class AddRemoveBookedItemController {
   
   //TODO add transfer objetcs, this is NOT CORRECT
   @FXML
-  private ChoiceBox<TOGears> gearName;
+  private ChoiceBox<String> gearName;
   
   @FXML
-  private ChoiceBox<TOCombo> comboName;
+  private ChoiceBox<String> comboName;
   
   @FXML
-  private ChoiceBox<Participant> participantName;
+  private ChoiceBox<String> participantName;
   
   @FXML
   private Button add;

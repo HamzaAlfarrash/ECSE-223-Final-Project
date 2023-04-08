@@ -1,10 +1,13 @@
 package ca.mcgill.ecse.snowshoetours.javafx.fxml.controllers;
 
+import java.util.ArrayList;
 import java.util.List;
 import ca.mcgill.ecse.snowshoetours.application.SnowShoeToursApplication;
 import ca.mcgill.ecse.snowshoetours.controller.GearController;
+import ca.mcgill.ecse.snowshoetours.controller.ParticipantController;
 import ca.mcgill.ecse.snowshoetours.controller.TOCombo;
 import ca.mcgill.ecse.snowshoetours.controller.TOGears;
+import ca.mcgill.ecse.snowshoetours.controller.TOParticipant;
 import ca.mcgill.ecse.snowshoetours.javafx.fxml.SSTFxmlView;
 import ca.mcgill.ecse.snowshoetours.model.*;
 import javafx.collections.FXCollections;
@@ -69,21 +72,31 @@ public class ViewUtils {
     makePopupWindow("Error", message);
   }
 
-  public static ObservableList<TOGears> getGear() {
+  public static ObservableList<String> getGear() {
     List<TOGears> list = GearController.getGears();
-    return FXCollections.observableList(list);
+    List<String> names = new ArrayList<>();
+    for(TOGears gear : list) {
+      names.add(gear.getName());
+    }
+    return FXCollections.observableList(names);
   }
 
-  public static ObservableList<TOCombo> getCombo() {
-    SnowShoeTour sst = SnowShoeToursApplication.getSnowShoeTour();
+  public static ObservableList<String> getCombo() {
     List<TOCombo> list = GearController.getCombos();
-    return FXCollections.observableList(list);
+    List<String> names = new ArrayList<>();
+    for(TOCombo combo : list) {
+      names.add(combo.getName());
+    }
+    return FXCollections.observableList(names);
   }
 
-  public static ObservableList<Participant> getParticipant() {
-    SnowShoeTour sst = SnowShoeToursApplication.getSnowShoeTour();
-    List<Participant> list = sst.getParticipants();
-    return FXCollections.observableList(list);
+  public static ObservableList<String> getParticipant() {
+    List<TOParticipant> list = ParticipantController.getParticipants();
+    List<String> names = new ArrayList<>();
+    for(TOParticipant participant : list) {
+      names.add(participant.getParticipantAccountName());
+    }
+    return FXCollections.observableList(names);
   }
 
   // leave this just as a template

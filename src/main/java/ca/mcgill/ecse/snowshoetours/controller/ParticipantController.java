@@ -12,6 +12,18 @@ import ca.mcgill.ecse.snowshoetours.model.User;
 import ca.mcgill.ecse.snowshoetours.persistence.SstPersistence;
 
 public class ParticipantController {
+  
+  public static List<TOParticipant> getParticipants() {
+    SnowShoeTour sst = SnowShoeToursApplication.getSnowShoeTour();
+    List<TOParticipant> list = new ArrayList<>();
+    List<Participant> list1 = sst.getParticipants();
+    for(Participant par : list1) {
+      list.add(new TOParticipant(par.getAccountName()));
+    }
+    return list;
+  }
+  
+  
   /**
    * @author Philippe Marchand+Martin Eskaros
    * @param email

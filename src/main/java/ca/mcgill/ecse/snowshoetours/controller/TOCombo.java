@@ -15,4 +15,8 @@ public class TOCombo {
     discount = d;
     comboItems = list;
   }
+  
+  public String getName() {
+    return name;
+  }
 }
