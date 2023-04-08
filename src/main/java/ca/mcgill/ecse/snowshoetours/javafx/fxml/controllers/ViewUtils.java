@@ -2,6 +2,9 @@ package ca.mcgill.ecse.snowshoetours.javafx.fxml.controllers;
 
 import java.util.List;
 import ca.mcgill.ecse.snowshoetours.application.SnowShoeToursApplication;
+import ca.mcgill.ecse.snowshoetours.controller.GearController;
+import ca.mcgill.ecse.snowshoetours.controller.TOCombo;
+import ca.mcgill.ecse.snowshoetours.controller.TOGears;
 import ca.mcgill.ecse.snowshoetours.javafx.fxml.SSTFxmlView;
 import ca.mcgill.ecse.snowshoetours.model.*;
 import javafx.collections.FXCollections;
@@ -66,15 +69,14 @@ public class ViewUtils {
     makePopupWindow("Error", message);
   }
 
-  public static ObservableList<Gear> getGear() {
-    SnowShoeTour sst = SnowShoeToursApplication.getSnowShoeTour();
-    List<Gear> list = sst.getGear();
+  public static ObservableList<TOGears> getGear() {
+    List<TOGears> list = GearController.getGears();
     return FXCollections.observableList(list);
   }
 
-  public static ObservableList<Combo> getCombo() {
+  public static ObservableList<TOCombo> getCombo() {
     SnowShoeTour sst = SnowShoeToursApplication.getSnowShoeTour();
-    List<Combo> list = sst.getCombos();
+    List<TOCombo> list = GearController.getCombos();
     return FXCollections.observableList(list);
   }
 

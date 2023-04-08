@@ -1,6 +1,8 @@
 package ca.mcgill.ecse.snowshoetours.javafx.fxml.controllers;
 
 import java.io.IOException;
+import ca.mcgill.ecse.snowshoetours.controller.TOCombo;
+import ca.mcgill.ecse.snowshoetours.controller.TOGears;
 import ca.mcgill.ecse.snowshoetours.javafx.fxml.SSTFxmlView;
 import ca.mcgill.ecse.snowshoetours.model.Combo;
 import ca.mcgill.ecse.snowshoetours.model.Gear;
@@ -13,17 +15,16 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.ChoiceBox;
-import javafx.scene.control.TableView;
 import javafx.stage.Stage;
 
 public class AddRemoveBookedItemController {
   
   //TODO add transfer objetcs, this is NOT CORRECT
   @FXML
-  private ChoiceBox<Gear> gearName;
+  private ChoiceBox<TOGears> gearName;
   
   @FXML
-  private ChoiceBox<Combo> comboName;
+  private ChoiceBox<TOCombo> comboName;
   
   @FXML
   private ChoiceBox<Participant> participantName;
@@ -32,18 +33,21 @@ public class AddRemoveBookedItemController {
   private Button add;
   
   @FXML
-  private TableView<Participant> gearAndComboListForSelectedParticipant;
-  
-  @FXML
+  /**
+   * @author souhail el hayani
+   */
   public void initialize() {
     gearName.addEventHandler(SSTFxmlView.REFRESH_EVENT, e->{
       gearName.setItems(ViewUtils.getGear());
+      gearName.setValue(null);
     });
     comboName.addEventHandler(SSTFxmlView.REFRESH_EVENT, e->{
       comboName.setItems(ViewUtils.getCombo());
+      comboName.setValue(null);
     });
     participantName.addEventHandler(SSTFxmlView.REFRESH_EVENT, e->{
       participantName.setItems(ViewUtils.getParticipant());
+      participantName.setValue(null);
     });
       SSTFxmlView.getInstance().registerRefreshEvent(gearName,participantName,comboName);
   }
@@ -52,10 +56,15 @@ public class AddRemoveBookedItemController {
    * @author souhail el hayani
    */
   public void add() {
-    //after adding gear or combo to participant, its possible to view participant info
+    //adding gear or combo to participant
+    
     
   }
   
+  /**
+   * @author souhail el hayani
+   * @param event
+   */
   public void GoBackButtonClicked(ActionEvent event) {
     try {
       Parent ViewSnowShoeToursDetailedParent = FXMLLoader.load(getClass().getResource("../MainPage.fxml"));

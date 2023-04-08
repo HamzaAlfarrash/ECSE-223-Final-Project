@@ -1,5 +1,6 @@
 package ca.mcgill.ecse.snowshoetours.controller;
 
+import java.util.ArrayList;
 import java.util.List;
 import ca.mcgill.ecse.snowshoetours.application.SnowShoeToursApplication;
 import ca.mcgill.ecse.snowshoetours.model.Combo;
@@ -10,6 +11,32 @@ import ca.mcgill.ecse.snowshoetours.persistence.SstPersistence;
 
 public class GearController {
 
+  public static List<TOGears> getGears() {
+    SnowShoeTour sst = SnowShoeToursApplication.getSnowShoeTour();
+    List<TOGears> list = new ArrayList<>();
+    List<Gear> list1 = sst.getGear();
+    for(Gear gear : list1) {
+      list.add(new TOGears( gear.getPricePerWeek(),gear.getName()));
+    }
+    return list;
+  }
+  
+  public static List<TOCombo> getCombos() {
+    SnowShoeTour sst = SnowShoeToursApplication.getSnowShoeTour();
+    List<TOCombo> list = new ArrayList<>();
+    List<Combo> list1 = sst.getCombos();
+    for(Combo combo : list1) {
+    //get the comboItems of the combo
+      List<TOGears> gears = new ArrayList<>();
+      for(ComboItem item : combo.getComboItems()) {
+        Gear gear = item.getGear();
+        gears.add(new TOGears(gear.getPricePerWeek(), gear.getName()));
+      }
+      list.add(new TOCombo(combo.getName(), combo.getDiscount(), gears));
+    }
+    return list;
+  }
+  
   /**
    * @author Souhail El Hayani adds a gear
    * @param name
