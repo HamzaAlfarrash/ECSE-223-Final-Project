@@ -2,14 +2,12 @@ package ca.mcgill.ecse.snowshoetours.javafx.fxml.controllers;
 
 import java.util.ArrayList;
 import java.util.List;
-import ca.mcgill.ecse.snowshoetours.application.SnowShoeToursApplication;
 import ca.mcgill.ecse.snowshoetours.controller.GearController;
 import ca.mcgill.ecse.snowshoetours.controller.ParticipantController;
 import ca.mcgill.ecse.snowshoetours.controller.TOCombo;
 import ca.mcgill.ecse.snowshoetours.controller.TOGears;
 import ca.mcgill.ecse.snowshoetours.controller.TOParticipant;
 import ca.mcgill.ecse.snowshoetours.javafx.fxml.SSTFxmlView;
-import ca.mcgill.ecse.snowshoetours.model.*;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.geometry.Insets;

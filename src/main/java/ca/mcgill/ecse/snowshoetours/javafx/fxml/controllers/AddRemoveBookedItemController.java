@@ -1,12 +1,8 @@
 package ca.mcgill.ecse.snowshoetours.javafx.fxml.controllers;
 
 import java.io.IOException;
-import ca.mcgill.ecse.snowshoetours.controller.TOCombo;
-import ca.mcgill.ecse.snowshoetours.controller.TOGears;
+import ca.mcgill.ecse.snowshoetours.controller.ParticipantController;
 import ca.mcgill.ecse.snowshoetours.javafx.fxml.SSTFxmlView;
-import ca.mcgill.ecse.snowshoetours.model.Combo;
-import ca.mcgill.ecse.snowshoetours.model.Gear;
-import ca.mcgill.ecse.snowshoetours.model.Participant;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -57,6 +53,20 @@ public class AddRemoveBookedItemController {
    */
   public void add() {
     //adding gear or combo to participant
+    if(!gearName.getValue().isEmpty() && !comboName.getValue().isEmpty()) {
+      ViewUtils.showError("Only select one item, either a gear or a combo, but not both");
+      return;
+    }
+    if(gearName.getValue().isEmpty() && ViewUtils.successful(ParticipantController.addBookableItemToParticipant(participantName.getValue(), comboName.getValue()))) {
+      //tries to add a combo
+      comboName.setValue(null);
+      participantName.setValue(null);
+    }
+    else if(!comboName.getValue().isEmpty() && !ViewUtils.successful(ParticipantController.addBookableItemToParticipant(participantName.getValue(), gearName.getValue()))) {
+      //tries to add a gear
+      comboName.setValue(null);
+      participantName.setValue(null);
+    }
     
     
   }
