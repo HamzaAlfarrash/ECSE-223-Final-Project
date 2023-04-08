@@ -16,6 +16,7 @@ public class AddDeleteGearController {
       Stage window = (Stage) ((Node) event.getSource()).getScene().getWindow();
       window.setScene(ViewSnowShoeToursDetailedParentScene);
       window.show();
+      
     } catch (IOException e) {
       e.printStackTrace();
     }
