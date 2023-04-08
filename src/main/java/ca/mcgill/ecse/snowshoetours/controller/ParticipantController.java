@@ -13,6 +13,11 @@ import ca.mcgill.ecse.snowshoetours.persistence.SstPersistence;
 
 public class ParticipantController {
   
+  /**
+   * @author souhail el hayani
+   * 
+   * @return
+   */
   public static List<TOParticipant> getParticipants() {
     SnowShoeTour sst = SnowShoeToursApplication.getSnowShoeTour();
     List<TOParticipant> list = new ArrayList<>();
