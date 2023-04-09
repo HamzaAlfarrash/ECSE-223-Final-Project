@@ -4,9 +4,11 @@ import java.util.ArrayList;
 import java.util.List;
 import ca.mcgill.ecse.snowshoetours.controller.GearController;
 import ca.mcgill.ecse.snowshoetours.controller.ParticipantController;
+import ca.mcgill.ecse.snowshoetours.controller.SnowShoeTourController;
 import ca.mcgill.ecse.snowshoetours.controller.TOCombo;
 import ca.mcgill.ecse.snowshoetours.controller.TOGears;
 import ca.mcgill.ecse.snowshoetours.controller.TOParticipant;
+import ca.mcgill.ecse.snowshoetours.controller.TOSnowShoeTour;
 import ca.mcgill.ecse.snowshoetours.javafx.fxml.SSTFxmlView;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -70,37 +72,52 @@ public class ViewUtils {
     makePopupWindow("Error", message);
   }
 
+  /**
+   * @author souhail el hayani
+   * @return
+   */
   public static ObservableList<String> getGear() {
     List<TOGears> list = GearController.getGears();
     List<String> names = new ArrayList<>();
-    for(TOGears gear : list) {
+    for (TOGears gear : list) {
       names.add(gear.getName());
     }
     return FXCollections.observableList(names);
   }
 
+  /**
+   * @author souhail el hayani
+   * @return
+   */
   public static ObservableList<String> getCombo() {
     List<TOCombo> list = GearController.getCombos();
     List<String> names = new ArrayList<>();
-    for(TOCombo combo : list) {
+    for (TOCombo combo : list) {
       names.add(combo.getName());
     }
     return FXCollections.observableList(names);
   }
 
+  /**
+   * @author souhail el hayani
+   * @return
+   */
   public static ObservableList<String> getParticipant() {
     List<TOParticipant> list = ParticipantController.getParticipants();
     List<String> names = new ArrayList<>();
-    for(TOParticipant participant : list) {
+    for (TOParticipant participant : list) {
       names.add(participant.getParticipantAccountName());
     }
     return FXCollections.observableList(names);
   }
 
-  // leave this just as a template
-  /*
-   * public static ObservableList<TOFlight> getFlights() { 
-   *    List<TOFlight> flights = FMSController.getFlights(); 
-   *    return FXCollections.observableList(flights); }
+  /**
+   * @author souhail el hayani
+   * @return
    */
+  public static ObservableList<TOSnowShoeTour> getTours() {
+    List<TOSnowShoeTour> tours = SnowShoeTourController.getSnowShoeTours();
+    return FXCollections.observableList(tours);
+  }
+
 }

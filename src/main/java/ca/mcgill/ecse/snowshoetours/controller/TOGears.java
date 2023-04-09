@@ -1,5 +1,10 @@
 package ca.mcgill.ecse.snowshoetours.controller;
 
+/**
+ * 
+ * @author souhail el hayani
+ *
+ */
 public class TOGears {
   
   private int pricePerWeek;

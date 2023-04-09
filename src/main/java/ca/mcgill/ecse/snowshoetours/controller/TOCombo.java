@@ -2,6 +2,11 @@ package ca.mcgill.ecse.snowshoetours.controller;
 
 import java.util.List;
 
+/**
+ * 
+ * @author souhail el hayani
+ *
+ */
 public class TOCombo {
 
 
