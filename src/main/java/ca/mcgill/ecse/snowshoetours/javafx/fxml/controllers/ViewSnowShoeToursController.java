@@ -29,12 +29,13 @@ public class ViewSnowShoeToursController {
   @FXML
   public void initialize() {
     // createTableColumn(COLUMN_NAME, ATTRIBUTE_NAME)
-    tourInfo.getColumns().add(createTableColumn("TourId", "id"));
+    tourInfo.getColumns().add(createTableColumn("Tour Id", "id"));
     tourInfo.getColumns().add(createTableColumn("From week", "startWeek"));
     tourInfo.getColumns().add(createTableColumn("To week", "endWeek"));
     tourInfo.getColumns().add(createTableColumn("Guide", "guideEmail"));
-    tourInfo.getColumns().add(createParticipantTableColumn("Participant", "participantCosts"));
+    tourInfo.getColumns().add(createParticipantTableColumn());
 
+    tourInfo.setItems(ViewUtils.getTours());
     // overview table if a refreshable element
     tourInfo.addEventHandler(SSTFxmlView.REFRESH_EVENT,
         e -> tourInfo.setItems(ViewUtils.getTours()));
@@ -53,10 +54,16 @@ public class ViewSnowShoeToursController {
   }
   
   //TODO prolly wont work , will need a String :(
-  public static TableColumn<TOSnowShoeTour, List<TOParticipantCost>> createParticipantTableColumn(String header,
+  /*public static TableColumn<TOSnowShoeTour, List<TOParticipantCost>> createParticipantTableColumn(String header,
       String propertyName) {
     TableColumn<TOSnowShoeTour, List<TOParticipantCost>> column = new TableColumn<>(header);
     column.setCellValueFactory(new PropertyValueFactory<>(propertyName));
+    return column;
+  }*/
+  
+  public static TableColumn<TOSnowShoeTour,String> createParticipantTableColumn() {
+    TableColumn<TOSnowShoeTour, String> column = new TableColumn<>("Participant");
+    column.setCellValueFactory(new PropertyValueFactory<>("firstParticipant"));
     return column;
   }
 

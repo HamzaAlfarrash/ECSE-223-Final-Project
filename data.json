@@ -179,9 +179,41 @@
                                             },
                                             "bookedItems": [
                                               {
-                                                "BookedItem": {
-                                                  "@reference": "../../.."
-                                                }
+                                                "BookedItem": [
+                                                  {
+                                                    "@reference": "../../.."
+                                                  },
+                                                  {
+                                                    "quantity": 1,
+                                                    "snowShoeTour": {
+                                                      "@reference": "../../../../../../../../../../../../../../.."
+                                                    },
+                                                    "participant": {
+                                                      "@reference": "../../.."
+                                                    },
+                                                    "item": {
+                                                      "@class": "Gear",
+                                                      "name": "boots",
+                                                      "bookedItems": [
+                                                        {
+                                                          "BookedItem": {
+                                                            "@reference": "../../.."
+                                                          }
+                                                        }
+                                                      ],
+                                                      "pricePerWeek": 15,
+                                                      "snowShoeTour": {
+                                                        "@reference": "../../../../../../../../../../../../../../../.."
+                                                      },
+                                                      "comboItems": [
+                                                        ""
+                                                      ]
+                                                    },
+                                                    "cachedHashCode": -1,
+                                                    "canSetParticipant": true,
+                                                    "canSetItem": true
+                                                  }
+                                                ]
                                               }
                                             ]
                                           },
@@ -400,6 +432,9 @@
           },
           {
             "@reference": "../../guides/Guide/tours/Tour/participants/Participant/bookedItems/BookedItem/item/bookedItems/BookedItem[2]/participant/tour/guide/tours/Tour[2]/participants/Participant/bookedItems/BookedItem"
+          },
+          {
+            "@reference": "../../guides/Guide/tours/Tour/participants/Participant/bookedItems/BookedItem/item/bookedItems/BookedItem[2]/participant/bookedItems/BookedItem[2]"
           }
         ]
       }
@@ -411,17 +446,7 @@
             "@reference": "../../guides/Guide/tours/Tour/participants/Participant/bookedItems/BookedItem/item"
           },
           {
-            "name": "boots",
-            "bookedItems": [
-              ""
-            ],
-            "pricePerWeek": 15,
-            "snowShoeTour": {
-              "@reference": "../../.."
-            },
-            "comboItems": [
-              ""
-            ]
+            "@reference": "../../guides/Guide/tours/Tour/participants/Participant/bookedItems/BookedItem/item/bookedItems/BookedItem[2]/participant/bookedItems/BookedItem[2]/item"
           },
           {
             "name": "goggles",

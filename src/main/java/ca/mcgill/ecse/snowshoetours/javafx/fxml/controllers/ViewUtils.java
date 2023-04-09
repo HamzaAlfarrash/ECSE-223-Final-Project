@@ -82,7 +82,8 @@ public class ViewUtils {
     for (TOGears gear : list) {
       names.add(gear.getName());
     }
-    return FXCollections.observableList(names);
+    ObservableList<String> listNames = FXCollections.observableList(names);
+    return listNames;
   }
 
   /**
