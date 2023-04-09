@@ -39,4 +39,19 @@ public class StartFinishCancelParticipantTripController {
     }
   }
   
+  public void initialize() {
+	  
+  }
+  
+  public void startTrip() {
+	  
+  }
+  
+  public void cancelTrip() {
+	  
+  }
+  
+  public void finishTrip() {
+	  
+  }
 }
