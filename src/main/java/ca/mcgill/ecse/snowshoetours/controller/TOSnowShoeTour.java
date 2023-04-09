@@ -22,6 +22,9 @@ public class TOSnowShoeTour
 
   //TOSnowShoeTour Associations
   private List<TOParticipantCost> participantCosts;
+  
+  //quick fix for view snow shoe tour UI controller
+  private String firstParticipant;
 
   //Helper Variables
   private boolean canSetParticipantCosts;
@@ -45,6 +48,8 @@ public class TOSnowShoeTour
     {
       throw new RuntimeException("Unable to create TOSnowShoeTour, must not have duplicate participantCosts. See http://manual.umple.org?RE001ViolationofImmutability.html");
     }
+    //quick fix
+    firstParticipant = participantCosts.get(0).getParticipantEmail();
   }
 
   //------------------------
@@ -138,13 +143,21 @@ public class TOSnowShoeTour
 
     participantCosts.clear();
     participantCosts.addAll(verifiedParticipantCosts);
+    firstParticipant = participantCosts.get(0).getParticipantEmail();
     wasSet = true;
     return wasSet;
   }
 
   public void delete()
   {}
-
+  
+  //quick fix
+  /**
+   * @author souhail
+   */
+  public String getFirstParticipant() {
+    return firstParticipant;
+  }
 
   public String toString()
   {

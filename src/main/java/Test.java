@@ -1,4 +1,5 @@
 import ca.mcgill.ecse.snowshoetours.model.*;
+import java.util.ArrayList;
 import java.util.List;
 import ca.mcgill.ecse.snowshoetours.application.*;
 import ca.mcgill.ecse.snowshoetours.controller.*;
@@ -6,12 +7,23 @@ import ca.mcgill.ecse.snowshoetours.persistence.*;
 public class Test {
 
   public static void main(String[] args) {
-    SnowShoeTour sst = SnowShoeToursApplication.getSnowShoeTour();
+    
+    List<TOGears> list = GearController.getGears();
+    List<String> names = new ArrayList<>();
+    for (TOGears gear : list) {
+      names.add(gear.getName());
+    }
+    System.out.println(names.size());
+    System.out.println(names.get(0));
+    System.out.println(names.get(1));
+    System.out.println(names.get(2));
+    
+    /*SnowShoeTour sst = SnowShoeToursApplication.getSnowShoeTour();
     List<Guide> guides = sst.getGuides();
     Manager manager = sst.getManager();
     List<Participant> participants = sst.getParticipants();
 
-    User.reinitializeUniqueAccountName(manager, guides, participants);
+    //User.reinitializeUniqueAccountName(manager, guides, participants);
 
     try {
       Participant p1 = sst.addParticipant("name", "pass", "name", "123", 3, 1, 3, false, "pay", 20);
@@ -62,8 +74,8 @@ public class Test {
       }
       System.out.println("added gear successfully");
     } catch (RuntimeException e) {
-      
-    }
+      System.out.println(e.getMessage());
+    }*/
     
   }
 }

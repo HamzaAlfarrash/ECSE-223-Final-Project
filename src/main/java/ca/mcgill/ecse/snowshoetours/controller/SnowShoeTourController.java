@@ -1,6 +1,7 @@
 package ca.mcgill.ecse.snowshoetours.controller;
 
 import java.sql.Date;
+import java.util.ArrayList;
 import java.util.List;
 
 import ca.mcgill.ecse.snowshoetours.application.SnowShoeToursApplication;
@@ -16,6 +17,19 @@ import ca.mcgill.ecse.snowshoetours.persistence.SstPersistence;
 
 public class SnowShoeTourController {
 
+  /**
+   * @author souhail el hayani
+   * @return
+   */
+  public static List<TOSnowShoeTour> getSnowShoeTours() {
+    List<TOSnowShoeTour> tours = new ArrayList<>();
+    SnowShoeTour sst = SnowShoeToursApplication.getSnowShoeTour();
+    for(Tour tour : sst.getTours()) {
+      tours.add(getSnowShoeTour(tour.getId()));
+    }
+    return tours;
+  }
+  
   /**
    * @author Hamza Alfarrash returns transfer object SnowShoeTour
    * @param id

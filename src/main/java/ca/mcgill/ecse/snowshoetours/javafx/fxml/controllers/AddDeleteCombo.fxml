@@ -40,8 +40,8 @@
                         <Font name="System Bold Italic" size="24.0" />
                      </font>
                   </Label>
-                  <Label text="Combo Name" GridPane.halignment="RIGHT" GridPane.rowIndex="1" />
-                  <Label text="Discount" GridPane.halignment="RIGHT" GridPane.rowIndex="2" />
+                  <Label text="Combo Name  " GridPane.halignment="RIGHT" GridPane.rowIndex="1" />
+                  <Label text="Discount  " GridPane.halignment="RIGHT" GridPane.rowIndex="2" />
                   <TextField GridPane.columnIndex="1" GridPane.rowIndex="1" />
                   <TextField GridPane.columnIndex="1" GridPane.rowIndex="2" />
                   <TextField GridPane.columnIndex="1" GridPane.rowIndex="2" />

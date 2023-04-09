@@ -14,7 +14,7 @@ import javafx.stage.Stage;
 import javafx.scene.Parent;
 import javafx.scene.Node;
 
-public class MainPageController2 {
+public class MainPageController {
 
   private Button GoViewSnowShoeToursDetailedButton;
   private Button GoUpdateShowShoeToursButton;
@@ -69,7 +69,7 @@ public class MainPageController2 {
   
   public void GoAddDeleteGearDetailedButtonClicked(ActionEvent event) {
     try {
-      Parent ViewSnowShoeToursDetailedParent = FXMLLoader.load(getClass().getResource("Controllers/AddDeleteCombo.fxml"));
+      Parent ViewSnowShoeToursDetailedParent = FXMLLoader.load(getClass().getResource("Controllers/AddDeleteGear.fxml"));
       Scene ViewSnowShoeToursDetailedParentScene = new Scene(ViewSnowShoeToursDetailedParent);
       Stage window = (Stage) ((Node) event.getSource()).getScene().getWindow();
       window.setScene(ViewSnowShoeToursDetailedParentScene);
