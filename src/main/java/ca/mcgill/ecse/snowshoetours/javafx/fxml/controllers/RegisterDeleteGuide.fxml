@@ -11,7 +11,7 @@
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="800.0" prefWidth="1200.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane prefHeight="800.0" prefWidth="1200.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ca.mcgill.ecse.snowshoetours.javafx.fxml.controllers.RegisterDeleteGuideController">
    <children>
       <GridPane layoutX="14.0" layoutY="14.0" prefHeight="800.0" prefWidth="1200.0">
         <columnConstraints>
@@ -45,13 +45,13 @@
                   <Label alignment="CENTER_RIGHT" text="Name" textAlignment="CENTER" GridPane.halignment="RIGHT" GridPane.rowIndex="1" />
                   <Label text="Email" GridPane.halignment="RIGHT" GridPane.rowIndex="2" />
                   <Label text="Password" GridPane.halignment="RIGHT" GridPane.rowIndex="3" />
-                  <TextField GridPane.columnIndex="1" GridPane.rowIndex="1" />
-                  <TextField GridPane.columnIndex="1" GridPane.rowIndex="2" />
-                  <TextField GridPane.columnIndex="1" GridPane.rowIndex="3" />
-                  <TextField GridPane.columnIndex="3" GridPane.rowIndex="1" />
+                  <TextField fx:id="addGuideNameTextField" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                  <TextField fx:id="EmailRGTextField1" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                  <TextField fx:id="PasswordRGTextField11" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+                  <TextField fx:id="ECITextField" GridPane.columnIndex="3" GridPane.rowIndex="1" />
                   <Label text="Emergency Contact" GridPane.columnIndex="2" GridPane.halignment="RIGHT" GridPane.rowIndex="1" />
-                  <Button mnemonicParsing="false" text="Register Guide" GridPane.columnIndex="3" GridPane.halignment="CENTER" GridPane.rowIndex="2" />
-                  <Button mnemonicParsing="false" text="Clear" GridPane.columnIndex="3" GridPane.halignment="CENTER" GridPane.rowIndex="3" />
+                  <Button fx:id="RGButton" mnemonicParsing="false" onAction="#RGButtonClicked" text="Register Guide" GridPane.columnIndex="3" GridPane.halignment="CENTER" GridPane.rowIndex="2" />
+                  <Button fx:id="clearRGSectionButton" mnemonicParsing="false" onAction="#ClearRGClicked" text="Clear" GridPane.columnIndex="3" GridPane.halignment="CENTER" GridPane.rowIndex="3" />
                </children>
             </GridPane>
             <GridPane GridPane.rowIndex="2">
@@ -71,10 +71,10 @@
                         <Font name="System Bold Italic" size="24.0" />
                      </font>
                   </Label>
-                  <Button mnemonicParsing="false" text="Back" GridPane.halignment="CENTER" GridPane.rowIndex="2" />
+                  <Button mnemonicParsing="false" onAction="#GoBackButtonClicked" text="Back" GridPane.halignment="CENTER" GridPane.rowIndex="2" />
                   <Label text="Guide to Delete" GridPane.halignment="RIGHT" GridPane.rowIndex="1" />
-                  <ChoiceBox prefWidth="150.0" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="1" />
-                  <Button mnemonicParsing="false" text="Delete" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="2" />
+                  <ChoiceBox fx:id="deleteGuideChoiceBox" prefWidth="150.0" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="1" />
+                  <Button mnemonicParsing="false" onAction="#deleteGuideClicked" text="Delete" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="2" />
                </children>
             </GridPane>
             <Separator prefHeight="0.0" prefWidth="200.0" GridPane.rowIndex="1" />
