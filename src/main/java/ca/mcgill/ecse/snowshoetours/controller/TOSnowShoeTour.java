@@ -154,6 +154,7 @@ public class TOSnowShoeTour
   //quick fix
   /**
    * @author souhail
+   * @return the participant of the tour
    */
   public String getFirstParticipant() {
     return firstParticipant;

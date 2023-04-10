@@ -18,5 +18,6 @@
       <ChoiceBox fx:id="participantName" layoutX="404.0" layoutY="124.0" prefWidth="150.0" />
       <Label layoutX="446.0" layoutY="101.0" prefHeight="17.0" prefWidth="66.0" text="participant" />
       <Text layoutX="121.0" layoutY="348.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Choose either a Gear or a Combo from the available list to add to the specified Particpant. If the gear or combo from your choice does not appear, add it in the add/delete gear/combo pages." wrappingWidth="350.0" />
+      <Button fx:id="remove" layoutX="502.0" layoutY="323.0" mnemonicParsing="false" onAction="#remove" text="Remove Item" />
    </children>
 </AnchorPane>

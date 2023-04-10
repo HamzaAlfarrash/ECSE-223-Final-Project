@@ -19,7 +19,7 @@ public class SnowShoeTourController {
 
   /**
    * @author souhail el hayani
-   * @return
+   * @return list of transfer objects of tours
    */
   public static List<TOSnowShoeTour> getSnowShoeTours() {
     List<TOSnowShoeTour> tours = new ArrayList<>();

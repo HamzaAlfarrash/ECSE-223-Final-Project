@@ -13,7 +13,7 @@ public class GearController {
 
   /**
    * @author souhail el hayani
-   * @return
+   * @return list of transfer objects of gear
    */
   public static List<TOGears> getGears() {
     SnowShoeTour sst = SnowShoeToursApplication.getSnowShoeTour();
@@ -27,7 +27,7 @@ public class GearController {
   
   /**
    * @author souhail el hayani
-   * @return
+   * @return list of transfer objects of combo
    */
   public static List<TOCombo> getCombos() {
     SnowShoeTour sst = SnowShoeToursApplication.getSnowShoeTour();

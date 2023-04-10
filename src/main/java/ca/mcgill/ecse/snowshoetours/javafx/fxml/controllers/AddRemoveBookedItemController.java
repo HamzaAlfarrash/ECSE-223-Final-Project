@@ -15,8 +15,7 @@ import javafx.scene.control.ChoiceBox;
 import javafx.stage.Stage;
 
 public class AddRemoveBookedItemController {
-  
-  //TODO add transfer objetcs, this is NOT CORRECT
+	
   @FXML
   private ChoiceBox<String> gearName;
   
@@ -30,13 +29,18 @@ public class AddRemoveBookedItemController {
   private Button add;
   
   @FXML
+  private Button remove;
+  
+  /**
+   * @author souhail el hayani
+   * initialize the page
+   */
+  @FXML
   public void initialize() {
     gearName.setItems(ViewUtils.getGear());
-    System.out.println("text executing");
     gearName.setValue(null);
     gearName.addEventHandler(SSTFxmlView.REFRESH_EVENT, e->{
       gearName.setItems(ViewUtils.getGear());
-      System.out.println("text executing");
       gearName.setValue(null);
     });
     comboName.setItems(ViewUtils.getCombo());
@@ -73,7 +77,26 @@ public class AddRemoveBookedItemController {
       comboName.setValue(null);
       participantName.setValue(null);
     }
-    
+  }
+  
+  /**
+   * @author souhail el hayani
+   */
+  public void remove() {
+    if(gearName.getValue()!=null && comboName.getValue()!=null) {
+      ViewUtils.showError("Only select one item, either a gear or a combo, but not both");
+      return;
+    }
+    if(gearName.getValue()==null && ViewUtils.successful(ParticipantController.removeBookableItemFromParticipant(participantName.getValue().getParticipantAccountName(), comboName.getValue()))) {
+      //tries to add a combo
+      comboName.setValue(null);
+      participantName.setValue(null);
+    }
+    else if(comboName.getValue()==null && ViewUtils.successful(ParticipantController.removeBookableItemFromParticipant(participantName.getValue().getParticipantAccountName(), gearName.getValue()))) {
+      //tries to add a gear
+      comboName.setValue(null);
+      participantName.setValue(null);
+    }
     
   }
   

@@ -15,8 +15,7 @@ public class ParticipantController {
   
   /**
    * @author souhail el hayani
-   * 
-   * @return
+   * @return list of transfer objects of participants
    */
   public static List<TOParticipant> getParticipants() {
     SnowShoeTour sst = SnowShoeToursApplication.getSnowShoeTour();
