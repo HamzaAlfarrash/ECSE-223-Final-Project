@@ -23,7 +23,7 @@ public class AddRemoveBookedItemController {
   private ChoiceBox<String> comboName;
   
   @FXML
-  private ChoiceBox<TOParticipant> participantName;
+  private ChoiceBox<String> participantName;
   
   @FXML
   private Button add;
@@ -67,14 +67,14 @@ public class AddRemoveBookedItemController {
       ViewUtils.showError("Only select one item, either a gear or a combo, but not both");
       return;
     }
-    if(gearName.getValue()==null && ViewUtils.successful(ParticipantController.addBookableItemToParticipant(participantName.getValue().getParticipantAccountName(), comboName.getValue()))) {
+    if(gearName.getValue()==null && ViewUtils.successful(ParticipantController.addBookableItemToParticipant(participantName.getValue(), comboName.getValue()))) {
       //tries to add a combo
       comboName.setValue(null);
       participantName.setValue(null);
     }
-    else if(comboName.getValue()==null && !ViewUtils.successful(ParticipantController.addBookableItemToParticipant(participantName.getValue().getParticipantAccountName(), gearName.getValue()))) {
+    else if(comboName.getValue()==null && !ViewUtils.successful(ParticipantController.addBookableItemToParticipant(participantName.getValue(), gearName.getValue()))) {
       //tries to add a gear
-      comboName.setValue(null);
+      gearName.setValue(null);
       participantName.setValue(null);
     }
   }
@@ -87,14 +87,14 @@ public class AddRemoveBookedItemController {
       ViewUtils.showError("Only select one item, either a gear or a combo, but not both");
       return;
     }
-    if(gearName.getValue()==null && ViewUtils.successful(ParticipantController.removeBookableItemFromParticipant(participantName.getValue().getParticipantAccountName(), comboName.getValue()))) {
+    if(gearName.getValue()==null && ViewUtils.successful(ParticipantController.removeBookableItemFromParticipant(participantName.getValue(), comboName.getValue()))) {
       //tries to add a combo
       comboName.setValue(null);
       participantName.setValue(null);
     }
-    else if(comboName.getValue()==null && ViewUtils.successful(ParticipantController.removeBookableItemFromParticipant(participantName.getValue().getParticipantAccountName(), gearName.getValue()))) {
+    else if(comboName.getValue()==null && ViewUtils.successful(ParticipantController.removeBookableItemFromParticipant(participantName.getValue(), gearName.getValue()))) {
       //tries to add a gear
-      comboName.setValue(null);
+      gearName.setValue(null);
       participantName.setValue(null);
     }
     

@@ -103,10 +103,13 @@ public class ViewUtils {
    * @author souhail el hayani
    * @return
    */
-  public static ObservableList<TOParticipant> getParticipant() {
+  public static ObservableList<String> getParticipant() {
     List<TOParticipant> list = ParticipantController.getParticipants();
-    
-    return FXCollections.observableList(list);
+    List<String> names = new ArrayList<>();
+    for (TOParticipant par : list) {
+      names.add(par.getParticipantAccountName());
+    }
+    return FXCollections.observableList(names);
   }
 
   /**
