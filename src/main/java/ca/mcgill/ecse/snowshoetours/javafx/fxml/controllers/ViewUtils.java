@@ -4,11 +4,13 @@ import java.util.ArrayList;
 import java.util.List;
 import ca.mcgill.ecse.snowshoetours.controller.GearController;
 import ca.mcgill.ecse.snowshoetours.controller.LodgeController;
+import ca.mcgill.ecse.snowshoetours.controller.GuideController;
 import ca.mcgill.ecse.snowshoetours.controller.ParticipantController;
 import ca.mcgill.ecse.snowshoetours.controller.SnowShoeTourController;
 import ca.mcgill.ecse.snowshoetours.controller.TOCombo;
 import ca.mcgill.ecse.snowshoetours.controller.TOGears;
 import ca.mcgill.ecse.snowshoetours.controller.TOLodge;
+import ca.mcgill.ecse.snowshoetours.controller.TOGuide;
 import ca.mcgill.ecse.snowshoetours.controller.TOParticipant;
 import ca.mcgill.ecse.snowshoetours.controller.TOSnowShoeTour;
 import ca.mcgill.ecse.snowshoetours.javafx.fxml.SSTFxmlView;
@@ -96,6 +98,15 @@ public class ViewUtils {
     List<String> names = new ArrayList<>();
     for (TOCombo combo : list) {
       names.add(combo.getName());
+    }
+    return FXCollections.observableList(names);
+  }
+  
+  public static ObservableList<String> getGuide() {
+    List<TOGuide> list = GuideController.getGuides();
+    List<String> names = new ArrayList<>();
+    for (TOGuide guide : list) {
+      names.add(guide.getGuideAccountName());
     }
     return FXCollections.observableList(names);
   }
