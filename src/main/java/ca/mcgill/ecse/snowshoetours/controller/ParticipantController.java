@@ -208,10 +208,11 @@ public class ParticipantController {
    * @author Philippe Marchand
    * @param email
    */
-  public static void deleteParticipant(String email) {
+  public static String deleteParticipant(String email) {
     // TODO Implement the method
     // Basic input check
     if (email == null || email.isBlank()) {
+      return "Email cannont be empty";
     }
     // Successfully removes the participant
     // or does nothing there is not a participant with the input email
@@ -222,10 +223,11 @@ public class ParticipantController {
         if (participant.getAccountName().equals(email)) { // once the email matches the one in the
                                                           // system
           participant.delete(); // you can successfully delete it
-          break;
+          return "";
         }
       }
     }
+    return "participant with that name does not exist";
   }
 
   /**

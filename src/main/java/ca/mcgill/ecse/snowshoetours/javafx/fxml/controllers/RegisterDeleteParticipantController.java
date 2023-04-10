@@ -39,12 +39,14 @@ public class RegisterDeleteParticipantController {
   @FXML
   private CheckBox lodgeCheckBox;
   @FXML
-  private ChoiceBox<TOParticipant> deleteParticipantChoiceBox;
+  private ChoiceBox<String> deleteParticipantChoiceBox;
   @FXML
   private Button deleteParticipantButton;
   
   @FXML
   public void initialize() {
+    deleteParticipantChoiceBox.setItems(ViewUtils.getParticipant());
+    deleteParticipantChoiceBox.setValue(null);
     deleteParticipantChoiceBox.addEventHandler(SSTFxmlView.REFRESH_EVENT, e->{
       deleteParticipantChoiceBox.setItems(ViewUtils.getParticipant());
       deleteParticipantChoiceBox.setValue(null);
@@ -110,9 +112,10 @@ public class RegisterDeleteParticipantController {
     
   @FXML
   public void deleteParticipantClicked(ActionEvent event) {
-      ParticipantController.deleteParticipant(deleteParticipantChoiceBox.getValue().getParticipantAccountName());
-      deleteParticipantChoiceBox.setValue(null);
-      SSTFxmlView.getInstance().refresh();
+      if(ViewUtils.successful(ParticipantController.deleteParticipant(deleteParticipantChoiceBox.getValue()))) {
+        deleteParticipantChoiceBox.setValue(null);
+        SSTFxmlView.getInstance().refresh();
+      }
   }
   
   public void GoBackButtonClicked(ActionEvent event) {
