@@ -6,8 +6,7 @@ import javafx.fxml.FXMLLoader;
 import java.io.IOException;
 
 import ca.mcgill.ecse.snowshoetours.controller.GuideController;
-import ca.mcgill.ecse.snowshoetours.controller.ParticipantController;
-import ca.mcgill.ecse.snowshoetours.controller.TOParticipantCost;
+import ca.mcgill.ecse.snowshoetours.controller.TOGuide;
 import ca.mcgill.ecse.snowshoetours.javafx.fxml.SSTFxmlView;
 import javafx.scene.Node;
 import javafx.scene.Parent;
