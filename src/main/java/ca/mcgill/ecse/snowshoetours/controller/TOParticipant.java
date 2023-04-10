@@ -15,4 +15,7 @@ public class TOParticipant{
     return participantAccountName;
   }
   
+  public String toString(){
+    return participantAccountName;
+  }
 }

@@ -5,6 +5,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import java.io.IOException;
 import ca.mcgill.ecse.snowshoetours.controller.ParticipantController;
+import ca.mcgill.ecse.snowshoetours.controller.TOParticipant;
 import ca.mcgill.ecse.snowshoetours.controller.TOParticipantCost;
 import ca.mcgill.ecse.snowshoetours.javafx.fxml.SSTFxmlView;
 import javafx.scene.Node;
@@ -20,78 +21,97 @@ public class RegisterDeleteParticipantController {
   @FXML
   private TextField addParticipantNameTextField;
   @FXML
-  private TextField ECITextField;
+  private TextField addEmailTextField;
   @FXML
-  private Button clearRPSectionButton;
+  private TextField addPasswordTextField;
   @FXML
-  private Button RPButton;
+  private TextField addEmergencyTextField;
   @FXML
-  private TextField EmailRPTextField1;
+  private TextField addWeekFromTextField;
   @FXML
-  private TextField PasswordRPTextField11;
+  private TextField addWeekUntilTextField;
   @FXML
-  private TextField WAFRPTextField1;
+  private TextField addNumberOfWeeksTextField;
   @FXML
-  private TextField WAURPTextField11;
+  private Button clearButton;
   @FXML
-  private CheckBox LGRPCheckBox;
+  private Button registerParticipantButton;
   @FXML
-  private TextField NrWeeksRPTextField; 
-  
+  private CheckBox lodgeCheckBox;
   @FXML
-  private ChoiceBox<TOParticipantCost> deleteParticipantChoiceBox;
+  private ChoiceBox<TOParticipant> deleteParticipantChoiceBox;
   @FXML
   private Button deleteParticipantButton;
   
   @FXML
   public void initialize() {
     deleteParticipantChoiceBox.addEventHandler(SSTFxmlView.REFRESH_EVENT, e->{
-      //deleteParticipantChoiceBox.setItems(ViewUtils.getParticipant());
+      deleteParticipantChoiceBox.setItems(ViewUtils.getParticipant());
       deleteParticipantChoiceBox.setValue(null);
     });
-      SSTFxmlView.getInstance().registerRefreshEvent(deleteParticipantChoiceBox);
+    SSTFxmlView.getInstance().registerRefreshEvent(deleteParticipantChoiceBox);
   }
-  
   @FXML
-  public void ClearRPClicked(ActionEvent event) {
+  public void clearClicked(ActionEvent event) {
     addParticipantNameTextField.clear();
-    ECITextField.clear();
-    EmailRPTextField1.clear();
-    PasswordRPTextField11.clear();
-    WAFRPTextField1.clear();
-    WAURPTextField11.clear();
-    LGRPCheckBox.setSelected(false);
-    NrWeeksRPTextField.clear();
+    addEmailTextField.clear();
+    addPasswordTextField.clear();
+    addEmergencyTextField.clear();
+    addWeekFromTextField.clear();
+    addWeekUntilTextField.clear();
+    lodgeCheckBox.setSelected(false);
+    addNumberOfWeeksTextField.clear();
   }
   
   @FXML
-  public void RPButtonClicked(ActionEvent event) {
+  public void RegisterButtonClicked(ActionEvent event) {
     String name = addParticipantNameTextField.getText();
-    String eci = ECITextField.getText();
-    String email = EmailRPTextField1.getText();
-    String password = PasswordRPTextField11.getText();
-    int waf = Integer.parseInt(WAFRPTextField1.getText());
-    int wau = Integer.parseInt(WAURPTextField11.getText());
-    int nrWeeks = Integer.parseInt(NrWeeksRPTextField.getText());
-    boolean lodge = LGRPCheckBox.isSelected();
+    String emergencyContact = addEmergencyTextField.getText();
+    String email = addEmailTextField.getText();
+    String password = addPasswordTextField.getText();
+    String waf = addWeekFromTextField.getText();
+    String wau = addWeekUntilTextField.getText();
+    String nrw = addNumberOfWeeksTextField.getText();
+    int weekAvailableFrom;
+    int weekAvailableUntil;
+    int nrWeeks;
+    if( waf.equals("") || waf == null) {
+      weekAvailableFrom = -1;
+    }
+    else {
+    weekAvailableFrom = Integer.parseInt(addWeekFromTextField.getText());
+    }
+    if( wau.equals("") || wau == null) {
+      weekAvailableUntil = -1;
+    }
+    else {
+      weekAvailableUntil = Integer.parseInt(addWeekUntilTextField.getText());
+    }
+    if(nrw.equals("") || nrw == null) {
+      nrWeeks = -1;
+    }
+    else {
+      nrWeeks = Integer.parseInt(addNumberOfWeeksTextField.getText());
+    }
+    boolean lodge = lodgeCheckBox.isSelected();
     
-    /*
-    if (ViewUtils.callController(BikeTourPlusFeatureSet3Controller.registerParticipant(email, password, name, eci, nrWeeks, waf, wau, lodge))) {
+    if (ViewUtils.callController(ParticipantController.registerParticipant(email, password, name, emergencyContact, nrWeeks, weekAvailableFrom, weekAvailableUntil, lodge))) {
       addParticipantNameTextField.clear();
-      ECITextField.clear();
-      EmailRPTextField1.clear();
-      PasswordRPTextField11.clear();
-      WAFRPTextField1.clear();
-      WAURPTextField11.clear();
-      LGRPCheckBox.setSelected(false);
-      NrWeeksRPTextField.clear();
-      BikeTourPlusFxmlView.getInstance().refresh();
-    }*/
+      addParticipantNameTextField.clear();
+      addEmailTextField.clear();
+      addPasswordTextField.clear();
+      addEmergencyTextField.clear();
+      addWeekFromTextField.clear();
+      addWeekUntilTextField.clear();
+      lodgeCheckBox.setSelected(false);
+      addNumberOfWeeksTextField.clear();
+      SSTFxmlView.getInstance().refresh();
+    }
   }
     
   @FXML
   public void deleteParticipantClicked(ActionEvent event) {
-      ParticipantController.deleteParticipant(deleteParticipantChoiceBox.getValue().getParticipantEmail());
+      ParticipantController.deleteParticipant(deleteParticipantChoiceBox.getValue().getParticipantAccountName());
       deleteParticipantChoiceBox.setValue(null);
       SSTFxmlView.getInstance().refresh();
   }

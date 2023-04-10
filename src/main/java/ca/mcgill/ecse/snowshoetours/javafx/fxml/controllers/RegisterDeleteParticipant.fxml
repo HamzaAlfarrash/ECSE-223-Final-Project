@@ -1,104 +1,49 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.CheckBox?>
 <?import javafx.scene.control.ChoiceBox?>
 <?import javafx.scene.control.Label?>
-<?import javafx.scene.control.Separator?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.layout.ColumnConstraints?>
-<?import javafx.scene.layout.GridPane?>
-<?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ca.mcgill.ecse.snowshoetours.javafx.fxml.controllers.RegisterDeleteParticipantController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="330.0" prefWidth="691.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ca.mcgill.ecse.snowshoetours.javafx.fxml.controllers.RegisterDeleteParticipantController">
    <children>
-      <GridPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="1200.0" styleClass="customContainer" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
-         <columnConstraints>
-            <ColumnConstraints hgrow="ALWAYS" />
-         </columnConstraints>
-         <rowConstraints>
-            <RowConstraints maxHeight="245.85020446777344" minHeight="92.00762176513672" prefHeight="123.75862121582031" vgrow="ALWAYS" />
-            <RowConstraints maxHeight="178.49237823486328" minHeight="10.0" prefHeight="18.408432006835938" vgrow="SOMETIMES" />
-            <RowConstraints vgrow="ALWAYS" />
-         </rowConstraints>
-         <children>
-            <GridPane prefHeight="258.0" prefWidth="775.0">
-               <columnConstraints>
-                  <ColumnConstraints hgrow="ALWAYS" maxWidth="313.0" minWidth="155.1783905029297" prefWidth="249.0" />
-                  <ColumnConstraints hgrow="ALWAYS" maxWidth="360.8216094970703" minWidth="10.0" prefWidth="177.0" />
-                  <ColumnConstraints hgrow="ALWAYS" maxWidth="326.8216247558594" minWidth="110.7998046875" prefWidth="194.0" />
-                  <ColumnConstraints hgrow="ALWAYS" maxWidth="250.0167236328125" minWidth="72.5472412109375" prefWidth="202.0" />
-                  <ColumnConstraints hgrow="ALWAYS" maxWidth="360.0806884765625" minWidth="86.72308349609375" prefWidth="166.0" />
-                  <ColumnConstraints hgrow="ALWAYS" maxWidth="360.0806884765625" minWidth="86.72308349609375" prefWidth="210.512939453125" />
-               </columnConstraints>
-               <rowConstraints>
-                  <RowConstraints vgrow="ALWAYS" />
-                  <RowConstraints vgrow="ALWAYS" />
-                  <RowConstraints vgrow="ALWAYS" />
-                  <RowConstraints vgrow="ALWAYS" />
-               </rowConstraints>
-               <children>
-                  <Label text="Name  " GridPane.halignment="RIGHT" GridPane.rowIndex="1" />
-                  <Label text="Password  " GridPane.halignment="RIGHT" GridPane.rowIndex="3" />
-                  <Label text="Emergency Contact Info  " GridPane.columnIndex="2" GridPane.halignment="RIGHT" GridPane.rowIndex="1" />
-                  <TextField fx:id="addParticipantNameTextField" GridPane.columnIndex="1" GridPane.rowIndex="1" />
-                  <TextField fx:id="ECITextField" prefHeight="25.0" prefWidth="104.0" GridPane.columnIndex="3" GridPane.rowIndex="1" />
-                  <Button fx:id="clearRPSectionButton" mnemonicParsing="false" onAction="#ClearRPClicked" text="Clear" GridPane.columnIndex="5" GridPane.halignment="CENTER" GridPane.rowIndex="3" />
-                  <Button fx:id="RPButton" mnemonicParsing="false" onAction="#RPButtonClicked" text="Register" GridPane.columnIndex="5" GridPane.halignment="CENTER" GridPane.rowIndex="2" />
-                  <Label layoutX="94.0" layoutY="144.0" text="Email  " GridPane.halignment="RIGHT" GridPane.rowIndex="2" />
-                  <Label text="Week Available From  " GridPane.columnIndex="2" GridPane.halignment="RIGHT" GridPane.rowIndex="2" />
-                  <Label text="Week Available Until  " GridPane.columnIndex="2" GridPane.halignment="RIGHT" GridPane.rowIndex="3" />
-                  <Label minWidth="249.0" prefHeight="35.0" prefWidth="249.0" text="Register Participant" textAlignment="CENTER" underline="true" GridPane.halignment="LEFT">
-                     <font>
-                        <Font name="System Bold Italic" size="24.0" />
-                     </font>
-                     <GridPane.margin>
-                        <Insets left="8.0" />
-                     </GridPane.margin>
-                  </Label>
-                  <TextField fx:id="EmailRPTextField1" layoutX="234.0" layoutY="66.0" GridPane.columnIndex="1" GridPane.rowIndex="2" />
-                  <TextField fx:id="PasswordRPTextField11" layoutX="234.0" layoutY="110.0" GridPane.columnIndex="1" GridPane.rowIndex="3" />
-                  <TextField fx:id="WAFRPTextField1" layoutX="615.0" layoutY="66.0" prefHeight="25.0" prefWidth="104.0" GridPane.columnIndex="3" GridPane.rowIndex="2" />
-                  <TextField fx:id="WAURPTextField11" layoutX="615.0" layoutY="110.0" prefHeight="25.0" prefWidth="104.0" GridPane.columnIndex="3" GridPane.rowIndex="3" />
-                  <CheckBox fx:id="LGRPCheckBox" mnemonicParsing="false" text="Lodge required" GridPane.columnIndex="4" GridPane.halignment="CENTER" GridPane.rowIndex="2" />
-                  <Label text="Number of Weeks Available:" GridPane.columnIndex="4" GridPane.halignment="RIGHT" GridPane.rowIndex="1" />
-                  <TextField fx:id="NrWeeksRPTextField" GridPane.columnIndex="5" GridPane.rowIndex="1" />
-               </children>
-            </GridPane>
-            <Separator prefWidth="200.0" GridPane.rowIndex="1" />
-            <GridPane layoutX="10.0" layoutY="171.0" prefHeight="123.0" prefWidth="1200.0" GridPane.rowIndex="2">
-               <columnConstraints>
-                  <ColumnConstraints hgrow="ALWAYS" />
-                  <ColumnConstraints hgrow="ALWAYS" />
-                  <ColumnConstraints hgrow="ALWAYS" />
-                  <ColumnConstraints hgrow="ALWAYS" />
-                  <ColumnConstraints />
-                  <ColumnConstraints hgrow="ALWAYS" />
-               </columnConstraints>
-               <children>
-                  <Label text="Delete Participant" textAlignment="CENTER" underline="true" GridPane.halignment="LEFT">
-                     <font>
-                        <Font name="System Bold Italic" size="24.0" />
-                     </font>
-                     <GridPane.margin>
-                        <Insets left="8.0" />
-                     </GridPane.margin>
-                  </Label>
-                  <ChoiceBox fx:id="deleteParticipantChoiceBox" prefHeight="25.0" prefWidth="205.0" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="1" />
-                  <Label text="Participant to delete" GridPane.halignment="RIGHT" GridPane.rowIndex="1" />
-                  <Button fx:id="deleteParticipantButton" mnemonicParsing="false" onAction="#deleteParticipantClicked" text="Delete Participant" GridPane.columnIndex="2" GridPane.rowIndex="1" />
-                  <Button mnemonicParsing="false" onAction="#GoBackButtonClicked" text="Back" GridPane.rowIndex="2" />
-               </children>
-               <rowConstraints>
-                  <RowConstraints maxHeight="53.05316162109375" minHeight="30.792388916015625" prefHeight="38.212646484375" vgrow="ALWAYS" />
-                  <RowConstraints maxHeight="82.20761108398438" minHeight="59.94683837890625" prefHeight="74.787353515625" vgrow="ALWAYS" />
-                  <RowConstraints maxHeight="82.20761108398438" minHeight="59.94683837890625" prefHeight="74.787353515625" vgrow="ALWAYS" />
-               </rowConstraints>
-            </GridPane>
-         </children>
-      </GridPane>
+      <Label layoutX="201.0" layoutY="14.0" prefHeight="30.0" prefWidth="325.0" text="Add/Delete Participant Feature">
+         <font>
+            <Font size="25.0" />
+         </font></Label>
+      <Label layoutX="31.0" layoutY="92.0" text="Name" />
+      <Label layoutX="33.0" layoutY="120.0" text="Email" />
+      <Label layoutX="9.0" layoutY="149.0" text="Password" />
+      <TextField fx:id="addPasswordTextField" layoutX="70.0" layoutY="145.0" prefHeight="26.0" prefWidth="95.0" />
+      <TextField fx:id="addParticipantNameTextField" layoutX="70.0" layoutY="87.0" prefHeight="26.0" prefWidth="95.0" />
+      <TextField fx:id="addEmailTextField" layoutX="70.0" layoutY="116.0" prefHeight="26.0" prefWidth="95.0" />
+      <Label layoutX="175.0" layoutY="92.0" text="Emergency Contact Info" />
+      <Label layoutX="195.0" layoutY="150.0" text="Week Available Until" />
+      <Label layoutX="191.0" layoutY="120.0" text="Week Available From" />
+      <Label layoutX="422.0" layoutY="92.0" text="Number of Weeks Available" />
+      <TextField fx:id="addEmergencyTextField" layoutX="316.0" layoutY="88.0" prefHeight="26.0" prefWidth="95.0" />
+      <TextField fx:id="addWeekFromTextField" layoutX="316.0" layoutY="116.0" prefHeight="26.0" prefWidth="95.0" />
+      <TextField fx:id="addWeekUntilTextField" layoutX="316.0" layoutY="145.0" prefHeight="26.0" prefWidth="95.0" />
+      <TextField fx:id="addNumberOfWeeksTextField" layoutX="582.0" layoutY="88.0" prefHeight="26.0" prefWidth="95.0" />
+      <CheckBox fx:id="lodgeCheckBox" layoutX="422.0" layoutY="120.0" mnemonicParsing="false" text="Lodge required" />
+      <Button fx:id="registerParticipantButton" layoutX="599.0" layoutY="116.0" mnemonicParsing="false" onAction="#RegisterButtonClicked" text="Register" />
+      <Button fx:id="clearButton" layoutX="528.0" layoutY="146.0" mnemonicParsing="false" onAction="#clearClicked" text="Clear" />
+      <Label layoutX="14.0" layoutY="52.0" prefHeight="26.0" prefWidth="132.0" text="Add Participant">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </Label>
+      <Label layoutX="14.0" layoutY="187.0" prefHeight="26.0" prefWidth="151.0" text="Delete Participant">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </Label>
+      <Label layoutX="147.0" layoutY="230.0" text="Select Participant" />
+      <ChoiceBox fx:id="deleteParticipantChoiceBox" layoutX="249.0" layoutY="225.0" prefHeight="25.0" prefWidth="205.0" />
+      <Button layoutX="12.0" layoutY="290.0" mnemonicParsing="false" onAction="#GoBackButtonClicked" text="Back" />
+      <Button fx:id="deleteParticipantButton" layoutX="467.0" layoutY="225.0" mnemonicParsing="false" onAction="#deleteParticipantClicked" text="Confirm" />
    </children>
 </AnchorPane>
