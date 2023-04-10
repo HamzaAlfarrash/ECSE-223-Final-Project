@@ -39,19 +39,35 @@ public class StartFinishCancelParticipantTripController {
     }
   }
   
+  @FXML
+  /**
+   * @author Wasif Somji
+   */
   public void initialize() {
-	  
+	  // to be completed 
   }
   
+  @FXML
+  /**
+   * @author Wasif Somji
+   */
   public void startTrip() {
-	  
+	  // to be completed
   }
   
+  @FXML
+  /**
+   * @author Wasif Somji
+   */
   public void cancelTrip() {
-	  
+	  // to be completed
   }
   
+  @FXML
+  /**
+   * @author Wasif Somji
+   */
   public void finishTrip() {
-	  
+	  // to be completed
   }
 }

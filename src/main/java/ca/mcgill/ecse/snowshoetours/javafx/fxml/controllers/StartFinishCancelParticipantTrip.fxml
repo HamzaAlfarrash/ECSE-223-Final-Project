@@ -12,11 +12,11 @@
          <font>
             <Font size="18.0" />
          </font></Label>
-      <Button layoutX="14.0" layoutY="354.0" mnemonicParsing="false" onAction="#GoBackButtonClicked" text="Back" />
-      <Button layoutX="156.0" layoutY="354.0" mnemonicParsing="false" text="Start Trip" />
-      <Button layoutX="501.0" layoutY="354.0" mnemonicParsing="false" text="Cancel Trip" />
-      <Button layoutX="320.0" layoutY="354.0" mnemonicParsing="false" text="Finish Trip" />
-      <ChoiceBox layoutX="208.0" layoutY="73.0" prefHeight="26.0" prefWidth="270.0" />
+      <Button fx:id="backButton" layoutX="14.0" layoutY="354.0" mnemonicParsing="false" onAction="#GoBackButtonClicked" text="Back" />
+      <Button fx:id="startTripButton" layoutX="156.0" layoutY="354.0" mnemonicParsing="false" text="Start Trip" />
+      <Button fx:id="cancelTripButton" layoutX="501.0" layoutY="354.0" mnemonicParsing="false" text="Cancel Trip" />
+      <Button fx:id="finishTripButton" layoutX="320.0" layoutY="354.0" mnemonicParsing="false" text="Finish Trip" />
+      <ChoiceBox fx:id="selectParticipantID" layoutX="208.0" layoutY="73.0" prefHeight="26.0" prefWidth="270.0" />
       <Label layoutX="94.0" layoutY="78.0" text="Select Participant" />
    </children>
 </AnchorPane>
