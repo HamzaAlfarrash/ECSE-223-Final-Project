@@ -1,5 +1,6 @@
 package ca.mcgill.ecse.snowshoetours.controller;
 
+import java.util.ArrayList;
 import java.util.List;
 import ca.mcgill.ecse.snowshoetours.application.SnowShoeToursApplication;
 import ca.mcgill.ecse.snowshoetours.model.Lodge;
@@ -9,7 +10,19 @@ import ca.mcgill.ecse.snowshoetours.model.SnowShoeTour;
 
 public class LodgeController {
   private static SnowShoeTour sst = SnowShoeToursApplication.getSnowShoeTour();
-
+  
+  /**
+   * @author Yassine Mimet
+   * @return a list of transfer object Lodge
+   */
+  public static List<TOLodge> getLodges(){
+    List<TOLodge> lodges = new ArrayList<>();
+    for(Lodge lodge : sst.getLodges()) {
+      lodges.add(new TOLodge(lodge.getName(), lodge.getAddress(), lodge.getRating()));
+    }
+    return lodges;
+  }
+  
   /**
    * @author Yassine Mimet adds lodge to system
    * @param name
@@ -60,20 +73,31 @@ public class LodgeController {
     }
 
     // Check the rating guys it should not be null
+    List<Lodge> lodges = sst.getLodges();
+    for(Lodge lodge : lodges) {
+      if(lodge.getName().equals(name)) {
+        try {
+          SstPersistence.save();
+        } catch (RuntimeException e) {
+          System.out.println("error");
+        }
+        return "Name already exists";
+      }
+    }
     sst.addLodge(sst.addLodge(name, address, rating)); // adds to SnowSheTour
     try {
       SstPersistence.save();
     } catch (RuntimeException e) {
       System.out.println("error");
     }
-    return null;
+    return "";
   }
 
   /**
    * @author Yassine Mimet deletes a lodge
    * @param name
    */
-  public static void deleteLodge(String name) {
+  public static String deleteLodge(String name) {
 
     List<Lodge> lodges = sst.getLodges(); // attains variable Lodges
     Lodge aLodge = null;
@@ -89,6 +113,16 @@ public class LodgeController {
       } catch (RuntimeException e) {
         System.out.println("error");
       }
+      return "";
     }
+    else {
+      try {
+        SstPersistence.save();
+      } catch (RuntimeException e) {
+        System.out.println("error");
+      }
+      return "Couldn't find a lodge with name " + name;
+    }
+    
   }
 }

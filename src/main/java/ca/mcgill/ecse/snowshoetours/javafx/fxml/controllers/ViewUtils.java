@@ -3,10 +3,12 @@ package ca.mcgill.ecse.snowshoetours.javafx.fxml.controllers;
 import java.util.ArrayList;
 import java.util.List;
 import ca.mcgill.ecse.snowshoetours.controller.GearController;
+import ca.mcgill.ecse.snowshoetours.controller.LodgeController;
 import ca.mcgill.ecse.snowshoetours.controller.ParticipantController;
 import ca.mcgill.ecse.snowshoetours.controller.SnowShoeTourController;
 import ca.mcgill.ecse.snowshoetours.controller.TOCombo;
 import ca.mcgill.ecse.snowshoetours.controller.TOGears;
+import ca.mcgill.ecse.snowshoetours.controller.TOLodge;
 import ca.mcgill.ecse.snowshoetours.controller.TOParticipant;
 import ca.mcgill.ecse.snowshoetours.controller.TOSnowShoeTour;
 import ca.mcgill.ecse.snowshoetours.javafx.fxml.SSTFxmlView;
@@ -26,7 +28,6 @@ public class ViewUtils {
   /** Calls the controller and shows an error, if applicable. */
   public static boolean callController(String result) {
     if (result.isEmpty()) {
-      // TODO questionable ???
       SSTFxmlView.getInstance().refresh();
       return true;
     }
@@ -120,5 +121,19 @@ public class ViewUtils {
     List<TOSnowShoeTour> tours = SnowShoeTourController.getSnowShoeTours();
     return FXCollections.observableList(tours);
   }
+  
+  /**
+   * @author Yassine Mimet
+   * @return
+   */
+  public static ObservableList<String> getLodges(){
+    List<TOLodge> lodges = LodgeController.getLodges();
+    List<String> lodgeNames = new ArrayList<>();
+    for(TOLodge lodge : lodges) {
+      lodgeNames.add(lodge.getLodgeName());
+    }
+    return FXCollections.observableList(lodgeNames);
+  }
+ 
 
 }
