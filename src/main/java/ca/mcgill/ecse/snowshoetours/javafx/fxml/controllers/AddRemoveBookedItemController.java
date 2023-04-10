@@ -100,6 +100,12 @@ public class AddRemoveBookedItemController {
     
   }
   
+  public void clear() {
+    gearName.setValue(null);
+    comboName.setValue(null);
+    participantName.setValue(null);
+  }
+  
   /**
    * @author souhail el hayani
    * @param event
