@@ -14,8 +14,6 @@ import javafx.scene.control.ChoiceBox;
 import javafx.stage.Stage;
 
 public class AddRemoveBookedItemController {
-  
-  //TODO add transfer objects, this is NOT CORRECT
 	
   @FXML
   private ChoiceBox<String> gearName;
@@ -32,6 +30,10 @@ public class AddRemoveBookedItemController {
   @FXML
   private Button remove;
   
+  /**
+   * @author souhail el hayani
+   * initialize the page
+   */
   @FXML
   public void initialize() {
     gearName.setItems(ViewUtils.getGear());
@@ -76,6 +78,9 @@ public class AddRemoveBookedItemController {
     }
   }
   
+  /**
+   * @author souhail el hayani
+   */
   public void remove() {
     if(gearName.getValue()!=null && comboName.getValue()!=null) {
       ViewUtils.showError("Only select one item, either a gear or a combo, but not both");
