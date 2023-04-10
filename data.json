@@ -426,6 +426,18 @@
           },
           {
             "@reference": "../Guide/tours/Tour/participants/Participant/bookedItems/BookedItem/item/bookedItems/BookedItem[2]/participant/tour/guide/tours/Tour[2]/participants/Participant/bookedItems/BookedItem/item/bookedItems/BookedItem/participant/tour/guide"
+          },
+          {
+            "accountName": "guide5@gmail.com",
+            "password": "pass",
+            "name": "testguide",
+            "emergencyContact": 12345,
+            "snowShoeTour": {
+              "@reference": "../../.."
+            },
+            "tours": [
+              ""
+            ]
           }
         ]
       }

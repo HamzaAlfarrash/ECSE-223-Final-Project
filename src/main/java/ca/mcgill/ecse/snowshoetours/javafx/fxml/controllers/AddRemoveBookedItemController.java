@@ -2,7 +2,6 @@ package ca.mcgill.ecse.snowshoetours.javafx.fxml.controllers;
 
 import java.io.IOException;
 import ca.mcgill.ecse.snowshoetours.controller.ParticipantController;
-import ca.mcgill.ecse.snowshoetours.controller.TOParticipant;
 import ca.mcgill.ecse.snowshoetours.javafx.fxml.SSTFxmlView;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;

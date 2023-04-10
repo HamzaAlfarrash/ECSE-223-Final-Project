@@ -1,5 +1,6 @@
 package ca.mcgill.ecse.snowshoetours.controller;
 
+import java.util.ArrayList;
 import java.util.List;
 import ca.mcgill.ecse.snowshoetours.application.SnowShoeToursApplication;
 import ca.mcgill.ecse.snowshoetours.model.Guide;
@@ -10,6 +11,15 @@ import ca.mcgill.ecse.snowshoetours.persistence.SstPersistence;
 public class GuideController {
 
   private static SnowShoeTour sst = SnowShoeToursApplication.getSnowShoeTour();
+  
+  public static List<TOGuide> getGuides() {
+    List<Guide> guides = sst.getGuides();
+    List<TOGuide> list = new ArrayList<>();
+    for(Guide guide:guides) {
+      list.add(new TOGuide(guide.getAccountName()));
+    }
+    return list;
+  }
 
   /**
    * @author Yassine Mimet registers a guide in the system
