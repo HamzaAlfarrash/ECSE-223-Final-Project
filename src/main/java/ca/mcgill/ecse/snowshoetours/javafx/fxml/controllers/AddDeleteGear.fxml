@@ -61,7 +61,7 @@
                 <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
               </rowConstraints>
                <children>
-                  <Button fx:id="backButton" mnemonicParsing="false" onAction="#GoBackButtonClicked" text="Back" GridPane.halignment="CENTER" GridPane.rowIndex="2" />
+                  <Button fx:id="GoBackButton" mnemonicParsing="false" onAction="#GoBackButtonClicked" text="Back" GridPane.halignment="CENTER" GridPane.rowIndex="2" />
                   <Label text="Delete Gear" underline="true" GridPane.halignment="CENTER">
                      <font>
                         <Font name="System Bold Italic" size="24.0" />
@@ -69,7 +69,7 @@
                   </Label>
                   <Label text="Gear Name" GridPane.halignment="RIGHT" GridPane.rowIndex="1" />
                   <Button fx:id="deleteGearButton" mnemonicParsing="false" text="Delete Gear" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="2" />
-                  <ChoiceBox fx:id="GearSelector" prefWidth="150.0" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="1" />
+                  <ChoiceBox fx:id="deleteGearChoiceBox" prefWidth="150.0" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="1" />
                </children>
             </GridPane>
          </children>
