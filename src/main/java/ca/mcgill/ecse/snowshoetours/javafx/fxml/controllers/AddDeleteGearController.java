@@ -72,7 +72,6 @@ public class AddDeleteGearController {
 		  return; 
 	  }
 	  
-	  GearController.addGear(gearName, PricePerWeek); 
 	  
 	  if (ViewUtils.callController(GearController.addGear(gearName, PricePerWeek))) {
 		  gearNameBox.clear();

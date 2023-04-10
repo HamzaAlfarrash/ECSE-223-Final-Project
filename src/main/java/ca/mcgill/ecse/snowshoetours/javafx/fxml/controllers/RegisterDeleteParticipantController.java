@@ -99,7 +99,6 @@ public class RegisterDeleteParticipantController {
     
     if (ViewUtils.callController(ParticipantController.registerParticipant(email, password, name, emergencyContact, nrWeeks, weekAvailableFrom, weekAvailableUntil, lodge))) {
       addParticipantNameTextField.clear();
-      addParticipantNameTextField.clear();
       addEmailTextField.clear();
       addPasswordTextField.clear();
       addEmergencyTextField.clear();

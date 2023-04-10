@@ -75,11 +75,9 @@ public class AddDeleteLodgeController {
 		  return; 
 	  }
 	  
-	  if (rating < 1 || rating > 10) {
+	  if (rating < 1 || rating > 5) {
 		  ViewUtils.showError("Please enter a valid rating."); 
 	  }
-	  
-	  LodgeController.addLodge(lodgeName, address, rating); 
 	  
 	  if (ViewUtils.callController(LodgeController.addLodge(lodgeName, address, rating))) {
 		  lodgeNameBox.clear();
