@@ -8,5 +8,6 @@
    <children>
       <Label layoutX="185.0" layoutY="14.0" text="Initiate ShowShoeing Tour Creation Feature" />
       <Button layoutX="14.0" layoutY="361.0" mnemonicParsing="false" onAction="#GoBackButtonClicked" text="Back" />
+      <Button layoutX="190.0" layoutY="152.0" mnemonicParsing="false" text="Click this button if you hate gay people" />
    </children>
 </AnchorPane>
