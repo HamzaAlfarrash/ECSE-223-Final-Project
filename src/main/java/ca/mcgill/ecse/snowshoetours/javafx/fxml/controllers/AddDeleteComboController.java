@@ -59,7 +59,7 @@ public class AddDeleteComboController {
   }
 
   /**
-   * @author Hamza Alfarrash
+   * @author Hamza Alfarrash, souhail
    * @param event
    */
   @FXML
