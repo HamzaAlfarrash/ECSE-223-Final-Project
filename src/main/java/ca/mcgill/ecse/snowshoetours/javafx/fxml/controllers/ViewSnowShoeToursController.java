@@ -26,6 +26,9 @@ public class ViewSnowShoeToursController {
   @FXML
   private TableView<TOSnowShoeTour> tourInfo;
 
+  /**
+   * @author souhail el hayani
+   */
   @FXML
   public void initialize() {
     // createTableColumn(COLUMN_NAME, ATTRIBUTE_NAME)
@@ -46,6 +49,12 @@ public class ViewSnowShoeToursController {
 
   // the table column will automatically display the string value of the property for each instance
   // in the table
+  /**
+   * @author souhail el hayani
+   * @param header
+   * @param propertyName
+   * @return column with a header and values
+   */
   public static TableColumn<TOSnowShoeTour, String> createTableColumn(String header,
       String propertyName) {
     TableColumn<TOSnowShoeTour, String> column = new TableColumn<>(header);
@@ -61,6 +70,10 @@ public class ViewSnowShoeToursController {
     return column;
   }*/
   
+  /**
+   * @author souhail el hayani
+   * @return column with header "participant" and values of participants of a tour
+   */
   public static TableColumn<TOSnowShoeTour,String> createParticipantTableColumn() {
     TableColumn<TOSnowShoeTour, String> column = new TableColumn<>("Participant");
     column.setCellValueFactory(new PropertyValueFactory<>("firstParticipant"));
