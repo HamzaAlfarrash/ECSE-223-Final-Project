@@ -1,0 +1,1395 @@
+[33mcommit 905d754f11a325c1297da331d4dc3591704fe69f[m[33m ([m[1;36mHEAD -> [m[1;32mphil1_branch[m[33m)[m
+Author: HamzaAlfarrash <hamza.alfarrash@mail.mcgill.ca>
+Date:   Sun Apr 9 15:07:52 2023 -0400
+
+    Guide FXML controller linked and implemented
+
+[33mcommit 0469e2ca76f9972657fcbbf8c4b0a06fcdc44ffa[m
+Author: HamzaAlfarrash <hamza.alfarrash@mail.mcgill.ca>
+Date:   Fri Apr 7 16:04:03 2023 -0400
+
+    ViewSST UI Implemented
+
+[33mcommit dba1049cc32e25a7083fde3de0bf94479ff51e25[m
+Author: HamzaAlfarrash <hamza.alfarrash@mail.mcgill.ca>
+Date:   Fri Apr 7 15:05:06 2023 -0400
+
+    AddDeleteLodge UI implemented + fixed some previous designs for consistency
+
+[33mcommit 3d2bbd5f6a2bbbf0bb107facb272b6842d07d3c2[m
+Author: HamzaAlfarrash <hamza.alfarrash@mail.mcgill.ca>
+Date:   Fri Apr 7 14:38:29 2023 -0400
+
+    AddDeleteCombo UI implemented
+
+[33mcommit 14624fb4db3e3889041fcf02ee74e83dd65f0f45[m
+Author: HamzaAlfarrash <hamza.alfarrash@mail.mcgill.ca>
+Date:   Fri Apr 7 14:21:23 2023 -0400
+
+    AddDeleteGear UI Implemented
+
+[33mcommit 0ca99ba31528164fa076565c272c5a6f6cf57c46[m
+Author: HamzaAlfarrash <89353501+HamzaAlfarrash@users.noreply.github.com>
+Date:   Fri Apr 7 14:02:24 2023 -0400
+
+    Update RegisterDeleteGuide.fxml
+
+[33mcommit 8be32d8da1c9a683a7646ff94f9cd55a49648391[m
+Merge: 1137972 f61b9fa
+Author: HamzaAlfarrash <hamza.alfarrash@mail.mcgill.ca>
+Date:   Fri Apr 7 13:37:40 2023 -0400
+
+    RegisterDeleteGuide UI implemented
+
+[33mcommit 11379721484f2b2cb1266d75d3215f5b67728620[m
+Author: HamzaAlfarrash <hamza.alfarrash@mail.mcgill.ca>
+Date:   Fri Apr 7 00:32:30 2023 -0400
+
+    RegisterDeleteGuide UI Implemented
+
+[33mcommit f61b9fae8be9d1c0bad5de9c67894f89e3705425[m
+Author: YassineMimet1 <yassine.mimet@mail.mcgill.ca>
+Date:   Thu Apr 6 15:38:15 2023 -0400
+
+    go and back button are now functionnal yay
+
+[33mcommit f1b62c236c871c63f6f279bf0b8e0273a22b0a4b[m
+Merge: f4e4f12 84302dd
+Author: HamzaAlfarrash <hamza.alfarrash@mail.mcgill.ca>
+Date:   Thu Apr 6 15:10:21 2023 -0400
+
+    Merge branch 'phil1_branch' of https://github.com/McGill-ECSE223-W23/ecse223-project-group-5 into phil1_branch
+
+[33mcommit f4e4f12454b6dcf5fdf76f03cf70f151a1a33ebd[m
+Author: HamzaAlfarrash <hamza.alfarrash@mail.mcgill.ca>
+Date:   Thu Apr 6 15:10:06 2023 -0400
+
+    added back button for all UI pages
+
+[33mcommit 84302ddb3250e3418ef6096244302e863ce07694[m
+Merge: 654fea7 7ce28ed
+Author: YassineMimet1 <yassine.mimet@mail.mcgill.ca>
+Date:   Thu Apr 6 15:06:22 2023 -0400
+
+    Merge branch 'phil1_branch' of https://github.com/McGill-ECSE223-W23/ecse223-project-group-5 into phil1_branch
+
+[33mcommit 654fea70743998733359d65b8d1e961d4c24a6d3[m
+Author: YassineMimet1 <yassine.mimet@mail.mcgill.ca>
+Date:   Thu Apr 6 15:06:02 2023 -0400
+
+    go back button implemented
+
+[33mcommit 7ce28ed6f22c9542e3762a7e26f4642d416f2f6d[m
+Merge: dec5790 d149325
+Author: souhailelhayani <souhail.200308@gmail.com>
+Date:   Thu Apr 6 15:05:43 2023 -0400
+
+    Merge branch 'phil1_branch' of https://github.com/McGill-ECSE223-W23/ecse223-project-group-5 into phil1_branch
+
+[33mcommit dec579033a6db73a4170f8dec1e7c5b057686ce1[m
+Author: souhailelhayani <souhail.200308@gmail.com>
+Date:   Thu Apr 6 15:05:26 2023 -0400
+
+    link
+
+[33mcommit d149325de2d4ed26e46066304fa2dbef95736e5b[m
+Merge: 7a6fd3e 5773558
+Author: YassineMimet1 <yassine.mimet@mail.mcgill.ca>
+Date:   Thu Apr 6 14:54:20 2023 -0400
+
+    changes to main page
+
+[33mcommit 7a6fd3e8b15b20e944b61e4ff42547e1fd6c5079[m
+Author: YassineMimet1 <yassine.mimet@mail.mcgill.ca>
+Date:   Thu Apr 6 14:50:21 2023 -0400
+
+    changes to main page
+
+[33mcommit 5773558fddebfe219463781ff2b4c19e8c7c58b3[m
+Author: souhailelhayani <souhail.200308@gmail.com>
+Date:   Thu Apr 6 14:50:03 2023 -0400
+
+    controller links
+
+[33mcommit 33da49588e9de174d27cd627b8fef485212c3360[m
+Author: souhailelhayani <souhail.200308@gmail.com>
+Date:   Thu Apr 6 14:35:04 2023 -0400
+
+    fix packages
+
+[33mcommit 8c2708693df39993050504cac89a2f59dcfce644[m
+Author: souhailelhayani <souhail.200308@gmail.com>
+Date:   Thu Apr 6 14:29:40 2023 -0400
+
+    fix issues
+
+[33mcommit 769282eff0978ce57cfadf3a336483c9b3e334db[m
+Author: souhailelhayani <souhail.200308@gmail.com>
+Date:   Thu Apr 6 11:27:16 2023 -0400
+
+    test methods
+
+[33mcommit 8084520662ef80c3a51d4993bd77174b148771dc[m
+Merge: 237cc55 d039e14
+Author: YassineMimet1 <yassine.mimet@mail.mcgill.ca>
+Date:   Wed Apr 5 23:18:12 2023 -0400
+
+    Participant page controller
+
+[33mcommit 237cc55df5fb7d01fe3ce894e86c10e787f9d4f9[m
+Author: YassineMimet1 <yassine.mimet@mail.mcgill.ca>
+Date:   Wed Apr 5 23:17:27 2023 -0400
+
+    Participant page controller
+
+[33mcommit d039e1436cd314b97dd64081a94dc2fcb10d6ba9[m
+Author: Phil-March <philippe.marchand2@mail.mcgill.ca>
+Date:   Wed Apr 5 23:16:46 2023 -0400
+
+    Advancing MainPage
+
+[33mcommit 1b759215bee1180487b5c5045fe4fe22d54b0158[m
+Author: Phil-March <philippe.marchand2@mail.mcgill.ca>
+Date:   Wed Apr 5 22:44:41 2023 -0400
+
+    UI SSTMainPage overview
+
+[33mcommit b0faefaff881392bca13e81d795df873595d2992[m[33m ([m[1;31morigin/deliverable_4[m[33m)[m
+Author: Phil-March <philippe.marchand2@mail.mcgill.ca>
+Date:   Wed Apr 5 21:00:17 2023 -0400
+
+    UI Launches now
+
+[33mcommit 87516a6e92942e0f1dd797db3094412d98479a95[m
+Author: Phil-March <philippe.marchand2@mail.mcgill.ca>
+Date:   Wed Apr 5 14:09:54 2023 -0400
+
+    UI Infrastructure
+
+[33mcommit ff963f87fe2c0d40a582e51cd1906215117a0cdc[m[33m ([m[1;31morigin/yas_branch[m[33m, [m[1;32mdeliverable_4[m[33m)[m
+Author: Phil-March <philippe.marchand2@mail.mcgill.ca>
+Date:   Mon Apr 3 01:07:19 2023 -0400
+
+    UI Setup + MainPage tabs
+
+[33mcommit 65e1703e614b1e5ce3e4eb21b54e145251ff785b[m[33m ([m[1;31morigin/main[m[33m, [m[1;31morigin/HEAD[m[33m)[m
+Author: YassineMimet1 <yassine.mimet@mail.mcgill.ca>
+Date:   Sat Apr 1 20:09:32 2023 -0400
+
+    deliverable 3 submission
+
+[33mcommit b744ccadbbb26011e7cba8c4367521c707f1f2b1[m
+Author: wasifsomji <107225429+wasifsomji@users.noreply.github.com>
+Date:   Sat Apr 1 17:27:03 2023 -0400
+
+    Update ToursStepDefinitions.java
+
+[33mcommit 76315fdaecf8e391639e214042f4b161c8d8216f[m
+Author: wasifsomji <107225429+wasifsomji@users.noreply.github.com>
+Date:   Sat Apr 1 17:14:23 2023 -0400
+
+    Update ToursStepDefinitions.java
+
+[33mcommit 7cb0413e65905e015ce27b7628184183e10c8d9d[m
+Author: wasifsomji <107225429+wasifsomji@users.noreply.github.com>
+Date:   Sat Apr 1 17:04:33 2023 -0400
+
+    Update SnowShoeTourStateMachineController.java
+
+[33mcommit e08552d65a895da83c79144898604ce596a2a6cd[m
+Author: wasifsomji <107225429+wasifsomji@users.noreply.github.com>
+Date:   Sat Apr 1 17:03:18 2023 -0400
+
+    Update SnowShoeTourStateMachineController.java
+
+[33mcommit e9846c00db25c58d84d201cedad53daa8f0bec45[m
+Author: souhailelhayani <souhail.200308@gmail.com>
+Date:   Sat Apr 1 16:46:43 2023 -0400
+
+    more persistence
+
+[33mcommit 1c66dffb0572cf6e20ddefca5881d7d9b7f54dc3[m
+Author: souhailelhayani <souhail.200308@gmail.com>
+Date:   Sat Apr 1 16:41:11 2023 -0400
+
+    merge conflict solved
+
+[33mcommit 1ece53c6f4ab2de524eda753776ad5dcfa2cb116[m
+Merge: 9a4c4b0 96dde16
+Author: souhailelhayani <souhail.200308@gmail.com>
+Date:   Sat Apr 1 16:31:36 2023 -0400
+
+    format and persistence
+
+[33mcommit 9a4c4b091d3dd83695e56dbfe8d8a0812034e8ef[m
+Author: souhailelhayani <souhail.200308@gmail.com>
+Date:   Sat Apr 1 16:30:40 2023 -0400
+
+    formatting and persistence
+
+[33mcommit 96dde163ca2faae7ab245de255ac55b1c3964892[m
+Author: YassineMimet1 <yassine.mimet@mail.mcgill.ca>
+Date:   Sat Apr 1 16:30:14 2023 -0400
+
+    addded stuff
+
+[33mcommit e8db9e9f70f1ae0a719a05868e07837c3bffb82d[m
+Author: YassineMimet1 <yassine.mimet@mail.mcgill.ca>
+Date:   Sat Apr 1 15:42:58 2023 -0400
+
+    removed unecessary method
+
+[33mcommit 3b0b931513faf555c51843f3397cb63f6fcc7c1d[m
+Author: souhailelhayani <souhail.200308@gmail.com>
+Date:   Sat Apr 1 15:35:29 2023 -0400
+
+    persistence in controller
+
+[33mcommit 81c461187b12fc2c8fe59bc3095a00f4b558240b[m
+Merge: e33bcb1 7a746af
+Author: YassineMimet1 <yassine.mimet@mail.mcgill.ca>
+Date:   Sat Apr 1 14:57:01 2023 -0400
+
+    check souhail check
+
+[33mcommit e33bcb1c70dc29a507ad1cb2aaede3def785ee1f[m
+Author: YassineMimet1 <yassine.mimet@mail.mcgill.ca>
+Date:   Sat Apr 1 14:55:29 2023 -0400
+
+    small changeee
+
+[33mcommit 7a746afa7cd40c27ed6ff6d0310c59f5b1c4dbbd[m
+Merge: c70e9ff 95d6841
+Author: souhailelhayani <souhail.200308@gmail.com>
+Date:   Sat Apr 1 14:48:04 2023 -0400
+
+    Merge branch 'yas_branch' of https://github.com/McGill-ECSE223-W23/ecse223-project-group-5 into yas_branch
+
+[33mcommit c70e9ffc264ac11c6870764faaa20abedb80f0d9[m
+Merge: 2716139 d475859
+Author: souhailelhayani <souhail.200308@gmail.com>
+Date:   Sat Apr 1 14:47:38 2023 -0400
+
+    Merge branch 'yas_branch' of https://github.com/McGill-ECSE223-W23/ecse223-project-group-5 into yas_branch
+
+[33mcommit 95d6841515f8b58d50057837f0d904e1a0f76ec5[m
+Author: YassineMimet1 <yassine.mimet@mail.mcgill.ca>
+Date:   Sat Apr 1 14:47:35 2023 -0400
+
+    Passed all the tests removed unecessary things
+
+[33mcommit 271613947bc70568f700d672265487a09babb02d[m
+Author: souhailelhayani <souhail.200308@gmail.com>
+Date:   Sat Apr 1 14:47:31 2023 -0400
+
+    nothing
+
+[33mcommit d4758598ce06ee18689af0a08ac39dd032ae3949[m
+Author: YassineMimet1 <yassine.mimet@mail.mcgill.ca>
+Date:   Sat Apr 1 14:46:42 2023 -0400
+
+    Passed all the tests
+
+[33mcommit f25fff8ab353287259322b6c19e414d3266ecb34[m
+Author: YassineMimet1 <yassine.mimet@mail.mcgill.ca>
+Date:   Sat Apr 1 13:52:52 2023 -0400
+
+    fixed for random test cases
+
+[33mcommit 67b155d1992f1cc60b0233f7a4346d3d58565ce1[m
+Author: YassineMimet1 <yassine.mimet@mail.mcgill.ca>
+Date:   Sat Apr 1 01:17:02 2023 -0400
+
+    peristence and state machine updated
+
+[33mcommit 66a3cc0d1088eb1c10cb364a35c2e186fd188fb8[m
+Author: YassineMimet1 <yassine.mimet@mail.mcgill.ca>
+Date:   Sat Apr 1 00:19:16 2023 -0400
+
+    small chanegs to fix
+
+[33mcommit 6c6641aaad15a0bc4df04f1b8596361df6efffeb[m
+Author: souhailelhayani <souhail.200308@gmail.com>
+Date:   Sat Apr 1 00:04:49 2023 -0400
+
+    finishTrip() correction
+
+[33mcommit f466ef58134865fc2d39663c5b623bdb7be1ea54[m
+Author: souhailelhayani <souhail.200308@gmail.com>
+Date:   Fri Mar 31 23:07:33 2023 -0400
+
+    fixed given tours exist
+
+[33mcommit 8a11be195b3fd9005456220eba1ffddfe1b23fe6[m
+Author: YassineMimet1 <yassine.mimet@mail.mcgill.ca>
+Date:   Fri Mar 31 22:41:54 2023 -0400
+
+    Controller implementation
+
+[33mcommit 4b38fffa1b655d24634cddadcc6eac0ce4e56f97[m
+Author: YassineMimet1 <yassine.mimet@mail.mcgill.ca>
+Date:   Fri Mar 31 21:52:15 2023 -0400
+
+    changes
+
+[33mcommit 564941144686bcd0ff5318a1f2a681e9a3b02a57[m
+Author: souhailelhayani <souhail.200308@gmail.com>
+Date:   Fri Mar 31 21:19:22 2023 -0400
+
+    last step definition methods
+
+[33mcommit 6743cf93ffa79332ea4bd1433be8afac4f49431c[m
+Merge: 4300de8 2d88110
+Author: souhailelhayani <souhail.200308@gmail.com>
+Date:   Fri Mar 31 21:05:11 2023 -0400
+
+    initiate() controller
+
+[33mcommit 4300de8bb64fd38150a83889d73f5409bb45d6b7[m
+Author: souhailelhayani <souhail.200308@gmail.com>
+Date:   Fri Mar 31 21:02:57 2023 -0400
+
+    initiate() in controller
+
+[33mcommit 2d88110521ea76c9216fe216a57a0c0ab55193d6[m
+Author: wasifsomji <107225429+wasifsomji@users.noreply.github.com>
+Date:   Fri Mar 31 20:59:33 2023 -0400
+
+    Update SnowShoeTourStateMachineController.java
+
+[33mcommit 7ed2ac55b1e0da6e4520fee51a9bbef942219bca[m
+Author: wasifsomji <107225429+wasifsomji@users.noreply.github.com>
+Date:   Fri Mar 31 20:58:03 2023 -0400
+
+    Update SnowShoeTourStateMachineController.java
+
+[33mcommit 498f52fc8c564801264f5c2359a82ff3a4a49bf6[m
+Author: wasifsomji <107225429+wasifsomji@users.noreply.github.com>
+Date:   Fri Mar 31 20:44:28 2023 -0400
+
+    Update SnowShoeTourStateMachineController.java
+
+[33mcommit 14694dd34fc842358c2bddc0d8cb52c49db5de1f[m
+Author: YassineMimet1 <yassine.mimet@mail.mcgill.ca>
+Date:   Fri Mar 31 18:52:05 2023 -0400
+
+    Fixed Wasif's step defs
+
+[33mcommit f44c538041761b4e824a844bf7ef1da37c200223[m
+Merge: 5924a03 800923e
+Author: YassineMimet1 <yassine.mimet@mail.mcgill.ca>
+Date:   Fri Mar 31 18:38:48 2023 -0400
+
+    fixing bugssssssss
+
+[33mcommit 5924a03cbe484b51e35b4926862b1eb4a927e3e8[m
+Merge: af23249 aa716e7
+Author: YassineMimet1 <yassine.mimet@mail.mcgill.ca>
+Date:   Fri Mar 31 18:35:18 2023 -0400
+
+    oh well I'm tired of fixing bugs man
+
+[33mcommit 800923e2dcdb9d020fe7d07448ea1de2b9914108[m
+Author: souhailelhayani <souhail.200308@gmail.com>
+Date:   Fri Mar 31 18:28:57 2023 -0400
+
+    3 step definitions and 1 controller method
+
+[33mcommit af2324928e8f7077ebc75e516177e43c6c00657f[m
+Author: YassineMimet1 <yassine.mimet@mail.mcgill.ca>
+Date:   Fri Mar 31 18:27:03 2023 -0400
+
+    changes in the state Machine, StepDefinitions, and update the generated code of the state machine
+
+[33mcommit aa716e7891160f8382a83f9176eb980dd6a9af3f[m
+Author: wasifsomji <107225429+wasifsomji@users.noreply.github.com>
+Date:   Fri Mar 31 18:06:09 2023 -0400
+
+    Update SnowShoeTourStateMachineController.java
+
+[33mcommit 0fc5be06559ea6342eb355b1629a79fc3d8126a8[m
+Author: wasifsomji <107225429+wasifsomji@users.noreply.github.com>
+Date:   Fri Mar 31 18:04:57 2023 -0400
+
+    Update ToursStepDefinitions.java
+
+[33mcommit 0cac8cbb5ba3508f7525a94fd78b49d398a6eb1e[m[33m ([m[1;32myas_branch[m[33m)[m
+Merge: eccb579 fe38211
+Author: HamzaAlfarrash <hamza.alfarrash@mail.mcgill.ca>
+Date:   Fri Mar 31 17:41:05 2023 -0400
+
+    Merge branch 'yas_branch' of https://github.com/McGill-ECSE223-W23/ecse223-project-group-5 into yas_branch
+
+[33mcommit eccb5799c9841ceae7591494098b535e454629ac[m
+Author: HamzaAlfarrash <hamza.alfarrash@mail.mcgill.ca>
+Date:   Fri Mar 31 17:39:09 2023 -0400
+
+    added feature step definitions
+
+[33mcommit ff397a6ae5738098ef545c3fef8fd1608f46c668[m
+Author: HamzaAlfarrash <hamza.alfarrash@mail.mcgill.ca>
+Date:   Fri Mar 31 17:37:14 2023 -0400
+
+    added stepDefinitions
+
+[33mcommit fe382114375d0f161dbf19c22dd36cbadbcb4a4d[m
+Author: wasifsomji <107225429+wasifsomji@users.noreply.github.com>
+Date:   Fri Mar 31 17:24:58 2023 -0400
+
+    Update ToursStepDefinitions.java
+
+[33mcommit 6942618007211c2c13d4142bd1d5fbfabc8b634c[m
+Author: wasifsomji <107225429+wasifsomji@users.noreply.github.com>
+Date:   Fri Mar 31 17:16:27 2023 -0400
+
+    Update ToursStepDefinitions.java
+
+[33mcommit df4b73dfc64da9545416707df40731f3f06f52d7[m
+Author: wasifsomji <107225429+wasifsomji@users.noreply.github.com>
+Date:   Fri Mar 31 17:15:01 2023 -0400
+
+    Update ToursStepDefinitions.java
+
+[33mcommit acc4add8cd05abe6fa448b0e8953cf7a486c0ca4[m
+Author: wasifsomji <107225429+wasifsomji@users.noreply.github.com>
+Date:   Fri Mar 31 17:09:46 2023 -0400
+
+    Update ToursStepDefinitions.java
+
+[33mcommit 62552ed5334a7a56ca9ffbe3bf75992684279d07[m
+Author: wasifsomji <107225429+wasifsomji@users.noreply.github.com>
+Date:   Fri Mar 31 17:06:11 2023 -0400
+
+    Update ToursStepDefinitions.java
+
+[33mcommit fce62f920062a456117482a65dfcbe6b694af085[m[33m ([m[1;31morigin/martin_branch[m[33m)[m
+Author: YassineMimet1 <yassine.mimet@mail.mcgill.ca>
+Date:   Fri Mar 31 15:59:00 2023 -0400
+
+    started the step defintions
+
+[33mcommit 95017531824be740ab0c81e19188e1e775d34913[m
+Author: YassineMimet1 <yassine.mimet@mail.mcgill.ca>
+Date:   Fri Mar 31 11:13:20 2023 -0400
+
+    updated state machine
+
+[33mcommit 750e6c06008d8a5dc22a6cbe74750267c9e60b24[m
+Author: YassineMimet1 <yassine.mimet@mail.mcgill.ca>
+Date:   Thu Mar 30 22:47:03 2023 -0400
+
+    small changes
+
+[33mcommit fc0d06d586ef8d5738a01f90892676901acd2392[m
+Author: YassineMimet1 <yassine.mimet@mail.mcgill.ca>
+Date:   Thu Mar 30 22:42:00 2023 -0400
+
+    state machine
+
+[33mcommit 7b9e63f52a9ec292a4bfd2898a91e5f4a4ddf93a[m[33m ([m[1;31morigin/wasif_branch[m[33m, [m[1;31morigin/deliverable_3[m[33m, [m[1;31morigin/deliverable_2[m[33m)[m
+Merge: 37c9dd2 43c1dd6
+Author: souhailelhayani <souhail.200308@gmail.com>
+Date:   Tue Mar 28 12:59:07 2023 -0400
+
+    Merge branch 'main' of https://github.com/McGill-ECSE223-W23/ecse223-project-group-5
+
+[33mcommit 37c9dd2ca4202ef28811371c862f5b0ce989859d[m
+Merge: b58e09f aa1640f
+Author: souhailelhayani <souhail.200308@gmail.com>
+Date:   Tue Mar 28 12:58:28 2023 -0400
+
+    Merge branch 'common-base'
+
+[33mcommit aa1640ff546be9ff5d127975820fcdd43b027491[m[33m ([m[1;31morigin/common-base[m[33m)[m
+Author: ECSE223 bot <ecse223@mcgill>
+Date:   Thu Mar 23 04:38:21 2023 +0000
+
+    Publish material for deliverable 3
+
+[33mcommit 43c1dd62096769a341b5503ca9f831b798ddbde2[m
+Merge: 7e99d5c 307d474
+Author: YassineMimet1 <yassine.mimet@mail.mcgill.ca>
+Date:   Wed Mar 22 17:28:40 2023 -0400
+
+    final submission
+
+[33mcommit 7e99d5c71a52d8322ba9ca7749338ce9a18c9d15[m
+Author: YassineMimet1 <yassine.mimet@mail.mcgill.ca>
+Date:   Wed Mar 22 17:26:41 2023 -0400
+
+    small changes
+
+[33mcommit 307d474fbaee15ef6e1d4e4b4a642642aa64140a[m[33m ([m[1;32mmain[m[33m)[m
+Author: HamzaAlfarrash <hamza.alfarrash@mail.mcgill.ca>
+Date:   Wed Mar 22 17:16:32 2023 -0400
+
+    Adjusted JavaDoc
+
+[33mcommit bf59eb2fc01c2f99a2c078c92e3262efed975841[m
+Author: YassineMimet1 <yassine.mimet@mail.mcgill.ca>
+Date:   Wed Mar 22 13:28:48 2023 -0400
+
+    deliverable 2 updatedd submission to the files changes in common base one day before the submission
+
+[33mcommit 77b81f6c59939971bf4ecfe5971772efbfea976e[m
+Merge: 1fa9ba9 56e9200
+Author: YassineMimet1 <yassine.mimet@mail.mcgill.ca>
+Date:   Wed Mar 22 13:24:46 2023 -0400
+
+    Merge branch 'common-base'
+
+[33mcommit 1fa9ba9adc3f4527f470bcce170b5e48f3712445[m
+Author: YassineMimet1 <yassine.mimet@mail.mcgill.ca>
+Date:   Wed Mar 22 13:22:50 2023 -0400
+
+    deliverable 2 submission
+
+[33mcommit 65149b6a6e545be579fc7eddfebc4bd04e343a32[m
+Author: YassineMimet1 <yassine.mimet@mail.mcgill.ca>
+Date:   Wed Mar 22 13:21:47 2023 -0400
+
+    small changes
+
+[33mcommit 2ecf20a28b7b74cb93b7cfba04b52f083def32e9[m
+Author: MartinEskaros <martineskaros@gmail.com>
+Date:   Wed Mar 22 01:00:41 2023 -0400
+
+    Removed requirement for email to have .ca or .com
+
+[33mcommit d09353acda1e3dfb49fe68018bd259553f36b126[m
+Author: MartinEskaros <martineskaros@gmail.com>
+Date:   Wed Mar 22 00:30:25 2023 -0400
+
+    Fixed input checks that were using == + fixed 2 if statements
+
+[33mcommit ab913580f911156753563a605679564fcafefcec[m
+Author: MartinEskaros <martineskaros@gmail.com>
+Date:   Tue Mar 21 23:32:55 2023 -0400
+
+    Fixed adress input check
+
+[33mcommit 94829639db5f17b8b7249861766a158d2d54a6e7[m
+Author: wasifsomji <107225429+wasifsomji@users.noreply.github.com>
+Date:   Tue Mar 21 23:14:37 2023 -0400
+
+    Update SnowShoeTourController.java
+
+[33mcommit e9ca24a858edb3a631fab824fc0167d536960cc5[m
+Author: wasifsomji <107225429+wasifsomji@users.noreply.github.com>
+Date:   Tue Mar 21 23:13:13 2023 -0400
+
+    Update ParticipantController.java
+
+[33mcommit 231aeb9f0b7f83da975be3be5eb58e8a5532b46a[m
+Author: wasifsomji <107225429+wasifsomji@users.noreply.github.com>
+Date:   Tue Mar 21 23:00:40 2023 -0400
+
+    Update LodgeController.java
+
+[33mcommit 864f81a547b76193ba3a9df1801d8e9014036c44[m
+Author: wasifsomji <107225429+wasifsomji@users.noreply.github.com>
+Date:   Tue Mar 21 22:57:05 2023 -0400
+
+    Update GuideController.java
+
+[33mcommit 6cc7671f7b923d920715e280fbaa4a8f19eeaeb1[m
+Author: wasifsomji <107225429+wasifsomji@users.noreply.github.com>
+Date:   Tue Mar 21 20:26:29 2023 -0400
+
+    Update GearController.java
+
+[33mcommit 901e15279305e48abdf393b4a5b5d729fc653441[m
+Author: Phil-March <philippe.marchand2@mail.mcgill.ca>
+Date:   Tue Mar 21 18:19:39 2023 -0400
+
+    Passing everything
+
+[33mcommit c8d04f41228f02d29feabb05a45cd1c7a528fb8a[m
+Author: Phil-March <philippe.marchand2@mail.mcgill.ca>
+Date:   Tue Mar 21 18:11:46 2023 -0400
+
+    ff
+
+[33mcommit 1e9c7f82d456e8f6d959cd57f6e1af94f7c29f78[m
+Merge: 245647d aa4bdcb
+Author: Phil-March <philippe.marchand2@mail.mcgill.ca>
+Date:   Tue Mar 21 18:10:34 2023 -0400
+
+    f
+
+[33mcommit 245647d7e6f10b91de8fb286578e9b9689cf6e80[m
+Author: Phil-March <philippe.marchand2@mail.mcgill.ca>
+Date:   Tue Mar 21 18:06:26 2023 -0400
+
+    almost done
+
+[33mcommit aa4bdcbf9d56ad9414b4b513a45233166c4bbbf0[m
+Author: YassineMimet1 <yassine.mimet@mail.mcgill.ca>
+Date:   Tue Mar 21 18:05:36 2023 -0400
+
+    one error fix one left :(
+
+[33mcommit 681b5192227d9308618a10eae0c80ade74236253[m
+Merge: 6c3c1b6 a3b9745
+Author: Phil-March <philippe.marchand2@mail.mcgill.ca>
+Date:   Tue Mar 21 17:46:13 2023 -0400
+
+    Merge branch 'deliverable_2' of https://github.com/McGill-ECSE223-W23/ecse223-project-group-5 into deliverable_2
+
+[33mcommit 6c3c1b6ee90542baba9ea0f8b025381d9a58f4f0[m
+Author: Phil-March <philippe.marchand2@mail.mcgill.ca>
+Date:   Tue Mar 21 17:45:56 2023 -0400
+
+    1 error remaining
+
+[33mcommit a3b9745227dd832df527ea9129d3f66dbf269e83[m
+Merge: d9525df 2997436
+Author: souhailelhayani <souhail.200308@gmail.com>
+Date:   Tue Mar 21 17:37:17 2023 -0400
+
+    view snow shoe tour
+
+[33mcommit d9525df6d4bf928ac36e9994c3163c265ad14721[m
+Author: souhailelhayani <souhail.200308@gmail.com>
+Date:   Tue Mar 21 17:34:38 2023 -0400
+
+    last change in removeGear from combo and participant
+
+[33mcommit 2997436dfde643a9b5ae6937475e8bb1487d7f25[m
+Merge: deae455 fde0992
+Author: Phil-March <philippe.marchand2@mail.mcgill.ca>
+Date:   Tue Mar 21 17:33:16 2023 -0400
+
+    weird
+
+[33mcommit deae455738a19f7adbe16e8e87eadba6eaf000df[m
+Author: Phil-March <philippe.marchand2@mail.mcgill.ca>
+Date:   Tue Mar 21 17:30:05 2023 -0400
+
+    1 failure left specific for add/delete
+
+[33mcommit fde09922d9f59a6b6c8a7ac492ddde02dcc04168[m
+Merge: 9747a69 2a20b57
+Author: YassineMimet1 <yassine.mimet@mail.mcgill.ca>
+Date:   Tue Mar 21 17:10:54 2023 -0400
+
+    Merge branch 'deliverable_2' of https://github.com/McGill-ECSE223-W23/ecse223-project-group-5 into deliverable_2
+
+[33mcommit 9747a6952909d7e0e1d75cffce8e80dcfe2080dd[m
+Author: YassineMimet1 <yassine.mimet@mail.mcgill.ca>
+Date:   Tue Mar 21 17:10:50 2023 -0400
+
+    small changes
+
+[33mcommit 2a20b57bbed3752ec0d878f98d20a43ea6d11c20[m
+Merge: 6397b56 6a11c53
+Author: souhailelhayani <souhail.200308@gmail.com>
+Date:   Tue Mar 21 17:09:45 2023 -0400
+
+    Merge branch 'deliverable_2' of https://github.com/McGill-ECSE223-W23/ecse223-project-group-5 into deliverable_2
+
+[33mcommit 6397b56a3b407896ac50d42d3165ee3fb3e7a086[m
+Author: souhailelhayani <souhail.200308@gmail.com>
+Date:   Tue Mar 21 17:09:37 2023 -0400
+
+    working on fixing removeBookableItem forParticipant and removeGearForCombo
+
+[33mcommit 6a11c53873a409cda1b9a8ad1a4bba347782968d[m
+Merge: a60aa4d 2eb4a68
+Author: Phil-March <philippe.marchand2@mail.mcgill.ca>
+Date:   Tue Mar 21 17:08:32 2023 -0400
+
+    Merge branch 'deliverable_2' of https://github.com/McGill-ECSE223-W23/ecse223-project-group-5 into deliverable_2
+
+[33mcommit a60aa4d0c93fa5b3ad6cf664ec9a4da3ee5cca39[m
+Author: Phil-March <philippe.marchand2@mail.mcgill.ca>
+Date:   Tue Mar 21 17:08:15 2023 -0400
+
+    Working on fixing add/delete still
+
+[33mcommit 2eb4a68e77444fe6e5d469346b5d4f125a51f708[m
+Merge: a9deee8 a43ea48
+Author: YassineMimet1 <yassine.mimet@mail.mcgill.ca>
+Date:   Tue Mar 21 17:06:59 2023 -0400
+
+    Merge branch 'deliverable_2' of https://github.com/McGill-ECSE223-W23/ecse223-project-group-5 into deliverable_2
+
+[33mcommit a9deee8aa6a5b59fc95f58d7020fe0804d21460d[m
+Author: YassineMimet1 <yassine.mimet@mail.mcgill.ca>
+Date:   Tue Mar 21 17:06:39 2023 -0400
+
+    fixed the addBookableItemToParticipant
+
+[33mcommit a43ea484168e1d387724f0f0ab3ea49590acc268[m
+Merge: 03d8171 1a60e7e
+Author: Phil-March <philippe.marchand2@mail.mcgill.ca>
+Date:   Tue Mar 21 16:41:37 2023 -0400
+
+    Merge branch 'deliverable_2' of https://github.com/McGill-ECSE223-W23/ecse223-project-group-5 into deliverable_2
+
+[33mcommit 03d81712a26198d5229a97066e28714345950dbc[m
+Author: Phil-March <philippe.marchand2@mail.mcgill.ca>
+Date:   Tue Mar 21 16:41:05 2023 -0400
+
+    Still progressing on Add/Delete Part v
+
+[33mcommit 1a60e7ec10c6d8714682a39b9008d19471d4e431[m
+Author: YassineMimet1 <yassine.mimet@mail.mcgill.ca>
+Date:   Tue Mar 21 16:35:48 2023 -0400
+
+    guide works now yay
+
+[33mcommit 63b0bd6536494501e2d9139af6d70e6325c8d97b[m
+Merge: 66272c7 6f430a8
+Author: YassineMimet1 <yassine.mimet@mail.mcgill.ca>
+Date:   Tue Mar 21 16:32:31 2023 -0400
+
+    Merge branch 'deliverable_2' of https://github.com/McGill-ECSE223-W23/ecse223-project-group-5 into deliverable_2
+
+[33mcommit 66272c76dd7e4d4939fcab35cb884a11058c5a17[m
+Author: YassineMimet1 <yassine.mimet@mail.mcgill.ca>
+Date:   Tue Mar 21 16:32:27 2023 -0400
+
+    guide works now yay
+
+[33mcommit 56e9200fd81d2fe5b0131326f103653937084b10[m
+Author: ECSE223 bot <ecse223@mcgill>
+Date:   Tue Mar 21 20:30:47 2023 +0000
+
+    Fix failure case email in feature file
+
+[33mcommit d880055837933dac178ed449e4127bcc6bdc7db5[m
+Merge: b1d54b1 6f430a8
+Author: Phil-March <philippe.marchand2@mail.mcgill.ca>
+Date:   Tue Mar 21 16:26:39 2023 -0400
+
+    Merge branch 'deliverable_2' of https://github.com/McGill-ECSE223-W23/ecse223-project-group-5 into deliverable_2
+
+[33mcommit b1d54b1afa1078b63692a4340d00672723babe8e[m
+Author: Phil-March <philippe.marchand2@mail.mcgill.ca>
+Date:   Tue Mar 21 16:26:24 2023 -0400
+
+    Still progressing on Add/Delete Part
+
+[33mcommit 6f430a8eb93841be15f56931ab569a28778d58d0[m
+Author: souhailelhayani <souhail.200308@gmail.com>
+Date:   Tue Mar 21 16:26:15 2023 -0400
+
+    view snow shoe tour
+
+[33mcommit 259ce0353ed728a2abd0ed448d5a3051c6951e05[m
+Merge: c8429bf 16a6fc3
+Author: souhailelhayani <souhail.200308@gmail.com>
+Date:   Tue Mar 21 16:25:12 2023 -0400
+
+    Merge branch 'deliverable_2' of https://github.com/McGill-ECSE223-W23/ecse223-project-group-5 into deliverable_2
+
+[33mcommit c8429bf5d81127b18c5a71d192ecdd183ed91c2d[m
+Author: souhailelhayani <souhail.200308@gmail.com>
+Date:   Tue Mar 21 16:24:03 2023 -0400
+
+    bug fixes in viewSnowShoeTour
+
+[33mcommit 16a6fc354a1818bc818adde554621df6991de5c3[m
+Merge: 9aee270 dc52b24
+Author: Phil-March <philippe.marchand2@mail.mcgill.ca>
+Date:   Tue Mar 21 16:13:56 2023 -0400
+
+    Merge branch 'deliverable_2' of https://github.com/McGill-ECSE223-W23/ecse223-project-group-5 into deliverable_2
+
+[33mcommit 9aee2704d24ea77cb9ac3f605161cfa1487bedc2[m
+Author: Phil-March <philippe.marchand2@mail.mcgill.ca>
+Date:   Tue Mar 21 16:12:34 2023 -0400
+
+    Ongoing fixing of Add/Remove Participant
+
+[33mcommit dc52b24adfaa242822b9a526428c15abe87980ee[m
+Author: souhailelhayani <souhail.200308@gmail.com>
+Date:   Tue Mar 21 16:09:28 2023 -0400
+
+    bug fixes in add/deleteGearFromCombo
+
+[33mcommit d3cb466d3dbebdf70fa07bf50a09c14a92675478[m
+Author: souhailelhayani <souhail.200308@gmail.com>
+Date:   Tue Mar 21 15:12:43 2023 -0400
+
+    small syntax error
+
+[33mcommit 33bb01e95e0faa475f3e893a3c554fc02d2609f9[m
+Author: wasifsomji <107225429+wasifsomji@users.noreply.github.com>
+Date:   Tue Mar 21 12:33:31 2023 -0400
+
+    Update ParticipantController.java
+
+[33mcommit 17f34f1a4d68a3537b9bf0dd7feb66c6cb94162a[m
+Author: Phil-March <philippe.marchand2@mail.mcgill.ca>
+Date:   Tue Mar 21 12:25:44 2023 -0400
+
+    Small changes
+
+[33mcommit 6ac17bccd8dfa2d434f2b3a0583e8e5666faf7aa[m
+Author: souhailelhayani <souhail.200308@gmail.com>
+Date:   Tue Mar 21 12:06:36 2023 -0400
+
+    getSnowTour method in SnowTour controller
+
+[33mcommit 03f86a740d510b74557fa2240608b5d2754e537e[m
+Author: Phil-March <philippe.marchand2@mail.mcgill.ca>
+Date:   Tue Mar 21 11:28:42 2023 -0400
+
+    Reworking getSnowShoeTour in progress
+
+[33mcommit c7333ff4ecdb38df425c5608bfdb33c75885ace1[m
+Author: Phil-March <philippe.marchand2@mail.mcgill.ca>
+Date:   Tue Mar 21 10:22:40 2023 -0400
+
+    Cleaned addBookableItemToParticipant
+
+[33mcommit 8680035c209e4016c2d032eead20b54f4c689ac2[m
+Author: Phil-March <philippe.marchand2@mail.mcgill.ca>
+Date:   Mon Mar 20 23:39:07 2023 -0400
+
+    jtms
+
+[33mcommit 65203bb6ca8b8885fc0b3e429e4fe3365fc0e89b[m
+Author: Phil-March <philippe.marchand2@mail.mcgill.ca>
+Date:   Mon Mar 20 23:35:10 2023 -0400
+
+    Tried fixing addBookableItemToParticipant
+
+[33mcommit 8b5edfc9b29885edcf2f08115751c0c9f0911669[m
+Merge: ca30f21 ab048db
+Author: Phil-March <philippe.marchand2@mail.mcgill.ca>
+Date:   Mon Mar 20 23:12:26 2023 -0400
+
+    Merging attempt modified phil_branch into Deliverable_2
+
+[33mcommit e5c87d1f00727a1526cd2f076ecea63670f491bd[m
+Author: ECSE223 bot <ecse223@mcgill>
+Date:   Tue Mar 21 02:57:39 2023 +0000
+
+    Fix typos in the feature file
+
+[33mcommit ab048dbe78a8b97e00b4049172fa1031334932f1[m
+Merge: 551bd39 fdf828d
+Author: Phil-March <philippe.marchand2@mail.mcgill.ca>
+Date:   Mon Mar 20 22:26:39 2023 -0400
+
+    Merge branch 'phil_branch' of https://github.com/McGill-ECSE223-W23/ecse223-project-group-5 into phil_branch
+
+[33mcommit 551bd39f980d066135c10bb014393f018f1d10cd[m
+Merge: 63ee797 d312349
+Author: Phil-March <philippe.marchand2@mail.mcgill.ca>
+Date:   Mon Mar 20 22:24:52 2023 -0400
+
+    Merge branch 'deliverable_2' into phil_branch
+
+[33mcommit fdf828d23790c925d1f8f6c9ff816da8244ae428[m[33m ([m[1;32mphil_branch[m[33m)[m
+Author: HamzaAlfarrash <hamza.alfarrash@mail.mcgill.ca>
+Date:   Mon Mar 20 21:01:26 2023 -0400
+
+    update
+
+[33mcommit 8afebc9f5123aa1998b5387d7dd3564221f4e683[m
+Merge: 17857f6 b3b3627
+Author: HamzaAlfarrash <hamza.alfarrash@mail.mcgill.ca>
+Date:   Mon Mar 20 20:54:58 2023 -0400
+
+    Merge branch 'hamza' into phil_branch
+
+[33mcommit 17857f6f38062f95e53c0ffc111ba45bc2ddf947[m
+Author: HamzaAlfarrash <hamza.alfarrash@mail.mcgill.ca>
+Date:   Mon Mar 20 20:18:06 2023 -0400
+
+    Implemented addBookableItemToParticipant and getSnowShoeTour
+
+[33mcommit b3b36271a1bac02ac42d4f070f00f0228d5bb014[m
+Author: HamzaAlfarrash <hamza.alfarrash@mail.mcgill.ca>
+Date:   Mon Mar 20 17:46:04 2023 -0400
+
+    Implemented getSnowShowTours
+
+[33mcommit ca30f21108db71cad894da7db2e670b16a5fcbd1[m
+Author: wasifsomji <107225429+wasifsomji@users.noreply.github.com>
+Date:   Mon Mar 20 17:44:58 2023 -0400
+
+    Update ParticipantController.java
+
+[33mcommit bf77b95c9532f616d9cf184ee3d7e9444f76ee8b[m
+Author: wasifsomji <107225429+wasifsomji@users.noreply.github.com>
+Date:   Mon Mar 20 17:44:26 2023 -0400
+
+    Update ParticipantController.java
+
+[33mcommit 2326453e0a12e05d7c6f85a68217ead606193149[m[33m ([m[1;32mdeliverable_2[m[33m)[m
+Author: YassineMimet1 <yassine.mimet@mail.mcgill.ca>
+Date:   Mon Mar 20 15:08:52 2023 -0400
+
+    Updated Guide controller but one test case still fails
+
+[33mcommit f01c6f66d6b63e875d63fc46e97ffa95bdd30c8b[m
+Author: YassineMimet1 <yassine.mimet@mail.mcgill.ca>
+Date:   Mon Mar 20 14:48:47 2023 -0400
+
+    Silly mistake gear controller
+
+[33mcommit 962d58ccc97651467a54576711ce05de7cec9cc3[m
+Author: souhailelhayani <souhail.200308@gmail.com>
+Date:   Mon Mar 20 14:27:01 2023 -0400
+
+    check if gear is null in deleteGear
+
+[33mcommit b58e09f9180d50c1ef2fc709908f03ab913d8dbe[m
+Merge: cac6b82 7cfca16
+Author: souhailelhayani <souhail.200308@gmail.com>
+Date:   Mon Mar 20 14:24:06 2023 -0400
+
+    Merge branch 'main' of https://github.com/McGill-ECSE223-W23/ecse223-project-group-5
+
+[33mcommit 5f2dc73ba50b9e64bdbd0a89c5499afe91f32be6[m
+Merge: 08e8b70 d0d4850
+Author: YassineMimet1 <yassine.mimet@mail.mcgill.ca>
+Date:   Mon Mar 20 14:22:11 2023 -0400
+
+    Updated the gear Controller to match the new step definitions
+
+[33mcommit 08e8b708de603c3212ecda8b6373d15d560b69e3[m
+Merge: c5b22dc 7cfca16
+Author: YassineMimet1 <yassine.mimet@mail.mcgill.ca>
+Date:   Mon Mar 20 14:20:58 2023 -0400
+
+    Updated the gear Controller to match the new step definitions
+
+[33mcommit 7cfca166b3b592cf9b8e4d0130ea60dac1afd9b7[m
+Author: YassineMimet1 <yassine.mimet@mail.mcgill.ca>
+Date:   Mon Mar 20 14:18:59 2023 -0400
+
+    Updated the gear Controller to match the new step definitions
+
+[33mcommit d0d4850d73fec09b15f2429cb3932cfe4ede1ae1[m
+Author: souhailelhayani <souhail.200308@gmail.com>
+Date:   Mon Mar 20 14:07:25 2023 -0400
+
+    changed error message form null to empty
+
+[33mcommit cac6b8200c2e49140530bb48d7c359bd4b1522dd[m
+Merge: e6dc749 4710695
+Author: souhailelhayani <souhail.200308@gmail.com>
+Date:   Mon Mar 20 13:50:15 2023 -0400
+
+    Merge branch 'common-base'
+
+[33mcommit a74b79614be6de03de488b34204bdcefe3e45731[m
+Merge: e6dc749 4710695
+Author: YassineMimet1 <yassine.mimet@mail.mcgill.ca>
+Date:   Mon Mar 20 13:41:48 2023 -0400
+
+    Merge branch 'common-base'
+
+[33mcommit 7c99ca78bf335f765ef4451bf6ed0d0d79f47523[m
+Author: souhailelhayani <souhail.200308@gmail.com>
+Date:   Sun Mar 19 22:18:44 2023 -0400
+
+    update snowShowtour method
+
+[33mcommit c5b22dc3a1194b53d121395e9236860602786f7f[m
+Author: souhailelhayani <souhail.200308@gmail.com>
+Date:   Sun Mar 19 21:58:14 2023 -0400
+
+    rating in addLodge
+
+[33mcommit 29b335d9446288dcb8a794bf54a872abb0fabf69[m
+Author: YassineMimet1 <yassine.mimet@mail.mcgill.ca>
+Date:   Sun Mar 19 21:43:29 2023 -0400
+
+    Lodge controller implemented but needs to be checked
+
+[33mcommit 9568cc9c8afd78a8678692aaf572bb70a70bb70a[m
+Merge: aa28f8a 0bb91de
+Author: YassineMimet1 <yassine.mimet@mail.mcgill.ca>
+Date:   Sun Mar 19 21:26:30 2023 -0400
+
+    Guide controller implemented
+
+[33mcommit aa28f8ae858b9afb15548f3b8d4952da737b8397[m
+Author: YassineMimet1 <yassine.mimet@mail.mcgill.ca>
+Date:   Sun Mar 19 21:25:21 2023 -0400
+
+    Guide controller implemented
+
+[33mcommit f95de90fd3957c2964b0f41a5d759453aaa4795d[m
+Author: YassineMimet1 <yassine.mimet@mail.mcgill.ca>
+Date:   Sun Mar 19 21:22:15 2023 -0400
+
+    Gear controller implemented
+
+[33mcommit 0bb91deb7513d353f8e528404129ec0918235aa5[m
+Author: YassineMimet1 <yassine.mimet@mail.mcgill.ca>
+Date:   Sun Mar 19 21:22:15 2023 -0400
+
+    Gear controller implemented
+
+[33mcommit d57a4d8f85057ff72ca7a7c62efdd8429c904f3a[m
+Author: souhailelhayani <souhail.200308@gmail.com>
+Date:   Sun Mar 19 17:29:50 2023 -0400
+
+    fixed the error messages, add an if statement in deleteGearFromCombo if combo has 2 gears
+
+[33mcommit 51c49157e71ec3e925afe2be47b1c3612ba1890c[m
+Merge: fa1bfd5 0f820af
+Author: souhailelhayani <souhail.200308@gmail.com>
+Date:   Sun Mar 19 16:58:45 2023 -0400
+
+    Merge branch 'deliverable_2' of https://github.com/McGill-ECSE223-W23/ecse223-project-group-5 into deliverable_2
+
+[33mcommit 0f820af78cd605368126aa01d2d36ce627d6fbaf[m
+Author: MartinEskaros <martineskaros@gmail.com>
+Date:   Sun Mar 19 15:38:33 2023 -0400
+
+    Updated removeGearFromCombo &  removed/added comboItem on  gear.
+
+[33mcommit fa1bfd5bec69a391c7b9b5b50a47b16c3e563354[m
+Merge: e6dc749 e884c4a
+Author: souhailelhayani <souhail.200308@gmail.com>
+Date:   Sun Mar 19 14:59:56 2023 -0400
+
+    Merge branch 'deliverable_2' of https://github.com/McGill-ECSE223-W23/ecse223-project-group-5 into deliverable_2
+
+[33mcommit e884c4afc6b24b077ccd9edb5f8b913e865aa891[m
+Author: wasifsomji <107225429+wasifsomji@users.noreply.github.com>
+Date:   Sun Mar 19 12:41:30 2023 -0400
+
+    Update GearController.java
+    
+    removeGear method
+
+[33mcommit 4710695ef0a3ec6e52455ac950738ad72439bc51[m[33m ([m[1;32mcommon-base[m[33m)[m
+Author: ECSE223 bot <ecse223@mcgill>
+Date:   Sun Mar 19 05:27:38 2023 +0000
+
+    Publish all step definitions
+
+[33mcommit e6dc749288959f5f13981a9f74f4b3310de5db78[m
+Author: souhailelhayani <souhail.200308@gmail.com>
+Date:   Sat Mar 18 21:24:33 2023 -0400
+
+    changed the 5 and 4 back to 4 and 3 in cucumber features
+
+[33mcommit 37a5f46dcc0c3c8fa0b751a4a870bf256612dba9[m
+Author: souhailelhayani <souhail.200308@gmail.com>
+Date:   Sat Mar 18 21:22:27 2023 -0400
+
+    small changes for efficiency
+
+[33mcommit d3123493faabede0664ca52330a19777ad685554[m
+Author: YassineMimet1 <yassine.mimet@mail.mcgill.ca>
+Date:   Sat Mar 18 20:55:04 2023 -0400
+
+    small changes
+
+[33mcommit cd83f0a575976f681d97e024f96ac1c60a89717d[m
+Merge: 66b5c45 63b9ee2
+Author: souhailelhayani <souhail.200308@gmail.com>
+Date:   Sat Mar 18 20:51:47 2023 -0400
+
+    Merge branch 'souhail_branch' into deliverable_2
+
+[33mcommit 63b9ee20f6bf8cc6d5a77e9afea5088115067c0c[m
+Author: souhailelhayani <souhail.200308@gmail.com>
+Date:   Sat Mar 18 20:50:44 2023 -0400
+
+    step definitions
+
+[33mcommit 7dfa9383e7ca48f2653adb200bdfd97b60c7a00c[m
+Author: souhailelhayani <souhail.200308@gmail.com>
+Date:   Sat Mar 18 20:22:29 2023 -0400
+
+    asjdkh
+
+[33mcommit 66b5c45c4fd3be84e13c70a2635e4a7a9f66a6ce[m
+Merge: 07a69ab 31d1600
+Author: souhailelhayani <souhail.200308@gmail.com>
+Date:   Sat Mar 18 20:15:43 2023 -0400
+
+    Merge branch 'souhail_branch' into deliverable_2
+
+[33mcommit 31d1600884b9537cf05ec3bbe0dba29064f8b88b[m
+Author: souhailelhayani <souhail.200308@gmail.com>
+Date:   Sat Mar 18 20:15:09 2023 -0400
+
+    some changes
+
+[33mcommit 07a69ab33e5e1968063b1f1145dd8b4f16ae89ab[m
+Merge: 39a9922 85b716a
+Author: souhailelhayani <souhail.200308@gmail.com>
+Date:   Sat Mar 18 18:56:47 2023 -0400
+
+    Merge branch 'souhail_branch' into deliverable_2
+
+[33mcommit 85b716a58b3eeb714478c077fc3ba5d28fb181a1[m
+Author: souhailelhayani <souhail.200308@gmail.com>
+Date:   Sat Mar 18 18:56:25 2023 -0400
+
+    sdjflk
+
+[33mcommit 39a992244e64d670a6109fe1f8ec9a12ad070630[m
+Author: YassineMimet1 <yassine.mimet@mail.mcgill.ca>
+Date:   Sat Mar 18 17:01:21 2023 -0400
+
+    add Combo and delete Combo updated
+
+[33mcommit 7867a98e2eb07c8c738cd9efff2c6688c77d63f4[m
+Author: YassineMimet1 <yassine.mimet@mail.mcgill.ca>
+Date:   Sat Mar 18 17:00:19 2023 -0400
+
+    add Combo and delete Combo
+
+[33mcommit fe46523fb0cf82f031d34b705f470201cfdb229d[m
+Author: souhailelhayani <souhail.200308@gmail.com>
+Date:   Sat Mar 18 16:23:14 2023 -0400
+
+    fixed addGear, completed deleteGear
+
+[33mcommit 63ee79775aa2dd6a462a9aa66fd2e0c64600042a[m
+Author: Phil-March <philippe.marchand2@mail.mcgill.ca>
+Date:   Sat Mar 18 14:02:55 2023 -0400
+
+    Implemented register and delete participant controller methods v2
+
+[33mcommit 7da9109f41fa169f3e21792322068ccdfdd5085b[m
+Author: Phil-March <philippe.marchand2@mail.mcgill.ca>
+Date:   Sat Mar 18 14:01:03 2023 -0400
+
+    Implemented register and delete participant controller methods
+
+[33mcommit fcdaef1c6b1fa8fa9c7cf9760f28a5476de1c838[m
+Author: MartinEskaros <martineskaros@gmail.com>
+Date:   Fri Mar 17 23:28:17 2023 -0400
+
+    Fixed input check for empty strings
+
+[33mcommit 1830f65817e9d0d85e656dca0c328c4e649f23ff[m
+Author: MartinEskaros <martineskaros@gmail.com>
+Date:   Fri Mar 17 23:04:14 2023 -0400
+
+    Implemented addGearToCombo method
+
+[33mcommit 76456473bb3dde19906caa6aeaa36726f12a6b9c[m
+Author: YassineMimet1 <yassine.mimet@mail.mcgill.ca>
+Date:   Fri Mar 17 12:10:37 2023 -0400
+
+    addCombo controller
+
+[33mcommit 4606a05b4e0701dccc1da965104366fa733cf5f2[m
+Merge: 5c7df24 be03c67
+Author: souhailelhayani <souhail.200308@gmail.com>
+Date:   Fri Mar 17 11:27:09 2023 -0400
+
+    Merge branch 'souhail_branch' into deliverable_2
+
+[33mcommit be03c6730df9da6bdc938a539691637a8a4055c2[m
+Author: souhailelhayani <souhail.200308@gmail.com>
+Date:   Fri Mar 17 11:24:02 2023 -0400
+
+    one controller method, and fixed step def
+
+[33mcommit 5c7df246421a1646e478479ef992a16a34b1d21d[m
+Author: Phil-March <philippe.marchand2@mail.mcgill.ca>
+Date:   Fri Mar 17 11:23:02 2023 -0400
+
+    CommonMistakes1Fixed
+
+[33mcommit 34be605bc1673cc6b80bc2db3f441b2a813f5788[m
+Author: Phil-March <philippe.marchand2@mail.mcgill.ca>
+Date:   Fri Mar 17 10:30:58 2023 -0400
+
+    Updated CommonMistakes
+
+[33mcommit e34b19f1c4f64ae5d0ec4d826ce8ec1bac1c0935[m
+Author: souhailelhayani <souhail.200308@gmail.com>
+Date:   Thu Mar 16 13:35:59 2023 -0400
+
+    addGear in Controller
+
+[33mcommit d5b883f9cb8d15c598e6179bb57181551789cb6b[m
+Author: ECSE223 bot <ecse223@mcgill>
+Date:   Thu Mar 16 05:20:47 2023 +0000
+
+    Format feature files
+
+[33mcommit a63450ec6abb4f942a9c05e42a6cfd18ff50d176[m
+Author: ECSE223 bot <ecse223@mcgill>
+Date:   Thu Mar 16 03:38:45 2023 +0000
+
+    Fix inconsistencies in gear feature
+
+[33mcommit 654fecfa4a7aab7dd386c795dc9f9cd6f2c0d292[m
+Author: ECSE223 bot <ecse223@mcgill>
+Date:   Thu Mar 16 02:46:09 2023 +0000
+
+    Update feature names
+
+[33mcommit 3d050c09ccde9bd9c4bbf9cab1b93bd940964b15[m
+Merge: 3587b74 276bbcb
+Author: souhailelhayani <souhail.200308@gmail.com>
+Date:   Tue Mar 14 21:02:25 2023 -0400
+
+    last method
+
+[33mcommit 3587b74ebb07309c6d3fc51d3cfc6fc48894a92f[m
+Author: souhailelhayani <souhail.200308@gmail.com>
+Date:   Tue Mar 14 20:59:48 2023 -0400
+
+    last methods
+
+[33mcommit 276bbcb0419bd10bea087104fdda2792d03dde41[m
+Merge: 5d33edc 7b3fb08
+Author: YassineMimet1 <yassine.mimet@mail.mcgill.ca>
+Date:   Tue Mar 14 20:58:42 2023 -0400
+
+    changes in methods
+
+[33mcommit 5d33edce69770fd75773d4f55b1b5c3a922e06f7[m
+Author: YassineMimet1 <yassine.mimet@mail.mcgill.ca>
+Date:   Tue Mar 14 20:56:09 2023 -0400
+
+    methods done
+
+[33mcommit 7b3fb08bd2c16800faf91a0baf377c647a027585[m
+Author: Phil-March <philippe.marchand2@mail.mcgill.ca>
+Date:   Tue Mar 14 20:31:36 2023 -0400
+
+    method 13
+
+[33mcommit 1cf0c59449d871062d058d8883441d6705319f71[m
+Merge: 1423da3 3f022fa
+Author: Phil-March <philippe.marchand2@mail.mcgill.ca>
+Date:   Tue Mar 14 19:38:14 2023 -0400
+
+    method 3
+
+[33mcommit 1423da3ad4a2005fb7a54f2a04725f9a0ba91196[m
+Author: Phil-March <philippe.marchand2@mail.mcgill.ca>
+Date:   Tue Mar 14 19:36:42 2023 -0400
+
+    method 3
+
+[33mcommit 3f022fab5236dd41322d2e869afdb865ba28c8c3[m
+Merge: a4f1ac2 5b2fdc7
+Author: souhailelhayani <souhail.200308@gmail.com>
+Date:   Tue Mar 14 19:32:28 2023 -0400
+
+    method 10
+
+[33mcommit a4f1ac25d57138a1b4f84494c3cbd8b2f87da676[m
+Author: souhailelhayani <souhail.200308@gmail.com>
+Date:   Tue Mar 14 19:30:43 2023 -0400
+
+    method 10
+
+[33mcommit 5b2fdc71d61153d3fe562a2968917af228c8ad1f[m
+Author: YassineMimet1 <yassine.mimet@mail.mcgill.ca>
+Date:   Tue Mar 14 19:27:12 2023 -0400
+
+    method 8 9
+
+[33mcommit a2414f0a531575d480c9e586aa08e1a7527a2f43[m
+Merge: fb61759 64a31ea
+Author: souhailelhayani <souhail.200308@gmail.com>
+Date:   Tue Mar 14 19:11:26 2023 -0400
+
+    6th and 7th mmethod updated
+
+[33mcommit fb617590aeb1f179ae1ab33477221c4679d595b9[m
+Author: souhailelhayani <souhail.200308@gmail.com>
+Date:   Tue Mar 14 19:09:15 2023 -0400
+
+    6th and 7th methods
+
+[33mcommit 64a31eaca97550a6964f20eb9f9d8156807775c3[m
+Author: YassineMimet1 <yassine.mimet@mail.mcgill.ca>
+Date:   Tue Mar 14 19:06:30 2023 -0400
+
+    updating 4 and 5
+
+[33mcommit 6f73df615a45b8b63825a269278a5177e8accae3[m
+Author: YassineMimet1 <yassine.mimet@mail.mcgill.ca>
+Date:   Tue Mar 14 18:53:04 2023 -0400
+
+    Remove DS store
+
+[33mcommit 4d994b9ee8403b172744dab45d4aa0963ac6f5d8[m
+Author: YassineMimet1 <yassine.mimet@mail.mcgill.ca>
+Date:   Tue Mar 14 18:48:16 2023 -0400
+
+    Revert "4th method"
+    
+    This reverts commit 9dca2dfa4aaee91a7e4ca34ad54f85dc9ef9efd0.
+
+[33mcommit 1fc68cbe3bf7b0af24e25c43166545310f330f5b[m
+Author: Phil-March <philippe.marchand2@mail.mcgill.ca>
+Date:   Tue Mar 14 18:45:52 2023 -0400
+
+    method 3
+
+[33mcommit 16f42ebf052a87578115a189b73d74bef6e77ce7[m
+Author: YassineMimet1 <yassine.mimet@mail.mcgill.ca>
+Date:   Tue Mar 14 18:43:31 2023 -0400
+
+    Revert "5th method"
+    
+    This reverts commit 3b95150f0c6ee2e83b942893889e8b92154f562f.
+
+[33mcommit 9dca2dfa4aaee91a7e4ca34ad54f85dc9ef9efd0[m
+Author: YassineMimet1 <yassine.mimet@mail.mcgill.ca>
+Date:   Tue Mar 14 18:36:56 2023 -0400
+
+    4th method
+
+[33mcommit 3b95150f0c6ee2e83b942893889e8b92154f562f[m
+Author: souhailelhayani <souhail.200308@gmail.com>
+Date:   Tue Mar 14 18:30:01 2023 -0400
+
+    5th method
+
+[33mcommit e5a026725dc54403d8671cfa1f01566754992f67[m
+Author: souhailelhayani <souhail.200308@gmail.com>
+Date:   Tue Mar 14 18:11:56 2023 -0400
+
+    second method, with documentation
+
+[33mcommit d31ef6b38b8f672991ea67fc1f36fd4446fecbe7[m
+Author: souhailelhayani <souhail.200308@gmail.com>
+Date:   Tue Mar 14 17:59:54 2023 -0400
+
+    second method sd
+
+[33mcommit 63a81bfc33059a582025d6c3be016d201231adf3[m
+Author: YassineMimet1 <yassine.mimet@mail.mcgill.ca>
+Date:   Tue Mar 14 17:43:19 2023 -0400
+
+    first method done
+
+[33mcommit 5792492968d4782928971b7565a90a49d259bb57[m
+Author: ECSE223 bot <ecse223@mcgill>
+Date:   Fri Mar 10 21:52:43 2023 +0000
+
+    Add TODO notes to controllers
+
+[33mcommit b39fa7176d7ae0ee5dc8d9496f485c510d3f1e6f[m
+Author: ECSE223 bot <ecse223@mcgill>
+Date:   Wed Mar 8 21:16:31 2023 +0000
+
+    Publish template
+
+[33mcommit 159fadac431d91d15ccba4cfc79b9a83c360b99f[m
+Author: gilgalp <99375368+gilgalp@users.noreply.github.com>
+Date:   Sat Feb 25 12:32:26 2023 -0500
+
+    Deliverable 1é
+
+[33mcommit 7d635a63c3e20a78f3a8383d961e60a324a58c3c[m
+Author: YassineMimet1 <125915451+YassineMimet1@users.noreply.github.com>
+Date:   Fri Feb 24 21:28:01 2023 -0500
+
+    Create README.md

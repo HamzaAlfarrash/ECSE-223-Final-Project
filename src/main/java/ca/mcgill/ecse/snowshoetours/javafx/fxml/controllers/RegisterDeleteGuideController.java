@@ -40,6 +40,7 @@ public class RegisterDeleteGuideController {
 	  @FXML
 	  public void initialize() {
 	    deleteGuideChoiceBox.addEventHandler(SSTFxmlView.REFRESH_EVENT, e->{
+	      deleteGuideChoiceBox.setItems(ViewUtils.getGuide());
 	      deleteGuideChoiceBox.setValue(null);
 	    });
 	      SSTFxmlView.getInstance().registerRefreshEvent(deleteGuideChoiceBox);
@@ -59,6 +60,14 @@ public class RegisterDeleteGuideController {
 	    String eci = ECITextField.getText();
 	    String email = EmailRGTextField1.getText();
 	    String password = PasswordRGTextField11.getText();
+	    
+	    if (ViewUtils.callController(GuideController.registerGuide(email, password, name, emergencyContact))) {
+	        addParticipantNameTextField.clear();
+	        addEmailTextField.clear();
+	        addPasswordTextField.clear();
+	        addEmergencyTextField.clear();
+	        SSTFxmlView.getInstance().refresh();
+	      }
 	  }
 	  
 	  @FXML
