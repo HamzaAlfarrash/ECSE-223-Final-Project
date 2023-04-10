@@ -33,7 +33,7 @@ public class RegisterDeleteGuideController {
 	  @FXML
 	  private ChoiceBox<TOGuide> deleteGuideChoiceBox;
 	  @FXML
-	  private Button deleteGuideButton
+	  private Button deleteGuideButton; 
 	  
 	  @FXML
 	  public void initialize() {
