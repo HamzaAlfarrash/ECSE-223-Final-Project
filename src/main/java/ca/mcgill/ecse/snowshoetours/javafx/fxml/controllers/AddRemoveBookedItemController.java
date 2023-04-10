@@ -15,7 +15,8 @@ import javafx.stage.Stage;
 
 public class AddRemoveBookedItemController {
   
-  //TODO add transfer objetcs, this is NOT CORRECT
+  //TODO add transfer objects, this is NOT CORRECT
+	
   @FXML
   private ChoiceBox<String> gearName;
   

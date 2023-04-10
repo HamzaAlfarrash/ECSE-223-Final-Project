@@ -74,7 +74,7 @@
                   <Button mnemonicParsing="false" onAction="#GoBackButtonClicked" text="Back" GridPane.halignment="CENTER" GridPane.rowIndex="2" />
                   <Label text="Guide to Delete" GridPane.halignment="RIGHT" GridPane.rowIndex="1" />
                   <ChoiceBox fx:id="deleteGuideChoiceBox" prefWidth="150.0" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="1" />
-                  <Button mnemonicParsing="false" onAction="#deleteGuideClicked" text="Delete" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="2" />
+                  <Button fx:id="deleteGuideButton" mnemonicParsing="false" onAction="#deleteGuideClicked" text="Delete" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="2" />
                </children>
             </GridPane>
             <Separator prefHeight="0.0" prefWidth="200.0" GridPane.rowIndex="1" />
