@@ -44,12 +44,12 @@
                   </Label>
                   <Label text="Lodge Name" GridPane.halignment="RIGHT" GridPane.rowIndex="1" />
                   <Label text="Address" GridPane.halignment="RIGHT" GridPane.rowIndex="2" />
-                  <TextField GridPane.columnIndex="1" GridPane.rowIndex="1" />
-                  <TextField GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                  <TextField fx:id="lodgeNameBox" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                  <TextField fx:id="addressBox" GridPane.columnIndex="1" GridPane.rowIndex="2" />
                   <Label text="Rating" GridPane.columnIndex="2" GridPane.halignment="RIGHT" GridPane.rowIndex="1" />
-                  <ChoiceBox prefWidth="150.0" GridPane.columnIndex="3" GridPane.halignment="CENTER" GridPane.rowIndex="1" />
-                  <Button mnemonicParsing="false" text="Clear" GridPane.columnIndex="4" GridPane.halignment="CENTER" GridPane.rowIndex="1" />
-                  <Button mnemonicParsing="false" text="AddLodge" GridPane.columnIndex="4" GridPane.halignment="CENTER" GridPane.rowIndex="2" />
+                  <ChoiceBox fx:id="ratingChoiceBox" prefWidth="150.0" GridPane.columnIndex="3" GridPane.halignment="CENTER" GridPane.rowIndex="1" />
+                  <Button fx:id="clearButton" mnemonicParsing="false" text="Clear" GridPane.columnIndex="4" GridPane.halignment="CENTER" GridPane.rowIndex="1" />
+                  <Button fx:id="addLodgeButton" mnemonicParsing="false" text="AddLodge" GridPane.columnIndex="4" GridPane.halignment="CENTER" GridPane.rowIndex="2" />
                </children>
             </GridPane>
             <GridPane prefHeight="351.0" prefWidth="1200.0" GridPane.rowIndex="2">
@@ -64,15 +64,15 @@
                 <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
               </rowConstraints>
                <children>
-                  <Button mnemonicParsing="false" onAction="#GoBackButtonClicked" text="Back" GridPane.halignment="CENTER" GridPane.rowIndex="2" />
+                  <Button fx:id="GoBackButton" mnemonicParsing="false" onAction="#GoBackButtonClicked" text="Back" GridPane.halignment="CENTER" GridPane.rowIndex="2" />
                   <Label text="Delete Lodge" underline="true" GridPane.halignment="CENTER">
                      <font>
                         <Font name="System Bold Italic" size="24.0" />
                      </font>
                   </Label>
                   <Label text="Lodge Name" GridPane.halignment="RIGHT" GridPane.rowIndex="1" />
-                  <ChoiceBox prefWidth="150.0" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="1" />
-                  <Button mnemonicParsing="false" text="Delete" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="2" />
+                  <ChoiceBox fx:id="deleteLodgeChoiceBox" prefWidth="150.0" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="1" />
+                  <Button fx:id="deleteLodgeButton" mnemonicParsing="false" text="Delete" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="2" />
                </children>
             </GridPane>
             <Separator prefHeight="0.0" prefWidth="1200.0" GridPane.rowIndex="1" />

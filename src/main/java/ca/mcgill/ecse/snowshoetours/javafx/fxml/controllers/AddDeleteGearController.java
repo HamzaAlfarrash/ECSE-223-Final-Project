@@ -65,14 +65,13 @@ public class AddDeleteGearController {
   /**
    * @author Wasif Somji
    */
-  public void addGearButtonClicked() {
+  public void addGearButtonClicked(ActionEvent event) {
 	  // adding gear
-	  if (gearName == null && pricePerWeekBox == null) {
+	  if (gearName == null || pricePerWeekBox == null) {
 		  ViewUtils.showError("Please enter both the gear name and its price per week."); 
 		  return; 
 	  }
 	  
-	  GearController.addGear(gearName, PricePerWeek); 
 	  
 	  if (ViewUtils.callController(GearController.addGear(gearName, PricePerWeek))) {
 		  gearNameBox.clear();
@@ -92,7 +91,7 @@ public class AddDeleteGearController {
    * @author Wasif Somji
    */
   
-  public void deleteGearButtonClicked() {
+  public void deleteGearButtonClicked(ActionEvent event) {
 	  // deleting gear
 	  if (deleteGuideSelector == null) {
 		  ViewUtils.showError("Must select a gear to delete"); 
