@@ -18,9 +18,9 @@ import javafx.stage.Stage;
 public class UpdateShowShoeToursController {
 	
 	@FXML
-	private Label CurrentStartDate;
+	private Label CurrentStartWeek;
 	@FXML
-	private Label CurrentNumberOfWeeks;
+	private Label CurrentEndWeek;
 	@FXML
 	private Label CurrentPricePerGuide;
 	@FXML
@@ -40,8 +40,8 @@ public class UpdateShowShoeToursController {
 	   * @author Philippe Marchand
 	   */
 	public void initialize() {
-		CurrentStartDate.setText("");
-		CurrentNumberOfWeeks.setText("");
+		CurrentStartWeek.setText("");
+		CurrentEndWeek.setText("");
 		CurrentPricePerGuide.setText("");
 		
 	}

@@ -147,6 +147,9 @@ public class ViewUtils {
     }
     return FXCollections.observableList(lodgeNames);
   }
- 
+// public static String getStartWeek() {
+//	 SnowShoeTourController.getSnowShoeTours()
+//	 return 
+// }
 
 }
