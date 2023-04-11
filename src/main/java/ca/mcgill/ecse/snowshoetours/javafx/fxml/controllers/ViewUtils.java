@@ -147,10 +147,6 @@ public class ViewUtils {
     }
     return FXCollections.observableList(lodgeNames);
   }
-  public static String getStartDate() {
-	   = getSnowShoeTour();
-	  return
-  }
-  
+ 
 
 }
