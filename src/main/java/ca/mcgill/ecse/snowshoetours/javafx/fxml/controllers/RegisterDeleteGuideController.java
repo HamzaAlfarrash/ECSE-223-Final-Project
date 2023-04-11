@@ -37,6 +37,9 @@ public class RegisterDeleteGuideController {
   @FXML
   private Button deleteGuideButton;
 
+  /**
+   * @author hamza, souhail el hayani
+   */
   @FXML
   public void initialize() {
     deleteGuideChoiceBox.setItems(ViewUtils.getGuide());
@@ -92,7 +95,7 @@ public class RegisterDeleteGuideController {
   }
 
   /**
-   * @author souhail el hayani, hamza
+   * @author Yassine Mimet
    * @param event
    */
   public void GoBackButtonClicked(ActionEvent event) {

@@ -10,6 +10,10 @@ import javafx.stage.Stage;
 
 public class PayParticipantController {
 
+  /**
+   * @author Yassine Mimet
+   * @param event
+   */
   public void GoBack(ActionEvent event) {
     try {
       Parent ViewSnowShoeToursDetailedParent =

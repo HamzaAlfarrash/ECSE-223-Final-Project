@@ -45,24 +45,22 @@ public class UpdateShowShoeToursController {
 		CurrentPricePerGuide.setText("");
 		
 	}
-	
-	
-	
-	
-	
-	
-	
-  public void GoBackButtonClicked(ActionEvent event) {
-    try {
-      Parent ViewSnowShoeToursDetailedParent = FXMLLoader.load(getClass().getResource("../MainPage.fxml"));
-      Scene ViewSnowShoeToursDetailedParentScene = new Scene(ViewSnowShoeToursDetailedParent);
-      Stage window = (Stage) ((Node) event.getSource()).getScene().getWindow();
-      window.setScene(ViewSnowShoeToursDetailedParentScene);
-      window.show();
-    } catch (IOException e) {
-      e.printStackTrace();
+
+    /**
+     * @author Yassine Mimet
+     * @param event
+     */
+    public void GoBackButtonClicked(ActionEvent event) {
+      try {
+        Parent ViewSnowShoeToursDetailedParent = FXMLLoader.load(getClass().getResource("../MainPage.fxml"));
+        Scene ViewSnowShoeToursDetailedParentScene = new Scene(ViewSnowShoeToursDetailedParent);
+        Stage window = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        window.setScene(ViewSnowShoeToursDetailedParentScene);
+        window.show();
+      } catch (IOException e) {
+        e.printStackTrace();
+      }
     }
-  }
   
   
 }

@@ -27,47 +27,51 @@ public class StartFinishCancelParticipantTripController {
 	@FXML
 	private Button finishTripButton; 
 	
-  public void GoBackButtonClicked(ActionEvent event) {
-    try {
-      Parent ViewSnowShoeToursDetailedParent = FXMLLoader.load(getClass().getResource("../MainPage.fxml"));
-      Scene ViewSnowShoeToursDetailedParentScene = new Scene(ViewSnowShoeToursDetailedParent);
-      Stage window = (Stage) ((Node) event.getSource()).getScene().getWindow();
-      window.setScene(ViewSnowShoeToursDetailedParentScene);
-      window.show();
-    } catch (IOException e) {
-      e.printStackTrace();
+	/**
+	 * @author Yassine Mimet
+	 * @param event
+	 */
+    public void GoBackButtonClicked(ActionEvent event) {
+      try {
+        Parent ViewSnowShoeToursDetailedParent = FXMLLoader.load(getClass().getResource("../MainPage.fxml"));
+        Scene ViewSnowShoeToursDetailedParentScene = new Scene(ViewSnowShoeToursDetailedParent);
+        Stage window = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        window.setScene(ViewSnowShoeToursDetailedParentScene);
+        window.show();
+      } catch (IOException e) {
+        e.printStackTrace();
+      }
     }
-  }
-  
-  @FXML
-  /**
-   * @author Wasif Somji
-   */
-  public void initialize() {
-	  // to be completed 
-  }
-  
-  @FXML
-  /**
-   * @author Wasif Somji
-   */
-  public void startTrip() {
-	  // to be completed
-  }
-  
-  @FXML
-  /**
-   * @author Wasif Somji
-   */
-  public void cancelTrip() {
-	  // to be completed
-  }
-  
-  @FXML
-  /**
-   * @author Wasif Somji
-   */
-  public void finishTrip() {
-	  // to be completed
-  }
+    
+    @FXML
+    /**
+     * @author Wasif Somji
+     */
+    public void initialize() {
+  	  // to be completed 
+    }
+    
+    @FXML
+    /**
+     * @author Wasif Somji
+     */
+    public void startTrip() {
+  	  // to be completed
+    }
+    
+    @FXML
+    /**
+     * @author Wasif Somji
+     */
+    public void cancelTrip() {
+  	  // to be completed
+    }
+    
+    @FXML
+    /**
+     * @author Wasif Somji
+     */
+    public void finishTrip() {
+  	  // to be completed
+    }
 }
