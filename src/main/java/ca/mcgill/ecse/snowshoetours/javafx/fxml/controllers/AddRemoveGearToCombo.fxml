@@ -22,5 +22,7 @@
       <Button layoutX="242.0" layoutY="63.0" mnemonicParsing="false" text="Clear" />
       <Button layoutX="516.0" layoutY="63.0" mnemonicParsing="false" text="Clear" />
       <Button layoutX="221.0" layoutY="298.0" mnemonicParsing="false" text="Remove Gear from Combo" />
+      <AnchorPane prefHeight="193.0" prefWidth="600.0" />
+      <AnchorPane layoutY="186.0" prefHeight="215.0" prefWidth="600.0" />
    </children>
 </AnchorPane>

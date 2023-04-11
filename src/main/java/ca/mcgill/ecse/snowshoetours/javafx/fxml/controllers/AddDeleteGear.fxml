@@ -45,7 +45,7 @@
                   <TextField fx:id="pricePerWeekBox" GridPane.columnIndex="1" GridPane.rowIndex="2" />
                   <Button fx:id="clearButton" mnemonicParsing="false" onAction="#clearButtonClicked" text="Clear" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="1" />
                   <Button fx:id="addGearButton" mnemonicParsing="false" onAction="#addGearButtonClicked" text="Add Gear" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="2" />
-                  <Label text="Gear name" GridPane.rowIndex="1" />
+                  <Label alignment="CENTER_RIGHT" text="Gear name" GridPane.rowIndex="1" />
                </children>
             </GridPane>
             <Separator prefHeight="267.0" prefWidth="1200.0" GridPane.rowIndex="1" />
