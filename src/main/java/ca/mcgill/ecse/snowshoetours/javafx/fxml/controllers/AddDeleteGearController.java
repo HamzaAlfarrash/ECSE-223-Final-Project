@@ -38,6 +38,10 @@ public class AddDeleteGearController {
   @FXML
   private Button deleteGearButton;
 
+  /**
+   * @author Yassine Mimet
+   * @param event
+   */
   public void GoBackButtonClicked(ActionEvent event) {
     try {
       Parent ViewSnowShoeToursDetailedParent =

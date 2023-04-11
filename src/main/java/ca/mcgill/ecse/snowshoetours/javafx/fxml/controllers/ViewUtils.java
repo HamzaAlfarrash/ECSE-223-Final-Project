@@ -135,7 +135,7 @@ public class ViewUtils {
   
   /**
    * @author Yassine Mimet
-   * @return
+   * @return an Observable list of the names of the lodges
    */
   public static ObservableList<String> getLodges(){
     List<TOLodge> lodges = LodgeController.getLodges();

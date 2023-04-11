@@ -99,6 +99,9 @@ public class AddRemoveBookedItemController {
     
   }
   
+  /**
+   * @author souhail el hayani
+   */
   public void clear() {
     gearName.setValue(null);
     comboName.setValue(null);

@@ -72,7 +72,7 @@
                                         {
                                           "ComboItem": [
                                             {
-                                              "quantity": 2,
+                                              "quantity": 3,
                                               "snowShoeTour": {
                                                 "@reference": "../../../../../../../../../../../.."
                                               },
@@ -106,7 +106,7 @@
                                                   {
                                                     "ComboItem": [
                                                       {
-                                                        "quantity": 1,
+                                                        "quantity": 4,
                                                         "snowShoeTour": {
                                                           "@reference": "../../../../../../../../../../../../../../.."
                                                         },
@@ -297,9 +297,26 @@
                                                                               },
                                                                               "comboItems": [
                                                                                 {
-                                                                                  "ComboItem": {
-                                                                                    "@reference": "../../.."
-                                                                                  }
+                                                                                  "ComboItem": [
+                                                                                    {
+                                                                                      "@reference": "../../.."
+                                                                                    },
+                                                                                    {
+                                                                                      "quantity": 3,
+                                                                                      "snowShoeTour": {
+                                                                                        "@reference": "../../../../../../../../../../../../../../../../../../../../../../../.."
+                                                                                      },
+                                                                                      "combo": {
+                                                                                        "@reference": "../../../../../../../../../../../.."
+                                                                                      },
+                                                                                      "gear": {
+                                                                                        "@reference": "../../.."
+                                                                                      },
+                                                                                      "cachedHashCode": -1,
+                                                                                      "canSetCombo": true,
+                                                                                      "canSetGear": true
+                                                                                    }
+                                                                                  ]
                                                                                 }
                                                                               ]
                                                                             },
@@ -328,6 +345,38 @@
                                                       },
                                                       {
                                                         "@reference": "../../.."
+                                                      },
+                                                      {
+                                                        "@reference": "../ComboItem/gear/comboItems/ComboItem[2]/combo/comboItems/ComboItem[3]/gear/comboItems/ComboItem[2]"
+                                                      },
+                                                      {
+                                                        "quantity": 2,
+                                                        "snowShoeTour": {
+                                                          "@reference": "../../../../../../../../../../../../../../.."
+                                                        },
+                                                        "combo": {
+                                                          "@reference": "../../.."
+                                                        },
+                                                        "gear": {
+                                                          "name": "flashlight",
+                                                          "bookedItems": [
+                                                            ""
+                                                          ],
+                                                          "pricePerWeek": 15,
+                                                          "snowShoeTour": {
+                                                            "@reference": "../../../../../../../../../../../../../../../.."
+                                                          },
+                                                          "comboItems": [
+                                                            {
+                                                              "ComboItem": {
+                                                                "@reference": "../../.."
+                                                              }
+                                                            }
+                                                          ]
+                                                        },
+                                                        "cachedHashCode": -1,
+                                                        "canSetCombo": true,
+                                                        "canSetGear": true
                                                       }
                                                     ]
                                                   }
@@ -445,17 +494,7 @@
             "@reference": "../../guides/Guide/tours/Tour/participants/Participant/bookedItems/BookedItem/item/comboItems/ComboItem/combo/comboItems/ComboItem/gear/comboItems/ComboItem[2]/combo/comboItems/ComboItem[3]/gear"
           },
           {
-            "name": "flashlight",
-            "bookedItems": [
-              ""
-            ],
-            "pricePerWeek": 15,
-            "snowShoeTour": {
-              "@reference": "../../.."
-            },
-            "comboItems": [
-              ""
-            ]
+            "@reference": "../../guides/Guide/tours/Tour/participants/Participant/bookedItems/BookedItem/item/comboItems/ComboItem/combo/comboItems/ComboItem[4]/gear"
           }
         ]
       }
@@ -489,12 +528,30 @@
           },
           {
             "@reference": "../../guides/Guide/tours/Tour/participants/Participant/bookedItems/BookedItem/item/comboItems/ComboItem/combo/comboItems/ComboItem/gear/comboItems/ComboItem[2]/combo/comboItems/ComboItem[3]"
+          },
+          {
+            "@reference": "../../guides/Guide/tours/Tour/participants/Participant/bookedItems/BookedItem/item/comboItems/ComboItem/combo/comboItems/ComboItem/gear/comboItems/ComboItem[2]/combo/comboItems/ComboItem[3]/gear/comboItems/ComboItem[2]"
+          },
+          {
+            "@reference": "../../guides/Guide/tours/Tour/participants/Participant/bookedItems/BookedItem/item/comboItems/ComboItem/combo/comboItems/ComboItem[4]"
           }
         ]
       }
     ],
     "lodges": [
-      ""
+      {
+        "Lodge": {
+          "name": "FourSeasons",
+          "address": "Montreal",
+          "rating": "FiveStars",
+          "snowShoeTour": {
+            "@reference": "../../.."
+          },
+          "tours": [
+            ""
+          ]
+        }
+      }
     ],
     "tours": [
       {

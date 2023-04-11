@@ -41,6 +41,9 @@ public class RegisterDeleteParticipantController {
   @FXML
   private Button deleteParticipantButton;
   
+  /**
+   * @author Yassine Mimet
+   */
   @FXML
   public void initialize() {
     deleteParticipantChoiceBox.setItems(ViewUtils.getParticipant());
@@ -52,6 +55,10 @@ public class RegisterDeleteParticipantController {
     SSTFxmlView.getInstance().registerRefreshEvent(deleteParticipantChoiceBox);
   }
   
+  /**
+   * @author Yassine Mimet
+   * @param event
+   */
   @FXML
   public void clearClicked(ActionEvent event) {
     addParticipantNameTextField.clear();
@@ -64,11 +71,19 @@ public class RegisterDeleteParticipantController {
     addNumberOfWeeksTextField.clear();
   }
   
+  /**
+   * @author Yassine Mimet
+   * @param event
+   */
   @FXML
   public void clearDeleteChoiceBox(ActionEvent event) {
     deleteParticipantChoiceBox.setValue(null);
   }
   
+  /**
+   * @author Yassine Mimet
+   * @param event
+   */
   @FXML
   public void RegisterButtonClicked(ActionEvent event) {
     String name = addParticipantNameTextField.getText();
@@ -113,7 +128,11 @@ public class RegisterDeleteParticipantController {
       SSTFxmlView.getInstance().refresh();
     }
   }
-    
+  
+  /**
+   * @author Yassine Mimet
+   * @param event
+   */
   @FXML
   public void deleteParticipantClicked(ActionEvent event) {
       if(ViewUtils.successful(ParticipantController.deleteParticipant(deleteParticipantChoiceBox.getValue()))) {
@@ -122,6 +141,10 @@ public class RegisterDeleteParticipantController {
       }
   }
   
+  /**
+   * @author Yassine Mimet
+   * @param event
+   */
   public void GoBackButtonClicked(ActionEvent event) {
     try {
       Parent ViewSnowShoeToursDetailedParent = FXMLLoader.load(getClass().getResource("../MainPage.fxml"));

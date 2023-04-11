@@ -80,6 +80,10 @@ public class ViewSnowShoeToursController {
     return column;
   }
 
+  /**
+   * @author Yassine Mimet
+   * @param event
+   */
   public void GoBackButtonClicked(ActionEvent event) {
     try {
       Parent ViewSnowShoeToursDetailedParent =

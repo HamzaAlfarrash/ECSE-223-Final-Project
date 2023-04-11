@@ -7,17 +7,18 @@ import ca.mcgill.ecse.snowshoetours.persistence.*;
 public class Test {
 
   public static void main(String[] args) {
-    
+    /*
     List<TOGears> list = GearController.getGears();
     List<String> names = new ArrayList<>();
     for (TOGears gear : list) {
       names.add(gear.getName());
     }
+    
     System.out.println(names.size());
     System.out.println(names.get(0));
     System.out.println(names.get(1));
     System.out.println(names.get(2));
-    
+    */
     /*SnowShoeTour sst = SnowShoeToursApplication.getSnowShoeTour();
     List<Guide> guides = sst.getGuides();
     Manager manager = sst.getManager();
@@ -76,6 +77,13 @@ public class Test {
     } catch (RuntimeException e) {
       System.out.println(e.getMessage());
     }*/
+    
+    SnowShoeTour sst = SnowShoeToursApplication.getSnowShoeTour();
+    List<Combo> combos = sst.getCombos();
+    for(Combo combo: combos) {
+      int size = combo.getBookedItems().size();
+      System.out.println(size);
+    }
     
   }
 }

@@ -91,7 +91,7 @@ public class AddDeleteComboController {
   }
 
   /**
-   * @author Hamza Alfarrash
+   * @author Yassine Mimet
    * @param event
    */
   public void GoBackButtonClicked(ActionEvent event) {
