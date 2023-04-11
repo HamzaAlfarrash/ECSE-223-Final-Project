@@ -9,8 +9,8 @@
    <children>
       <Label layoutX="234.0" layoutY="14.0" text="Pay for Participant's Trip" />
       <Button layoutX="14.0" layoutY="361.0" mnemonicParsing="false" onAction="#GoBack" text="Back" />
-      <Button layoutX="280.0" layoutY="207.0" mnemonicParsing="false" text="Pay " />
-      <ChoiceBox layoutX="220.0" layoutY="80.0" prefWidth="150.0" />
+      <Button fx:id="payButton" layoutX="280.0" layoutY="207.0" mnemonicParsing="false" onAction="#PayButtonClicked" text="Pay " />
+      <ChoiceBox fx:id="payParticipantChoiceBox" layoutX="220.0" layoutY="80.0" prefWidth="150.0" />
       <Label layoutX="243.0" layoutY="115.0" text="Choose Participant" />
    </children>
 </AnchorPane>
