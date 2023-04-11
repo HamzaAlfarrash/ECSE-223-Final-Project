@@ -35,7 +35,7 @@ public class MainPageController {
 
   public void GoViewSnowShoeToursDetailedButtonClicked(ActionEvent event) {
     try {
-      Parent ViewSnowShoeToursDetailedParent = FXMLLoader.load(getClass().getResource("Controllers/ViewSnowShoeTours.fxml"));
+      Parent ViewSnowShoeToursDetailedParent = FXMLLoader.load(getClass().getResource("Pages/ViewSnowShoeTours.fxml"));
       Scene ViewSnowShoeToursDetailedParentScene = new Scene(ViewSnowShoeToursDetailedParent);
       Stage window = (Stage) ((Node) event.getSource()).getScene().getWindow();
       window.setScene(ViewSnowShoeToursDetailedParentScene);
@@ -48,7 +48,7 @@ public class MainPageController {
   
   public void GoAddDeleteComboButtonClicked(ActionEvent event) {
     try {
-      Parent ViewSnowShoeToursDetailedParent = FXMLLoader.load(getClass().getResource("Controllers/AddDeleteCombo.fxml"));
+      Parent ViewSnowShoeToursDetailedParent = FXMLLoader.load(getClass().getResource("Pages/AddDeleteCombo.fxml"));
       Scene ViewSnowShoeToursDetailedParentScene = new Scene(ViewSnowShoeToursDetailedParent);
       Stage window = (Stage) ((Node) event.getSource()).getScene().getWindow();
       window.setScene(ViewSnowShoeToursDetailedParentScene);
@@ -60,7 +60,7 @@ public class MainPageController {
 
   public void GoInitiateSnowShoeTourCreationPage(ActionEvent event) {
     try {
-      Parent ViewSnowShoeToursDetailedParent = FXMLLoader.load(getClass().getResource("controllers/InitiateSnowShoeingTourCreation.fxml"));
+      Parent ViewSnowShoeToursDetailedParent = FXMLLoader.load(getClass().getResource("Pages/InitiateSnowShoeingTourCreation.fxml"));
       Scene ViewSnowShoeToursDetailedParentScene = new Scene(ViewSnowShoeToursDetailedParent);
       Stage window = (Stage) ((Node) event.getSource()).getScene().getWindow();
       window.setScene(ViewSnowShoeToursDetailedParentScene);
@@ -73,7 +73,7 @@ public class MainPageController {
   
   public void GoAddDeleteGearDetailedButtonClicked(ActionEvent event) {
     try {
-      Parent ViewSnowShoeToursDetailedParent = FXMLLoader.load(getClass().getResource("Controllers/AddDeleteGear.fxml"));
+      Parent ViewSnowShoeToursDetailedParent = FXMLLoader.load(getClass().getResource("Pages/AddDeleteGear.fxml"));
       Scene ViewSnowShoeToursDetailedParentScene = new Scene(ViewSnowShoeToursDetailedParent);
       Stage window = (Stage) ((Node) event.getSource()).getScene().getWindow();
       window.setScene(ViewSnowShoeToursDetailedParentScene);
@@ -85,7 +85,7 @@ public class MainPageController {
 
   public void GoPayParticipantPage(ActionEvent event) {
     try {
-      Parent ViewSnowShoeToursDetailedParent = FXMLLoader.load(getClass().getResource("controllers/PayParticipant.fxml"));
+      Parent ViewSnowShoeToursDetailedParent = FXMLLoader.load(getClass().getResource("Pages/PayParticipant.fxml"));
       Scene ViewSnowShoeToursDetailedParentScene = new Scene(ViewSnowShoeToursDetailedParent);
       Stage window = (Stage) ((Node) event.getSource()).getScene().getWindow();
       window.setScene(ViewSnowShoeToursDetailedParentScene);
@@ -98,7 +98,7 @@ public class MainPageController {
   
   public void GoAddDeleteLodgeDetailedButtonClicked(ActionEvent event) {
     try {
-      Parent ViewSnowShoeToursDetailedParent = FXMLLoader.load(getClass().getResource("Controllers/AddDeleteLodge.fxml"));
+      Parent ViewSnowShoeToursDetailedParent = FXMLLoader.load(getClass().getResource("Pages/AddDeleteLodge.fxml"));
       Scene ViewSnowShoeToursDetailedParentScene = new Scene(ViewSnowShoeToursDetailedParent);
       Stage window = (Stage) ((Node) event.getSource()).getScene().getWindow();
       window.setScene(ViewSnowShoeToursDetailedParentScene);
@@ -110,7 +110,7 @@ public class MainPageController {
 
   public void GoRegisterDeleteGuidePage(ActionEvent event) {
     try {
-      Parent ViewSnowShoeToursDetailedParent = FXMLLoader.load(getClass().getResource("controllers/RegisterDeleteGuide.fxml"));
+      Parent ViewSnowShoeToursDetailedParent = FXMLLoader.load(getClass().getResource("Pages/RegisterDeleteGuide.fxml"));
       Scene ViewSnowShoeToursDetailedParentScene = new Scene(ViewSnowShoeToursDetailedParent);
       Stage window = (Stage) ((Node) event.getSource()).getScene().getWindow();
       window.setScene(ViewSnowShoeToursDetailedParentScene);
@@ -122,7 +122,7 @@ public class MainPageController {
 
   public void GoAddRemoveGearToComboDetailedButtonClicked(ActionEvent event) {
     try {
-      Parent ViewSnowShoeToursDetailedParent = FXMLLoader.load(getClass().getResource("Controllers/AddRemoveGearToCombo.fxml"));
+      Parent ViewSnowShoeToursDetailedParent = FXMLLoader.load(getClass().getResource("Pages/AddRemoveGearToCombo.fxml"));
       Scene ViewSnowShoeToursDetailedParentScene = new Scene(ViewSnowShoeToursDetailedParent);
       Stage window = (Stage) ((Node) event.getSource()).getScene().getWindow();
       window.setScene(ViewSnowShoeToursDetailedParentScene);
@@ -134,7 +134,7 @@ public class MainPageController {
 
   public void GoStartFinishCancelTripPage(ActionEvent event) {
     try {
-      Parent ViewSnowShoeToursDetailedParent = FXMLLoader.load(getClass().getResource("controllers/StartFinishCancelParticipantTrip.fxml"));
+      Parent ViewSnowShoeToursDetailedParent = FXMLLoader.load(getClass().getResource("Pages/StartFinishCancelParticipantTrip.fxml"));
       Scene ViewSnowShoeToursDetailedParentScene = new Scene(ViewSnowShoeToursDetailedParent);
       Stage window = (Stage) ((Node) event.getSource()).getScene().getWindow();
       window.setScene(ViewSnowShoeToursDetailedParentScene);
@@ -146,7 +146,7 @@ public class MainPageController {
 
   public void GoAddRemoveBookedItemDetailedButtonClicked(ActionEvent event) {
     try {
-      Parent ViewSnowShoeToursDetailedParent = FXMLLoader.load(getClass().getResource("controllers/AddRemoveBookedItem.fxml"));
+      Parent ViewSnowShoeToursDetailedParent = FXMLLoader.load(getClass().getResource("Pages/AddRemoveBookedItem.fxml"));
       Scene ViewSnowShoeToursDetailedParentScene = new Scene(ViewSnowShoeToursDetailedParent);
       Stage window = (Stage) ((Node) event.getSource()).getScene().getWindow();
       window.setScene(ViewSnowShoeToursDetailedParentScene);
@@ -159,7 +159,7 @@ public class MainPageController {
 
   public void GoUpdateSnowShoeToursPage(ActionEvent event) {
     try {
-      Parent ViewSnowShoeToursDetailedParent = FXMLLoader.load(getClass().getResource("controllers/UpdateSnowShoeTours.fxml"));
+      Parent ViewSnowShoeToursDetailedParent = FXMLLoader.load(getClass().getResource("Pages/UpdateSnowShoeTours.fxml"));
       Scene ViewSnowShoeToursDetailedParentScene = new Scene(ViewSnowShoeToursDetailedParent);
       Stage window = (Stage) ((Node) event.getSource()).getScene().getWindow();
       window.setScene(ViewSnowShoeToursDetailedParentScene);
@@ -171,7 +171,7 @@ public class MainPageController {
 
   public void GoRegisterDeleteParticipantPage(ActionEvent event) {
     try {
-      Parent ViewSnowShoeToursDetailedParent = FXMLLoader.load(getClass().getResource("controllers/RegisterDeleteParticipant.fxml"));
+      Parent ViewSnowShoeToursDetailedParent = FXMLLoader.load(getClass().getResource("Pages/RegisterDeleteParticipant.fxml"));
       Scene ViewSnowShoeToursDetailedParentScene = new Scene(ViewSnowShoeToursDetailedParent);
       Stage window = (Stage) ((Node) event.getSource()).getScene().getWindow();
       window.setScene(ViewSnowShoeToursDetailedParentScene);
