@@ -12,7 +12,7 @@ import ca.mcgill.ecse.snowshoetours.model.User;
 import ca.mcgill.ecse.snowshoetours.persistence.SstPersistence;
 
 public class ParticipantController {
-  
+
   /**
    * @author souhail el hayani
    * @return list of transfer objects of participants
@@ -22,12 +22,12 @@ public class ParticipantController {
     List<TOParticipant> list = new ArrayList<>();
     List<Participant> list1 = sst.getParticipants();
     for(Participant par : list1) {
-      list.add(new TOParticipant(par.getAccountName()));
+      list.add(new TOParticipant(par.getAccountName(), par.getAuthorizationCode()));
     }
     return list;
   }
-  
-  
+
+
   /**
    * @author Philippe Marchand+Martin Eskaros
    * @param email
@@ -41,8 +41,8 @@ public class ParticipantController {
    * @return error message
    */
   public static String registerParticipant(String email, String password, String name,
-      String emergencyContact, int nrWeeks, int weekAvailableFrom, int weekAvailableUntil,
-      boolean lodgeRequired) {
+                                           String emergencyContact, int nrWeeks, int weekAvailableFrom, int weekAvailableUntil,
+                                           boolean lodgeRequired) {
 
     if (email == null || email.isBlank()) { // checks for validity of email
       try {
@@ -69,7 +69,7 @@ public class ParticipantController {
       return "Name cannot be empty";
     }
     if (emergencyContact == null || emergencyContact.isBlank()) { // checks for validity of
-                                                                  // emergency contact
+      // emergency contact
       try {
         SstPersistence.save();
       } catch (RuntimeException e) {
@@ -94,9 +94,9 @@ public class ParticipantController {
       return "Number of weeks must be less than or equal to the number of snowshoe weeks in the snowshoe season";
     }
     if ((weekAvailableFrom < 1 || weekAvailableFrom > 10)
-        || (weekAvailableUntil < 1 || weekAvailableUntil > 10)) { // checks weekAvailableFrom &
-                                                                  // weekAvailableUntil are within
-                                                                  // the bounds
+            || (weekAvailableUntil < 1 || weekAvailableUntil > 10)) { // checks weekAvailableFrom &
+      // weekAvailableUntil are within
+      // the bounds
       try {
         SstPersistence.save();
       } catch (RuntimeException e) {
@@ -106,7 +106,7 @@ public class ParticipantController {
     }
     // Logic check
     if (weekAvailableFrom >= weekAvailableUntil) { // checks for correct logic of week available
-                                                   // dates
+      // dates
       try {
         SstPersistence.save();
       } catch (RuntimeException e) {
@@ -131,7 +131,7 @@ public class ParticipantController {
       return "Email must not contain any spaces";
     }
     if (nrWeeks > (weekAvailableUntil - weekAvailableFrom + 1)) { // checks number of weeks is equal
-                                                                  // to the weeks available + 1
+      // to the weeks available + 1
       try {
         SstPersistence.save();
       } catch (RuntimeException e) {
@@ -151,9 +151,9 @@ public class ParticipantController {
 
     // checks for validity of email using the sequence of characters in the string
     if (!(email.contains("@") && email.indexOf("@") > 0
-        && email.indexOf("@") == email.lastIndexOf("@")
-        && email.indexOf("@") < email.lastIndexOf(".") - 1
-        && email.lastIndexOf(".") < email.length() - 1)) {
+            && email.indexOf("@") == email.lastIndexOf("@")
+            && email.indexOf("@") < email.lastIndexOf(".") - 1
+            && email.lastIndexOf(".") < email.length() - 1)) {
       try {
         SstPersistence.save();
       } catch (RuntimeException e) {
@@ -167,12 +167,12 @@ public class ParticipantController {
     List<Participant> participants = sst.getParticipants(); // assigns variable participants
     List<Guide> guides = sst.getGuides(); // assigns variable guides
     if (sst.getManager().getAccountName().equals(email)) { // checks manager's email in system and
-                                                           // returns empty string if match occurs
+      // returns empty string if match occurs
       return "";
     }
     for (Participant participant : participants) {
       if (participant.getAccountName().equals(email)) { // if the participant's information already
-                                                        // exists in the system
+        // exists in the system
         try {
           SstPersistence.save();
         } catch (RuntimeException e) {
@@ -183,7 +183,7 @@ public class ParticipantController {
     }
     for (Guide guide : guides) {
       if (email.equals(guide.getAccountName())) { // if the guide's information already exists in
-                                                  // the system
+        // the system
         try {
           SstPersistence.save();
         } catch (RuntimeException e) {
@@ -194,7 +194,7 @@ public class ParticipantController {
     }
     // Once all conditions are checked, successfully add the participant
     sst.addParticipant(email, password, name, emergencyContact, nrWeeks, weekAvailableFrom,
-        weekAvailableUntil, lodgeRequired, "", 0);
+            weekAvailableUntil, lodgeRequired, "", 0);
     try {
       SstPersistence.save();
     } catch (RuntimeException e) {
@@ -221,7 +221,7 @@ public class ParticipantController {
       List<Participant> participants = sst.getParticipants();
       for (Participant participant : participants) {
         if (participant.getAccountName().equals(email)) { // once the email matches the one in the
-                                                          // system
+          // system
           participant.delete(); // you can successfully delete it
           return "";
         }
@@ -324,7 +324,7 @@ public class ParticipantController {
     }
 
     if (bookableItemName == null || bookableItemName.isBlank()) { // checks validity of the bookable
-                                                                  // item name
+      // item name
       try {
         SstPersistence.save();
       } catch (RuntimeException e) {
@@ -335,7 +335,7 @@ public class ParticipantController {
     var error = ""; // sets empty string for error
 
     BookableItem bookedItem = BookableItem.getWithName(bookableItemName); // assigns variable
-                                                                          // bookedItem
+    // bookedItem
 
     User user = User.getWithAccountName(email); // assigns user to the email given in input
 
@@ -367,7 +367,7 @@ public class ParticipantController {
         if (b.getItem() == bookedItem) {
           int currentQuantity = b.getQuantity();
           if (currentQuantity > 1) { // quantity should be more than 1 to avoid any running out of
-                                     // quantity (can't go in negatives in real life)
+            // quantity (can't go in negatives in real life)
             b.setQuantity(currentQuantity - 1); // Decrease quantity by 1
           } else {
             p.removeBookedItem(b); // Remove the booked item from participant
@@ -395,5 +395,6 @@ public class ParticipantController {
     return error;
   }
 }
+
 
 
