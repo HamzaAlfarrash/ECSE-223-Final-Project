@@ -271,7 +271,7 @@ public class GearController {
    */
   public static String addGearToCombo(String gearName, String comboName) {
 
-    if (gearName.isBlank()) { // if the gear name is empty
+    if (gearName == null || gearName.isBlank()) { // if the gear name is empty
       try {
         SstPersistence.save();
       } catch (RuntimeException e) {
@@ -279,7 +279,7 @@ public class GearController {
       }
       return "The gear name must not be empty ";
     }
-    if (comboName.isBlank()) { // if the combo name is empty
+    if (comboName == null || comboName.isBlank()) { // if the combo name is empty
       try {
         SstPersistence.save();
       } catch (RuntimeException e) {
@@ -371,7 +371,7 @@ public class GearController {
    */
   public static String removeGearFromCombo(String gearName, String comboName) {
     // TODO Implement the method, return error message (if any)
-    if (gearName.isBlank()) {
+    if (gearName == null || gearName.isBlank()) {
       try {
         SstPersistence.save();
       } catch (RuntimeException e) {
@@ -379,7 +379,7 @@ public class GearController {
       }
       return "The gear name must not be empty ";
     }
-    if (comboName.isBlank()) {
+    if (comboName == null || comboName.isBlank()) {
       try {
         SstPersistence.save();
       } catch (RuntimeException e) {

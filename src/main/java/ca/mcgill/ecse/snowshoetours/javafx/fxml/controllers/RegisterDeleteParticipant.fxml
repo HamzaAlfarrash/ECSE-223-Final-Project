@@ -45,5 +45,6 @@
       <ChoiceBox fx:id="deleteParticipantChoiceBox" layoutX="249.0" layoutY="225.0" prefHeight="25.0" prefWidth="205.0" />
       <Button layoutX="12.0" layoutY="290.0" mnemonicParsing="false" onAction="#GoBackButtonClicked" text="Back" />
       <Button fx:id="deleteParticipantButton" layoutX="467.0" layoutY="225.0" mnemonicParsing="false" onAction="#deleteParticipantClicked" text="Confirm" />
+      <Button fx:id="deleteClearButton" layoutX="329.0" layoutY="264.0" mnemonicParsing="false" onAction="#clearDeleteChoiceBox" prefHeight="26.0" prefWidth="46.0" text="Clear" />
    </children>
 </AnchorPane>

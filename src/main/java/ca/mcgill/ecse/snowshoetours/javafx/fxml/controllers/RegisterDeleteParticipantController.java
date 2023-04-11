@@ -5,8 +5,6 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import java.io.IOException;
 import ca.mcgill.ecse.snowshoetours.controller.ParticipantController;
-import ca.mcgill.ecse.snowshoetours.controller.TOParticipant;
-import ca.mcgill.ecse.snowshoetours.controller.TOParticipantCost;
 import ca.mcgill.ecse.snowshoetours.javafx.fxml.SSTFxmlView;
 import javafx.scene.Node;
 import javafx.scene.Parent;
@@ -53,6 +51,7 @@ public class RegisterDeleteParticipantController {
     });
     SSTFxmlView.getInstance().registerRefreshEvent(deleteParticipantChoiceBox);
   }
+  
   @FXML
   public void clearClicked(ActionEvent event) {
     addParticipantNameTextField.clear();
@@ -63,6 +62,11 @@ public class RegisterDeleteParticipantController {
     addWeekUntilTextField.clear();
     lodgeCheckBox.setSelected(false);
     addNumberOfWeeksTextField.clear();
+  }
+  
+  @FXML
+  public void clearDeleteChoiceBox(ActionEvent event) {
+    deleteParticipantChoiceBox.setValue(null);
   }
   
   @FXML
