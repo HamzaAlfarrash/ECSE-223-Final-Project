@@ -13,6 +13,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Button;
 import javafx.scene.control.ChoiceBox;
 import javafx.stage.Stage;
 
@@ -20,6 +21,8 @@ public class PayParticipantController {
 
   @FXML
   private ChoiceBox<String> payParticipantChoiceBox;
+  @FXML
+  private Button payButton;
 
   public void GoBack(ActionEvent event) {
     try {
