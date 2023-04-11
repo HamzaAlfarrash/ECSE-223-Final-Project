@@ -8,11 +8,16 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.ChoiceBox;
+import javafx.scene.control.TableColumn;
 import javafx.scene.control.TextField;
+import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 import javafx.scene.Parent;
 import javafx.scene.Node;
+import ca.mcgill.ecse.snowshoetours.controller.TOSnowShoeTour;
+import ca.mcgill.ecse.snowshoetours.javafx.fxml.controllers.ViewUtils;
+import javafx.scene.control.TableView;
 
 public class MainPageController {
 
@@ -29,9 +34,6 @@ public class MainPageController {
   private Button GoPayParticipantButton;
   private Button GoStartFinishCancelParticipantTripButton;
   
-  public void Initialize() {
-	  //will be implementing the overview table
-  }
 
   public void GoViewSnowShoeToursDetailedButtonClicked(ActionEvent event) {
     try {
@@ -180,11 +182,5 @@ public class MainPageController {
       e.printStackTrace();
     }
   }
-  public void RefreshSSTOverviewClicked(ActionEvent event) {
-//	  try {
-//	  }
-//	  catch (IOException e) {
-//	      e.printStackTrace();
-//	      }
-  }
+ 
 }

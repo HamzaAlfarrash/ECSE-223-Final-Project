@@ -494,7 +494,19 @@
       }
     ],
     "lodges": [
-      ""
+      {
+        "Lodge": {
+          "name": "annana",
+          "address": "ananna",
+          "rating": "TwoStars",
+          "snowShoeTour": {
+            "@reference": "../../.."
+          },
+          "tours": [
+            ""
+          ]
+        }
+      }
     ],
     "tours": [
       {
