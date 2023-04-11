@@ -28,6 +28,10 @@ public class MainPageController {
   private Button GoRegisterDeleteParticipantButton;
   private Button GoPayParticipantButton;
   private Button GoStartFinishCancelParticipantTripButton;
+  
+  public void Initialize() {
+	  //will be implementing the overview table
+  }
 
   public void GoViewSnowShoeToursDetailedButtonClicked(ActionEvent event) {
     try {
@@ -175,5 +179,12 @@ public class MainPageController {
     } catch (IOException e) {
       e.printStackTrace();
     }
+  }
+  public void RefreshSSTOverviewClicked(ActionEvent event) {
+//	  try {
+//	  }
+//	  catch (IOException e) {
+//	      e.printStackTrace();
+//	      }
   }
 }

@@ -90,5 +90,6 @@
             <TableColumn prefWidth="99.33331298828125" text="# of Participant" />
         </columns>
       </TableView>
+      <Button fx:id="RefreshSSTOverview" layoutX="447.0" layoutY="454.0" mnemonicParsing="false" onAction="#RefreshSSTOverviewClicked" text="Refresh" />
    </children>
 </AnchorPane>
