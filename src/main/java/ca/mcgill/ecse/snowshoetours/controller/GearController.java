@@ -342,18 +342,20 @@ public class GearController {
         } catch (RuntimeException e) {
           System.out.println("error");
         }
+        System.out.println("reached from controller");
         return "";
       }
     }
-    System.out.println("reached");
-    gearComboItem = new ComboItem(1, sst, tCombo, tGear); // if gear exists, then we want it to be a
+    System.out.println("reached from controller");
+    sst.addComboItem(1, tCombo, tGear);
+    /*gearComboItem = new ComboItem(1, sst, tCombo, tGear); // if gear exists, then we want it to be a
                                                           // comboItem so we can add it to our
                                                           // combo.
 
     // Add combo item (gear) to the combo.
     tCombo.addComboItem(gearComboItem);
     // Add combo item to the list of combo items in the gear
-    tGear.addComboItem(gearComboItem);
+    tGear.addComboItem(gearComboItem);*/
     try {
       SstPersistence.save();
     } catch (RuntimeException e) {
@@ -433,7 +435,10 @@ public class GearController {
       if (comboItem.getGear() == tGear) { // if the combo item is of the associated gear, remove it
                                           // from the combo.
         comboItem.setQuantity(comboItem.getQuantity() - 1);
-        if (comboItem.getQuantity() < 1) {
+        //TODO remove
+        System.out.println("decremented quantity in controller");
+        System.out.println(comboItem.getQuantity()+" for "+comboItem.getGear().getName()+" in "+comboItem.getCombo().getName());
+        if (comboItem.getQuantity() < 1) { //if quantity zero , has to be removed
           if (tCombo.getComboItems().size() <= 2) { // if the combo only has one piece of gear
             comboItem.setQuantity(comboItem.getQuantity() + 1);
             try {
@@ -444,6 +449,7 @@ public class GearController {
             return "A combo must have at least two pieces of gear";
           }
           comboItem.delete(); // delete the combo item
+          System.out.println("deleted in controller");
           try {
             SstPersistence.save();
           } catch (RuntimeException e) {

@@ -1,8 +1,10 @@
 package ca.mcgill.ecse.snowshoetours.javafx.fxml.controllers;
 
 import java.io.IOException;
+import ca.mcgill.ecse.snowshoetours.application.SnowShoeToursApplication;
 import ca.mcgill.ecse.snowshoetours.controller.GearController;
 import ca.mcgill.ecse.snowshoetours.javafx.fxml.SSTFxmlView;
+import ca.mcgill.ecse.snowshoetours.model.SnowShoeTour;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -78,6 +80,7 @@ public class AddRemoveGearToComboController {
     String comboName = comboNameChoiceBox.getValue();
     String gearName = gearNameChoiceBox.getValue();
     if(ViewUtils.successful(GearController.addGearToCombo(gearName, comboName))) {
+      System.out.println("reached from ui");
       comboNameChoiceBox.setValue(null);
       gearNameChoiceBox.setValue(null);
       SSTFxmlView.getInstance().refresh();
@@ -92,6 +95,9 @@ public class AddRemoveGearToComboController {
     String comboName = comboNameChoiceBox1.getValue();
     String gearName = gearNameChoiceBox1.getValue();
     if(ViewUtils.successful(GearController.removeGearFromCombo(gearName, comboName))) {
+      //for testing, TODO remove
+      SnowShoeTour sst = SnowShoeToursApplication.getSnowShoeTour();
+      System.out.println(sst.getComboItems().size());
       comboNameChoiceBox1.setValue(null);
       gearNameChoiceBox1.setValue(null);
       SSTFxmlView.getInstance().refresh();
