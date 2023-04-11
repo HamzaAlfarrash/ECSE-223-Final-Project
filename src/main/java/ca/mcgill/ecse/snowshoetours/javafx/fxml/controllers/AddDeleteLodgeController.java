@@ -31,6 +31,9 @@ public class AddDeleteLodgeController {
 	
 	@FXML
 	private Button clearButton;
+	   
+	@FXML
+	private Button clearButton1;
 	
 	@FXML
 	private Button addLodgeButton; 
@@ -109,11 +112,17 @@ public class AddDeleteLodgeController {
 	  addressBox.clear();
 	  ratingChoiceBox.setValue(null); 
   }
+  /**
+   * @author Yassine Mimet
+   * @param event
+   */
+  public void clearDeleteChoiceBox(ActionEvent event) {
+    deleteLodgeChoiceBox.setValue(null);
+  }
   
   /** 
    * @author Wasif Somji || Yassine Mimet
    */
-  
   public void deleteLodgeButtonClicked(ActionEvent event) {
       String deleteLodgeName = deleteLodgeChoiceBox.getValue();
 	  if(ViewUtils.successful(LodgeController.deleteLodge(deleteLodgeName))) {
