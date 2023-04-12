@@ -100,16 +100,19 @@ public class RegisterDeleteParticipantController {
       weekAvailableFrom = Integer.parseInt(waf);
     } catch (NumberFormatException e) {
       ViewUtils.showError("Enter an Integer");
+      return;
     }
     try {
       weekAvailableUntil = Integer.parseInt(wau);
     } catch (NumberFormatException e) {
       ViewUtils.showError("Enter an Integer");
+      return;
     }
     try {
       nrWeeks = Integer.parseInt(nrw);
     } catch (NumberFormatException e) {
       ViewUtils.showError("Enter an Integer");
+      return;
     }
     boolean lodge = lodgeCheckBox.isSelected();
     
