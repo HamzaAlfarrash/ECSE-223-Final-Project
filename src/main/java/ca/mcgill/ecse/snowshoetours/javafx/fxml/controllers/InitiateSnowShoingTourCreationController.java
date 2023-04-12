@@ -28,14 +28,21 @@ public class InitiateSnowShoingTourCreationController {
     }
   }
 
+  /**
+   * @author Martin Eskaros
+   * @param event
+   */
   public void InitiateButtonClicked(ActionEvent event) {
+    // Call the initiate method from the SnowShoeTourStateMachineController class and check if it was successful
     if(ViewUtils.successful(SnowShoeTourStateMachineController.initiate())) {
       try {
+        // Load the MainPage.fxml file and create a new scene with its contents
         Parent mainPageParent = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("../MainPage.fxml")));
         Scene mainPageScene = new Scene(mainPageParent);
+        // Get the stage from the event source
         Stage window = (Stage) ((Node) event.getSource()).getScene().getWindow();
-        window.setScene(mainPageScene);
-        window.show();
+        window.setScene(mainPageScene); //set its scene to the MainPage scene
+        window.show(); //show the stage
       } catch (IOException e) {
         e.printStackTrace();
       }
