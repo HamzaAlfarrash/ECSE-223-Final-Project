@@ -22,7 +22,7 @@
           <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
         </rowConstraints>
          <children>
-            <Button mnemonicParsing="false" prefHeight="25.0" prefWidth="283.0" text="Initiate the snowshoeing tour creation process" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="TOP" />
+            <Button fx:id="InitiateButton" mnemonicParsing="false" onAction="#InitiateButtonClicked" prefHeight="25.0" prefWidth="283.0" text="Initiate the snowshoeing tour creation process" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="TOP" />
             <Button mnemonicParsing="false" onAction="#GoBackButtonClicked" text="Back" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.valignment="CENTER" />
             <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="47.0" prefWidth="286.0" text="Initiate ShowShoeing Tour Creation" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.valignment="TOP">
                <font>
