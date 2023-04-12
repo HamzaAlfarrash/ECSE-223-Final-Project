@@ -1,14 +1,25 @@
 package ca.mcgill.ecse.snowshoetours.javafx.fxml.controllers;
 
 import java.io.IOException;
+import java.util.List;
+import java.util.Objects;
+
+import ca.mcgill.ecse.snowshoetours.controller.ParticipantController;
+import ca.mcgill.ecse.snowshoetours.controller.SnowShoeTourStateMachineController;
+import ca.mcgill.ecse.snowshoetours.controller.TOParticipant;
 import javafx.event.ActionEvent;
+import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Button;
 import javafx.stage.Stage;
 
 public class InitiateSnowShoingTourCreationController {
+
+  @FXML
+  private Button initiateButton;
   public void GoBackButtonClicked(ActionEvent event) {
     try {
       Parent ViewSnowShoeToursDetailedParent = FXMLLoader.load(getClass().getResource("../MainPage.fxml"));
@@ -20,4 +31,20 @@ public class InitiateSnowShoingTourCreationController {
       e.printStackTrace();
     }
   }
-}
+
+  public void InitiateButtonClicked (ActionEvent event) {
+    SnowShoeTourStateMachineController.initiate();
+    try {
+      Parent mainPageParent = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("../MainPage.fxml")));
+      Scene mainPageScene = new Scene(mainPageParent);
+      Stage window = (Stage) ((Node) event.getSource()).getScene().getWindow();
+      window.setScene(mainPageScene);
+      window.show();
+    } catch (IOException e) {
+      e.printStackTrace();
+    }
+  }
+
+  }
+
+
