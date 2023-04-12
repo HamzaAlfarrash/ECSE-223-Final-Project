@@ -23,11 +23,12 @@ public class PayParticipantController {
   private ChoiceBox<String> payParticipantChoiceBox;
   @FXML
   private Button payButton;
-
+  @FXML
+  private Button clearButton;
+  
   public void GoBack(ActionEvent event) {
     try {
-      Parent ViewSnowShoeToursDetailedParent =
-              FXMLLoader.load(getClass().getResource("../MainPage.fxml"));
+      Parent ViewSnowShoeToursDetailedParent = FXMLLoader.load(getClass().getResource("../MainPage.fxml"));
       Scene ViewSnowShoeToursDetailedParentScene = new Scene(ViewSnowShoeToursDetailedParent);
       Stage window = (Stage) ((Node) event.getSource()).getScene().getWindow();
       window.setScene(ViewSnowShoeToursDetailedParentScene);
@@ -46,18 +47,19 @@ public class PayParticipantController {
     });
     SSTFxmlView.getInstance().registerRefreshEvent(payParticipantChoiceBox);
   }
-
+  
   @FXML
   public void PayButtonClicked(ActionEvent event) {
     String participantEmail = payParticipantChoiceBox.getValue();
-    List<TOParticipant> list1 = ParticipantController.getParticipants();
-    if (participantEmail != null) {
-      for (TOParticipant par : list1){
-        if (par.getParticipantAccountName().equals(participantEmail)){
-          SnowShoeTourStateMachineController.confirmPayement(participantEmail, par.getAuthorizationCode());
-        }
-      }
+    if(ViewUtils.successful(SnowShoeTourStateMachineController.confirmPayement(participantEmail, "Paid"))) {
+      payParticipantChoiceBox.setValue(null);
+      SSTFxmlView.getInstance().refresh();
     }
+  }
+  
+  @FXML
+  public void clearButtonClicked(ActionEvent event) {
+    payParticipantChoiceBox.setValue(null);
   }
 }
 
