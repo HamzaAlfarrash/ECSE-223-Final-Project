@@ -512,6 +512,26 @@
             "bookedItems": [
               ""
             ]
+          },
+          {
+            "accountName": "bibi@mail.ca",
+            "password": "baba",
+            "name": "bibi",
+            "emergencyContact": 32453533535,
+            "hasPaid": false,
+            "nrWeeks": 1,
+            "weekAvailableFrom": 2,
+            "weekAvailableUntil": 5,
+            "lodgeRequired": true,
+            "authorizationCode": "",
+            "refundedPercentageAmount": 0,
+            "status": "NotAssigned",
+            "snowShoeTour": {
+              "@reference": "../../.."
+            },
+            "bookedItems": [
+              ""
+            ]
           }
         ]
       }
