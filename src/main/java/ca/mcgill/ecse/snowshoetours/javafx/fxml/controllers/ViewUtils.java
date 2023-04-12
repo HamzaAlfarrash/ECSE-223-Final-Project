@@ -3,8 +3,6 @@ package ca.mcgill.ecse.snowshoetours.javafx.fxml.controllers;
 import java.sql.Date;
 import java.util.ArrayList;
 import java.util.List;
-
-import ca.mcgill.ecse.snowshoetours.application.SnowShoeToursApplication;
 import ca.mcgill.ecse.snowshoetours.controller.GearController;
 import ca.mcgill.ecse.snowshoetours.controller.LodgeController;
 import ca.mcgill.ecse.snowshoetours.controller.GuideController;

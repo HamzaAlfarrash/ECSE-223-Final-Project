@@ -253,7 +253,7 @@
                                                       "lodgeRequired": false,
                                                       "authorizationCode": 1234,
                                                       "refundedPercentageAmount": 0,
-                                                      "status": "Paid",
+                                                      "status": "Started",
                                                       "snowShoeTour": {
                                                         "@reference": "../../../../../../../../../../../../../../../.."
                                                       },

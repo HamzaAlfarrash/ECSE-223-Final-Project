@@ -62,7 +62,7 @@ public class SnowShoeTourStateMachineController {
     int id = maxId; // will be used for id of a tour
     // for each participant, assign a Tour to it with matching startweek and endweek
     for (Participant par : list) {
-      if(par.getStatus()!=Status.NotAssigned) continue;
+      if(par.getStatus()==Status.Assigned) continue;
       int nOfWeeks = par.getNrWeeks(); // gets number of weeks
       int weekAvailableFrom = par.getWeekAvailableFrom(); // gets start week
       int i = id; // index to get the guide
