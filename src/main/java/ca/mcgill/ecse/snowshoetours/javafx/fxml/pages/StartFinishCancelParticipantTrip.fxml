@@ -8,15 +8,18 @@
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="467.0" prefWidth="625.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ca.mcgill.ecse.snowshoetours.javafx.fxml.controllers.StartFinishCancelParticipantTripController">
    <children>
-      <Label layoutX="184.0" layoutY="14.0" prefHeight="23.0" prefWidth="294.0" text="Start/Finish/Cancel a Participant's Trip">
+      <Label layoutX="173.0" layoutY="59.0" prefHeight="23.0" prefWidth="294.0" text="Start/Finish/Cancel a Participant's Trip">
          <font>
             <Font size="18.0" />
          </font></Label>
-      <Button fx:id="backButton" layoutX="14.0" layoutY="354.0" mnemonicParsing="false" onAction="#GoBackButtonClicked" text="Back" />
-      <Button fx:id="startTripButton" layoutX="156.0" layoutY="354.0" mnemonicParsing="false" text="Start Trip" />
-      <Button fx:id="cancelTripButton" layoutX="501.0" layoutY="354.0" mnemonicParsing="false" text="Cancel Trip" />
+      <Button fx:id="backButton" layoutX="99.0" layoutY="354.0" mnemonicParsing="false" onAction="#GoBackButtonClicked" text="Back" />
+      <Button fx:id="startTripButton" layoutX="197.0" layoutY="354.0" mnemonicParsing="false" text="Start Trip" />
+      <Button fx:id="cancelTripButton" layoutX="455.0" layoutY="354.0" mnemonicParsing="false" text="Cancel Trip" />
       <Button fx:id="finishTripButton" layoutX="320.0" layoutY="354.0" mnemonicParsing="false" text="Finish Trip" />
-      <ChoiceBox fx:id="selectParticipantID" layoutX="208.0" layoutY="73.0" prefHeight="26.0" prefWidth="270.0" />
-      <Label layoutX="94.0" layoutY="78.0" text="Select Participant" />
+      <ChoiceBox fx:id="selectParticipantID" layoutX="185.0" layoutY="208.0" prefHeight="26.0" prefWidth="270.0" />
+      <Label layoutX="74.0" layoutY="213.0" text="Select Participant" />
+      <Button fx:id="clearButton" layoutX="468.0" layoutY="209.0" mnemonicParsing="false" text="Clear" />
+      <ChoiceBox fx:id="startWeek" layoutX="319.0" layoutY="260.0" prefWidth="150.0" />
+      <Label layoutX="144.0" layoutY="265.0" text="Select Start Week (if starting)" />
    </children>
 </AnchorPane>
