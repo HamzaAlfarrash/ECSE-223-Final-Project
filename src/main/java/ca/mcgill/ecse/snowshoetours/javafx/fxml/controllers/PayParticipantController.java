@@ -11,6 +11,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.ChoiceBox;
+import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 
 public class PayParticipantController {
@@ -19,6 +20,8 @@ public class PayParticipantController {
   private ChoiceBox<String> payParticipantChoiceBox;
   @FXML
   private Button payButton;
+  @FXML
+  private TextField codeTextField;
   
   /**
    * @author Yassine Mimet
@@ -57,8 +60,10 @@ public class PayParticipantController {
    */
   public void PayButtonClicked(ActionEvent event) {
     String participantEmail = payParticipantChoiceBox.getValue();
-    if(ViewUtils.successful(SnowShoeTourStateMachineController.confirmPayement(participantEmail, "Paid"))) {
+    String authorizationCode = codeTextField.getText();
+    if(ViewUtils.successful(SnowShoeTourStateMachineController.confirmPayement(participantEmail, authorizationCode))) {
       payParticipantChoiceBox.setValue(null);
+      codeTextField.clear();
       SSTFxmlView.getInstance().refresh();
     }
   }
@@ -66,5 +71,6 @@ public class PayParticipantController {
   @FXML
   public void clearButtonClicked(ActionEvent event) {
     payParticipantChoiceBox.setValue(null);
+    codeTextField.clear();
   }
 }
