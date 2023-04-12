@@ -36,7 +36,7 @@
                             "lodgeRequired": true,
                             "authorizationCode": "",
                             "refundedPercentageAmount": 0,
-                            "status": "NotAssigned",
+                            "status": "Cancelled",
                             "snowShoeTour": {
                               "@reference": "../../../../../../.."
                             },
