@@ -73,7 +73,7 @@ public class StartFinishCancelParticipantTripController {
     
     @FXML
     /**
-     * @author Wasif Somji
+     * @author Wasif Somji || Yassine Mimet
      */// start the trip for a certain number of weeks
     public void startTripButtonClicked() {
       String sWeek = (startWeekTextField.getText());
@@ -92,7 +92,7 @@ public class StartFinishCancelParticipantTripController {
     
     @FXML
     /**
-     * @author Wasif Somji
+     * @author Wasif Somji || Yassine Mimet
      */// cancel the trip
     public void cancelTripButtonClicked() {
       String ParticipantName = selectParticipantID.getValue(); 
@@ -105,7 +105,7 @@ public class StartFinishCancelParticipantTripController {
     
     @FXML
     /**
-     * @author Wasif Somji
+     * @author Wasif Somji || Yassine Mimet
      */// finish the trip
     public void finishTripButtonClicked() {
   	  String ParticipantName = selectParticipantID.getValue(); 
@@ -115,7 +115,9 @@ public class StartFinishCancelParticipantTripController {
   	    SSTFxmlView.getInstance().refresh();
   	  }
     }
-   
+   /**
+    * @author Yassine Mimet
+    */
     public void clearButtonClicked() {
       selectParticipantID.setValue(null);
       startWeekTextField.clear();

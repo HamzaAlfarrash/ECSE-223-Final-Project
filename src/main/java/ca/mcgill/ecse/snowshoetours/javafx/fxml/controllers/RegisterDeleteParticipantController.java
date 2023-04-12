@@ -93,26 +93,23 @@ public class RegisterDeleteParticipantController {
     String waf = addWeekFromTextField.getText();
     String wau = addWeekUntilTextField.getText();
     String nrw = addNumberOfWeeksTextField.getText();
-    int weekAvailableFrom;
-    int weekAvailableUntil;
-    int nrWeeks;
-    if( waf.equals("") || waf == null) {
-      weekAvailableFrom = -1;
+    int weekAvailableFrom = -1;
+    int weekAvailableUntil = -1;
+    int nrWeeks = -1;
+    try {
+      weekAvailableFrom = Integer.parseInt(waf);
+    } catch (NumberFormatException e) {
+      ViewUtils.showError("Enter an Integer");
     }
-    else {
-    weekAvailableFrom = Integer.parseInt(addWeekFromTextField.getText());
+    try {
+      weekAvailableUntil = Integer.parseInt(wau);
+    } catch (NumberFormatException e) {
+      ViewUtils.showError("Enter an Integer");
     }
-    if( wau.equals("") || wau == null) {
-      weekAvailableUntil = -1;
-    }
-    else {
-      weekAvailableUntil = Integer.parseInt(addWeekUntilTextField.getText());
-    }
-    if(nrw.equals("") || nrw == null) {
-      nrWeeks = -1;
-    }
-    else {
-      nrWeeks = Integer.parseInt(addNumberOfWeeksTextField.getText());
+    try {
+      nrWeeks = Integer.parseInt(nrw);
+    } catch (NumberFormatException e) {
+      ViewUtils.showError("Enter an Integer");
     }
     boolean lodge = lodgeCheckBox.isSelected();
     
