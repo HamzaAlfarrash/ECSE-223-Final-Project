@@ -1,5 +1,6 @@
 package ca.mcgill.ecse.snowshoetours.javafx.fxml.controllers;
 
+import java.sql.Date;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -16,6 +17,7 @@ import ca.mcgill.ecse.snowshoetours.controller.TOGuide;
 import ca.mcgill.ecse.snowshoetours.controller.TOParticipant;
 import ca.mcgill.ecse.snowshoetours.controller.TOSnowShoeTour;
 import ca.mcgill.ecse.snowshoetours.javafx.fxml.SSTFxmlView;
+import ca.mcgill.ecse.snowshoetours.model.SnowShoeTour;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.geometry.Insets;
@@ -147,9 +149,30 @@ public class ViewUtils {
     }
     return FXCollections.observableList(lodgeNames);
   }
-// public static String getStartWeek() {
-//	 SnowShoeTourController.getSnowShoeTours()
-//	 return 
-// }
+  /**
+   * @author Philippe Marchand
+   * @return The current SSTSeason Start Date
+   */
+ public static Date getStartDate() {
+	Date startDate = SnowShoeTourController.getSnowShoeTourSeason().getStartDate();
+	return startDate;
+	 
+ }
+ /**
+  * @author Philippe Marchand
+  * @return The current SSTSeason NrOfWeeks
+  */
+ public static int getNbrWeeks() {
+		int NrWeeks = SnowShoeTourController.getSnowShoeTourSeason().getNrWeeks();
+		return NrWeeks;
+	 }
+ /**
+  * @author Philippe Marchand
+  * @return The current SSTSeason PricePerGuide
+  */
+ public static int getPricePerGuide() {
+		int PricePerGuide = SnowShoeTourController.getSnowShoeTourSeason().getPriceOfGuidePerWeek();
+		return PricePerGuide;
+	 }
 
 }

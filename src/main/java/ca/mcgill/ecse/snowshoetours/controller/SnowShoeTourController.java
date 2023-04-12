@@ -195,6 +195,17 @@ public class SnowShoeTourController {
     }
     return null;
   }
+  
+  public static TOSnowShoeTourSeason getSnowShoeTourSeason() {
+	  SnowShoeTour sst = SnowShoeToursApplication.getSnowShoeTour();
+	  TOSnowShoeTourSeason ssts = new TOSnowShoeTourSeason(sst.getStartDate(),sst.getNrWeeks(),sst.getPriceOfGuidePerWeek());
+	  try {
+	        SstPersistence.save();
+	      } catch (RuntimeException e) {
+	  return null;
+	  }
+	  return ssts;
+  }
 
   /**
    * @author Souhail El Hayani updates SnowShoeTour

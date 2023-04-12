@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.DatePicker?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
@@ -13,20 +14,18 @@
             <Font size="18.0" />
          </font></Label>
       <Button layoutX="14.0" layoutY="360.0" mnemonicParsing="false" onAction="#GoBackButtonClicked" text="Back" />
-      <TextField layoutX="344.0" layoutY="87.0" prefHeight="26.0" prefWidth="24.0" />
-      <TextField layoutX="344.0" layoutY="158.0" prefHeight="26.0" prefWidth="24.0" />
-      <TextField layoutX="344.0" layoutY="222.0" prefHeight="26.0" prefWidth="24.0" />
-      <Label layoutX="14.0" layoutY="91.0" text="Current Start Week:" />
-      <Label layoutX="14.0" layoutY="162.0" text="Current End Week:" />
+      <TextField fx:id="NewNumberOfWeeks" layoutX="344.0" layoutY="158.0" prefHeight="26.0" prefWidth="24.0" />
+      <TextField fx:id="NewPricePerGuide" layoutX="344.0" layoutY="222.0" prefHeight="26.0" prefWidth="24.0" />
+      <Label layoutX="14.0" layoutY="91.0" text="Current Start Date:" />
+      <Label layoutX="14.0" layoutY="162.0" text="Current Number of Week:" />
       <Label layoutX="14.0" layoutY="226.0" text="Current Price per Guide:" />
-      <Label layoutX="230.0" layoutY="91.0" text="New Start Week:" />
-      <Label layoutX="230.0" layoutY="162.0" text="New End Week:" />
+      <Label layoutX="211.0" layoutY="91.0" text="New Start Date:" />
+      <Label layoutX="211.0" layoutY="162.0" text="New Number of Weeks:" />
       <Label layoutX="230.0" layoutY="226.0" text="New Price per Guide:" />
-      <Button layoutX="400.0" layoutY="87.0" mnemonicParsing="false" prefHeight="17.0" prefWidth="115.0" text="Update Start Date" />
-      <Button layoutX="396.0" layoutY="158.0" mnemonicParsing="false" text="Update Number of Weeks" />
-      <Button layoutX="403.0" layoutY="222.0" mnemonicParsing="false" text="Update Price per Guide" />
-      <Label layoutX="164.0" layoutY="91.0" text="Label" />
-      <Label layoutX="164.0" layoutY="226.0" text="Label" />
-      <Label layoutX="164.0" layoutY="162.0" text="Label" />
+      <Button fx:id="UpdateButton" layoutX="441.0" layoutY="280.0" mnemonicParsing="false" onAction="#UpdateButtonClicked" prefHeight="17.0" prefWidth="115.0" text="Update" />
+      <Label fx:id="CurrentStartDate" layoutX="113.0" layoutY="91.0" text="Label" />
+      <Label fx:id="CurrentPricePerGuide" layoutX="164.0" layoutY="226.0" text="Label" />
+      <Label fx:id="CurrentNrWeeks" layoutX="164.0" layoutY="162.0" text="Label" />
+      <DatePicker fx:id="NewStartDate" layoutX="302.0" layoutY="87.0" prefHeight="25.0" prefWidth="126.0" />
    </children>
 </AnchorPane>
