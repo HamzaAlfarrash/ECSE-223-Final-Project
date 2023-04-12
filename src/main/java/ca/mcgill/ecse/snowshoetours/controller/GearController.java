@@ -346,6 +346,7 @@ public class GearController {
       }
     }
     sst.addComboItem(1, tCombo, tGear);
+    
     /*gearComboItem = new ComboItem(1, sst, tCombo, tGear); // if gear exists, then we want it to be a
                                                           // comboItem so we can add it to our
                                                           // combo.

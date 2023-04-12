@@ -1,10 +1,8 @@
 package ca.mcgill.ecse.snowshoetours.javafx.fxml.controllers;
 
 import java.io.IOException;
-import ca.mcgill.ecse.snowshoetours.application.SnowShoeToursApplication;
 import ca.mcgill.ecse.snowshoetours.controller.GearController;
 import ca.mcgill.ecse.snowshoetours.javafx.fxml.SSTFxmlView;
-import ca.mcgill.ecse.snowshoetours.model.SnowShoeTour;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;

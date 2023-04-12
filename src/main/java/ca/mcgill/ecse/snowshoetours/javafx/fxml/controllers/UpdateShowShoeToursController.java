@@ -3,7 +3,6 @@ package ca.mcgill.ecse.snowshoetours.javafx.fxml.controllers;
 import java.io.IOException;
 import java.sql.Date;
 import java.time.LocalDate;
-
 import ca.mcgill.ecse.snowshoetours.controller.SnowShoeTourController;
 import ca.mcgill.ecse.snowshoetours.javafx.fxml.SSTFxmlView;
 import javafx.event.ActionEvent;
@@ -13,7 +12,6 @@ import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
-import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
