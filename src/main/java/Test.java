@@ -84,6 +84,5 @@ public class Test {
       int size = combo.getBookedItems().size();
       System.out.println(size);
     }
-    
   }
 }

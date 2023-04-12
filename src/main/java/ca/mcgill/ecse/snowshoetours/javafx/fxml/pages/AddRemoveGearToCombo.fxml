@@ -18,7 +18,7 @@
       <Button fx:id="addGearButton" layoutX="237.0" layoutY="116.0" mnemonicParsing="false" onAction="#addButtonClicked" text="Add Gear to Combo" />
       <Button fx:id="deleteClearButton" layoutX="511.0" layoutY="235.0" mnemonicParsing="false" onAction="#clearRemoveButtonClicked" text="Clear" />
       <Button fx:id="addClearButton" layoutX="516.0" layoutY="63.0" mnemonicParsing="false" onAction="#clearAddButtonClicked" text="Clear" />
-      <Button fx:id="removeGearButton" layoutX="221.0" layoutY="298.0" mnemonicParsing="false" onAction="#clearRemoveButtonClicked" text="Remove Gear from Combo" />
+      <Button fx:id="removeGearButton" layoutX="221.0" layoutY="298.0" mnemonicParsing="false" onAction="#deleteButtonClicked" text="Remove Gear from Combo" />
       <ChoiceBox fx:id="comboNameChoiceBox" layoutX="87.0" layoutY="63.0" prefWidth="150.0" />
       <Label layoutX="124.0" layoutY="217.0" text="Combo Name" />
       <ChoiceBox fx:id="gearNameChoiceBox" layoutX="366.0" layoutY="63.0" prefWidth="150.0" />
