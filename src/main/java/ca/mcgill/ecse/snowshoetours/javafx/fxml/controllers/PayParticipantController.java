@@ -23,8 +23,7 @@ public class PayParticipantController {
   private ChoiceBox<String> payParticipantChoiceBox;
   @FXML
   private Button payButton;
-  @FXML
-  private Button clearButton;
+  
   
   public void GoBack(ActionEvent event) {
     try {
