@@ -10,7 +10,7 @@
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="528.0" prefWidth="722.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ca.mcgill.ecse.snowshoetours.javafx.fxml.controllers.RegisterDeleteParticipantController">
    <children>
-      <Label layoutX="201.0" layoutY="14.0" prefHeight="30.0" prefWidth="325.0" text="Add/Delete Participant">
+      <Label layoutX="233.0" layoutY="14.0" prefHeight="36.0" prefWidth="262.0" text="Add/Delete Participant">
          <font>
             <Font size="25.0" />
          </font></Label>
@@ -52,20 +52,20 @@
       <CheckBox fx:id="lodgeCheckBox" layoutX="422.0" layoutY="120.0" mnemonicParsing="false" text="Lodge required" />
       <Button fx:id="registerParticipantButton" layoutX="599.0" layoutY="116.0" mnemonicParsing="false" onAction="#RegisterButtonClicked" text="Register" />
       <Button fx:id="clearButton" layoutX="528.0" layoutY="146.0" mnemonicParsing="false" onAction="#clearClicked" text="Clear" />
-      <Label layoutX="14.0" layoutY="52.0" prefHeight="30.0" prefWidth="147.0" text="Add Participant">
+      <Label layoutX="14.0" layoutY="50.0" prefHeight="35.0" prefWidth="190.0" text="Add Participant" underline="true">
          <font>
-            <Font size="20.0" />
+            <Font name="System Bold Italic" size="24.0" />
          </font>
       </Label>
-      <Label layoutX="14.0" layoutY="187.0" prefHeight="30.0" prefWidth="167.0" text="Delete Participant">
+      <Label layoutX="14.0" layoutY="199.0" prefHeight="35.0" prefWidth="213.0" text="Delete Participant" underline="true">
          <font>
-            <Font size="20.0" />
+            <Font name="System Bold Italic" size="24.0" />
          </font>
       </Label>
-      <Label layoutX="147.0" layoutY="230.0" text="Select Participant" />
-      <ChoiceBox fx:id="deleteParticipantChoiceBox" layoutX="249.0" layoutY="225.0" prefHeight="25.0" prefWidth="205.0" />
+      <Label layoutX="147.0" layoutY="248.0" text="Select Participant" />
+      <ChoiceBox fx:id="deleteParticipantChoiceBox" layoutX="249.0" layoutY="243.0" prefHeight="25.0" prefWidth="205.0" />
       <Button layoutX="50.0" layoutY="436.0" mnemonicParsing="false" onAction="#GoBackButtonClicked" text="Back" />
-      <Button fx:id="deleteParticipantButton" layoutX="467.0" layoutY="225.0" mnemonicParsing="false" onAction="#deleteParticipantClicked" text="Confirm" />
-      <Button fx:id="deleteClearButton" layoutX="329.0" layoutY="264.0" mnemonicParsing="false" onAction="#clearDeleteChoiceBox" prefHeight="26.0" prefWidth="46.0" text="Clear" />
+      <Button fx:id="deleteParticipantButton" layoutX="467.0" layoutY="243.0" mnemonicParsing="false" onAction="#deleteParticipantClicked" text="Confirm" />
+      <Button fx:id="deleteClearButton" layoutX="329.0" layoutY="282.0" mnemonicParsing="false" onAction="#clearDeleteChoiceBox" prefHeight="26.0" prefWidth="46.0" text="Clear" />
    </children>
 </AnchorPane>
