@@ -36,6 +36,10 @@ public class PayParticipantController {
     }
   }
 
+  /**
+   * @author Martin Eskaros
+   *
+   */
   public void initialize() {
     payParticipantChoiceBox.setItems(ViewUtils.getParticipant());
     payParticipantChoiceBox.setValue(null);
@@ -47,6 +51,10 @@ public class PayParticipantController {
   }
   
   @FXML
+  /**
+   * @author Martin Eskaros
+   * @param event
+   */
   public void PayButtonClicked(ActionEvent event) {
     String participantEmail = payParticipantChoiceBox.getValue();
     if(ViewUtils.successful(SnowShoeTourStateMachineController.confirmPayement(participantEmail, "Paid"))) {
