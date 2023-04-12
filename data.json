@@ -1,8 +1,8 @@
 {
   "SnowShoeTour": {
     "startDate": "2024-03-13",
-    "nrWeeks": 10,
-    "priceOfGuidePerWeek": 100,
+    "nrWeeks": 6,
+    "priceOfGuidePerWeek": 9,
     "manager": {
       "accountName": "manager",
       "password": "manager",
