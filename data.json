@@ -492,6 +492,26 @@
           },
           {
             "@reference": "../../guides/Guide/tours/Tour/participants/Participant/bookedItems/BookedItem/item/comboItems/ComboItem/combo/bookedItems/BookedItem[2]/participant"
+          },
+          {
+            "accountName": "phil@mail.ca",
+            "password": "poto",
+            "name": "phil",
+            "emergencyContact": 4384560000,
+            "hasPaid": false,
+            "nrWeeks": 2,
+            "weekAvailableFrom": 2,
+            "weekAvailableUntil": 5,
+            "lodgeRequired": true,
+            "authorizationCode": "",
+            "refundedPercentageAmount": 0,
+            "status": "NotAssigned",
+            "snowShoeTour": {
+              "@reference": "../../.."
+            },
+            "bookedItems": [
+              ""
+            ]
           }
         ]
       }
@@ -531,6 +551,19 @@
           },
           {
             "@reference": "../../guides/Guide/tours/Tour/participants/Participant/bookedItems/BookedItem/item/comboItems/ComboItem/combo/comboItems/ComboItem/gear/comboItems/ComboItem/combo/comboItems/ComboItem[2]/gear"
+          },
+          {
+            "name": "aaaaa",
+            "bookedItems": [
+              ""
+            ],
+            "pricePerWeek": 13,
+            "snowShoeTour": {
+              "@reference": "../../.."
+            },
+            "comboItems": [
+              ""
+            ]
           }
         ]
       }
