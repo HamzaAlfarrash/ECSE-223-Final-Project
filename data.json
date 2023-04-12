@@ -636,6 +636,44 @@
                     "snowShoeTour": {
                       "@reference": "../../../../.."
                     }
+                  },
+                  {
+                    "id": 111,
+                    "startWeek": 2,
+                    "endWeek": 3,
+                    "participants": [
+                      {
+                        "Participant": {
+                          "accountName": "bibi@mail.ca",
+                          "password": "bobo",
+                          "name": "bibi",
+                          "emergencyContact": 121243424,
+                          "hasPaid": false,
+                          "nrWeeks": 2,
+                          "weekAvailableFrom": 2,
+                          "weekAvailableUntil": 5,
+                          "lodgeRequired": false,
+                          "authorizationCode": "",
+                          "refundedPercentageAmount": 0,
+                          "status": "Assigned",
+                          "snowShoeTour": {
+                            "@reference": "../../../../../../.."
+                          },
+                          "tour": {
+                            "@reference": "../../.."
+                          },
+                          "bookedItems": [
+                            ""
+                          ]
+                        }
+                      }
+                    ],
+                    "guide": {
+                      "@reference": "../../.."
+                    },
+                    "snowShoeTour": {
+                      "@reference": "../../../../.."
+                    }
                   }
                 ]
               }
@@ -661,6 +699,9 @@
           },
           {
             "@reference": "../../guides/Guide/tours/Tour/participants/Participant/bookedItems/BookedItem/item/comboItems/ComboItem/combo/bookedItems/BookedItem/participant/tour/guide/tours/Tour[2]/participants/Participant"
+          },
+          {
+            "@reference": "../../guides/Guide/tours/Tour[8]/participants/Participant"
           }
         ]
       }
@@ -815,6 +856,9 @@
           },
           {
             "@reference": "../../guides/Guide/tours/Tour/participants/Participant/bookedItems/BookedItem/item/comboItems/ComboItem/combo/bookedItems/BookedItem/participant/tour/guide/tours/Tour[5]"
+          },
+          {
+            "@reference": "../../guides/Guide/tours/Tour[8]"
           }
         ]
       }

@@ -48,7 +48,6 @@ public class SnowShoeTourStateMachineController {
    * @return
    */
   public static String initiate() {
-	  System.out.println("Initializing attempt");
     SnowShoeTour sst = SnowShoeToursApplication.getSnowShoeTour();
     List<Participant> list = sst.getParticipants();
     List<Guide> guides = sst.getGuides();
@@ -60,7 +59,6 @@ public class SnowShoeTourStateMachineController {
     		maxId = t.getId();
     	}
     }
-    System.out.println(maxId);
     int id = maxId; // will be used for id of a tour
     // for each participant, assign a Tour to it with matching startweek and endweek
     for (Participant par : list) {
@@ -79,7 +77,6 @@ public class SnowShoeTourStateMachineController {
     } catch (RuntimeException e) {
       return e.getMessage();
     }
-    System.out.println("Initializing success");
     return "";
   }
 
