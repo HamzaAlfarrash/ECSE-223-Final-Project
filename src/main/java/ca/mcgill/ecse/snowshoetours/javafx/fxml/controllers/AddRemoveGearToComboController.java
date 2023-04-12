@@ -80,7 +80,6 @@ public class AddRemoveGearToComboController {
     String comboName = comboNameChoiceBox.getValue();
     String gearName = gearNameChoiceBox.getValue();
     if(ViewUtils.successful(GearController.addGearToCombo(gearName, comboName))) {
-      System.out.println("reached from ui");
       comboNameChoiceBox.setValue(null);
       gearNameChoiceBox.setValue(null);
       SSTFxmlView.getInstance().refresh();
@@ -95,9 +94,6 @@ public class AddRemoveGearToComboController {
     String comboName = comboNameChoiceBox1.getValue();
     String gearName = gearNameChoiceBox1.getValue();
     if(ViewUtils.successful(GearController.removeGearFromCombo(gearName, comboName))) {
-      //for testing, TODO remove
-      SnowShoeTour sst = SnowShoeToursApplication.getSnowShoeTour();
-      System.out.println(sst.getComboItems().size());
       comboNameChoiceBox1.setValue(null);
       gearNameChoiceBox1.setValue(null);
       SSTFxmlView.getInstance().refresh();
