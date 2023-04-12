@@ -13,7 +13,7 @@
 
 <AnchorPane prefHeight="528.0" prefWidth="722.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ca.mcgill.ecse.snowshoetours.javafx.fxml.controllers.RegisterDeleteGuideController">
    <children>
-      <GridPane layoutX="14.0" layoutY="14.0" prefHeight="800.0" prefWidth="1200.0">
+      <GridPane layoutX="14.0" layoutY="14.0" prefHeight="528.0" prefWidth="722.0">
         <columnConstraints>
           <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
         </columnConstraints>
@@ -25,10 +25,11 @@
          <children>
             <GridPane>
                <columnConstraints>
-                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="295.0" minWidth="10.0" prefWidth="272.0" />
-                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="328.0" minWidth="10.0" prefWidth="328.0" />
+                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="233.0" minWidth="10.0" prefWidth="186.0" />
+                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="160.0" minWidth="0.0" prefWidth="125.0" />
+                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="295.0" minWidth="10.0" prefWidth="187.0" />
+                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="328.0" minWidth="10.0" prefWidth="248.0" />
+                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="328.0" minWidth="10.0" prefWidth="63.0" />
                </columnConstraints>
                <rowConstraints>
                   <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
@@ -37,7 +38,7 @@
                   <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                </rowConstraints>
                <children>
-                  <Label text="Register Guide" underline="true" GridPane.halignment="CENTER">
+                  <Label prefHeight="35.0" prefWidth="166.0" text="Register Guide" underline="true" GridPane.halignment="CENTER">
                      <font>
                         <Font name="System Bold Italic" size="24.0" />
                      </font>
@@ -56,8 +57,8 @@
             </GridPane>
             <GridPane GridPane.rowIndex="2">
                <columnConstraints>
-                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="236.0" minWidth="10.0" prefWidth="219.0" />
+                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="263.0" minWidth="10.0" prefWidth="263.0" />
                   <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
                </columnConstraints>
                <rowConstraints>
@@ -74,7 +75,7 @@
                   <Button fx:id="back" mnemonicParsing="false" onAction="#GoBackButtonClicked" text="Back" GridPane.halignment="CENTER" GridPane.rowIndex="2" />
                   <Label text="Guide to Delete" GridPane.halignment="RIGHT" GridPane.rowIndex="1" />
                   <ChoiceBox fx:id="deleteGuideChoiceBox" prefWidth="150.0" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="1" />
-                  <Button fx:id="deleteGuideButton" mnemonicParsing="false" onAction="#deleteGuideClicked" text="Delete" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="2" />
+                  <Button fx:id="deleteGuideButton" mnemonicParsing="false" onAction="#deleteGuideClicked" text="Delete" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="1" />
                </children>
             </GridPane>
             <Separator prefHeight="0.0" prefWidth="200.0" GridPane.rowIndex="1" />
