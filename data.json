@@ -112,7 +112,45 @@
                           "lodgeRequired": true,
                           "authorizationCode": "",
                           "refundedPercentageAmount": 0,
-                          "status": "Assigned",
+                          "status": "Cancelled",
+                          "snowShoeTour": {
+                            "@reference": "../../../../../../.."
+                          },
+                          "tour": {
+                            "@reference": "../../.."
+                          },
+                          "bookedItems": [
+                            ""
+                          ]
+                        }
+                      }
+                    ],
+                    "guide": {
+                      "@reference": "../../.."
+                    },
+                    "snowShoeTour": {
+                      "@reference": "../../../../.."
+                    }
+                  },
+                  {
+                    "id": 8,
+                    "startWeek": 2,
+                    "endWeek": 3,
+                    "participants": [
+                      {
+                        "Participant": {
+                          "accountName": "yassine@email.com",
+                          "password": 123344,
+                          "name": "Yassine",
+                          "emergencyContact": 11111111,
+                          "hasPaid": false,
+                          "nrWeeks": 2,
+                          "weekAvailableFrom": 2,
+                          "weekAvailableUntil": 4,
+                          "lodgeRequired": true,
+                          "authorizationCode": "Paid",
+                          "refundedPercentageAmount": 0,
+                          "status": "Finished",
                           "snowShoeTour": {
                             "@reference": "../../../../../../.."
                           },
@@ -168,9 +206,14 @@
     ],
     "participants": [
       {
-        "Participant": {
-          "@reference": "../../guides/Guide/tours/Tour[6]/participants/Participant"
-        }
+        "Participant": [
+          {
+            "@reference": "../../guides/Guide/tours/Tour[6]/participants/Participant"
+          },
+          {
+            "@reference": "../../guides/Guide/tours/Tour[7]/participants/Participant"
+          }
+        ]
       }
     ],
     "bookedItems": [
@@ -416,6 +459,9 @@
           },
           {
             "@reference": "../../guides/Guide/tours/Tour[6]"
+          },
+          {
+            "@reference": "../../guides/Guide/tours/Tour[7]"
           }
         ]
       }
