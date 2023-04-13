@@ -1,5 +1,6 @@
 package ca.mcgill.ecse.snowshoetours.controller;
 
+
 import java.util.ArrayList;
 import java.util.List;
 import ca.mcgill.ecse.snowshoetours.application.SnowShoeToursApplication;
