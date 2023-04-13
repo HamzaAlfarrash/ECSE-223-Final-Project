@@ -3,7 +3,6 @@
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.ChoiceBox?>
 <?import javafx.scene.control.Label?>
-<?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.ColumnConstraints?>
 <?import javafx.scene.layout.GridPane?>
@@ -31,13 +30,13 @@
          <children>
             <Button fx:id="clearButton" mnemonicParsing="false" onAction="#clearButtonClicked" text="Clear" GridPane.columnIndex="2" GridPane.rowIndex="1" GridPane.valignment="TOP" />
             <Button fx:id="backButton" mnemonicParsing="false" onAction="#GoBackButtonClicked" text="Back" GridPane.halignment="CENTER" GridPane.rowIndex="3" />
-            <Button fx:id="startTripButton" mnemonicParsing="false" onAction="#startTripButtonClicked" text="Start Trip" GridPane.halignment="RIGHT" GridPane.rowIndex="2" />
-            <Button fx:id="cancelTripButton" mnemonicParsing="false" onAction="#cancelTripButtonClicked" text="Cancel Trip" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.valignment="CENTER" />
-            <Button fx:id="finishTripButton" mnemonicParsing="false" onAction="#finishTripButtonClicked" text="Finish Trip" GridPane.columnIndex="2" GridPane.rowIndex="2" />
+            <Button fx:id="startTripButton" mnemonicParsing="false" onAction="#startTripButtonClicked" text="Start Trip" GridPane.columnIndex="2" GridPane.halignment="LEFT" GridPane.rowIndex="2" />
+            <Button fx:id="cancelTripButton" mnemonicParsing="false" onAction="#cancelTripButtonClicked" text="Cancel Trip" GridPane.columnIndex="1" GridPane.halignment="LEFT" GridPane.rowIndex="1" GridPane.valignment="CENTER" />
+            <Button fx:id="finishTripButton" mnemonicParsing="false" onAction="#finishTripButtonClicked" text="Finish Trip" GridPane.columnIndex="1" GridPane.halignment="RIGHT" GridPane.rowIndex="1" />
             <ChoiceBox fx:id="selectParticipantID" prefHeight="26.0" prefWidth="270.0" GridPane.columnIndex="1" GridPane.rowIndex="1" GridPane.valignment="TOP" />
-            <Label prefHeight="17.0" prefWidth="97.0" text="Select Participant" GridPane.halignment="RIGHT" GridPane.rowIndex="1" GridPane.valignment="TOP" />
-            <Label prefHeight="25.0" prefWidth="158.0" text="Select Start Week (if starting)" GridPane.halignment="RIGHT" GridPane.rowIndex="1" GridPane.valignment="BOTTOM" />
-            <TextField fx:id="startWeekTextField" prefHeight="26.0" prefWidth="176.0" GridPane.columnIndex="1" GridPane.rowIndex="1" GridPane.valignment="BOTTOM" />
+            <Label prefHeight="17.0" prefWidth="104.0" text="Select Participant" GridPane.halignment="RIGHT" GridPane.rowIndex="1" GridPane.valignment="TOP" />
+            <Label prefHeight="25.0" prefWidth="107.0" text="Start tour for week" GridPane.halignment="RIGHT" GridPane.rowIndex="2" GridPane.valignment="CENTER" />
+            <ChoiceBox fx:id="selectStartWeek" prefHeight="26.0" prefWidth="270.0" GridPane.columnIndex="1" GridPane.rowIndex="2" />
          </children>
       </GridPane>
    </children>

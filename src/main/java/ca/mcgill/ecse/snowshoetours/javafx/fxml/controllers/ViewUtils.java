@@ -3,6 +3,8 @@ package ca.mcgill.ecse.snowshoetours.javafx.fxml.controllers;
 import java.sql.Date;
 import java.util.ArrayList;
 import java.util.List;
+
+import ca.mcgill.ecse.snowshoetours.application.SnowShoeToursApplication;
 import ca.mcgill.ecse.snowshoetours.controller.GearController;
 import ca.mcgill.ecse.snowshoetours.controller.LodgeController;
 import ca.mcgill.ecse.snowshoetours.controller.GuideController;
@@ -125,6 +127,22 @@ public class ViewUtils {
     }
     return FXCollections.observableList(names);
   }
+  
+  /**
+   * @author Yassine Mimet || Souhail El Hayani
+   * @return
+   */
+  public static ObservableList<Integer> getStartWeek(){
+    List<TOSnowShoeTour> list = SnowShoeTourController.getSnowShoeTours();
+    List<Integer> intList = new ArrayList<>();
+    for(TOSnowShoeTour tour : list) {
+      if(tour!=null) {
+        int startWeek = tour.getStartWeek();
+        intList.add(startWeek);
+      }
+    }
+    return FXCollections.observableList(intList);
+  }
 
   /**
    * @author souhail el hayani
@@ -132,7 +150,13 @@ public class ViewUtils {
    */
   public static ObservableList<TOSnowShoeTour> getTours() {
     List<TOSnowShoeTour> tours = SnowShoeTourController.getSnowShoeTours();
-    return FXCollections.observableList(tours);
+    List<TOSnowShoeTour> notNullTours = new ArrayList<>();
+    for(TOSnowShoeTour tour : tours) {
+      if(tour!=null) {
+        notNullTours.add(tour);
+      }
+    }
+    return FXCollections.observableList(notNullTours);
   }
   
   /**

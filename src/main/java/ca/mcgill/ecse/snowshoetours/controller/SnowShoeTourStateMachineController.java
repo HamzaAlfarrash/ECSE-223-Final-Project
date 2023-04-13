@@ -43,6 +43,7 @@ public class SnowShoeTourStateMachineController {
     return error;
   }
 
+  
   /**
    * @author souhail el hayani
    * @return
@@ -51,26 +52,36 @@ public class SnowShoeTourStateMachineController {
     SnowShoeTour sst = SnowShoeToursApplication.getSnowShoeTour();
     List<Participant> list = sst.getParticipants();
     List<Guide> guides = sst.getGuides();
-    //getting the current max id for a tour, so no duplicates are created
-    List<Tour> allTours = sst.getTours();
-    int maxId = 1;
-    for (var t:allTours) {
-    	if(t.getId() > maxId) {
-    		maxId = t.getId();
-    	}
+    if( guides.size() == 0) {
+      try {
+        SstPersistence.save();
+      } catch (RuntimeException e) {
+        return e.getMessage();
+      }
+      return "no guides exist in the system";
     }
-    int id = maxId; // will be used for id of a tour
+    int id = 0; // will be used for id of a tour
     // for each participant, assign a Tour to it with matching startweek and endweek
+    
     for (Participant par : list) {
-      if(par.getStatus()==Status.Assigned) continue;
-      int nOfWeeks = par.getNrWeeks(); // gets number of weeks
-      int weekAvailableFrom = par.getWeekAvailableFrom(); // gets start week
-      int i = id; // index to get the guide
-      id++;
-      Tour tour = sst.addTour(id, weekAvailableFrom, weekAvailableFrom + nOfWeeks - 1,
-          sst.getGuide(i % guides.size())); // assign randomly a guide to the tour, starting from
-                                            // index 0 in the guide list
-      par.assign(tour); // assign tour to participant, state is not "Assigned"
+      if(par.getStatus()==Status.NotAssigned) {
+        int nOfWeeks = par.getNrWeeks(); // gets number of weeks
+        int weekAvailableFrom = par.getWeekAvailableFrom(); // gets start week
+        int i = id; // index to get the guide
+        id++;
+        List<Tour> allTours = sst.getTours();
+        for (var t:allTours) {
+            if(t.getId() == id) {
+                id++;
+            }
+        }
+        if(par.getStatus()==Status.NotAssigned) {
+          Tour tour = sst.addTour(id, weekAvailableFrom, weekAvailableFrom + nOfWeeks - 1,
+              sst.getGuide(i % guides.size())); // assign randomly a guide to the tour, starting from
+                                                // index 0 in the guide list
+          par.assign(tour);  // assign tour to participant, state is not "Assigned"
+        }
+      }
     }
     try {
       SstPersistence.save();
@@ -79,7 +90,7 @@ public class SnowShoeTourStateMachineController {
     }
     return "";
   }
-
+  
   /**
    * @author Wasif Somji
    * @param email
@@ -127,6 +138,7 @@ public class SnowShoeTourStateMachineController {
     SnowShoeTour sst = SnowShoeToursApplication.getSnowShoeTour();
     List<Tour> tours = sst.getTours();
     String error = "";
+    int counter = 0;
     for (Tour tour : tours) {
       if (tour.getStartWeek() == week) {
         List<Participant> participants = tour.getParticipants();
@@ -138,9 +150,18 @@ public class SnowShoeTourStateMachineController {
           else if (participant.getStatus().equals(Status.Finished))
             error = "Cannot start tour because the participant has finished their tour"; // if the participant's tour is finished
           else
+            counter++;
             participant.startTrip(week);
         }
       }
+    }
+    if(counter>0) {
+      try {
+        SstPersistence.save();
+      } catch (RuntimeException e) {
+        return e.getMessage();
+      }
+      return "";
     }
     try {
       SstPersistence.save();

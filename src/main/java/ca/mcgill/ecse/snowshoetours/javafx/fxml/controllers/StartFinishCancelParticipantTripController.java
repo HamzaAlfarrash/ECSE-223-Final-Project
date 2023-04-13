@@ -12,7 +12,6 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.ChoiceBox;
-import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 
 public class StartFinishCancelParticipantTripController {
@@ -33,7 +32,7 @@ public class StartFinishCancelParticipantTripController {
   private Button finishTripButton;
 
   @FXML
-  private TextField startWeekTextField;
+  private ChoiceBox<Integer> selectStartWeek;
 
   @FXML
   private Button clearButton;
@@ -58,15 +57,22 @@ public class StartFinishCancelParticipantTripController {
 
   @FXML
   /**
-   * @author Wasif Somji
+   * @author Wasif Somji || Yassine Mimet
    */
   public void initialize() {
+    selectStartWeek.setItems(ViewUtils.getStartWeek());
+    selectStartWeek.setValue(null);
+    selectStartWeek.addEventHandler(SSTFxmlView.REFRESH_EVENT, e -> {
+      selectStartWeek.setItems(ViewUtils.getStartWeek());
+      selectStartWeek.setValue(null);
+    });
     selectParticipantID.setItems(ViewUtils.getParticipant());
     selectParticipantID.setValue(null);
     selectParticipantID.addEventHandler(SSTFxmlView.REFRESH_EVENT, e -> {
       selectParticipantID.setItems(ViewUtils.getParticipant());
       selectParticipantID.setValue(null);
     });
+    
     SSTFxmlView.getInstance().registerRefreshEvent(selectParticipantID);
   }
 
@@ -77,16 +83,10 @@ public class StartFinishCancelParticipantTripController {
    * @author Wasif Somji || Yassine Mimet
    */// start the trip for a certain number of weeks
   public void startTripButtonClicked() {
-    String sWeek = (startWeekTextField.getText());
-    int startWeekTour = -1;
-    try {
-      startWeekTour = Integer.parseInt(sWeek);
-    } catch (NumberFormatException e) {
-      ViewUtils.showError("Enter an Integer");
-    }
-    if (ViewUtils.successful(SnowShoeTourStateMachineController.startTourForWeek(startWeekTour))) {
+    Integer sWeek = (selectStartWeek.getValue());
+    if (ViewUtils.successful(SnowShoeTourStateMachineController.startTourForWeek(sWeek))) {
       selectParticipantID.setValue(null);
-      startWeekTextField.clear();
+      selectStartWeek.setValue(null);
       SSTFxmlView.getInstance().refresh();
     }
   }
@@ -97,14 +97,9 @@ public class StartFinishCancelParticipantTripController {
    */// cancel the trip
   public void cancelTripButtonClicked() {
     String ParticipantName = selectParticipantID.getValue();
-    String stWeek = startWeekTextField.getText();
-    if (!stWeek.isEmpty()) {
-      ViewUtils.makePopupWindow("error", "Do not fill the start week field when cancelling a trip");
-    }
-
-    else if (ViewUtils.successful(SnowShoeTourStateMachineController.cancelTrip(ParticipantName))) {
+    if (ViewUtils.successful(SnowShoeTourStateMachineController.cancelTrip(ParticipantName))) {
       selectParticipantID.setValue(null);
-      startWeekTextField.clear();
+      selectStartWeek.setValue(null);
       SSTFxmlView.getInstance().refresh();
     }
   }
@@ -115,14 +110,10 @@ public class StartFinishCancelParticipantTripController {
    */// finish the trip
   public void finishTripButtonClicked() {
     String ParticipantName = selectParticipantID.getValue();
-    String stWeek = startWeekTextField.getText();
-    if (!stWeek.isEmpty()) {
-      ViewUtils.makePopupWindow("error", "Do not fill the start week field when finishing a trip");
-
-    } else if (ViewUtils
+    if (ViewUtils
         .successful(SnowShoeTourStateMachineController.finishTour(ParticipantName))) {
       selectParticipantID.setValue(null);
-      startWeekTextField.clear();
+      selectStartWeek.setValue(null);
       SSTFxmlView.getInstance().refresh();
     }
   }
@@ -132,6 +123,6 @@ public class StartFinishCancelParticipantTripController {
    */
   public void clearButtonClicked() {
     selectParticipantID.setValue(null);
-    startWeekTextField.clear();
+    selectStartWeek.setValue(null);
   }
 }
