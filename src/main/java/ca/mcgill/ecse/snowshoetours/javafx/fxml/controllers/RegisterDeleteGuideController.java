@@ -39,6 +39,7 @@ public class RegisterDeleteGuideController {
 
   /**
    * @author hamza, souhail el hayani
+   * This method initializes the choice box of guids
    */
   @FXML
   public void initialize() {
@@ -53,7 +54,8 @@ public class RegisterDeleteGuideController {
 
   /**
    * @author hamza, souhail el hayani
-   * @param event
+   * This method clears the text fields in the "Register Guide" section
+   * @param event triggered by clicking the "Clear" button
    */
   @FXML
   public void ClearRGClicked(ActionEvent event) {
@@ -65,7 +67,8 @@ public class RegisterDeleteGuideController {
 
   /**
    * @author souhail el hayani, hamza
-   * @param event
+   * This method is called when the "Register Guide" button is clicked and it registers a new guide
+   * @param event  triggered by clicking the "Register Guide" button
    */
   @FXML
   public void RGButtonClicked(ActionEvent event) {
@@ -85,7 +88,8 @@ public class RegisterDeleteGuideController {
 
   /**
    * @author souhail el hayani, hamza
-   * @param event
+   * This method is called when the "Delete Guide" button is clicked and it deletes the selected guide from the system
+   * @param event triggered by clicking the "Delete Guide" button
    */
   @FXML
   public void deleteGuideClicked(ActionEvent event) {
@@ -96,7 +100,8 @@ public class RegisterDeleteGuideController {
 
   /**
    * @author Yassine Mimet
-   * @param event
+   * This method is called when the "Go Back" button is clicked and it switches the scene to the main page
+   * @param event triggered by clicking the "Go Back" button
    */
   public void GoBackButtonClicked(ActionEvent event) {
     try {
