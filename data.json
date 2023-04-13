@@ -211,6 +211,62 @@
                                                                   "snowShoeTour": {
                                                                     "@reference": "../../../../../../../../../../../../../../../../../../../.."
                                                                   }
+                                                                },
+                                                                {
+                                                                  "id": 112,
+                                                                  "startWeek": 2,
+                                                                  "endWeek": 3,
+                                                                  "participants": [
+                                                                    ""
+                                                                  ],
+                                                                  "guide": {
+                                                                    "@reference": "../../.."
+                                                                  },
+                                                                  "snowShoeTour": {
+                                                                    "@reference": "../../../../../../../../../../../../../../../../../../../.."
+                                                                  }
+                                                                },
+                                                                {
+                                                                  "id": 114,
+                                                                  "startWeek": 2,
+                                                                  "endWeek": 3,
+                                                                  "participants": [
+                                                                    ""
+                                                                  ],
+                                                                  "guide": {
+                                                                    "@reference": "../../.."
+                                                                  },
+                                                                  "snowShoeTour": {
+                                                                    "@reference": "../../../../../../../../../../../../../../../../../../../.."
+                                                                  }
+                                                                },
+                                                                {
+                                                                  "id": 116,
+                                                                  "startWeek": 2,
+                                                                  "endWeek": 3,
+                                                                  "participants": [
+                                                                    ""
+                                                                  ],
+                                                                  "guide": {
+                                                                    "@reference": "../../.."
+                                                                  },
+                                                                  "snowShoeTour": {
+                                                                    "@reference": "../../../../../../../../../../../../../../../../../../../.."
+                                                                  }
+                                                                },
+                                                                {
+                                                                  "id": 118,
+                                                                  "startWeek": 2,
+                                                                  "endWeek": 3,
+                                                                  "participants": [
+                                                                    ""
+                                                                  ],
+                                                                  "guide": {
+                                                                    "@reference": "../../.."
+                                                                  },
+                                                                  "snowShoeTour": {
+                                                                    "@reference": "../../../../../../../../../../../../../../../../../../../.."
+                                                                  }
                                                                 }
                                                               ]
                                                             }
@@ -636,6 +692,62 @@
                     "snowShoeTour": {
                       "@reference": "../../../../.."
                     }
+                  },
+                  {
+                    "id": 111,
+                    "startWeek": 1,
+                    "endWeek": 1,
+                    "participants": [
+                      ""
+                    ],
+                    "guide": {
+                      "@reference": "../../.."
+                    },
+                    "snowShoeTour": {
+                      "@reference": "../../../../.."
+                    }
+                  },
+                  {
+                    "id": 113,
+                    "startWeek": 1,
+                    "endWeek": 1,
+                    "participants": [
+                      ""
+                    ],
+                    "guide": {
+                      "@reference": "../../.."
+                    },
+                    "snowShoeTour": {
+                      "@reference": "../../../../.."
+                    }
+                  },
+                  {
+                    "id": 115,
+                    "startWeek": 1,
+                    "endWeek": 1,
+                    "participants": [
+                      ""
+                    ],
+                    "guide": {
+                      "@reference": "../../.."
+                    },
+                    "snowShoeTour": {
+                      "@reference": "../../../../.."
+                    }
+                  },
+                  {
+                    "id": 117,
+                    "startWeek": 1,
+                    "endWeek": 1,
+                    "participants": [
+                      ""
+                    ],
+                    "guide": {
+                      "@reference": "../../.."
+                    },
+                    "snowShoeTour": {
+                      "@reference": "../../../../.."
+                    }
                   }
                 ]
               }
@@ -815,6 +927,30 @@
           },
           {
             "@reference": "../../guides/Guide/tours/Tour/participants/Participant/bookedItems/BookedItem/item/comboItems/ComboItem/combo/bookedItems/BookedItem/participant/tour/guide/tours/Tour[5]"
+          },
+          {
+            "@reference": "../../guides/Guide/tours/Tour[8]"
+          },
+          {
+            "@reference": "../../guides/Guide/tours/Tour/participants/Participant/bookedItems/BookedItem/item/comboItems/ComboItem/combo/bookedItems/BookedItem/participant/tour/guide/tours/Tour[6]"
+          },
+          {
+            "@reference": "../../guides/Guide/tours/Tour[9]"
+          },
+          {
+            "@reference": "../../guides/Guide/tours/Tour/participants/Participant/bookedItems/BookedItem/item/comboItems/ComboItem/combo/bookedItems/BookedItem/participant/tour/guide/tours/Tour[7]"
+          },
+          {
+            "@reference": "../../guides/Guide/tours/Tour[10]"
+          },
+          {
+            "@reference": "../../guides/Guide/tours/Tour/participants/Participant/bookedItems/BookedItem/item/comboItems/ComboItem/combo/bookedItems/BookedItem/participant/tour/guide/tours/Tour[8]"
+          },
+          {
+            "@reference": "../../guides/Guide/tours/Tour[11]"
+          },
+          {
+            "@reference": "../../guides/Guide/tours/Tour/participants/Participant/bookedItems/BookedItem/item/comboItems/ComboItem/combo/bookedItems/BookedItem/participant/tour/guide/tours/Tour[9]"
           }
         ]
       }

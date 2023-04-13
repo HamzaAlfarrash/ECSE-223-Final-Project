@@ -95,7 +95,9 @@ public class StartFinishCancelParticipantTripController {
      * @author Wasif Somji || Yassine Mimet
      */// cancel the trip
     public void cancelTripButtonClicked() {
-      String ParticipantName = selectParticipantID.getValue(); 
+      String ParticipantName = selectParticipantID.getValue();
+      String stWeek = startWeekTextField.getText();
+      if(!stWeek.isEmpty()) ViewUtils.makePopupWindow("error", "Do not fill the start week field when cancelling a trip");
       if(ViewUtils.successful(SnowShoeTourStateMachineController.cancelTrip(ParticipantName))) {
     	selectParticipantID.setValue(null);
     	startWeekTextField.clear();
@@ -109,6 +111,8 @@ public class StartFinishCancelParticipantTripController {
      */// finish the trip
     public void finishTripButtonClicked() {
   	  String ParticipantName = selectParticipantID.getValue(); 
+  	String stWeek = startWeekTextField.getText();
+    if(!stWeek.isEmpty()) ViewUtils.makePopupWindow("error", "Do not fill the start week field when finishing a trip");
   	  if(ViewUtils.successful(SnowShoeTourStateMachineController.finishTour(ParticipantName))) {
   	    selectParticipantID.setValue(null);
   	    startWeekTextField.clear();
