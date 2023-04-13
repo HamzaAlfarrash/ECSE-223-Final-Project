@@ -16,6 +16,7 @@ public class InitiateSnowShoingTourCreationController {
 
   @FXML
   private Button initiateButton;
+  // This method is called when the "Go Back" button is clicked and switches the scene to the main page
   public void GoBackButtonClicked(ActionEvent event) {
     try {
       Parent ViewSnowShoeToursDetailedParent = FXMLLoader.load(getClass().getResource("../MainPage.fxml"));
@@ -30,7 +31,11 @@ public class InitiateSnowShoingTourCreationController {
 
   /**
    * @author Martin Eskaros
-   * @param event
+   * This method is called when the "Initiate" button is clicked and it calls the initiate method from
+   * the SnowShoeTourStateMachineController class, which updates the state of the tour creation process. If the initiation
+   * was successful, this method switches the scene to the main page.
+   *
+   * @param event triggered by clicking the "Initiate" button
    */
   public void InitiateButtonClicked(ActionEvent event) {
     // Call the initiate method from the SnowShoeTourStateMachineController class and check if it was successful
