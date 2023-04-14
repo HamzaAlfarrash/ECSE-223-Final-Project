@@ -50,7 +50,9 @@ public class AddDeleteComboController {
 
   /**
    * @author Hamza Alfarrash
-   * @param event
+   * Clears the input fields for adding a new combo.
+   *
+   * @param event clearACSectionButton triggers this method
    */
   @FXML
   public void ClearACClicked(ActionEvent event) {
@@ -60,7 +62,9 @@ public class AddDeleteComboController {
 
   /**
    * @author Hamza Alfarrash, souhail
-   * @param event
+   * Adds a new combo with the provided input data.
+   *
+   * @param event AC Button triggers this method
    */
   @FXML
   public void ACButtonClicked(ActionEvent event) {
@@ -81,7 +85,9 @@ public class AddDeleteComboController {
 
   /**
    * @author Hamza Alfarrash
-   * @param event
+   * Deletes the selected combo from the list.
+   *
+   * @param event Delete Combo Button triggeres this method
    */
   @FXML
   public void deleteComboClicked(ActionEvent event) {
@@ -92,7 +98,9 @@ public class AddDeleteComboController {
 
   /**
    * @author Yassine Mimet
-   * @param event
+   * Switches to the main page view when the "back" button is clicked.
+   *
+   * @param event Go Back Button triggers this method
    */
   public void GoBackButtonClicked(ActionEvent event) {
     try {
