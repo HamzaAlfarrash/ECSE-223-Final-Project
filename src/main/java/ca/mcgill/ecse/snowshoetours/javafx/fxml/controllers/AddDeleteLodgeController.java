@@ -49,7 +49,9 @@ public class AddDeleteLodgeController {
 	
 	/**
 	 * @author Yassine Mimet
-	 * @param event
+	 * Switches to the main page view when the "back" button is clicked.
+	 *
+	 * @param event Go Back Button triggers this method
 	 */
     public void GoBackButtonClicked(ActionEvent event) {
       try {
@@ -86,7 +88,10 @@ public class AddDeleteLodgeController {
     
     /**
      * @author Wasif Somji || Yassine Mimet
-     */
+	 * Adds a new lodge with the provided input data.
+	 *
+	 * @param event Add Lodge Button triggers this method
+	 */
     public void addLodgeButtonClicked(ActionEvent event) {
       String lodgeName = lodgeNameBox.getText();
       String address = addressBox.getText(); 
@@ -109,7 +114,9 @@ public class AddDeleteLodgeController {
     
     /**
      * @author Wasif Somji || Yassine Mimet
-     */
+	 Clears the input fields.
+	 @param event Clear Button triggers this method
+	 */
     public void clearButtonClicked(ActionEvent event) {
   	  lodgeNameBox.clear();
   	  addressBox.clear();
@@ -117,6 +124,7 @@ public class AddDeleteLodgeController {
     }
     /**
      * @author Yassine Mimet
+	 * Clears the Choice Box for desired Lodge to delete.
      * @param event
      */
     public void clearDeleteChoiceBox(ActionEvent event) {
@@ -125,6 +133,8 @@ public class AddDeleteLodgeController {
     
     /** 
      * @author Wasif Somji || Yassine Mimet
+	 * Deletes Selected Lodge
+	 * @param event Delete Lodge Button triggers this method
      */
     public void deleteLodgeButtonClicked(ActionEvent event) {
         String deleteLodgeName = deleteLodgeChoiceBox.getValue();
