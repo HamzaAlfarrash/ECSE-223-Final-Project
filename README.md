@@ -1,20 +1,20 @@
-# :snowflake::ski: ECSE223 SnowShoeTours Project: Team N
+# ECSE-223-Final-Project
+This desktop app was built with a group of five students, including myself. We implemented the app following a restricted MVC pattern. Also, We have used UML, BDD, Java, Junit, JavaFx, and SceneBuilder. 
 
-_(Edit this file as needed, then remove this sentence)._
 
 ## Project Overview
 
-_Provide a one-sentence overview of your project here._
+SnowShoeTours is intended to be used by local snowshoe tour organizers to manage tours, including participants, and to book guides, gear, and lodges for any tour.
 
-For more information about the SnowShoeTours application, please consult the [wiki](../../wiki).
+The SnowShoeTours application has a built-in user account for the manager of the local tour organizer called manager. Initially, the password for this account is set to manager, but this can be changed later. Only the manager may define the start and end date of the snowshoe season. Each year, there are only a certain number of weeks which allow for snowshoeing. Each year, these weeks are numbered starting with 1 and the participants are assigned their tour weeks using these numbers (i.e., either earlier or later in the season).
 
-## Team Members
+The manager also specifies the gear available for rent (e.g., snowshoes, boots, poles, etc.). Since there is always enough gear available for all participants, the exact inventory is not tracked for any gear by SnowShoeTours. Furthermore, the manager defines named combos, i.e., sets of commonly needed gear (at least two different kinds of gear), which can be rented with a percentage discount if a lodge is also rented. If a lodge is not rented, a combo is rented at the regular price per week (i.e., the sum of the individual prices of the gear in the combo). Finally, the manager also enters the information about lodges (name, address, and class from one to five stars), which are assigned to any participant wishing to stay the day before and after their tour. All participants of a tour that requested a lodge stay at the same lodge.
 
-| Name          | GitHub username |
-| ------------- | --------------- |
-| Team Member A | ...             |
-| Team Member B | ...             |
-| Team Member C | ...             |
-| Team Member D | ...             |
-| Team Member E | ...             |
-| Team Member F | ...             |
+Each snowshoe guide registers in the system, providing their email address, password, name, and emergency contact (i.e., a phone number). The email address is used as the account name, which identifies the guide in the system. Once entered, the email address cannot be changed. Each guide commits to being available for the whole season. The weekly cost of a guide is the same for all guides and specified by the manager.
+
+When a participant registers in the system, they also provide an email address, name, and emergency contact. As is the case for guides, the email address is used as the account name and cannot be changed. The account name and password identify each participant. A participant then indicates for how many weeks they wish to go on a tour and their availability during the season (from a start week to an end week). As the tours are very popular, a participant is only allowed to register for one tour per season. In addition, a participant selects any gear and/or combos they may wish to rent (e.g., one pair of snowshoes, two bags, two combos #1) and indicates whether they want to stay at the lodge before and after their tour. The participant is then shown the total cost for the tour which includes the cost of the guide and the cost of the gear. The lodge stay is provided free of charge. Note that the prices of items do not have any cents.
+
+At some point before the start of the season, the manager initiates the creation of each tour including its guide, its participants, its weeks, and its lodge, so that the start and end week as well as the total costs for the tour can be shown to each participant of the tour. Each tour is assigned one guide.
+
+The participant then must pay the total cost for their tour. The actual payment is handled outside the SnowShoeTours application, i.e., only the authorization code for the payment needs to be entered into the application. If a participant wants to cancel, a certain percentage of the total cost is refunded, which needs to be noted in the participant’s file. More information about the tour creation process will be provided at a later point. At the end of the season, all participants and guides are removed from the SnowShoeTours application.
+
